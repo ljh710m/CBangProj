@@ -76,20 +76,23 @@ $(function() {
 		switch(item){
 			case "deposit_from":
 				$('.input1:eq(0)').val(price);
+				$('#deposit__from').html(price+" 만원");			
 				break;
 			case "deposit_to":
 				$('.input2:eq(0)').val(price);
+				$('#deposit__to').html(price+" 만원");
 				break;
 			case "month_from":
 				$('.input1:eq(1)').val(price);
+				$('#month__from').html(price+" 만원");
 				break;
 			case "month_to":
 				$('.input2:eq(1)').val(price);
+				$('#month__to').html(price+" 만원");
 				break;
 		}
-		
-		
-		if(parseInt($('.input1:eq(0)').val()) >= parseInt($('.input2:eq(0)').val())){
+				
+		if(parseInt($('.input1:eq(0)').val()) > parseInt($('.input2:eq(0)').val())){
 			var price_to = $(this).parent().parent().next().children().children(':eq('+$(this).index()+')');
 			var price_from = $(this).parent().parent().prev().children().children(':eq('+$(this).index()+')');
 			price_from.parent().children('li').removeClass('active');
@@ -98,9 +101,11 @@ $(function() {
 			price_to.addClass('active');
 			$('.input1:eq(0)').val(price);
 			$('.input2:eq(0)').val(price);
+			$('#deposit__from').html(price+" 만원");
+			$('#deposit__to').html(price+" 만원");
 		}
 		
-		if(parseInt($('.input1:eq(1)').val()) >= parseInt($('.input2:eq(1)').val())){
+		if(parseInt($('.input1:eq(1)').val()) > parseInt($('.input2:eq(1)').val())){
 			var price_to = $(this).parent().parent().next().children().children(':eq('+$(this).index()+')');
 			var price_from = $(this).parent().parent().prev().children().children(':eq('+$(this).index()+')');
 			price_from.parent().children('li').removeClass('active');
@@ -109,12 +114,85 @@ $(function() {
 			price_to.addClass('active');
 			$('.input1:eq(1)').val(price);
 			$('.input2:eq(1)').val(price);
-		}								
+			$('#month__from').html(price+" 만원");
+			$('#month__to').html(price+" 만원");
+		}
+		
 	});
 	
-	$('input[type=number]').change(function() {
+	$('input[type=number]').on("change",function() {
+		var price = $(this).val();
+		if(price < 0){
+			price = 0;
+			$(this).val(0);			
+		}
+		if(parseInt($('.input1:eq(0)').val()) > parseInt($('.input2:eq(0)').val())){
+			$('.input1:eq(0)').val(price);
+			$('.input2:eq(0)').val(price);
+			$('#deposit__from').html(price+" 만원");
+			$('#deposit__to').html(price+" 만원");
+			return;
+		}
+		if(parseInt($('.input1:eq(1)').val()) > parseInt($('.input2:eq(1)').val())){
+			$('.input1:eq(1)').val(price);
+			$('.input2:eq(1)').val(price);
+			$('#month__from').html(price+" 만원");
+			$('#month__to').html(price+" 만원");
+			return;
+		}
 		
-											
+		switch($(this).index()){
+			case 2:				
+				$('#deposit__from').html(price+" 만원");
+				break;
+			case 4:
+				$('#deposit__to').html(price+" 만원");
+				break;
+			case 1:
+				$('#month__from').html(price+" 만원");
+				break;
+			case 3:
+				$('#month__to').html(price+" 만원");
+				break;
+		}		
+	});
+	
+	//추가 옵션
+	var flag1, flag2;
+	$('input[name^="option"]').click(function(){
+		switch($(this).attr('name')){
+			case "option1":
+				break;
+			case "option2":
+				if(flag1 != $(this).val()){
+					flag1 = $(this).val();
+					$('input[name="option2"]').prop('checked',false);
+					$(this).prop('checked',true);
+					flag1 = $(this).val();
+				}
+				else{
+					flag1 = "";					
+				}
+				break;
+			case "option3":
+				if(flag2 != $(this).val()){
+					flag2 = $(this).val();
+					$('input[name="option3"]').prop('checked',false);
+					$(this).prop('checked',true);
+					flag2 = $(this).val();
+				}
+				else{
+					flag2 = "";					
+				}				
+				break;		
+		}
+		
+		$('[title="추가옵션"] > h2 > span > span:eq(1)').html($('input[name^="option"]:checked').length).removeClass('hidden').addClass('badge');
+		
+		if($('input[name^="option"]:checked').length==0){
+			$('[title="추가옵션"] > h2 > span > span:eq(1)').html("").removeClass('badge').addClass('hidden');			
+		}
+		
 	});
 	 
 	

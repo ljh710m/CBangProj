@@ -150,7 +150,7 @@
 									<div>
 										<label class="checkbox-wrap clearfix">
 											<input class="checkbox" type="checkbox" value="아파트" name="check3">
-											<span class="name"">아파트</span>
+											<span class="name">아파트</span>
 										</label>
 									</div>
 								</div>
@@ -163,9 +163,9 @@
 							<h2 class="name">
 								<span>
 									<span><i class="filter-icon deposit"></i></span>
-									<span>0 만원</span>
+									<span id="deposit__from">0 만원</span>
 									<span class="swing" style="display:inline;margin:0 5px;">~</span>
-									<span>무제한</span>
+									<span id="deposit__to">무제한</span>
 								</span>
 							</h2>
 							<i class="cbang-icon fas fa-caret-down"></i>
@@ -211,9 +211,9 @@
 							<h2 class="name">
 								<span>
 									<span><i class="filter-icon price"></i></span>
-									<span>0 만원</span>
+									<span id="month__from">0 만원</span>
 									<span class="swing" style="display:inline;margin:0 5px;">~</span>
-									<span>무제한</span>
+									<span id="month__to">무제한</span>
 								</span>
 							</h2>
 							<i class="cbang-icon fas fa-caret-down"></i>
@@ -266,57 +266,57 @@
 								<div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="주차가능">
+											<input class="checkbox" type="checkbox" value="주차가능" name="option1">
 											<span class="name">주차가능</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="반려동물">
+											<input class="checkbox" type="checkbox" value="반려동물" name="option1">
 											<span class="name">반려동물</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="단기임대">
+											<input class="checkbox" type="checkbox" value="단기임대" name="option1">
 											<span class="name">단기임대</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="360도매물">
+											<input class="checkbox" type="checkbox" value="360도매물" name="option1">
 											<span class="name">360도매물</span>
 										</label>
 									</div>
 									<div class="line"></div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="5평 이하">
+											<input class="checkbox" type="checkbox" value="5평 이하" name="option2">
 											<span class="name">5평 이하</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="5평 ~ 10평 이하">
+											<input class="checkbox" type="checkbox" value="5평 ~ 10평 이하" name="option2">
 											<span class="name">5평 ~ 10평 이하</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="10평 이상">
+											<input class="checkbox" type="checkbox" value="10평 이상" name="option2">
 											<span class="name">10평 이상</span>
 										</label>
 									</div>
 									<div class="line"></div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="반지층">
+											<input class="checkbox" type="checkbox" value="반지층" name="option3">
 											<span class="name">반지층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="저층 1층~3층">
+											<input class="checkbox" type="checkbox" value="저층 1층~3층" name="option3">
 											<span class="name">저층 1층~3층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="중층 4층~6층">
+											<input class="checkbox" type="checkbox" value="중층 4층~6층" name="option3">
 											<span class="name">중층 4층~6층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="고층 7층이상">
+											<input class="checkbox" type="checkbox" value="고층 7층이상" name="option3">
 											<span class="name">고층 7층이상</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="옥탑">
+											<input class="checkbox" type="checkbox" value="옥탑" name="option3">
 											<span class="name">옥탑</span>
 										</label>
 									</div>
