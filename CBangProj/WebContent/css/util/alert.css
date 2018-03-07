@@ -1,0 +1,38 @@
+/* 경고창 띄우기*/
+.Alert{
+	position:fixed;
+	top:10px;
+	right:0;
+	left:0;
+	z-index:9999;
+	width:500px;
+	margin:0 auto
+}
+.Alert-message{
+	display:block;
+	position:relative;
+	padding:13px 12px 12px;
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius:3px;
+	background-color:#3b8de0;
+	margin-bottom:12px;
+	font-size:14px;
+	font-weight:bold;
+	text-shadow:0 -1px rgba(0,0,0,0.3);
+	color:#fff
+}
+.Alert-message.success{	background-color:#7dc88a}
+.Alert-message.warning{background-color:#e3b000}
+.Alert-message.error{background-color:#cb1d2b}
+.Alert-text{margin:0}
+.Alert-icon{
+	float:left;
+	width:30px;
+	height:25px; 
+	background:url("../../images/alert_icon.png") no-repeat;
+	background-position:-8px -8px;
+	margin-top:-2px
+}
+.success .Alert-icon{background-position:-48px -8px}
+.warning .Alert-icon{background-position:-88px -8px}
+.error .Alert-icon{background-position:-128px -8px}
