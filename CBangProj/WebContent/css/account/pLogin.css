@@ -1,0 +1,237 @@
+h1{
+	margin: 49px 0 19px 0;
+	font-size: 18px;
+	color: #2a2a2a;
+	font-weight: bold;
+}
+
+.joinOk {
+	display: inline-block;
+	background: #ffffff;
+	border: 2px solid #c91f3b;
+	padding: 15px 30px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	color: #c91f3b;
+	font-size: 15px;
+	font-family: Georgia, Serif;
+	text-decoration: none;
+	vertical-align: middle;
+	margin-top: 20px;
+}
+.joinOk:hover {
+	background: #de8c8c;
+	color: #d93434;
+}
+
+.joinOk:active {
+	background: #c91f3b;
+	color: white;
+	transform: translateY(4px);
+}
+.joinbutton{
+	text-align: center;
+	margin-bottom: 50px;
+}
+em{
+	color: #c91f3b;
+	font-weight: bold;
+}
+table{
+	margin-top: 50px;
+}
+table thead tr{
+	height: 42px;
+}
+table thead tr th{
+	color: #2a2a2a;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: left;
+	padding-left: 21px;
+}
+table tbody tr{
+	height: 55px;
+}
+table tbody tr th{
+	color: #2a2a2a;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: left;
+	padding-left: 20px;
+	background-color: #e7e7e7;
+}
+table tbody tr td{
+	color: #585858;
+	font-size: 13px;
+	text-align: left;
+	border-left: 1px solid #e7e7e7;
+	border-top: 1px solid #e7e7e7;
+	padding-left: 20px;
+}
+.title{
+	text-align: center;
+	line-height: 100%;
+	border-right: none;
+	border-bottom: none;
+}
+.file_input_textbox{
+	border: none;
+	float: right;	
+	position: absolute;
+	right: 20px;
+	bottom: 200px;
+	width: 250px;
+}
+.file_input_div{
+	display: inline-block;
+	position: relative;
+	top: 14px;
+	width: 120px;
+	height: 35px;
+	overflow: hidden;
+}
+.file_input_hidden{
+	font-size: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	
+	filter: alpha(opacity=0);
+	-ms-filter: "alpha(opacity=0)";
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+}
+.file_input_button{
+	width: 120px;
+	position: absolute;
+	top: 0;
+	background-color: #c91f3b;
+	color: #FFFFFF;
+	border-style: solid;
+}
+div.agree{
+	display: inline-block;
+}
+button.agreebutton{
+	background-color: #c91f3b;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 35px;
+}
+input{
+	height: 35px;
+	outline: none;
+	font-size: 13px;
+}
+select{
+	height: 35px;
+}
+a.closeX{
+	position: absolute;
+	right: 50px;
+	bottom: 200px;
+}
+.Bold{
+	color:#2a2a2a;
+	font-weight: 700;
+}
+div.Profile{
+	height: 100px;
+	margin: 10px 0;
+	position: relative;
+	
+}
+div.Profile--img{
+	width: 100px;
+	height: 100px;
+	margin: 0;
+	position: absolute;
+	right: 0;
+	left: 0;
+	background: url('../../images/login/blankImage.jpg') no-repeat center center;
+	background-size: cover;
+}
+div.Profile--upload{
+	position: absolute !important;
+	bottom: 0;
+	width: 100%;
+	height: 20px;
+	background-color: rgba(0,0,0,0.6);
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+}
+div.SignUpForm--file__wrap{
+	display: inline-block;
+	margin-left: 10px;
+	position: relative;
+	top: 3px;
+}
+div.SignUpForm--file__wrap .File--name{
+	display: inline-block;
+	width:70px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.Btn--md{
+	line-height: 33px;
+	min-width: 100px;
+	height: 35px;
+	padding: 0 20px;
+	border-width: 1px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 700;
+}
+.Btn--blue{
+	color:#fff;
+	border-style: solid;
+	border-color: #c91f3b;
+	background-color: #c91f3b;
+}
+.Btn--disabled{
+	color: #d1d1d1;
+	border-style: solid;
+	border-color: #d1d1d1;
+	background-color: #f1f1f1;
+	cursor: default;
+}
+td input[type="text"]{
+	width: 440px;
+	height: 35px;
+	border: 1px solid #e7e7e7;
+	padding: 0 10px 0 10px;	
+}
+.selectBox{
+	margin-right: 13px;
+	width: 138px;
+	height: 35px;
+	border: 1px solid #e7e7e7;
+	background-color: #fff;
+	padding-left: 10px;
+	position: relative;
+	top: -1px;
+}
+input[name="address"]{
+	width: 250px;
+	height: 35px;
+}
+.input--position{
+	width: 138px !important;
+	margin-right: 20px;
+}
+.input--name{
+	width: 200px !important;
+	margin-right: 20px;  
+}
