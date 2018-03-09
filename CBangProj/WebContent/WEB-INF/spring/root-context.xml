@@ -3,7 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<bean id="datasourceByJNDIXE" class="org.springframework.jndi.JndiObjectFactoryBean">		
+		<property name="jndiName" value="jdbc/OracleXE"/>		  
+		<property name="resourceRef" >
+			<value>true</value>
+		</property>
+	</bean>
 	
-
-
+	<bean id="datasourceByJNDI" class="org.springframework.jndi.JndiObjectFactoryBean">		
+		<property name="jndiName" value="jdbc/OracleDB"/>		  
+		<property name="resourceRef" >
+			<value>true</value>
+		</property>
+	</bean>
+	
 </beans>
