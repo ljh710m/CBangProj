@@ -210,7 +210,7 @@ span.roomItem-price_title{
     display: inline-block;
     vertical-align: middle;
 }
-.roomItem-icons {
+.roomItem-icons { 
     float: right;
 }
 [class^=icon]:BEFORE, [class*=icon]:BEFORE{

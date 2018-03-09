@@ -402,7 +402,7 @@
 													</div>
 												</div>
 												<div class="roomItem-detail">
-													<div class="roomItem-info">
+													<div class="roomItem-info"> 
 														<div class="roomItem-header">
 															<div class="roomItem-price">
 																<p>
