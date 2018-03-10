@@ -33,7 +33,7 @@
                         <li><i class="fa fa-table"></i><a href="tables-data.html">건물 옵션</a></li>
                         <li><i class="fa fa-table"></i><a href="tables-data.html">매물 옵션</a></li>                        
                     </ul>
-                </li>          
+                </li>
 
                 <h3 class="menu-title">고객관리</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -41,6 +41,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">회원정보 조회</a></li>
                         <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">공인중개사무소</a></li>
+                        <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">가입 경로 설정</a></li>
                     </ul>
                 </li>
                 <li>
