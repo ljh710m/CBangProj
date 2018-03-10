@@ -17,50 +17,60 @@
                 <li class="active">
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                 </li>
-                <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
+                
+                <h3 class="menu-title">매물 관리</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>매물관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                        <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
-                        <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Social Buttons</a></li>
-                        <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                        <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                        <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                        <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                        <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                        <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">매물목록</a></li>                        
+                        <li><i class="fa fa-bars"></i><a href="ui-tabs.html">신고매물관리</a></li>                        
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>옵션관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                        <li><i class="fa fa-table"></i><a href="tables-basic.html">방 종류</a></li>
+                        <li><i class="fa fa-table"></i><a href="tables-data.html">건물 옵션</a></li>
+                        <li><i class="fa fa-table"></i><a href="tables-data.html">매물 옵션</a></li>                        
                     </ul>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                    </ul>
-                </li>
+                </li>          
 
-                <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
-
+                <h3 class="menu-title">고객관리</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>회원관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">회원정보 조회</a></li>
+                        <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">공인중개사무소</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>대량메일발송 </a>
                 </li>
+                
+                <h3 class="menu-title">게시판 관리</h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>공지사항</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">게시물 관리</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">댓글 관리</a></li>            
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>이벤트</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">게시물 관리</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">댓글 관리</a></li>       
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>기사</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">게시물 관리</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">댓글 관리</a></li>      
+                    </ul>
+                </li>
+                
+                <h3 class="menu-title">통계</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -69,22 +79,28 @@
                         <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
                     </ul>
                 </li>
-
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                        <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
-                    </ul>
-                </li>
+                      
                 <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>관리자 관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">관리자 목록</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">관리자 등록</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">관리자 권한</a></li>                        
                     </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>약관 관리</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">이용약관</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">개인정보취급방식</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">위치기반약관</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">매물관리규정</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">자동저장서비스</a></li>                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>로그아웃</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
