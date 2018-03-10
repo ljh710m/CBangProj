@@ -1590,6 +1590,9 @@ header .form-inline {
     .social-box ul li span {
       font-size: 14px; }
 
+.login{
+	background-image: url('../../../images/backend/large_leather.png');	
+}
 .login-logo {
   text-align: center;
   margin-bottom: 15px; }
