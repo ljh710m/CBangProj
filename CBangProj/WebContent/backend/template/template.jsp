@@ -23,6 +23,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles -->
+    <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
     
 </head>
 <body>
@@ -66,6 +67,7 @@
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
+    <script src="<c:url value='/js/util/alert.js'/>"></script>
        
 </body>
 </html>
