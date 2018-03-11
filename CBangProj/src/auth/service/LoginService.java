@@ -9,6 +9,7 @@ public class LoginService {
 	
 	public User login(String id, String password) {
 		AdminDto adminDto = adminDao.selectById(id);
+		
 		if(adminDto == null) {
 			throw new LoginFailException();
 		}

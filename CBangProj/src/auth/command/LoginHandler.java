@@ -1,5 +1,6 @@
 package auth.command;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,8 +62,8 @@ public class LoginHandler implements CommandHandler{
 			return null;
 		} catch (LoginFailException e) {
 			//로그인에 실패해서 LoginFailException이 발생하면 해당 에러를 추가하고, 폼을 위한 뷰를 리턴한다.
-			errors.put("idOrPwNotMatch", Boolean.TRUE);			
-			return FORM_VIEW;			
+			errors.put("idOrPwNotMatch", Boolean.TRUE);
+			return FORM_VIEW;
 		}
 	}
 	
