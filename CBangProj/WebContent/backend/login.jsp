@@ -14,11 +14,11 @@
 	<!-- Basic CSS -->
 	<link href="<c:url value='/vendor/sufee/css/normalize.css'/>" rel="stylesheet">	
 	<link href="<c:url value='/vendor/sufee/css/bootstrap.min.css'/>" rel="stylesheet">
-	<link href="<c:url value='/vendor/sufee/scss/style.css'/>" rel="stylesheet">	
+	<link href="<c:url value='/vendor/sufee/scss/style.css'/>" rel="stylesheet">
 	<link href="<c:url value='/vendor/sufee/css/font-awesome.min.css'/>" rel="stylesheet">
 	<link href="<c:url value='/vendor/sufee/css/themify-icons.css'/>" rel="stylesheet">     
     <link href="<c:url value='/vendor/sufee/css/flag-icon.min.css'/>" rel="stylesheet">
-    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">    
+    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">   
 	<!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
@@ -34,14 +34,14 @@
                     <img class="align-content" src="<c:url value='/images/backend/logo_admin.png'/>" alt="">              
                 </div>
                 <div class="login-form">
-                    <form>
+                    <form action="login.admin" method="post">
                         <div class="form-group">
                             <label>아이디</label>
-                            <input type="email" class="form-control" placeholder="아이디">
+                            <input type="text" name="id" class="form-control" value="${param.id}" placeholder="아이디">
                         </div>
                         <div class="form-group">
                             <label>비밀번호</label>
-                            <input type="password" class="form-control" placeholder="비밀번호">
+                            <input type="password" name="password" class="form-control" value="${param.password}" placeholder="비밀번호">
                         </div>
                         <div class="checkbox">
                             <label>
@@ -68,6 +68,9 @@
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-       
+    <script>
+    	
+    
+    </script>       
 </body>
 </html>
