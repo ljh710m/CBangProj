@@ -36,17 +36,14 @@ public class AdminDao {
 	}
 	
 	//입력용]
-	public int insert(Connection conn, AdminDto dto) throws SQLException{
-		int affected=0;
-		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,3)";
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)){			
-			pstmt.setString(1,dto.getAdmin_code());
-			pstmt.setString(2, dto.getId());
-			pstmt.setString(3, dto.getPassword());
-			pstmt.setString(4, dto.getName());
-			pstmt.setString(5, dto.getEmail());
-			affected = pstmt.executeUpdate();
-			return affected;
+	public void insert(Connection conn, AdminDto dto) throws SQLException{		
+		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,1)";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getPassword());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.executeUpdate();			
 		}
 	}
 }

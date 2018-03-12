@@ -34,26 +34,32 @@
                     <img class="align-content" src="<c:url value='/images/backend/logo_admin.png'/>" alt="">              
                 </div>
                 <div class="login-form">
-                    <form action="login.admin" method="post">
+                    <form action="register.admin" method="post">
                         <div class="form-group">
                             <label>아이디</label>
+                            <c:if test="${errors.id}"><p>&nbsp;아이디를 입력하세요.</p></c:if>
+                            <c:if test="${errors.duplicatedId}"><p>&nbsp;이미 사용중인 아이디입니다.</p></c:if>
                             <input type="text" name="id" class="form-control" value="${param.id}" placeholder="아이디">
                         </div>
                         <div class="form-group">
                             <label>비밀번호</label>
-                            <input type="password" name="password1" class="form-control" value="${param.password}" placeholder="비밀번호">
+                            <c:if test="${errors.password}"><p>&nbsp;비밀번호를 입력하세요.</p></c:if>
+                            <input type="password" name="password1" class="form-control" value="${param.password1}" placeholder="비밀번호">
                         </div>
                         <div class="form-group">
-                            <label>비밀번호 확인</label>
-                            <input type="password" name="password2" class="form-control" placeholder="비밀번호 확인">
+                            <label>비밀번호 재확인</label>
+                            <c:if test="${errors.confirmPassword}"><p>&nbsp;비밀번호가 일치하지 않습니다.</p></c:if>
+                            <input type="password" name="password2" class="form-control" value="${param.password2}" placeholder="비밀번호 재확인">
                         </div>
                         <div class="form-group">
                             <label>이름</label>
+                            <c:if test="${errors.name}"><p>&nbsp;이름을 입력하세요.</p></c:if>
                             <input type="text" name="name" class="form-control" value="${param.name}" placeholder="이름">
                         </div>
                         <div class="form-group">
                             <label>이메일</label>
-                            <input type="email" name="password2" class="form-control" value="${param.email}" placeholder="이메일">
+                            <c:if test="${errors.email}"><p>&nbsp;이메일을 입력하세요.</p></c:if>
+                            <input type="email" name="email" class="form-control" value="${param.email}" placeholder="이메일">
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">등록하기</button>
                         <div style="border-top: 1px solid #e7e7e7; margin: 10px -30px;">                       
@@ -73,7 +79,7 @@
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>    
     <!-- Additional Script -->
-    <script src="<c:url value='/js/util/alert.js'/>"></script>    
-                    
+    <script src="<c:url value='/js/util/alert.js'/>"></script>
+                         
 </body>
 </html>

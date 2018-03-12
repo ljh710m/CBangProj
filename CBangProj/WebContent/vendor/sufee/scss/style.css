@@ -1634,6 +1634,11 @@ header .form-inline {
 .login-form label a {
   color: #ff2e44; }
 
+.login-form .form-group p{  
+  display:inline;
+  font-weight:bold;
+  color: #ff2e44; }
+
 .social-login-content {
   margin: 0px -30px;
   border-top: 1px solid #e7e7e7;

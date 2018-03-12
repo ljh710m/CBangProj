@@ -58,7 +58,7 @@ public class AdminDto {
 		this.privilege_code = privilege_code;
 	}
 	
-	
+	//암호 변경 기능 구현에 사용
 	public boolean matchPassword(String pwd) {
 		return password.equals(pwd);
 	}
