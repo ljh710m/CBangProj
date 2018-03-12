@@ -25,6 +25,9 @@
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
     
+    <!-- JQuery script -->
+    <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
+    
 </head>
 <body class="login">
 	<div class="sufee-login d-flex align-content-center flex-wrap">
@@ -71,9 +74,14 @@
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script>
-    	if(${errors.idOrPwNotMatch}){        	
-    		alert("아이디 또는 비밀번호가 틀렸습니다.");    		
-        }
+	    $(function() {
+	    	if(${errors.idOrPwNotMatch}){
+	        	customAlert("error", "아이디 또는 비밀번호가 틀렸습니다.");
+	    	}
+	    	if(${errors.success}){
+	        	customAlert("success", "신청이 완료되었습니다.");
+	    	}
+	    });
     </script>
                         
 </body>

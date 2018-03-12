@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label>아이디</label>
                             <c:if test="${errors.id}"><p>&nbsp;아이디를 입력하세요.</p></c:if>
-                            <c:if test="${errors.duplicatedId}"><p>&nbsp;이미 사용중인 아이디입니다.</p></c:if>
+                            <c:if test="${errors.duplicateId}"><p>&nbsp;이미 사용중인 아이디입니다.</p></c:if>
                             <input type="text" name="id" class="form-control" value="${param.id}" placeholder="아이디">
                         </div>
                         <div class="form-group">
