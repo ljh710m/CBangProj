@@ -28,8 +28,8 @@
 </head>
 <body class="login">
 	<div class="sufee-login d-flex align-content-center flex-wrap">
-        <div class="container">     
-        	<c:if test="${errors.idOrPwNotMatch}"><script>alert("아이디 또는 비밀번호가 틀렸습니다.")</script></c:if>    	      	
+        <div class="container">
+        	<c:if test="${errors.idOrPwNotMatch}"><script>alert("아이디 또는 비밀번호가 틀렸습니다.");</script></c:if>
             <div class="login-content">       	
                 <div class="login-logo">
                     <img class="align-content" src="<c:url value='/images/backend/logo_admin.png'/>" alt="">              
@@ -68,7 +68,7 @@
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>    
     <!-- Additional Script -->
-    <script src="<c:url value='/js/util/alert.js'/>"></script>    
-                    
+    <script src="<c:url value='/js/util/alert.js'/>"></script>
+                        
 </body>
 </html>
