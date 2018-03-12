@@ -22,7 +22,7 @@ public class AdminDao {
 	public AdminDao() {
 		try {
 			Context ctx = new InitialContext();
-			DataSource source=(DataSource)ctx.lookup("java:comp/env/jdbc/OracleXE");
+			DataSource source=(DataSource)ctx.lookup("java:comp/env/jdbc/OracleDB");
 			conn = source.getConnection();
 		}
 		catch (NamingException e) {e.printStackTrace();}
@@ -59,42 +59,21 @@ public class AdminDao {
 			}
 		} catch (SQLException e) {		
 			e.printStackTrace();			
-		}
+		} 
 		return adminDto;
 	}
 		
-	//회원여부 판단용]
-	public boolean isMember(String id,String password) {
-		String sql="SELECT password,privilege_code FROM cbang_admin WHERE id=?";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				String pwd=rs.getString(1);
-				String privilege_code=rs.getString(2);
-				if(pwd == password)
-					return true;
-				else return false;
-			}
-			return false;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return false; 
-		}		
-	}
-	
 	//입력용]
 	public int insert(AdminDto dto) {
 		int affected=0;
-		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,2)";
+		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,3)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,dto.getAdmin_code());
 			psmt.setString(2, dto.getId());
 			psmt.setString(3, dto.getPassword());
-			psmt.setString(4, dto.getName());			
+			psmt.setString(4, dto.getName());
+			psmt.setString(5, dto.getEmail());
 			affected = psmt.executeUpdate();
 		} 
 		catch (Exception e) { e.printStackTrace();}
