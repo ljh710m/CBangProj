@@ -5,49 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
+import jdbc.JdbcUtil;
 import model.AdminDto;
 
 public class AdminDao {
 	
-	private Connection conn;
-	private PreparedStatement psmt;
-	private ResultSet rs;
-	
-	//톰캣이 만들어 놓은 커넥션을 커넥션 풀에서 가져다 쓰기]
-	public AdminDao() {
+	public AdminDto selectById(Connection conn,String id) throws SQLException{
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM cbang_admin where id=?";		
 		try {
-			Context ctx = new InitialContext();
-			DataSource source=(DataSource)ctx.lookup("java:comp/env/jdbc/OracleDB");
-			conn = source.getConnection();
-		}
-		catch (NamingException e) {e.printStackTrace();}
-		catch (SQLException e) {e.printStackTrace();}
-	}
-	
-	//자원반납용]-사용한 커넥션 객체를 다시 풀에 반납
-	public void close() {
-		try {
-			//메모리 해제]
-			if(rs !=null) rs.close();
-			if(psmt !=null) psmt.close();
-			// 커넥션 풀에 커넥션 객체 반납]
-			if(conn !=null) conn.close();
-			
-		} catch (Exception e) {e.printStackTrace();}
-	}
-	
-	public AdminDto selectById(String id) {
-		String sql = "SELECT * FROM cbang_admin where id=?";
-		AdminDto adminDto = null;
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			rs = psmt.executeQuery();			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			AdminDto adminDto = null;
 			if(rs.next()) {
 				adminDto = new AdminDto(
 						rs.getString("admin_code"),
@@ -57,27 +28,25 @@ public class AdminDao {
 						rs.getString("email"),
 						rs.getString("privilege_code"));
 			}
-		} catch (SQLException e) {		
-			e.printStackTrace();			
-		} 
-		return adminDto;
+			return adminDto;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
 	}
-		
+	
 	//입력용]
-	public int insert(AdminDto dto) {
+	public int insert(Connection conn, AdminDto dto) throws SQLException{
 		int affected=0;
 		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,3)";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1,dto.getAdmin_code());
-			psmt.setString(2, dto.getId());
-			psmt.setString(3, dto.getPassword());
-			psmt.setString(4, dto.getName());
-			psmt.setString(5, dto.getEmail());
-			affected = psmt.executeUpdate();
-		} 
-		catch (Exception e) { e.printStackTrace();}
-		return affected;
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){			
+			pstmt.setString(1,dto.getAdmin_code());
+			pstmt.setString(2, dto.getId());
+			pstmt.setString(3, dto.getPassword());
+			pstmt.setString(4, dto.getName());
+			pstmt.setString(5, dto.getEmail());
+			affected = pstmt.executeUpdate();
+			return affected;
+		}
 	}
-
 }
