@@ -21,6 +21,12 @@
 	text-shadow:0 -1px rgba(0,0,0,0.3);
 	color:#fff
 }
+.Alert-message p{
+	font-size:14px;
+	font-weight:bold;
+	text-shadow:0 -1px rgba(0,0,0,0.3);
+	color:#fff
+}
 .Alert-message.success{	background-color:#7dc88a}
 .Alert-message.warning{background-color:#e3b000}
 .Alert-message.error{background-color:#cb1d2b}
