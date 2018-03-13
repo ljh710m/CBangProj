@@ -593,7 +593,7 @@ legend {
 }
 .Pagination{
 	height:20px;
-	padding:10px 0;
+	/*padding:10px 0;*/
 	margin-bottom:50px
 }
 .Pagination>li {
@@ -605,9 +605,6 @@ legend {
 }
 .Pagination-item--prev.disable, .Pagination-item--next.disable {
     cursor: default;
-}
-.Pagination-item--prev, .Pagination-item--next {
-    width: auto;
 }
 .Pagination>li+li {
     margin-left: 6px;
@@ -635,6 +632,9 @@ legend {
     color: #3b8de0;
     text-decoration: none;
     
+}
+.Pagination-item--prev, .Pagination-item--next {
+    width: auto;
 }
 
 
