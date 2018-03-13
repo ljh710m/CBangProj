@@ -19,6 +19,8 @@
 	<link href="<c:url value='/vendor/sufee/css/themify-icons.css'/>" rel="stylesheet">     
     <link href="<c:url value='/vendor/sufee/css/flag-icon.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">    
+    <!-- For Table CSS -->
+    <link href="<c:url value='/vendor/sufee/css/lib/dataTables.bootstrap.min.css'/>" rel="stylesheet">
 	<!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
@@ -39,7 +41,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>관리자 관리</h1>
                     </div>
                 </div>
             </div>
@@ -47,7 +49,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
+                            <li>관리자 관리</li>
+                            <li class="active">관리자 목록</li>
                         </ol>
                     </div>
                 </div>
@@ -100,6 +103,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>    
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
+    <!-- For Table script -->
+    <script src="<c:url value='/vendor/sufee/js/lib/data-table/datatables.min.js'/>"></script>
+    <script src="<c:url value='/vendor/sufee/js/lib/data-table/jquery.dataTables.min.js'/>"></script>
+    <script src="<c:url value='/vendor/sufee/js/lib/data-table/dataTables.bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/vendor/sufee/js/lib/data-table/datatables-init.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
        
