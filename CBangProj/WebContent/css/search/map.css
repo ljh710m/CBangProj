@@ -20,6 +20,9 @@ dd, dl, dt, li, ol, ul {
     margin: 0;
 }
 
+a {
+    background-color: transparent;
+}
 .filter {
     display: block;
     position: relative;
@@ -234,7 +237,7 @@ dd, dl, dt, li, ol, ul {
     color: #d1d1d1;
 }
 .icon-size-lg {
-    vertical-align: -3px;
+    vertical-align: -1px;
     font-size: 15px;
 }
 .sub-nab .map {
@@ -324,6 +327,332 @@ legend {
     font-size: 17px;
 }
 
+/* List */
+.List.map-page {
+    overflow-y: hidden;
+    position: absolute;
+    top: 102px;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 460px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.ListOutWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.List.map-page .ListInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.ListInfo {
+    padding: 12px 10px;
+    background-color: #ff7473;
+    color: #fff;
+}
+.icon-size-lg {
+    vertical-align: -3px;
+    font-size: 15px;
+}
+.icon-text {
+    margin-left: 5px;
+}
+.ListWrap {
+    overflow-y: auto;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 44px;
+    background-color: #f7f7f7;
+    transition: opacity .5s;
+}
+.List.map-page .AreaRoom {
+    padding-bottom: 10px;
+}
+.AreaRoom {
+    background-color: #f7f7f7;
+}
+.Room-header {
+    height: 40px;
+    padding-left: 10px;
+    background-color: #f7f7f7;
+    font-size: 1.1em;
+    line-height: 40px;
+    color: #585858;
+}
+.Room-title {
+    position: relative;
+}
+.List.map-page .AreaRoom .Room-list {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: transparent;
+}
+.Room-list {
+    background-color: #fff;
+    font-size: 11px;
+    color: #919191;
+}
+.Room-item {
+    display: block;
+    position: relative;
+    height: 125px;
+    padding: 9px;
+    border: 1px solid #dfdfdf;
+    margin-top: -1px;
+    background-color: #fff;
+    color: #000;
+}
+.Room-item>a {
+    display: table;
+    width: 100%;
+}
+.RoomItem-preview {
+    width: 1%;
+}
+.RoomItem-preview, .RoomItem-detail {
+    display: table-cell;
+    vertical-align: middle;
+}
+.RoomItem-preview__mask {
+    position: relative;
+    width: 120px;
+    height: 105px;
+}
+.RoomItem-preview__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/eb60851…/img/web/search/emptyimg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -ms-behavior: url(/eb60851…/js/backgroundsize.min.htc);
+}
+.RoomItem-preview__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.RoomItem-detail {
+    width: 100000px;
+    max-width: 1px;
+    padding-left: 14px;
+}
+.RoomItem-info {
+    position: relative;
+}
+.RoomItem-price {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    color: #2f2f2f;
+}
+.RoomItem-price__type {
+    margin-right: 10px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+.RoomsItem-price__title.is-0 {
+    color: #2074c8;
+}
+.RoomsItem-price__title.is-1 {
+    color: #f5a623;
+}
+.RoomItem-header .room-visited {
+    display: inline-block;
+    margin-top: 3px;
+    margin-left: 8px;
+    font-size: 12px;
+}
+.RoomItem-header .room-visited .dabang-icon {
+    color: #d1d1d1;
+}
+.RoomItem-icons {
+    float: right;
+}
+.RoomItem-icons .room-favorite .dabang-icon-heart-o {
+    color: #d1d1d1;
+}
+.icon-size-2xl {
+    vertical-align: -5px;
+    font-size: 19px;
+}
+.RoomItem-summary {
+    display: inline-block;
+    width: 100%;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #2f2f2f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.RoomItem-types {
+    display: -webkit-box;
+    margin-top: 9px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 100px;
+    background-color: #e7f4ff;
+    margin-right: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #353535;
+    cursor: pointer;
+}
+.RoomItem-title {
+    display: block;
+    padding: 0;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #6c6c6c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.RoomItem-date {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #585858;
+}
+.AreaRoom .RoomItem-options {
+    display: none;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.RoomItem-summary span:after {
+    display: inline-block;
+    content: '|';
+    padding: 0 1px 0 2px;
+    color: #919090;
+}
+.RoomItem-summary span:last-child:after{
+	display:none
+}
+.Room-item:hover {
+    background-color: #d2e5ff;
+}
+.fa-heart:hover{
+	color:#ef4351;
+}
+.Room-item a:hover{
+	text-decoration: none;
+}
+
+
+/* Pagination */
+.List.map-page .ListPagination {
+    width: 460px;
+}
+.List.list-page .ListPagination{
+	width:100%
+}
+.ListPagination .Pagination {
+    display: inline-block;
+}
+.ListPagination {
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    height: 44px;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+    border-top: 1px solid #d1d1d1;
+    background-color: white;
+    text-align: center;
+}
+.Pagination {
+    font-size: 12px;
+    font-weight: bold;
+}
+.Pagination{
+	height:20px;
+	padding:10px 0;
+	margin-bottom:50px
+}
+.Pagination>li {
+    display: inline-block;
+}
+.pagination-wrap .Pagination{
+	display:inline-block;
+	margin:0 auto
+}
+.Pagination-item--prev.disable, .Pagination-item--next.disable {
+    cursor: default;
+}
+.Pagination-item--prev, .Pagination-item--next {
+    width: auto;
+}
+.Pagination>li+li {
+    margin-left: 6px;
+}
+.Pagination-item {
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #585858;
+    cursor: pointer;
+}
+.Pagination-item.active {
+    padding: 2px;
+    border-radius: 50%;
+    background-color: #58b5d3 !important;
+    line-height: 20px;
+    color: #fff;
+    cursor: default;
+}
+.Pagination-item--prev:hover, .Pagination-item--next:hover {
+    background-color: transparent;
+    color: #3b8de0;
+    text-decoration: none;
+    
+}
+
+
+.ListLoading-icon:before, .ListLoading-icon:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 31.11353712%;
+    left: 50%;
+}
+.ListLoading-icon:before {
+    z-index: 1;
+    width: 23px;
+    height: 24px;
+    margin-top: -14px;
+    margin-left: -11.5px;
+    background-image: url(/eb60851…/img/web/search/loading-bi.png);
+}
 
 
 @media (min-width: 1024px){
