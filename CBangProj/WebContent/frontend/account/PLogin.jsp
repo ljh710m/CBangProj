@@ -71,14 +71,14 @@ body, html {
 				</tr>
 				<tr>
 					<th class="title">중개등록번호</th>
-						<td style="position: relative;">
+						<td style="position: relative;"> 
 							<input type="text" name="reg_id" placeholder="“-” 가 있을 경우 표함하여 입력해주세요." required value="" autocomplete="off" style="margin-right: 10px;">
-							<div class="Btn--md Btn--blue" style="display: inline-block; cursor: pointer; position: relative; z-index: 1;">중개등록증 첨부</div>
+							<div class="Btn--md Btn--red file-type" style="display: inline-block; cursor: pointer; position: relative; z-index: 1;">중개등록증 첨부</div>
 							<div class="SignUpForm--file__wrap">
 								<span class="File--name" style="width: 100px;"></span>
 							</div>
 							<div id="html5_1c81njc781ik8c2t541bs714fp3_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 10px; left: 470px; width: 126px; height: 35px; overflow: hidden; z-index: 0;">
-								<input id="html5_1c81njc781ik8c2t541bs714fp3" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/png,image/gif,image/jpeg">
+								<input id="html5_1c81njc781ik8c2t541bs714fp3" name="real-file1" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" accept="image/png,image/gif,image/jpeg">
 							</div>
 						</td>
 				</tr>
@@ -89,7 +89,7 @@ body, html {
 					<input type="number" max="99" class="number" maxlength="2" required />
 					<span class="input-dash"> - </span>
 					<input type="number" max="99999" class="number" maxlength="5" required style="margin-right: 10px;" />
-						<button type="button" class="Btn--md Btn--blue" style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
+						<button type="button" class="Btn--md Btn--red" style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
 						<button type="button" class="Btn--md Btn--disabled">사업자 등록증 첨부</button>
 						<div class="SignUpForm--file__wrap">
 							<span class="File--name"></span>
@@ -106,7 +106,7 @@ body, html {
 								<option value="incheon">인천광역시</option>
 								<option value="busan">부산광역시</option>
 								<option value="daejeon">대전광역시</option>
-								<option value="dae-gu">대구광역시</option>
+								<option value="dae-gu">대구광역시</option> 
 								<option value="ulsan">울산광역시</option>
 								<option value="gwangju">광주광역시</option>
 								<option value="gyeonggi">경기도</option>
@@ -152,9 +152,9 @@ body, html {
 							<div class="Profile--img">
 								<div class="Profile--upload"
 									style="display: inline-block; cursor: pointer; position: static; z-index: 1;">사진등록</div>
-								<div class="moxie-shim moxie-shim-html5"
+								<div class="moxie-shim moxie-shim-html5" id="file-div"
 									style="position: absolute; top: 80px; left: 0px; width: 100px; height: 20px; overflow: hidden; z-index: 0;">
-									<input type="file"
+									<input type="file" name="real-file2"
 									 style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
 										accept="image/png,image/gif,image/jpeg"> 									
 								</div>
@@ -307,11 +307,13 @@ body, html {
 	<script src="<c:url value='/js/util/alert.js'/>"></script>
 	<script src="<c:url value='/js/account/PLogin.js'/>"></script>
 	<script>
-		$(document).ready(function() {
-			$('[data-toggle="tooltip"]').tooltip();
-		});
-			
 
+	$('.Profile--upload').click(function() {
+		$('input[name="real-file1"]').click();
+	});
+	$('.file-type').click(function() {
+		$('input[name="real-file2"]').click();
+	});
 	</script>
 </body>
 </html>

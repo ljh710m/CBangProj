@@ -1,294 +1,128 @@
-$('#si-do').change(
-	function() {
+var gooGoonInSeoul = ["강남구","강서구","강동구","강북구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구",
+                      "서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
+var gooGoonInIncheon = ["계양구","남구","남동구","동구","부평구","서구","연수구","옹진구","중구"];
+var gooGoonInBusan = ["강서구","금정구","기장군","남구","동구","동래구","부산진구","북구","사상구","사하구","서구","수영구","연제구","영도구",
+                      "중구","해운대구"];
+var gooGoonInDaejeon = ["대덕구","동구","서구","유성구","중구"];
+var gooGoonInDaegu = ["남구","달서구","달성군","동구","북구","서구","수성구","중구"];
+var gooGoonInUlsan = ["남구","동구","북구","울주군","중구"];
+var gooGoonInGwangju = ["광산구","남구","동구","북구","서구"];
+var gooGoonInGyeonggi = ["가평군","고양시 덕양구","고양시 일산동구","고양시 일산서구","과천시","광명시","광주시","구리시","군포시","김포시","남양주시",
+                         "동두천시","부천시","성남시 분당구","성남시 수정구","성남시 중원구","수원시 권선구","수원시 영통구","수원시 장안구",
+                         "수원시 팔달구","안산시 단원구","안산시 팔달구","안성시","안양시 동안구","안양시 만안구","양주시","양평시","여주시","연천시",
+                         "오산시","용인시 기흥구","용인시 수지구","용인시 처인구","의왕시","의정부시","파주시","평택시","포천시","하남시","화성시"];
+var gooGoonInGangwon = ["강릉시","고성군","동해시","삼척시","속초시","양구군","양양군","영월군","원주시","인제군","정성군","철원군","춘천시","태백시",
+                        "평창군","홍천군","화천군","횡성군"];
+var gooGoonInJeonnam = ["강진군","고흥군","곡성군","광양시","구례군","나주시","담양군","목포시","무안군","보성군","순천시","신안군","여수시","영광군",
+                        "영암군","완도군","장성군","장흥군","진도군","함평군","해남군","화순군"];
+var gooGoonInJeonbook = ["고창군","군산시","김제시","남원시","구례군","무주군","부안군","순창군","완주군","익산시","임실군","장수군","전주시 덕진구",
+                         "전주시 완산구","정읍시","진안군"];
+var gooGoonInChoongnam = ["계룡시","공주시","금산군","논산시","당진시","보령시","부여군","서산시","서천군","아산시","예산군","천안시 동남구",
+                          "천안시 서북구","청양군","태안군","홍성군"];
+var gooGoonInChoongbook = ["괴산군","단양군","보은군","영동군","옥천군","음성군","제천시","증평군","진천군","청주시 상당구","청주시 서원구",
+                           "청주시 청원구","청주시 흠덕구","충주시"];
+var gooGoonInGyeongnam = ["거제시","거창군","고성군","김해시","남해군","밀양시","사천시","산청군","양산시","의령군","진주시","창녕군","창원시 마산 합포구",
+                          "창원시 마산 회원구","창원시 성산구","창원시 의창구","창원시 진해구","통영시","하동군","함안군","함양군","합천군"];
+var gooGoonInGyeongbook = ["경산시","경주시","고령군","구미시","군위군","김천시","문경시","봉화군","상주시","성주군","안동시","영덕군","영양군",
+                           "영주시","영천시","예천군","울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시 남구","포항시 북구"];
+var gooGoonInJejudo = ["서귀포시","제주시"];
+var gooGoonInJejusi = ["세종"];
+
+	$('#si-do').change(function() {
 		$('#goo-goon').find('option').remove();
 		if ($(this).val() == 'seoul') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>강남구</option>').append(
-				'<option>강서구</option>').append(
-				'<option>강동구</option>').append(
-				'<option>강북구</option>').append(
-				'<option>관악구</option>').append(
-				'<option>광진구</option>').append(
-				'<option>구로구</option>').append(
-				'<option>금천구</option>').append(
-				'<option>노원구</option>').append(
-				'<option>도봉구</option>').append(
-				'<option>동대문구</option>').append(
-				'<option>동작구</option>').append(
-				'<option>마포구</option>').append(
-				'<option>서대문구</option>').append(
-				'<option>서초구</option>').append(
-				'<option>성동구</option>').append(
-				'<option>성북구</option>').append(
-				'<option>송파구</option>').append(
-				'<option>양천구</option>').append(
-				'<option>영등포구</option>').append(
-				'<option>용산구</option>').append(
-				'<option>은평구</option>').append(
-				'<option>종로구</option>').append(
-				'<option>중구</option>').append(
-				'<option>중랑구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInSeoul) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'incheon') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>강화군</option>').append(
-				'<option>계양구</option>').append(
-				'<option>남구</option>').append(
-				'<option>남동구</option>').append(
-				'<option>동구</option>').append(
-				'<option>부평구</option>').append(
-				'<option>서구</option>').append(
-				'<option>연수구</option>').append(
-				'<option>옹진군</option>').append(
-				'<option>중구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInIncheon) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'busan') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>강서구</option>').append(
-				'<option>금정구</option>').append(
-				'<option>기장군</option>').append(
-				'<option>남구</option>').append(
-				'<option>동구</option>').append(
-				'<option>동래구</option>').append(
-				'<option>부산진구</option>').append(
-				'<option>북구</option>').append(
-				'<option>사상구</option>').append(
-				'<option>사하구</option>').append(
-				'<option>서구</option>').append(
-				'<option>수영구</option>').append(
-				'<option>연제구</option>').append(
-				'<option>영도구</option>').append(
-				'<option>중구</option>').append(
-				'<option>해운대구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInIncheon) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'daejeon') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>대덕구</option>').append(
-				'<option>동구</option>').append(
-				'<option>서구</option>').append(
-				'<option>유성구</option>').append(
-				'<option>중구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInDaejeon) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'dae-gu') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>남구</option>').append(
-				'<option>달서구</option>').append(
-				'<option>달성군</option>').append(
-				'<option>동구</option>').append(
-				'<option>복구</option>').append(
-				'<option>서구</option>').append(
-				'<option>수성구</option>').append(
-				'<option>중구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInDaegu) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'ulsan') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>남구</option>').append(
-				'<option>동구</option>').append(
-				'<option>복구</option>').append(
-				'<option>울주군</option>').append(
-				'<option>중구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInUlsan) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'gwangju') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>광산구</option>').append(
-				'<option>남구</option>').append(
-				'<option>동구</option>').append(
-				'<option>복구</option>').append(
-				'<option>서구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInGwangju) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'gyeonggi') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>가평군</option>').append(
-				'<option>고양시 덕양구</option>').append(
-				'<option>고양시 일산동구</option>').append(
-				'<option>고양시 일산서구</option>').append(
-				'<option>과천시</option>').append(
-				'<option>광명시</option>').append(
-				'<option>광주시</option>').append(
-				'<option>구리시</option>').append(
-				'<option>군포시</option>').append(
-				'<option>김포시</option>').append(
-				'<option>남양주시</option>').append(
-				'<option>동두천시</option>').append(
-				'<option>부천시</option>').append(
-				'<option>성남시 분당구</option>').append(
-				'<option>성남시 수정구</option>').append(
-				'<option>성남시 중원구</option>').append(
-				'<option>수원시 권선구</option>').append(
-				'<option>수원시 영통구</option>').append(
-				'<option>수원시 장안구</option>').append(
-				'<option>수원시 팔달구</option>').append(
-				'<option>안산시 단원구</option>').append(
-				'<option>안신시 상록구</option>').append(
-				'<option>안성시</option>').append(
-				'<option>안양시 동안구</option>').append(
-				'<option>안양시 만안구</option>').append(
-				'<option>양주시</option>').append(
-				'<option>양평시</option>').append(
-				'<option>여주시</option>').append(
-				'<option>연천시</option>').append(
-				'<option>오산시</option>').append(
-				'<option>용인시 기흥구</option>').append(
-				'<option>용인시 수지구</option>').append(
-				'<option>용인시 처인구</option>').append(
-				'<option>의왕시</option>').append(
-				'<option>의정부시</option>').append(
-				'<option>이천시</option>').append(
-				'<option>파주시</option>').append(
-				'<option>평택시</option>').append(
-				'<option>포천시</option>').append(
-				'<option>하남시</option>').append(
-				'<option>화성시</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInGyeonggi) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'gangwon') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>강릉시</option>').append(
-				'<option>고성군</option>').append(
-				'<option>동해시</option>').append(
-				'<option>삼척시</option>').append(
-				'<option>속초시</option>').append(
-				'<option>양구군</option>').append(
-				'<option>양양군</option>').append(
-				'<option>영월군</option>').append(
-				'<option>원주시</option>').append(
-				'<option>인제군</option>').append(
-				'<option>정성군</option>').append(
-				'<option>철원군</option>').append(
-				'<option>춘천시</option>').append(
-				'<option>태백시</option>').append(
-				'<option>평창군</option>').append(
-				'<option>홍천군</option>').append(
-				'<option>화천군</option>').append(
-				'<option>횡성군</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInGangwon) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'jeonnam') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>강진군</option>').append(
-				'<option>고흥군</option>').append(
-				'<option>곡성군</option>').append(
-				'<option>광양시</option>').append(
-				'<option>구례군</option>').append(
-				'<option>나주시</option>').append(
-				'<option>담양군</option>').append(
-				'<option>목포시</option>').append(
-				'<option>무안군</option>').append(
-				'<option>보성군</option>').append(
-				'<option>순천시</option>').append(
-				'<option>신안군</option>').append(
-				'<option>여수시</option>').append(
-				'<option>영광군</option>').append(
-				'<option>영암군</option>').append(
-				'<option>완도군</option>').append(
-				'<option>장성군</option>').append(
-				'<option>장흥군</option>').append(
-				'<option>진도군</option>').append(
-				'<option>함평군</option>').append(
-				'<option>해남군</option>').append(
-				'<option>화순군</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInJeonnam) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'jeonbook') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>고창군</option>').append(
-				'<option>군산시</option>').append(
-				'<option>김제시</option>').append(
-				'<option>남원시</option>').append(
-				'<option>구례군</option>').append(
-				'<option>무주군</option>').append(
-				'<option>부안군</option>').append(
-				'<option>순창군</option>').append(
-				'<option>완주군</option>').append(
-				'<option>익산시</option>').append(
-				'<option>임실군</option>').append(
-				'<option>장수군</option>').append(
-				'<option>전주시 덕진구</option>').append(
-				'<option>전주시 완산구</option>').append(
-				'<option>정읍시</option>').append(
-				'<option>진안군</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInJeonbook) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'choongnam') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>계룡시</option>').append(
-				'<option>공주시</option>').append(
-				'<option>금산군</option>').append(
-				'<option>논산시</option>').append(
-				'<option>당진시</option>').append(
-				'<option>보령시</option>').append(
-				'<option>부여군</option>').append(
-				'<option>서산시</option>').append(
-				'<option>서천군</option>').append(
-				'<option>아산시</option>').append(
-				'<option>예산군</option>').append(
-				'<option>천안시 동남구</option>').append(
-				'<option>천안시 서북구</option>').append(
-				'<option>청양군</option>').append(
-				'<option>태안군</option>').append(
-				'<option>홍성군</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInChoongnam) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'choongbook') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>괴산군</option>').append(
-				'<option>단양군</option>').append(
-				'<option>보은군</option>').append(
-				'<option>영동군</option>').append(
-				'<option>옥천군</option>').append(
-				'<option>음성군</option>').append(
-				'<option>제천시</option>').append(
-				'<option>증평군</option>').append(
-				'<option>진천군</option>').append(
-				'<option>청주시 상당구</option>').append(
-				'<option>청주시 서원구</option>').append(
-				'<option>청주시 청원구</option>').append(
-				'<option>청주시 흥덕구</option>').append(
-				'<option>충주시</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInChoongbook) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'gyeongnam') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>거제시</option>').append(
-				'<option>거창군</option>').append(
-				'<option>고성군</option>').append(
-				'<option>김해시</option>').append(
-				'<option>남해군</option>').append(
-				'<option>밀양시</option>').append(
-				'<option>사천시</option>').append(
-				'<option>산청군</option>').append(
-				'<option>양산시</option>').append(
-				'<option>의령군</option>').append(
-				'<option>진주시</option>').append(
-				'<option>창녕군</option>').append(
-				'<option>창원시 마산 합포구</option>').append(
-				'<option>창원시 마산 회원구</option>').append(
-				'<option>창원시 성산구</option>').append(
-				'<option>창원시 의창구</option>').append(
-				'<option>창원시 진해구</option>').append(
-				'<option>통영시</option>').append(
-				'<option>하동군</option>').append(
-				'<option>함안군</option>').append(
-				'<option>함양군</option>').append(
-				'<option>합천군</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInGyeongnam) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'gyeongbook') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>경산시</option>').append(
-				'<option>경주시</option>').append(
-				'<option>고령군</option>').append(
-				'<option>구미시</option>').append(
-				'<option>군위군</option>').append(
-				'<option>김천시</option>').append(
-				'<option>문경시</option>').append(
-				'<option>봉화군</option>').append(
-				'<option>상주시</option>').append(
-				'<option>성주군</option>').append(
-				'<option>안동시</option>').append(
-				'<option>영덕군</option>').append(
-				'<option>영양군</option>').append(
-				'<option>영주시</option>').append(
-				'<option>영천시</option>').append(
-				'<option>예천군</option>').append(
-				'<option>울릉군</option>').append(
-				'<option>울진군</option>').append(
-				'<option>의성군</option>').append(
-				'<option>청도군</option>').append(
-				'<option>청송군</option>').append(
-				'<option>칠곡군</option>').append(
-				'<option>포항시 남구</option>').append(
-				'<option>포항시 북구</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInGyeongbook) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
 		} else if ($(this).val() == 'jejudo') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>서귀포시</option>').append(
-				'<option>제주시</option>');
-		} else if ($(this).val() == 'jejusi') {
-			$('#goo-goon').append('<option>구/군 선택</option>')
-				.append('<option>세종</option>');
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInJejudo) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
+		} else {
+			$('#goo-goon').append('<option>구/군 선택</option>');
+			for (var gG in gooGoonInJejusi) {
+				$('#goo-goon').append('<option>' + gG + '</option>');
+			}
+		}
+
+	});
+	
+	$('[data-toggle="tooltip"]').tooltip();
+
+	$('.Btn--disabled').click(function() {
+		if ($(this).hasClass('Btn--disabled')) {
+			customAlert("error", "사업자 등록증을 첨부하기 전에 인증을 먼저 해야합니다.");
 		}
 	});
-$('.Btn--disabled').click(function(){
-	if($(this).hasClass('Btn--disabled')){
-		customAlert("error", "사업자 등록증을 첨부하기 전에 인증을 먼저 해야합니다.");
-	}
-});

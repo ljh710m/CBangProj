@@ -374,7 +374,7 @@
 					</div>
 				</div>
 				<div class="list-wrap">
-					<div class="list-agent-area">
+					<div class="list-agent-area col-sm-offset-2 col-sm-4">
 						<div class="room-section">
 							<div class="room-header">
 								<div class="room-headLine">
@@ -391,38 +391,35 @@
 							<ul class="room-tree">
 								<li class="room-branch">
 									<ul class="room-list items">
-										<li class="room-item">
-											<a href="#" target="_blank">
+										<li class="room-item"><a href="#" target="_blank">
 												<div class="roomItem-preview">
 													<div class="roomItem-preview_mask">
 														<div class="roomItem-preview_image"></div>
 														<div class="roomItem-preview_image"
-														style="background-image: url(https://d1774jszgerdmk.cloudfront.net/512/ae6334c3-5716-4ad8-b586-e9003408a122);"></div>
+															style="background-image: url(https://d1774jszgerdmk.cloudfront.net/512/ae6334c3-5716-4ad8-b586-e9003408a122);"></div>
 														<div class="roomItem-preview_cover"></div>
 													</div>
 												</div>
 												<div class="roomItem-detail">
-													<div class="roomItem-info"> 
+													<div class="roomItem-info">
 														<div class="roomItem-header">
 															<div class="roomItem-price">
 																<p>
-																	<span class="roomItem-price_type">월세</span>
-																	<span class="roomItem-price_title">1000/95</span>
+																	<span class="roomItem-price_type">월세</span> <span
+																		class="roomItem-price_title">1000/95</span>
 																</p>
 															</div>
-															<span class="room-visited">
-																<i class="icon"></i>
+															<span class="room-visited"> <i class="icon"></i>
 															</span>
 															<div class="roomItem-icons">
-																<span class="room-favorite">
-																	<i class="icon icon-heart"></i>
+																<span class="room-favorite"> <i
+																	class="icon icon-heart"></i>
 																</span>
 															</div>
 														</div>
 													</div>
 												</div>
-											</a>
-										</li>
+										</a></li>
 									</ul>
 								</li>
 							</ul>

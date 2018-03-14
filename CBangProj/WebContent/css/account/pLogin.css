@@ -157,7 +157,7 @@ div.Profile--img{
 	position: absolute;
 	right: 0;
 	left: 0;
-	background: url('../../images/login/blankImage.jpg') no-repeat center center;
+	background: url('../../images/account/blankImage.jpg') no-repeat center center;
 	background-size: cover;
 }
 div.Profile--upload{
@@ -194,7 +194,7 @@ div.SignUpForm--file__wrap .File--name{
 	font-size: 12px;
 	font-weight: 700;
 }
-.Btn--blue{
+.Btn--red{
 	color:#fff;
 	border-style: solid;
 	border-color: #c91f3b;
