@@ -457,12 +457,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>     
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
-    <script src="<c:url value='/js/search/map.js'/>"></script>
+    <script src="<c:url value='/js/search/map.js'/>"></script>     
     <script src="<c:url value='/js/search/googlemaps.js'/>"></script>
     <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
+    
     <script 
     src="//maps.googleapis.com/maps/api/js?key=AIzaSyBHqUjETYyMHerCmQT_1u-zEGIT2-7a5_c&callback=initMap"></script>    
-    
-    	
+
 </body>
 </html>
