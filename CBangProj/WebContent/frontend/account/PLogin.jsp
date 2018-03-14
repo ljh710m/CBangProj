@@ -66,13 +66,13 @@ body, html {
 			<tbody>
 				<tr>
 					<th class="title">중개사무소명</th>
-					<td><input type="text" style="width: 50%;"
+					<td><input name="office_name" type="text" style="width: 50%;"
 						placeholder="중개사무소명을 입력해주세요." /></td>
 				</tr>
 				<tr>
 					<th class="title">중개등록번호</th>
 						<td style="position: relative;"> 
-							<input type="text" name="reg_id" placeholder="“-” 가 있을 경우 표함하여 입력해주세요." required value="" autocomplete="off" style="margin-right: 10px;">
+							<input type="text" name="office_no" placeholder="“-” 가 있을 경우 표함하여 입력해주세요." required value="" autocomplete="off" style="margin-right: 10px;">
 							<div class="Btn--md Btn--red file-type" style="display: inline-block; cursor: pointer; position: relative; z-index: 1;">중개등록증 첨부</div>
 							<div class="SignUpForm--file__wrap">
 								<span class="File--name" style="width: 100px;"></span>
@@ -84,7 +84,7 @@ body, html {
 				</tr>
 				<tr>
 					<th class="title">사업자등록번호</th>
-					<td><input type="number" max="999" class="number" maxlength="3" required />
+					<td><input name="permit_no" type="number" max="999" class="number" maxlength="3" required />
 					<span class="input-dash"> - </span>
 					<input type="number" max="99" class="number" maxlength="2" required />
 					<span class="input-dash"> - </span>
@@ -123,14 +123,14 @@ body, html {
 						<select class="selectBox" id="goo-goon" required>
 								<option>구/군 선택</option>
 						</select> 
-						<input type="text" name="address" placeholder="상세주소를 입력해주세요." required autocomplete="off" />
+						<input type="text" name="office_address" placeholder="상세주소를 입력해주세요." required autocomplete="off" />
 						</div>
 					</td>
 					
 				</tr>
 				<tr>
 					<th class="title">중개사대표자명</th>
-					<td><input type="text" style="width: 60%" 
+					<td><input name="represent" type="text" style="width: 60%" 
 						placeholder="중개사대표자명을 입력해주세요." /></td>
 				</tr>
 			</tbody>
@@ -150,7 +150,7 @@ body, html {
 						<div class="Profile Profile--register">
 							<div class="Profile--img"></div>
 							<div class="Profile--img">
-								<div class="Profile--upload"
+								<div class="Profile--upload status"
 									style="display: inline-block; cursor: pointer; position: static; z-index: 1;">사진등록</div>
 								<div class="moxie-shim moxie-shim-html5" id="file-div"
 									style="position: absolute; top: 80px; left: 0px; width: 100px; height: 20px; overflow: hidden; z-index: 0;">
@@ -164,11 +164,11 @@ body, html {
 				</tr>
 				<tr>
 					<th class="title">본인 성명</th>
-					<td><input type="text" placeholder="실무자 본인 성명을 입력해주세요." name="name" class="input--name" required autocomplete="off" />
+					<td><input name="name" type="text" placeholder="실무자 본인 성명을 입력해주세요." name="name" class="input--name" required autocomplete="off" />
 					<p style="display: inline-block;">
 						<span class="rank">직책/직급</span>
 					</p>
-						<input type="text" placeholder="직책/직급" name="position" class="input--position" required autocomplete="off" /> 
+						<input type="text" placeholder="직책/직급" name="jop" class="input--position" required autocomplete="off" /> 
 						<select>
 							<option>권한/자격</option>
 							<option>대표공인중개사</option>
@@ -195,7 +195,7 @@ body, html {
 				</tr>
 				<tr>
 					<th class="title">대표전화번호</th>
-					<td><select name="tel" class="selectBox Bold" required>
+					<td><select name="office_phone" class="selectBox Bold" required>
 							<option>02</option>
 							<option>031</option>
 							<option>032</option>
@@ -260,7 +260,7 @@ body, html {
 				</tr>
 				<tr>
 					<th class="title">회원가입 경로</th>
-					<td><select>
+					<td><select name="path_code">
 							<option>가입 경로 선택</option>
 							<option>인터넷 광고(검색, 카페, 블로그 등)</option>
 							<option>TV광고·옥외광고·포스터 등(오프라인)</option>
@@ -314,6 +314,9 @@ body, html {
 	$('.file-type').click(function() {
 		$('input[name="real-file2"]').click();
 	});
+	
+	
+	
 	</script>
 </body>
 </html>
