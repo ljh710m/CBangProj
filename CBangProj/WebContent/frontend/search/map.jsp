@@ -363,7 +363,11 @@
 		</div>
 		<div>
 			<div class="contents">
-				<div></div>
+				<div class="map-component">
+					<div class="Map" id="map" style="overflow: hidden;">
+						
+					</div>
+				</div>
 				<div class="List list-component map-page">
 					<div class="ListOutWrap">
 						<div class="ListInfo room-info clearfix">
@@ -446,12 +450,7 @@
 				</div>
 			</div>
 		</div>
-				
-		
-		
-	</div>
-	
-
+	</div>	
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -459,6 +458,11 @@
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>     
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/search/map.js'/>"></script>
+    <script src="<c:url value='/js/search/googlemaps.js'/>"></script>
+    <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
+    <script 
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyBHqUjETYyMHerCmQT_1u-zEGIT2-7a5_c&callback=initMap"></script>    
+    
     	
 </body>
 </html>

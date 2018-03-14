@@ -636,8 +636,7 @@ legend {
 .Pagination-item--prev, .Pagination-item--next {
     width: auto;
 }
-
-
+/* ListLoading */
 .ListLoading-icon:before, .ListLoading-icon:after {
     content: ' ';
     display: block;
@@ -653,6 +652,16 @@ legend {
     margin-left: -11.5px;
     background-image: url(/eb60851…/img/web/search/loading-bi.png);
 }
+/* Map */
+.Map {
+    display: block;
+    position: absolute;
+    top: 101px;
+    right: 460px;
+    bottom: 0;
+    left: 0;
+}
+
 
 
 @media (min-width: 1024px){
