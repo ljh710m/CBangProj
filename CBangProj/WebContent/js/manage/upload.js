@@ -131,13 +131,11 @@ $(function() {
 	});
 	//상세설명 글자수
 	//제목]
-	$('.detail-wrap input').on('input',function(){
-		console.log($(this).val().length);
+	$('.detail-wrap input').on('input',function(){		
 		$(this).next().children().eq(0).html($(this).val().length);		
 	});
 	//내용]
-	$('.detail-wrap textarea:eq(0)').on('input',function(){
-		console.log($(this).val().length);
+	$('.detail-wrap textarea:eq(0)').on('input',function(){		
 		$(this).next().children().eq(0).html($(this).val().length);		
 	});
 	
