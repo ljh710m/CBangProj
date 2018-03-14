@@ -4,23 +4,23 @@ function initMap() {
 		zoom: 3,
 		center: {lat: -28.024, lng: 140.887}
 	});
-        
-	maxZoomService = new google.maps.MaxZoomService();
-        
-    // Add some markers to the map.
-    // Note: The code uses the JavaScript Array.prototype.map() method to
-    // create an array of markers based on a given "locations" array.
-    // The map() method here has nothing to do with the Google Maps API.
+     
+	// 자바 스크립트  Array.prototype.map()
+	// var 변수 = 요소가 포함된 배열 개체.map(function(배열 요소의 값, 인덱스){
+	//		return new google.maps.Marker({
+	//			position : {lat: 위도값, lng: 경도값 }
+	//		});
+	// });	
     var markers = locations.map(function(location, i) {
     	return new google.maps.Marker({
     		position: location  
     	});
     });
-
+    
 	// Add a marker clusterer to manage the markers.
 	var markerCluster = new MarkerClusterer(map, markers,
 			{imagePath: '/CBangProj/vendor/googlemaps/images/m'});
-	
+		
 }
 	var locations = [
     {lat: -31.563910, lng: 147.154312},
