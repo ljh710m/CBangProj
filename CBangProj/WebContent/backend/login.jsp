@@ -75,12 +75,9 @@
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script>
 	    $(function() {
-	    	if(${errors.idOrPwNotMatch}){
+		    if(${errors.idOrPwNotMatch}){
 	        	customAlert("error", "아이디 또는 비밀번호가 틀렸습니다.");
-	    	}
-	    	if(${errors.success}){
-	        	customAlert("success", "신청이 완료되었습니다.");
-	    	}
+	    	}	    		    	
 	    });
     </script>
                         

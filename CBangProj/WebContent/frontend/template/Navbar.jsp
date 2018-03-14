@@ -18,7 +18,7 @@
     	</div>
     	<div id="navbar" class="navbar-collapse collapse">      		
 			<ul class="nav navbar-nav navbar-right">        		
-        		<li><a href="./">방 검색 </a></li>
+        		<li><a href="<c:url value='/frontend/search/map.jsp'/>">방 검색 </a></li>
         		<li><a href="#">관심목록</a></li>
         		<li><a href="<c:url value='/frontend/manage/NewRoom.jsp'/>">방 등록</a></li>
         		<li><a href="#" style="font-size: 12px;">공인중개사 회원가입</a></li>

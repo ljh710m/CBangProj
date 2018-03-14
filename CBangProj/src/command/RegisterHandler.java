@@ -52,8 +52,7 @@ public class RegisterHandler implements CommandHandler{
 		}
 		
 		try {
-			registerService.register(regReq);
-			errors.put("success", Boolean.TRUE);
+			registerService.register(regReq);			
 			return "/backend/login.jsp";
 		} catch(DuplicatedException e) {
 			errors.put("duplicateId", Boolean.TRUE);
