@@ -126,3 +126,4 @@ var gooGoonInJejusi = ["세종"];
 			customAlert("error", "사업자 등록증을 첨부하기 전에 인증을 먼저 해야합니다.");
 		}
 	});
+	
