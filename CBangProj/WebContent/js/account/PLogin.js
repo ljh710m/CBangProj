@@ -127,3 +127,18 @@ var gooGoonInJejusi = ["세종"];
 		}
 	});
 	
+	$('#certification').click(function(){
+		if($('[name="permit_no"]').val().length != 0){
+			
+		}
+		else{
+			customAlert("error","사업자 등록번호가 없거나 틀렸습니다.");
+		}
+	});
+	
+	$('input[type="number"]').on('input',function(e){
+		var inputNumber = parseInt($(this).val());
+		if(inputNumber > parseInt($(this).attr('max'))){
+				$(this).val($(this).val().slice(0, $(this).attr('max').length));
+			}
+		});

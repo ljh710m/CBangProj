@@ -27,7 +27,7 @@
 <link
 	href="<c:url value='/vendor/fontawesome/css/fontawesome.min.css'/>"
 	rel="stylesheet">
-
+<link href="<c:url value='/vendor/fontawesome/css/fa-solid.min.css'/>" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="<c:url value='/css/navbar.css'/>" rel="stylesheet">
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet">
@@ -45,7 +45,7 @@ body, html {
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp" />
-	<form action="<c:url value='/ACCOUNT/PLogin.do' />" method="post">
+	<form action="<c:url value='/ACCOUNT/PLoginProcess.do' />" method="post">
 		<div id="body" class="col-md-8 col-md-offset-2">
 			<div>
 				<h1>회원가입</h1>
@@ -79,7 +79,10 @@ body, html {
 								style="display: inline-block; cursor: pointer; position: relative; z-index: 1;">중개등록증
 								첨부</div>
 							<div class="SignUpForm--file__wrap">
-								<span class="File--name" style="width: 100px;"></span>
+								<span class="File--name"></span>
+								<a>
+									<i></i>
+								</a>
 							</div>
 							<div id="html5_1c81njc781ik8c2t541bs714fp3_container"
 								class="moxie-shim moxie-shim-html5"
@@ -98,7 +101,7 @@ body, html {
 							class="number" maxlength="2" required /> <span
 							class="input-dash"> - </span> <input type="number" max="99999"
 							class="number" maxlength="5" required style="margin-right: 10px;" />
-							<button type="button" class="Btn--md Btn--red"
+							<button id="certification" type="button" class="Btn--md Btn--red"
 								style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
 							<button type="button" class="Btn--md Btn--disabled">사업자
 								등록증 첨부</button>
@@ -196,9 +199,9 @@ body, html {
 								<option>017</option>
 								<option>018</option>
 								<option>019</option>
-						</select> <span class="input--dash"> - </span> <input type="number"
+						</select> <span class="input--dash">- </span> <input type="number"
 							max="9999" class="number" name="phone" required maxlength="4" />
-							<span class="input--dash"> - </span> <input type="number"
+							<span class="input--dash">- </span> <input type="number"
 							max="9999" class="number" name="phone" required maxlength="4" />
 						</td>
 					</tr>
@@ -325,12 +328,22 @@ body, html {
 		$('input[name="real-file2"]').click();
 	});
 
-	$('input[name="real-file1"]').on('change',function(e){
-		var fileValue = $('input[name="real-file1"]').val().split("\\");
+	var btn_file1 = $('input[name="real-file1"]');
+	btn_file1.on('change',function(e){
+		var fileValue = btn_file1.val().split("\\");
 		var fileName = fileValue[fileValue.length-1]; // 파일명
+			$('.File--name').css('width',(fileName.length*7)+'px');
 			$('span.File--name').append(fileName);
+			if($('i').html() != undefined)
+				$('i').addClass('fas fa-window-close');
+			
+			$('i').click(function(){
+				btn_file1.val('');
+				$('i').removeClass();
+				$('span.File--name').html('');
+			});
 		});
-	
+
 	
 	$('input[name="real-file2"]').on('change',function(){
 		readURL(this);
@@ -341,13 +354,11 @@ body, html {
 					var reader = new FileReader();
 
 					reader.onload = function(e){
-							$('.Profile--img').css('background','url('+e.target.result+')');							
+							$('.Profile--img').css('background','url('+e.target.result+') no-repeat center center');							
 						}
 					reader.readAsDataURL(input.files[0]);
 				}
 		}
-	
-	
 	
 	</script>
 </body>

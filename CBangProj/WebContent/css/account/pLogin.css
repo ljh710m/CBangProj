@@ -132,6 +132,11 @@ input{
 	outline: none;
 	font-size: 13px;
 }
+input[type="number"]{
+	width: 138px;
+	height: 35px;
+	border: 1px solid #e7e7e7;
+}
 select{
 	height: 35px;
 }
@@ -179,7 +184,7 @@ div.SignUpForm--file__wrap{
 }
 div.SignUpForm--file__wrap .File--name{
 	display: inline-block;
-	width:70px;
+	width:100px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -207,14 +212,20 @@ div.SignUpForm--file__wrap .File--name{
 	background-color: #f1f1f1;
 	cursor: default;
 }
-td input[type="text"]{
+td input[type="text"], td input[type="password"]{
 	width: 440px;
 	height: 35px;
 	border: 1px solid #e7e7e7;
 	padding: 0 10px 0 10px;	
 }
+[name=path_code]{
+	width: 138px;
+    height: 35px;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    padding-left: 10px;
+}
 .selectBox{
-	margin-right: 13px;
 	width: 138px;
 	height: 35px;
 	border: 1px solid #e7e7e7;
