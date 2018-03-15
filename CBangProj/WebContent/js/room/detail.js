@@ -42,14 +42,15 @@ $(function() {
     // 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수
     function createMarkerImage(index) {
         var markerImage = new daum.maps.MarkerImage(
-        		"/images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));        
+        		"../../images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));        
         return markerImage;
     }
     // 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수
     function createMarker(place, image) {
         var marker = new daum.maps.Marker({
             position: new daum.maps.LatLng(place.y, place.x),
-            image: image
+            image: image,
+            map : map
         });        
         
         return marker;
@@ -59,19 +60,23 @@ $(function() {
         // 마커를 생성하고 지도에 표시합니다
         var marker = new daum.maps.Marker({
             map: map,
-            position: new daum.maps.LatLng(place.y, place.x) 
+            position: new daum.maps.LatLng(place.y, place.x)            
         });
     }    
         
-    var markers = new Array(category.length);
+    var markers = new Array(category.length);    
     for(var i=0; i<category.length; i++){    
     	places.categorySearch(category[i], placesSearchCB, {useMapBounds:true});
-    	markers[i] = new Array();
+    	markers[i] = new Array();    	
+    	console.log(i);
     	// 키워드 검색 완료 시 호출되는 콜백함수
     	function placesSearchCB(data, status, pagination) {
     		if(status === daum.maps.services.Status.OK) {
     			for(var j=0; j<data.length; j++) {
+    				console.log(i);
+    				console.log(data[j]);
     				var marker = createMarker(data[j], createMarkerImage(i));
+    				//markers[i].add(marker);    				
     				//displayMarker(data[j]);
     			}
     		}
