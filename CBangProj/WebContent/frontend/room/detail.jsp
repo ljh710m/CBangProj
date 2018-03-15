@@ -119,7 +119,7 @@
 						<div class="prev"><button class="arrow btn-no-border btn-no-bg"></button></div>
 						<div class="next"><button class="arrow btn-no-border btn-no-bg"></button></div>
 					</div>
-					<div class="infos"">
+					<div class="infos">
 						<div>
 							<div class="room-info-wrap clearfix">
 								<div class="room-info-inner">
@@ -423,6 +423,8 @@
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>     
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
+    <script src="<c:url value='/js/room/detail.js'/>"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a7682697ada046b18ac56822b1fa1c14&libraries=services"></script>
     	
 </body>
 </html>
