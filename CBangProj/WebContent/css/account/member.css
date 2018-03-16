@@ -1,0 +1,223 @@
+
+element.style {
+    width: 120px;
+}
+.Account-title {
+	font-size: 24px;
+	color: #000;
+	text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
+*:before, *:after {
+    box-sizing: inherit;
+}
+h1 {
+    display: block;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.Account {
+    padding-top: 30px;
+}
+.memberjoin-modal-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1051;
+    opacity: .5;
+}
+
+.memberjoin-modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1052;
+    margin: auto;
+}
+.memberjoin-modal {
+    width: 100%;
+    height: 100%;
+}
+.memberjoin-modal {
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    outline: 0;
+}
+element.style {
+    width: 520px;
+    height: 474px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.memberjoin-modal-dialog {
+    padding-bottom: 20px;
+    border-top: 5px #3b8de0 solid;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+}
+.memberjoin-modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1052;
+    margin: auto;
+    text-align: left;
+}
+.memberjoin-modal-header {
+    color: #fff;
+}
+.memberjoin-modal-body {
+    background-color: #fff;
+}
+.Account {
+    padding-top: 30px;
+    color: #585858;
+}
+.UserSignup {
+    margin-top: 38px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.Account-form__row {
+    display: table;
+    width: 100%;
+}
+.UserSignup .Account-form__cell:first-child {
+    width: 90px;
+}
+.Account-form__cell:first-child {
+    text-align: left;
+}
+.Account-form__cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.Account-form__label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+.UserSignup .Account-form__input {
+    height: 34px;
+}
+.Account-form__input {
+    width: 100%;
+    height: 40px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid #d1d1d1;
+}
+input {
+    line-height: normal;
+}
+element.style {
+    float: right;
+    width: 110px;
+}
+.Account-form__select {
+    height: 35px;
+    padding-right: 25px;
+    padding-left: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: 0;
+    background-color: #fff;
+    background-image: url("/Yim/memberjoin/im/arrows.png");
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+element.style {
+    display: block;
+    width: 236px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.Account-form__submit {
+    width: 100%;
+    margin-top: 30px;
+}
+.btn-lg {
+    width: 230px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 48px;
+}
+.btn {
+    display: inline-block;
+    padding: 0 13px;
+    background-image: none;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.53856154;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn-blue {
+    border: 1px #2074c8 solid;
+    background-color: #3b8de0;
+    color: #fff;
+}
+.border-radius-large {
+    border-radius: 5px;
+}
+.Account-form__abled .Account-form__input {
+    width: 82px;
+}
+.Account-form__row+.Account-form__row {
+    margin-top: 13px;
+}
+.Account-form__row button {
+    float: right;
+    width: 100px;
+    height: 34px;
+    vertical-align: top;
+}
+.btn-white-blue {
+    border: 1px #3b8de0 solid;
+    background-color: #fff;
+    color: #3b8de0;
+}
