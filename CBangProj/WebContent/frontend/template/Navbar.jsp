@@ -49,7 +49,4 @@
 		</div><!--/.nav-collapse -->
 	</div>
 </nav>
-	<jsp:include page="/frontend/account/login.jsp"/>
-	<jsp:include page="/frontend/account/findpwd.jsp"/>
-	<jsp:include page="/frontend/account/agree.jsp"/>	
-	<jsp:include page="/frontend/account/member.jsp"/>
+	
