@@ -385,7 +385,7 @@
 								</div>
 								<ul class="Room-list items">
 									<li class="Room-item">
-										<a href="/room/5a4d77e18e5b724a8c596fac" target="_blank">
+										<a href="<c:url value='/frontend/room/detail.jsp'/>">
 											<div class="RoomItem-preview">
 												<div class="RoomItem-preview__mask">
 													<div class="RoomItem-preview__image"></div>	

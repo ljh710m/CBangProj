@@ -14,6 +14,10 @@ $(function() {
 	// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 	
+	// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	var zoomControl = new daum.maps.ZoomControl();
+	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+	
     // 지도에 표시할 원을 생성합니다
     var circle = new daum.maps.Circle({
         center : new daum.maps.LatLng(37.47861, 126.8786259),  // 원의 중심좌표 입니다 
@@ -51,8 +55,14 @@ $(function() {
             position: new daum.maps.LatLng(place.y, place.x),
             image: image,
             map : map
-        });        
+        });
         
+        // 마커에 클릭이벤트를 등록합니다
+        daum.maps.event.addListener(marker, 'click', function() {
+        	$('.marker-info').remove();               	
+        	$('#marker-alert').html('<div class="marker-info" style="padding:5px;">'+place.place_name+'</div>');
+        	$('.marker-info').animate({opacity:'0'},3000);
+        });
         return marker;
     }
     // 지도에 마커를 표시하는 함수
@@ -62,48 +72,29 @@ $(function() {
             map: map,
             position: new daum.maps.LatLng(place.y, place.x)            
         });
-    }    
-        
+    }
+    
     var markers = new Array(category.length);    
     for(var i=0; i<category.length; i++){    
     	places.categorySearch(category[i], placesSearchCB, {useMapBounds:true});
-    	markers[i] = new Array();    	
-    	console.log(i);
-    	// 키워드 검색 완료 시 호출되는 콜백함수
-    	function placesSearchCB(data, status, pagination) {
-    		if(status === daum.maps.services.Status.OK) {
-    			for(var j=0; j<data.length; j++) {
-    				console.log(i);
-    				console.log(data[j]);
-    				var marker = createMarker(data[j], createMarkerImage(i));
-    				//markers[i].add(marker);    				
-    				//displayMarker(data[j]);
-    			}
-    		}
-    	}   	
-    } 
-    
-    // 마커를 생성하고  마커 배열에 추가하는 함수
-    /*
-    function createMarkers() {
-        for (var i = 0; i < category.length; i++) {
-        	console.log(category[i]);
-        	places.categorySearch(category[i], callback, {useMapBounds:true});
-        	//markers[i] = new Array();
-        	var callback = function(result, status, pagination) {        		
-        		console.log(result);
-            	if (status === daum.maps.services.Status.OK) {
-            		for(var j=0; j<result.length; j++){
-            			var marker = createMarker(new daum.maps.LatLng(result[j].y,result[j].x), createMarkerImage(i));
-            			console.log(marker);
-            			markers[i].add(marker);            			
-            		}            		
-            	}
-            };
-            //console.log(markers[i]);
-        }
+    	markers[i] = new Array();
     }
-    */
+    var imgIndex=0;
+    // 키워드 검색 완료 시 호출되는 콜백함수
+	function placesSearchCB(data, status, pagination) {
+		if(status === daum.maps.services.Status.OK) {
+			imgIndex++;
+			console.log("imgIndex"+imgIndex);
+			for(var j=0; j<data.length; j++) {    				
+				var marker = createMarker(data[j], createMarkerImage(imgIndex));
+				
+				//markers[imgIndex][j].push(marker);
+			}
+		}
+		
+	} 
+    
+    
     $('.menus > ul > li').click(function(){
     	console.log($(this).index());    	
     	$(this).children().toggleClass('active');
@@ -112,8 +103,7 @@ $(function() {
     	}
     	else{
     		
-    	}
-    	
+    	}    	
     	
     });
     
