@@ -15,7 +15,7 @@ public class ConnectionProvider {
 	public static Connection getConnection() throws SQLException {
 		try {
 			Context ctx = new InitialContext();
-			DataSource source=(DataSource)ctx.lookup("java:comp/env/jdbc/OracleXE");
+			DataSource source=(DataSource)ctx.lookup("java:comp/env/jdbc/OracleDB");
 			conn = source.getConnection();
 		} catch (NamingException e) {			
 			e.printStackTrace();
