@@ -1,28 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script>
-	function loginmodal(){
-		$('#login').modal();
-	}
-	
-	
-	/* function AllModalClose() {
-		$('#login').modal('hide');
-		$('#findpwd').modal('hide');
-		$('#agree').modal('hide');
-		$('#accountJoin').modal('hide');
-		
-	} */
-	
-	function findpwdclose(){
-		$('#login').modal('hide');
-	}
-	function accountjoinclose(){
-		$('#agree').modal('hide');
-		$('#login').modal('hide');
-	}
-</script>
+
+
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
@@ -49,7 +29,4 @@
 		</div><!--/.nav-collapse -->
 	</div>
 </nav>
-	<jsp:include page="/frontend/account/login.jsp"/>
-	<jsp:include page="/frontend/account/findpwd.jsp"/>
-	<jsp:include page="/frontend/account/agree.jsp"/>	
-	<jsp:include page="/frontend/account/member.jsp"/>
+	
