@@ -43,7 +43,8 @@ $(function() {
     //장소 검색 객체 생성
     var places = new daum.maps.services.Places(map);
     
-    // 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수
+    // 마커이미지의 주소와, 크기로 마커 이미지를 생성하여 리턴하는 함수
+    // 1:지하철, 2:편의점, 3:카페, 4:은행, 5:관공서
     function createMarkerImage(index) {
         var markerImage = new daum.maps.MarkerImage(
         		"../../images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));        
@@ -74,10 +75,10 @@ $(function() {
         });
     }
     
-    var markers = new Array(category.length);    
-    for(var i=0; i<category.length; i++){    
+    var markers = new Array(category.length);
+    for(var i=0; i<category.length; i++){
     	places.categorySearch(category[i], placesSearchCB, {useMapBounds:true});
-    	markers[i] = new Array();
+    	markers[i] = new Array();    	
     }
     var imgIndex=0;
     // 키워드 검색 완료 시 호출되는 콜백함수
@@ -90,10 +91,25 @@ $(function() {
 				
 				//markers[imgIndex][j].push(marker);
 			}
-		}
-		
-	} 
-    
+		}		
+	}
+	// 1:지하철, 2:편의점, 3:카페, 4:은행, 5:관공서
+	var subwayMarkers = [], //지하철 마커 객체를 가지고 있을 배열
+	storeMarkers = [], // 편의점 마커 객체를 가지고 있을 배열
+	coffeeMarkers = [], // 카페 마커 객체를 가지고 있을 배열
+    bankMarkers = [], // 은행 마커 객체를 가지고 있을 배열
+    publicMarkers = []; //관공서 마커 객체를 가지고 있을 배열
+	
+	// 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수입니다
+	function createMarker(index) {
+	    var marker = new daum.maps.Marker({
+	        position: position,
+	        image: createMarkerImage(index)
+	    });
+	    
+	    return marker;  
+	}  
+	
     
     $('.menus > ul > li').click(function(){
     	console.log($(this).index());    	
