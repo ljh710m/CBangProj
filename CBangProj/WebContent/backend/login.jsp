@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link href="<c:url value='/images/favicon.ico'/>" rel="shortcut icon" />
-	<title>CBang Admin</title>
+	<title>NBang Admin</title>
 
 	<!-- Basic CSS -->
 	<link href="<c:url value='/vendor/sufee/css/normalize.css'/>" rel="stylesheet">	
