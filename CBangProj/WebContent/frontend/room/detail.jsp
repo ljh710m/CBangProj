@@ -367,7 +367,7 @@
 								<div id="map-canvas">
 									<div class="map-content" style="position:relative;margin-top:1px;">
 										<div id="marker-alert"></div>
-										<div class="marker-info" style="padding:5px;">강남소방서 역삼119안전센터 (207m)</div></div>
+										
 										<div></div>
 										<div id="map"></div>
 										<div class="map-footer">									

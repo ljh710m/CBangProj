@@ -32,7 +32,8 @@ $(function() {
 
     // 지도에 원을 표시합니다 
     circle.setMap(map);
-        
+         
+    /* 주변 편의시설 지도 표시 */
     //카테고리] SW8:지하철, CS2:편의점, CE7:카페, BK9:은행, PO3:문화기관
     //place_name:장소명, 업체명
     //distance	중심좌표까지의 거리(x,y 파라미터를 준 경우에만 존재). 단위 meter
@@ -49,78 +50,138 @@ $(function() {
         var markerImage = new daum.maps.MarkerImage(
         		"../../images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));        
         return markerImage;
-    }
-    // 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수
-    function createMarker(place, image) {
-        var marker = new daum.maps.Marker({
-            position: new daum.maps.LatLng(place.y, place.x),
-            image: image,
-            map : map
-        });
-        
-        // 마커에 클릭이벤트를 등록합니다
-        daum.maps.event.addListener(marker, 'click', function() {
-        	$('.marker-info').remove();               	
-        	$('#marker-alert').html('<div class="marker-info" style="padding:5px;">'+place.place_name+'</div>');
-        	$('.marker-info').animate({opacity:'0'},3000);
-        });
-        return marker;
-    }
-    // 지도에 마커를 표시하는 함수
-    function displayMarker(place) {
-        // 마커를 생성하고 지도에 표시합니다
-        var marker = new daum.maps.Marker({
-            map: map,
-            position: new daum.maps.LatLng(place.y, place.x)            
-        });
-    }
+    }    	
     
-    var markers = new Array(category.length);
-    for(var i=0; i<category.length; i++){
-    	places.categorySearch(category[i], placesSearchCB, {useMapBounds:true});
-    	markers[i] = new Array();    	
-    }
-    var imgIndex=0;
-    // 키워드 검색 완료 시 호출되는 콜백함수
-	function placesSearchCB(data, status, pagination) {
-		if(status === daum.maps.services.Status.OK) {
-			imgIndex++;
-			console.log("imgIndex"+imgIndex);
-			for(var j=0; j<data.length; j++) {    				
-				var marker = createMarker(data[j], createMarkerImage(imgIndex));
-				
-				//markers[imgIndex][j].push(marker);
-			}
-		}		
-	}
-	// 1:지하철, 2:편의점, 3:카페, 4:은행, 5:관공서
 	var subwayMarkers = [], //지하철 마커 객체를 가지고 있을 배열
 	storeMarkers = [], // 편의점 마커 객체를 가지고 있을 배열
 	coffeeMarkers = [], // 카페 마커 객체를 가지고 있을 배열
     bankMarkers = [], // 은행 마커 객체를 가지고 있을 배열
     publicMarkers = []; //관공서 마커 객체를 가지고 있을 배열
-	
+	var order;
 	// 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수입니다
-	function createMarker(index) {
-	    var marker = new daum.maps.Marker({
-	        position: position,
-	        image: createMarkerImage(index)
+	function createMarker(place,image) {
+	    var marker = new daum.maps.Marker({	    	
+	        position: new daum.maps.LatLng(place.y, place.x), //마커의 좌표
+	        image: image, //마커의 이미지
+	        map : map //마커가 올라갈 지도
 	    });
+	    
+	    daum.maps.event.addListener(marker, 'click', function() {
+        	$('.marker-info').remove();               	
+        	$('#marker-alert').html('<div class="marker-info" style="padding:5px;">'+place.place_name+" "+place.distance+'(m)</div>');
+        	$('.marker-info').animate({opacity:'0'},3000);
+        });
 	    
 	    return marker;  
 	}  
 	
-    
+	function createMarkers(index){
+		switch(index){
+			case 0:
+				places.categorySearch(category[0], subwaySearchCB, {useMapBounds:true, useMapCenter:true});			
+				break;
+			case 1:
+				places.categorySearch(category[1], storeSearchCB, {useMapBounds:true, useMapCenter:true});
+				break;
+			case 2:
+				places.categorySearch(category[2], coffeeSearchCB, {useMapBounds:true, useMapCenter:true});
+				break;
+			case 3:
+				places.categorySearch(category[3], bankSearchCB, {useMapBounds:true, useMapCenter:true});
+				break;
+			default:
+				places.categorySearch(category[4], publicSearchCB, {useMapBounds:true, useMapCenter:true});							
+		}
+							
+	}
+	
+	function subwaySearchCB(data, status, pagination) {		
+		if(status === daum.maps.services.Status.OK) {			
+			for(var j=0; j<data.length; j++) {			
+				var marker = createMarker(data[j], createMarkerImage(1));				
+				subwayMarkers.push(marker);				
+			}
+		}		
+	}
+	function storeSearchCB(data, status, pagination) {		
+		if(status === daum.maps.services.Status.OK) {			
+			for(var j=0; j<data.length; j++) {			
+				var marker = createMarker(data[j], createMarkerImage(2));
+				storeMarkers.push(marker);				
+			}
+		}		
+	}
+	function coffeeSearchCB(data, status, pagination) {		
+		if(status === daum.maps.services.Status.OK) {			
+			for(var j=0; j<data.length; j++) {			
+				var marker = createMarker(data[j], createMarkerImage(3));
+				coffeeMarkers.push(marker);
+			}			
+		}
+	}
+	function bankSearchCB(data, status, pagination) {		
+		if(status === daum.maps.services.Status.OK) {			
+			for(var j=0; j<data.length; j++) {			
+				var marker = createMarker(data[j], createMarkerImage(4));
+				bankMarkers.push(marker);
+			}
+		}		
+	}
+	function publicSearchCB(data, status, pagination) {		
+		if(status === daum.maps.services.Status.OK) {			
+			for(var j=0; j<data.length; j++) {			
+				var marker = createMarker(data[j], createMarkerImage(5));
+				publicMarkers.push(marker);
+			}			
+		}	
+	}
+		
+	createMarkers(0);
+	createMarkers(1);
+	createMarkers(2);
+	createMarkers(3);
+	createMarkers(4);
+	
+	// 마커들의 지도 표시 여부를 설정하는 함수
+	function setStoreMarkers(index, map) {
+		switch(index){
+			case 0:
+				for(var i=0; i<subwayMarkers.length;i++) {
+					subwayMarkers[i].setMap(map);
+				}
+				break;
+			case 1:
+				for(var i=0; i<storeMarkers.length;i++) {
+					storeMarkers[i].setMap(map);
+				}
+				break;
+			case 2:
+				for(var i=0; i<coffeeMarkers.length;i++) {
+					coffeeMarkers[i].setMap(map);
+				}
+				break;
+			case 3:
+				for(var i=0; i<bankMarkers.length;i++) {
+					bankMarkers[i].setMap(map);
+				}
+				break;
+			default:
+				for(var i=0; i<publicMarkers.length;i++) {
+					publicMarkers[i].setMap(map);
+				}				
+		}	          
+	}
+	
+	//아이콘 클릭시 맵에 표시/감추기 기능을 하는 함수
     $('.menus > ul > li').click(function(){
     	console.log($(this).index());    	
     	$(this).children().toggleClass('active');
     	if($(this).children().hasClass('active')){
-    		    		  		    		    		
+    		setStoreMarkers($(this).index(),map);    			
     	}
     	else{
-    		
+    		setStoreMarkers($(this).index(),null);    		    		
     	}    	
-    	
     });
     
     /* 스크롤바 감지 */
