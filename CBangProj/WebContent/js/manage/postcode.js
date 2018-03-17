@@ -64,11 +64,10 @@ function execDaumPostcode() {
         	        // 지도에 원을 표시합니다 
         	        circle.setMap(map);        	       
                 }
-            }); 
-	                   
+            });	                   
         }
     }).open({
     	q: $('#searchAddress').val()    	
-    });    
+    });
 }
 
