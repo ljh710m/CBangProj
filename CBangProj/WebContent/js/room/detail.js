@@ -173,8 +173,7 @@ $(function() {
 	}
 	
 	//아이콘 클릭시 맵에 표시/감추기 기능을 하는 함수
-    $('.menus > ul > li').click(function(){
-    	console.log($(this).index());    	
+    $('.menus > ul > li').click(function(){    	    	
     	$(this).children().toggleClass('active');
     	if($(this).children().hasClass('active')){
     		setStoreMarkers($(this).index(),map);    			
