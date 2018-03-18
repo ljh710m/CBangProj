@@ -6,7 +6,7 @@ function execDaumPostcode() {
         	
             // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+            fullRoadAddr = data.roadAddress; // 도로명 주소 변수
             var extraRoadAddr = ''; // 도로명 조합형 주소 변수
             
             // 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -36,16 +36,18 @@ function execDaumPostcode() {
             // 주소로 상세 정보를 검색
             geocoder.addressSearch(data.address, function(results, status) {
                 // 정상적으로 검색이 완료됐으면
-                if (status === daum.maps.services.Status.OK) {
+                if (status === daum.maps.services.Status.OK) {                	 
 
                     var result = results[0]; //첫번째 결과의 값을 활용
-
+                    var lat = result.y;
+                    var lng = result.x;
+                    
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                     mapOption = {
-                        center: new daum.maps.LatLng(result.y, result.x), // 지도의 중심좌표
+                        center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
                         level: 3 // 지도의 확대 레벨
                     };
-                    
+                                        
                     //지도를 생성
         	        var map = new daum.maps.Map(mapContainer, mapOption);
                     
@@ -59,15 +61,24 @@ function execDaumPostcode() {
         	            strokeStyle: 'solid', // 선의 스타일 입니다
         	            fillColor: '#CFE7FF', // 채우기 색깔입니다
         	            fillOpacity: 0.6  // 채우기 불투명도 입니다   
-        	        }); 
+        	        });
 
         	        // 지도에 원을 표시합니다 
-        	        circle.setMap(map);        	       
+        	        circle.setMap(map);
+        	       
+        	        //주소 정보 전달
+        	        $('#roadAddress').val(fullRoadAddr);
+        	        $('#jibunAddress').val(data.jibunAddress);
+        	        $('#sido').val(data.sido);
+        	        $('#sigungu').val(data.sigungu);
+        	        $('#bname').val(data.bname);
+        	        $('#bname1').val(data.bname1);
+        	        $('#lat').val(lat);
+        	        $('#lng').val(lng);
                 }
             });	                   
         }
     }).open({
     	q: $('#searchAddress').val()    	
-    });
+    });   
 }
-
