@@ -37,7 +37,7 @@ $(function() {
 		var wrap = $('<div/>');
 		var div = $('<div/>').addClass('transaction-item');
 		var span1 = $('<span/>').addClass('tag').html("전세");
-		var price = $('<input/>').addClass('form-control').attr({type:'number',placeholder:'전세'});
+		var price = $('<input/>').addClass('form-control').attr({type:'number',min:0,placeholder:'전세',id:'deposit1'});
 		var span2 = $('<span/>').html("만원");
 		var span3 = $('<span/>').addClass('discription').html("(예 전세 2,000 만원)");
 		var icon = $('<i/>').addClass("fas fa-window-close icon-delete").attr({style:"color:black",id:"delCharter"});
@@ -50,15 +50,16 @@ $(function() {
 	});
 	
 	//월세추가
+	var count=0;
 	$('#addMonth').click(function(){
 		//$(this).attr('disabled',"disabled");
-		
-		var wrap = $('<div/>');		
+		count++;
+		var wrap = $('<div/>');
 		var div = $('<div/>').addClass('transaction-item');
 		var span1 = $('<span/>').addClass('tag').html("월세");
-		var price1 = $('<input/>').addClass('form-control').attr({type:'number',placeholder:'보증금'});
+		var price1 = $('<input/>').addClass('form-control').attr({type:'number',placeholder:'보증금',min:0,id:"deposit2"+count});
 		var span2 = $('<span/>').addClass('slush').html("/");
-		var price2 = $('<input/>').addClass('form-control').attr({type:'number',placeholder:'월세'});
+		var price2 = $('<input/>').addClass('form-control').attr({type:'number',placeholder:'월세',min:0,id:"month_price"+count});
 		var span3 = $('<span/>').html("만원");
 		var span4 = $('<span/>').addClass('discription').html("(예 월세 1000만원 / 50만원)");
 		var icon = $('<i/>').addClass("fas fa-window-close icon-delete").attr('style',"color:black");
@@ -183,9 +184,9 @@ $(function() {
 				var photo_elem = $('<div/>').addClass('photo-elem').attr('id',index);
 				if(index==0) var title = $('<div/>').addClass('photo-title').html('대표사진');
 				var close = $('<div/>').addClass('close').click(function(){
-					var id = $(this).parent().attr('id');					
+					var id = $(this).parent().attr('id');			
 					var dialog = $('<div/>').attr('title',"사진 삭제").append($('<p/>').html('삭제하시겠습니까?')).dialog({
-						position:{my:"center top", at:"center top", of:window},						
+						position:{my:"center top", at:"center top", of:window},				
 						resizable:false,
 						height:"auto",
 						width:400,
@@ -213,7 +214,8 @@ $(function() {
 					$(this).next().css({'-webkit-transform' : 'rotate('+ rotation +'deg)',
 		                 			    '-moz-transform' : 'rotate('+ rotation +'deg)',
 		                 			    '-ms-transform' : 'rotate('+ rotation +'deg)',
-		                 			    'transform' : 'rotate('+ rotation +'deg)'});															
+		                 			    'transform' : 'rotate('+ rotation +'deg)'});
+					if(rotation == 360) rotation = 0;
 				});
 				var icon = $('<i/>').addClass('fas fa-redo-alt cbang-icon');
 				var photo = $('<div/>').addClass('photo').attr('style','background-image:url('+e.target.result+')');
@@ -222,17 +224,18 @@ $(function() {
 				index++;
 				photo_count++;
 			}
-			reader.readAsDataURL(f);
+			reader.readAsDataURL(f);			
 		});		
-		
 	});
+		
 	//아이디를 받아서 삭제처리 및 체크
 	var deleteId = function(id){
 		if($('.photo-elem:first').attr('id')==id){			
 			$('.photo-elem:first').next().append($('<div/>').addClass('photo-title').html('대표사진'));			
-		}
+		}		
 		$('#'+id).remove();
-		sel_files.splice(id, 1);		
+		sel_files.splice($('#'+id).index(), 1);		
+		console.log(sel_files);
 		photo_count--;
 		//사진을 모두 삭제했을 때 원래모양으로 복귀
 		if($('.photo-elem').length==0){
@@ -245,17 +248,223 @@ $(function() {
 		}		
 	};
 	
-	//사진 순서 변경
+	//사진 순서 변경	및 사진 배열 순서 변경
+	var start_index;
+	var photo_temp;
 	$('#sortable').sortable({
 		items: ".photo-elem",
 		revert: true,
 		update: function(event, ui){
 			var element_id = ui.item.attr('id');
 			var new_position = $(this).sortable('toArray');			
-			
-			$('.photo-title').remove();
-			$('#'+new_position[0]).append($('<div/>').addClass('photo-title').html('대표사진'));			
-		}
-	});	
+			if(start_index < ui.item.index()-1){
+				sel_files.splice(ui.item.index(), 0, photo_temp);
+				sel_files.splice(start_index, 1);																				
+			}
+			else{
+				sel_files.splice(ui.item.index()-1, 0, photo_temp);
+				sel_files.splice(start_index+1, 1);
+			}
+			$('.photo-title').remove();			
+			$('#'+new_position[0]).append($('<div/>').addClass('photo-title').html('대표사진'));
+			console.log(sel_files);
+		},
+		start: function(event, ui) {
+			start_index = ui.item.index()-1;			
+			photo_temp = sel_files[start_index];					
+	    }
+	});
 	$("#sortable").disableSelection();
+			
+	/* 방올리기 버튼 클릭시 유효성 검사 */
+	$('#submit').click(function(){
+		var roadAddress = $('#roadAddress').val();
+		var jibunAddress = $('#jibunAddress').val();
+		var sido = $('#sido').val();
+		var sigungu = $('#sigungu').val();
+		var bname = $('#bname').val();
+		var bname1 = $('#bname1').val();
+		var lat = $('#lat').val();
+		var lng = $('#lng').val();
+		var room_type = $('#room_type').val();
+		var deposit1 = $('#deposit1').val();
+		var deposit2 = [];
+		var month_price = [];
+		for(var i=0; i<$('[id^=deposit2').length; i++){
+			deposit2.push($('[id^=deposit2').eq(i).val());
+			month_price.push($('[id^=month_price').eq(i).val());
+		}
+		
+		var short_term = $('#short_term').is(":checked")?"Y":"N";
+		var total_floor = $('#total_floor').val();
+		var floor = $('#floor').val();
+		var total_area = $('#total_area').val();
+		var area = $('#area').val();
+		var common_charge = $('#common_charge_ch').is(":checked")?$('#common_charge').val():"-";
+		var charge_list="";	
+		$('input:checkbox[name=chkList1]').each(function(){
+			if($(this).is(':checked')){
+				if(charge_list==""){
+					charge_list = $(this).val();
+				}
+				else{
+					charge_list += ", "+($(this).val());				
+				}		
+			}
+		});
+		var parking_charge = $('input:text[name=parking_charge]').val()==""?"불가능":$('input:text[name=parking_charge]').val();
+		var heating = $('#heating').val();
+		var elevator = $('input:checkbox[name=elevator]:checked').val();
+		var pat = $('input:checkbox[name=pat]:checked').val();
+		var move_date = $('#move_date').val();
+		var room_option="";
+		$('input:checkbox[name=chkList2]').each(function(){
+			if($(this).is(':checked')){
+				if(room_option==""){
+					room_option = $(this).val();
+				}
+				else{
+					room_option += ","+($(this).val());				
+				}
+			}
+		});
+		var title = $('input:text[name=title]').val();
+		var content = $('textarea[name=content]:visible').val();
+		var memo = $('textarea[name=memo]:visible').val();
+				
+		console.log("roadAddress:"+roadAddress);
+		console.log("jibunAddress:"+jibunAddress);
+		console.log("sido:"+sido);
+		console.log("sigungu:"+sigungu);
+		console.log("bname:"+bname);
+		console.log("bname1:"+bname1);
+		console.log("lat:"+lat);
+		console.log("lng:"+lng);
+		console.log("room_type:"+room_type);
+		console.log("deposit1:"+deposit1);
+		console.log("short_term:"+short_term);
+		console.log("total_floor:"+total_floor);
+		console.log("floor:"+floor);
+		console.log("total_area:"+total_area);
+		console.log("area:"+area);
+		console.log("common_charge:"+common_charge);
+		console.log("charge_list:"+charge_list);
+		console.log("parking_charge:"+parking_charge);
+		console.log("heating:"+heating);
+		console.log("elevator:"+elevator);
+		console.log("pat:"+pat);
+		console.log("move_date:"+move_date);
+		console.log("room_option:"+room_option);
+		console.log("title:"+title);
+		console.log("content:"+content);
+		console.log("memo:"+memo);
+		console.log(sel_files);
+		console.log("deposit2:"+deposit2);
+		console.log("month_price:"+month_price);	
+		
+		/*if(roadAddress=="" && jibunAddress==""){
+			customAlert("error", "주소를 입력하세요.");
+			return;
+		}
+		else if(room_type==""){
+			customAlert("error", "방 종류를 선택해 주세요.");
+			return;
+		}
+		else if((deposit1=="" || deposit1 == undefined) && month_price.indexOf("")==0){
+			customAlert("error", "가격 정보를 입력하세요.");
+			return;			
+		}
+		else if(total_floor==""){
+			customAlert("error", "건물 층수를 선택해주세요.");
+			return;
+		}
+		else if(floor==""){
+			customAlert("error", "해당 층수를 선택해주세요.");
+			return;
+		}
+		else if(total_area==""){
+			customAlert("error", "공급 면적을 입력하세요.");
+			return;
+		}
+		else if(area==""){
+			customAlert("error", "전용 면적을 입력하세요.");
+			return;
+		}
+		else if(heating==""){
+			customAlert("error", "난장종류를 선택해주세요.");
+			return;
+		}
+		else if(move_date==""){
+			customAlert("error", "입주가능일을 입력하세요.");
+			return;
+		}
+		else if(title==""){
+			customAlert("error", "제목을 입력하세요.");
+			return;
+		}
+		else if(title==""){
+			customAlert("error", "제목을 입력하세요.");
+			return;
+		}
+		else if(content==""){
+			customAlert("error", "상세 설명을 입력하세요.");
+			return;
+		}
+		else if(sel_files.length==0){
+			customAlert("error", "사진을 등록하세요.");
+			return;
+		}*/		
+				
+		var formData = new FormData();
+		formData.append("roadAddress",roadAddress);
+		formData.append("jibunAddress",jibunAddress);
+		formData.append("sido",sido);
+		formData.append("sigungu",sigungu);
+		formData.append("bname",bname);
+		formData.append("bname1",bname1);
+		formData.append("lat",lat);
+		formData.append("lng",lng);
+		formData.append("deposit1",deposit1);
+		formData.append("deposit2",deposit2);
+		formData.append("month_price",month_price);
+		formData.append("short_term",short_term);
+		formData.append("total_floor",total_floor);
+		formData.append("floor",floor);
+		formData.append("total_area",total_area);
+		formData.append("area",area);
+		formData.append("common_charge",common_charge);
+		formData.append("charge_list",charge_list);
+		formData.append("parking_charge",parking_charge);
+		formData.append("heating",heating);
+		formData.append("elevator",elevator);
+		formData.append("pat",pat);
+		formData.append("move_date",move_date);
+		formData.append("room_option",room_option);
+		formData.append("title",title);
+		formData.append("content",content);
+		formData.append("memo",memo);
+		formData.append("photo",sel_files);
+		
+		submitAction(formData);
+								
+	});
+	
+	/* 유효성 검사가 끝나면 데이터 전송 */
+	function submitAction(formData){
+		$.ajax({
+			type:'post',
+			url:'/CBangProj/Manage/RegisterRoom.do',
+			data : formData,
+			enctype: 'multipart/form-data',
+			processData: false, //data 지정한 개체를 쿼리 문자열로 변환할지 여부를 설정(post방식:false)	
+			contentType: false, //서버에 데이터를 보낼 때 사용(header 정보에 포함)
+			dataType: 'text',
+			success:function(data){
+				alert("업로드 성공!!"+data);
+			},
+			error:function(){
+				alert("업로드 실패");
+			}			
+		});		
+	}		
 });

@@ -47,7 +47,7 @@
 <span id="guide" style="color:#999"></span>
 -->
 	<div class="container">
-		<div class="room-upload-wrap">		
+		<div class="room-upload-wrap">
 			<div class="title">
 				<h2>방 등록하기</h2>
 				<div class="description clearfix">
@@ -61,11 +61,12 @@
 						<span>- 매물 관리규정에 위배 되거나 신고된 매물은 비공개 또는 삭제처리되며 경고 및 제재조치를 받을 수 있습니다.</span>
 						<br />
 						<em>- 부동산 중개사는 직거래 매물을 등록할 수 없으며, 공인중개사회원 가입 후 이용하시기 바랍니다.</em>
-					</p>			
+					</p>
 				</div>
 			</div>
 			
 			<div class="content">
+			<form action="<c:url value='/Manage/RegisterRoom.do'/>" method="get" id="registerRoom" onsubmit="return false;">
 				<div class="LocationAddress">
 					<h3><i class="fas fa-map-marker-alt"></i>위치정보</h3>
 					<table class="table">						
@@ -82,18 +83,20 @@
 										<i class="fas fa-exclamation-circle" style="color: #999"></i>
 										<span>도로명, 건물명, 지번에 대해 통합검색이 가능합니다.</span>
 									</p>
-									<form class="Address form-inline">
+									<!-- form -->
+									<div class="Address form-inline">
 										<p class="Address-row Address-row--typing">									
-											<input type="text" class="form-control" placeholder="예) 번동 10-1, 강북구 번동">											
+											<input type="text" class="form-control" id="searchAddress" placeholder="예) 번동 10-1, 강북구 번동">											
 											<button class="Address-submit" type="button" onclick="execDaumPostcode()">주소검색</button>
 										</p>
 										<p class="Address-row Address-row--addr">
-											<textarea class="form-control" readonly="readonly" style="width: 100%" id="addr"></textarea>
+											<textarea class="form-control" readonly="readonly" style="width: 100%" id="addr" name="addr1"></textarea>
 										</p>
 										<p class="Address-row Address-row--detail">
-											<input class="form-control" type="text" placeholder="상세 주소를 입력하세요. (동, 호수)" style="width: 100%">
+											<input class="form-control" type="text" placeholder="상세 주소를 입력하세요. (동, 호수)" style="width: 100%" name="addr2">
 										</p>
-									</form>
+									<!-- form -->
+									</div>
 									<p class="location-discription clearfix" style="margin-top:10px;color:#ef4351;">
 										<i class="fas fa-exclamation-circle"></i>
 										<button style="text-decoration:underline;cursor:pointer;" class="btn-no-border btn-no-bg">
@@ -124,21 +127,21 @@
 							<tr>
 								<th>방 종류</th>
 								<td colspan="3" style="position: relative;">
-									<select class="form-control" style="display: inline;">
+									<select class="form-control" style="display: inline;" id="room_type" name="room_type">
 										<option value="">방 종류 선택</option>
-										<option value="">원룸</option>
-										<option value="">1.5룸</option>
-										<option value="">투룸</option>
-										<option value="">쓰리룸</option>
+										<option value="원룸">원룸</option>
+										<option value="1.5룸">1.5룸</option>
+										<option value="투룸">투룸</option>
+										<option value="쓰리룸">쓰리룸</option>
 									</select>
 									<div style="display: inline-block; width: 750px; position: absolute; top: 9px; padding-left: 15px;">
 										<p>
 											<i class="fas fa-exclamation-circle" style="color: #999"></i>
-											<span>오피스텔, 아파트는 C방앱에서 등록 가능 합니다.</span>											
+											<span>오피스텔, 아파트는 N방앱에서 등록 가능 합니다.</span>											
 										</p>
 										<p>
 											<i class="fas fa-exclamation-circle" style="color: #999"></i>
-											<span>C방에서는 고시원(텔)등의 고시원업 매물 등록을 제한합니다(차단조치)</span>											
+											<span>N방에서는 고시원(텔)등의 고시원업 매물 등록을 제한합니다(차단조치)</span>											
 										</p>										
 									</div>
 								</td>																
@@ -150,7 +153,7 @@
 										<button class="btn btn-default" id="addCharter">전세 추가</button>
 										<button class="btn btn-default" id="addMonth">월세 추가</button>										
 										<label>
-											<input type="checkbox" style="width: 20px;" name="short_term">
+											<input type="checkbox" style="width: 20px;" id="short_term" name="short_term">
 											<span style="position: relative; top: 1px;">단기가능</span>											
 										</label>										
 									</div>
@@ -166,7 +169,7 @@
 								<td class="transaction-type">
 									<div class="transaction-item">
 										<span style="margin-right: 10px">건물 층수</span>
-										<select class="form-control" name="total_floor">
+										<select class="form-control" name="total_floor" id="total_floor">
 											<option value="">건물 층수 선택</option>
 											<c:forEach var="i" begin="1" end="50">
 												<option value="${i}">${i}층</option>											
@@ -175,7 +178,7 @@
 									</div>
 									<div class="transaction-item">
 										<span style="margin-right: 10px">해당 층수</span>
-										<select class="form-control" name="floor">
+										<select class="form-control" name="floor" id="floor">
 											<option value="">해당 층수 선택</option>
 											<option value="-1">반지층</option>
 											<option value="0">옥탑</option>
@@ -192,7 +195,7 @@
 								<td class="transaction-type building-size-wrap">
 									<div class="transaction-item">
 										<span class="title">공급 면적</span>
-										<input type="number" class="form-control" name="total_area"/>
+										<input type="number" class="form-control" name="total_area" id="total_area" min="0"/>
 										<span>평</span>
 										<span>
 											<span>(</span>
@@ -206,7 +209,7 @@
 									</div>
 									<div class="transaction-item">
 										<span class="title">전용 면적</span>
-										<input type="number" class="form-control" style="display: inline;" name="area"/>
+										<input type="number" class="form-control" style="display: inline;" name="area" id="area" min="0"/>
 										<span>평</span>
 										<span>
 											<span>(</span>
@@ -239,40 +242,40 @@
 								<td colspan="3" class="transaction-type">
 									<div class="transaction-item">										
 										<label>
-											<input type="checkbox" name="common_charge_ch">
-											<span>있음</span>																				
+											<input type="checkbox" name="common_charge_ch" id="common_charge_ch">
+											<span>있음</span>																		
 										</label>
-										<input type="text" class="form-control" name="common_charge" readonly="readonly">
+										<input type="text" class="form-control" name="common_charge" id="common_charge" readonly="readonly">
 										<span style="margin-right: 23px;">만원</span>
 										<label>
 											<input type="checkbox" name="common_charge_ch" checked="checked">
 											<span>없음</span>																				
-										</label>				
+										</label>	
 									</div>
 									<div class="transaction-item">
 										<span style="margin-right: 5px">관리비포함 항목 선택:</span>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="인터넷">
 											<span>인터넷</span>																				
 										</label>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="유선TV">
 											<span>유선TV</span>																				
 										</label>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="청소비">
 											<span>청소비</span>																				
 										</label>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="수도세">
 											<span>수도세</span>																				
 										</label>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="도시가스">
 											<span>도시가스</span>																				
 										</label>
 										<label>
-											<input type="checkbox" name="chkList1">
+											<input type="checkbox" name="chkList1" value="전기세">
 											<span>전기세</span>																				
 										</label>										
 									</div>																
@@ -294,11 +297,11 @@
 								</td>
 								<th>난방종류</th>
 								<td>
-									<select class="form-control">
+									<select class="form-control" id="heating">
 										<option value="">난방종류 선택</option>
-										<option value="0">중앙 난방</option>
-										<option value="1">개별 난방</option>
-										<option value="2">지역 난방</option>
+										<option value="중앙 난방">중앙 난방</option>
+										<option value="개별 난방">개별 난방</option>
+										<option value="지역 난방">지역 난방</option>
 									</select>
 								</td>			
 							</tr>
@@ -306,22 +309,22 @@
 								<th>엘리베이터</th>
 								<td>
 									<label>
-										<input type="checkbox" name="elevator">
+										<input type="checkbox" name="elevator" value="있음">
 										<span>있음</span>																				
 									</label>
 									<label>
-										<input type="checkbox" name="elevator" checked="checked">
+										<input type="checkbox" name="elevator" value="없음" checked="checked">
 										<span>없음</span>																				
 									</label>
 								</td>
 								<th>반려 동물</th>
 								<td>
 									<label>
-										<input type="checkbox" name="pat">
+										<input type="checkbox" name="pat" value="가능">
 										<span>가능</span>																				
 									</label>
 									<label>
-										<input type="checkbox" name="pat" checked="checked">
+										<input type="checkbox" name="pat" value="불가능" checked="checked">
 										<span>불가능</span>																				
 									</label>
 								</td>										
@@ -346,55 +349,55 @@
 								<td colspan="3" style="line-height: 2.2">
 									<div>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2" value="에어컨">
 											<span>에어컨</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2" value="세탁기">
 											<span>세탁기</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2" value="침대">
 											<span>침대</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="책상">
 											<span>책상</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="옷장">
 											<span>옷장</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="TV">
 											<span>TV</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="신발장">
 											<span>신발장</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="냉장고">
 											<span>냉장고</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="가스레인지">
 											<span>가스레인지</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="인덕션">
 											<span>인덕션</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="전자레인지">
 											<span>전자레인지</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="전자도어락">
 											<span>전자도어락</span>																		
 										</label>
 										<label>
-											<input type="checkbox" name="chkList2">
+											<input type="checkbox" name="chkList2"  value="비데">
 											<span>비데</span>																		
 										</label>										
 									</div>									
@@ -435,8 +438,8 @@
 							</tr>
 							<tr>
 								<th>비공개 메모</th>
-								<td>
-									<textarea class="form-control" rows="5" placeholder="외부에 공개되지 않으며, 등록자에게 보이는 메모입니다." name="memo"></textarea>
+								<td>								
+									<textarea class="form-control" rows="5" placeholder="외부에 공개되지 않으며, 등록자에게 보이는 메모입니다." name="memo"></textarea>								
 								</td>
 							</tr>
 						</tbody>
@@ -470,7 +473,7 @@
 									일반 사진 등록
 								</div>
 								<div id="photo_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 215px; left: 409px; width: 142px; height: 44px; overflow: hidden; z-index: 0;">
-									<input id="photo" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple accept="image/jpeg,image/png,.webp">
+									<input id="photo" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple accept="image/jpeg,image/png,.webp" name="photo">
 								</div>
 							</div>
 						</div>
@@ -508,15 +511,26 @@
 								
 				<div class="alert">
 					<i class="fas fa-exclamation-circle" style="font-size:20px; color: white"></i>
-					<p>허위매물을 등록할 경우 C방에서 임의적으로 계정 및 매물 전체 삭제 처리되며, 결제된 금액은 환불되지 않습니다.</p>
+					<p>허위매물을 등록할 경우 N방에서 임의적으로 계정 및 매물 전체 삭제 처리되며, 결제된 금액은 환불되지 않습니다.</p>
 				</div>
-				<div class="submit-wrap">
-					<button class="btn btn-gray btn-xl" style="margin-right:16px;">취소</button>
-					<button class="btn btn-blue btn-xl">방 올리기</button>
-				</div>					
+				<div class="submit-wrap">					
+					<a class="btn btn-gray btn-xl" href="<c:url value='/index.jsp'/>" style="margin-right:16px; padding-top: 20px;" role="button">취소</a>
+					<button class="btn btn-blue btn-xl" type="button" id="submit">방 올리기</button>
+				</div>
+				</form>
+									
 			</div>			
 		</div>	
 	</div>
+
+	<input type="hidden" id="roadAddress">
+	<input type="hidden" id="jibunAddress">
+	<input type="hidden" id="sido">
+	<input type="hidden" id="sigungu">
+	<input type="hidden" id="bname">
+	<input type="hidden" id="bname1">
+	<input type="hidden" id="lat">
+	<input type="hidden" id="lng">
 	
 	<!-- Footer -->
 	<jsp:include page="/frontend/template/Footer.jsp"/>
@@ -531,9 +545,15 @@
     <script src="<c:url value='/js/common.js'/>"></script>
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script src="<c:url value='/js/manage/upload.js'/>"></script>
-    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    <script src="<c:url value='/js/manage/postcode.js'/>"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>    
+    <script src="<c:url value='/js/manage/postcode.js'/>"></script>    
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a7682697ada046b18ac56822b1fa1c14&libraries=services"></script>    
-    
+    <script>    
+    function submit(){
+        console.log("dfdf");
+        console.log("Dfdf"+lat);
+        //document.getElementById("registerRoom").submit();
+    }
+    </script>
 </body>
 </html>
