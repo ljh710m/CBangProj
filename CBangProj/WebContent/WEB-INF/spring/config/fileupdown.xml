@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- ============================================================= -->
+	<!-- Spring에서는 encType="multipart/form-data"을 사용하기 위해 반드시 설정해줘야 한다. -->
+	<!-- ============================================================= -->	
+	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+      <property name="maxUploadSize" value="10485760"/>
+    </bean>
+
+</beans>
