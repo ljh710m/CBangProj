@@ -443,8 +443,7 @@ $(function() {
 		formData.append("title",title);
 		formData.append("content",content);
 		formData.append("memo",memo);
-		//formData.append("photo",sel_files);
-		
+				
 		console.log(sel_files.length);
 		
 		for(var i=0; i<sel_files.length;i++){
@@ -462,7 +461,7 @@ $(function() {
 			type:'post',
 			url:'/CBangProj/Manage/RegisterRoom.do',
 			data : formData,
-			enctype: 'multipart/form-data',//'multipart/form-data'
+			enctype: 'multipart/form-data',
 			processData: false, //data 지정한 개체를 쿼리 문자열로 변환할지 여부를 설정(post방식:false)	
 			contentType: false, //서버에 데이터를 보낼 때 사용(header 정보에 포함)
 			dataType: 'text',
@@ -472,6 +471,6 @@ $(function() {
 			error:function(){
 				alert("전송 실패");
 			}			
-		});		
+		});
 	}		
 });
