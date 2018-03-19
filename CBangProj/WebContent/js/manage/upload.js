@@ -449,9 +449,8 @@ $(function() {
 		
 		for(var i=0; i<sel_files.length;i++){
 			console.log(sel_files[i]);
-			formData.append("photo[]", sel_files[i], sel_files[i].name)			
-		}
-		
+			formData.append("photo", sel_files[i], sel_files[i].name)			
+		}		
 		
 		submitAction(formData);
 								

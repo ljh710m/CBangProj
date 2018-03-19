@@ -21,15 +21,20 @@ public class NewRoomController {
 	public String registerRoom(MultipartHttpServletRequest req) throws Exception{				
 		//@RequestParam("photo") MultipartFile[] file		
 		
-		Iterator it =  req.getFileNames();
-		System.out.println(it);
-		if(it.hasNext()) {			
-			System.out.println("데이터 있음");
-		}
-		else {
-			System.out.println("데이터 없음");
-		}
-		
+		String path="";
+		File dir = new File(path);
+				
+		Iterator<String> files =  req.getFileNames();
+		if(files.hasNext()) {
+			String uploadFile = files.next();
+			List<MultipartFile> mFileList = req.getFiles(uploadFile);
+						
+			for(int i=0; i<mFileList.size();i++) {
+				System.out.println(mFileList.get(i).getOriginalFilename());
+								
+			}
+			
+		}	
 		
 		//return "redirect:/index.jsp";
 		return "Y";
