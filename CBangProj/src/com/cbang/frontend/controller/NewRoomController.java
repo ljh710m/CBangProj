@@ -18,10 +18,19 @@ public class NewRoomController {
 	
 	@ResponseBody
 	@RequestMapping("/Manage/RegisterRoom.do")
-	public String registerRoom(MultipartHttpServletRequest req, @RequestParam("photo") MultipartFile[] file) throws Exception{				
-				
-		System.out.println(file.length);
-									
+	public String registerRoom(MultipartHttpServletRequest req) throws Exception{				
+		//@RequestParam("photo") MultipartFile[] file		
+		
+		Iterator it =  req.getFileNames();
+		System.out.println(it);
+		if(it.hasNext()) {			
+			System.out.println("데이터 있음");
+		}
+		else {
+			System.out.println("데이터 없음");
+		}
+		
+		
 		//return "redirect:/index.jsp";
 		return "Y";
 	}
