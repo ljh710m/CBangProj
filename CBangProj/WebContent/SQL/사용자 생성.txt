@@ -1,2 +1,2 @@
-create user CBANG identified by CBANG;
-grant connect, resource to CBANG;
+create user NBANG identified by NBANG;
+grant connect, resource to NBANG;
