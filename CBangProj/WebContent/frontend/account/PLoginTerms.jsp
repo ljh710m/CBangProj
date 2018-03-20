@@ -33,6 +33,7 @@
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet">
 <link href="<c:url value='/css/footer.css'/>" rel="stylesheet">
 <link href="<c:url value='/css/account/login.css'/>" rel="stylesheet">
+<link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
 <style>
 body, html {
 	width: 100%;
@@ -50,9 +51,9 @@ body, html {
 		<div class="row">
 			<h5>모든 약관에 동의 합니다.</h5>
 			<div class="allagree">
-				<button class="agreebutton" id="allbutton">
+				<div class="agreebutton-all">
 					모두 동의<span class="glyphicon glyphicon-ok"></span>
-				</button>
+				</div>
 			</div>
 		</div>
 		<div class="row termsOne">
@@ -62,9 +63,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>
@@ -78,9 +79,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>
@@ -94,9 +95,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>
@@ -110,9 +111,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>
@@ -126,9 +127,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>
@@ -142,9 +143,9 @@ body, html {
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
 				</div>
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 			<textarea rows="10" disabled>  
@@ -155,9 +156,9 @@ body, html {
 			<h5>[선택] 이벤트 및 혜택 알림 수신동의 (이메일, SMS)</h5>
 			<div class="options">
 				<div class="agree">
-					<button class="agreebutton">
+					<div class="agreebutton-choice">
 						동의<span class="glyphicon glyphicon-ok"></span>
-					</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -192,12 +193,13 @@ body, html {
 	<script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
 	<script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
 	<script src="<c:url value='/js/common.js'/>"></script>
+	<script src="<c:url value='/js/util/alert.js'/>"></script>
 	<script src="<c:url value='/js/account/PLoginTerms.js'/>"></script>
 	<script>
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
-
+		
 	</script>
 </body>
 </html>

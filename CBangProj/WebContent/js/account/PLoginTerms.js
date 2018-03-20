@@ -19,38 +19,41 @@ function showHide(index){
 		$('.details:eq(3)').click(function(){ showHide(3); });
 		$('.details:eq(4)').click(function(){ showHide(4); });
 		$('.details:eq(5)').click(function(){ showHide(5); });
-
-
-		$('.agreebutton').click(function(e) {
-			if(e.currentTarget.id == "allbutton"){
-				if ($(this).css('backgroundColor') == 'rgb(193, 191, 191)') {
-					$('.agreebutton').css({
-						'backgroundColor' : '#c91f3b',
-						'color' : 'white'
-					});
-				} else {
-					$('.agreebutton').css({
-						'backgroundColor' : 'rgb(193, 191, 191)',
-						'color' : '#969595'
-					});
-				}
+		
+		var btnAll = $('.agreebutton-all');
+		var btnAgree = $('.agreebutton');
+		var btnChoice = $('.agreebutton-choice');
+		
+		btnAll.click(function() {
+			$(this).toggleClass('active');
+			if($(this).hasClass('active')){
+				btnAgree.addClass('active');
+				btnChoice.addClass('active');
 			}
 			else{
-				if ($(this).css('backgroundColor') == 'rgb(193, 191, 191)') {
-					$(this).css({
-						'backgroundColor' : '#c91f3b',
-						'color' : 'white'
-					});
-				} else {
-					$(this).css({
-						'backgroundColor' : 'rgb(193, 191, 191)',
-						'color' : '#969595'
-					});
-				}
-				console.log();
-				/* if($(this).checked().length() != 7)
-						$('#allbutton').css({'backgroundColor':'rgb(193, 191, 191)','color':'#969595'});
-				else
-					$('#allbutton').css({'backgroundColor':'#c91f3b','color':'white'}); */
+				btnAgree.removeClass('active');
+				btnChoice.removeClass('active');
 			}
+		});
+		
+		btnAgree.click(function() {
+			$(this).toggleClass('active');
+			if($('.agreebutton.active').length == 6){
+				btnAll.addClass('active');
+			}
+			else
+				btnAll.removeClass('active');
+		});
+		
+		btnChoice.click(function(){
+			$(this).toggleClass('active');
+		});
+		
+		$('.buttonNext').click(function(){
+			if(btnAll.hasClass('active') && 
+					btnAgree.hasClass('active')){
+				location.href = 'PLogin.jsp';
+			}
+			else
+				customAlert("error", "모든 필수 약관을 동의해주세요.");
 		});

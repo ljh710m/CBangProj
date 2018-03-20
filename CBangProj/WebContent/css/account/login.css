@@ -98,8 +98,8 @@ div.details:hover{
 div.agree{
 	display: inline-block;
 }
-button.agreebutton{
-	background-color: #F6F3F3;
+div.agreebutton, div.agreebutton-all, div.agreebutton-choice{
+	background-color: rgb(193, 191, 191);
     border: none;
     color: #969595;
     padding: 10px 15px;
@@ -110,9 +110,13 @@ button.agreebutton{
     cursor: pointer;
     border-radius: 10px;
 }
-button.agreebutton:hover{
-	background-color: #C1BFBF;
+div.agreebutton.active, div.agreebutton-all.active, div.agreebutton-choice.active{
+	background-color: #c91f3b;
+	color: white;
 }
+/* div.agreebutton:hover, div.agreebutton-all:hover, div.agreebutton-choice:hover{
+	background-color: #C1BFBF;
+} */
 span.necessary{
 	color:#E73C3C;
 	
