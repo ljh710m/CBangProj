@@ -1,5 +1,10 @@
 package model;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import util.PBKDF2;
+
 public class AdminDto {
 	
 	private String admin_code;
@@ -67,8 +72,15 @@ public class AdminDto {
 	}
 
 	//암호 변경 기능 구현에 사용
-	public boolean matchPassword(String pwd) {
-		return password.equals(pwd);
+	public boolean matchPassword(String pwd) {		
+		try {
+			if(PBKDF2.validatePassword(pwd, password))
+				return true;
+			else return false;
+		} 
+		catch (NoSuchAlgorithmException e) {return false;}
+		catch (InvalidKeySpecException e) {return false;}				
+//		return password.equals(pwd);
 	}
 
 }
