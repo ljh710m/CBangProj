@@ -23,7 +23,7 @@
         		<li><a href="<c:url value='/frontend/search/map.jsp'/>">방 검색 </a></li>
         		<li><a href="#">관심목록</a></li>
         		<li><a href="<c:url value='/frontend/manage/NewRoom.jsp'/>">방 등록</a></li>
-        		<li><a href="#" style="font-size: 12px;">공인중개사 회원가입</a></li>
+        		<li><a href="<c:url value='/frontend/account/PLoginTerms.jsp'/>" style="font-size: 12px;">공인중개사 회원가입</a></li>
         		<li><a href="javascript:loginmodal()">회원가입 및 로그인</a></li>
       		</ul>
 		</div><!--/.nav-collapse -->
