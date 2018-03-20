@@ -93,7 +93,7 @@
 											<textarea class="form-control" readonly="readonly" style="width: 100%" id="addr" name="addr1"></textarea>
 										</p>
 										<p class="Address-row Address-row--detail">
-											<input class="form-control" type="text" placeholder="상세 주소를 입력하세요. (동, 호수)" style="width: 100%" name="addr2">
+											<input class="form-control" type="text" placeholder="상세 주소를 입력하세요. (동, 호수)" style="width: 100%" id="addr2" name="addr2">
 										</p>
 									<!-- form -->
 									</div>

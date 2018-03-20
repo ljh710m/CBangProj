@@ -284,6 +284,7 @@ $(function() {
 		var sigungu = $('#sigungu').val();
 		var bname = $('#bname').val();
 		var bname1 = $('#bname1').val();
+		var detail_addr = $('#addr2').val();
 		var lat = $('#lat').val();
 		var lng = $('#lng').val();
 		var room_type = $('#room_type').val();
@@ -338,6 +339,7 @@ $(function() {
 		console.log("sigungu:"+sigungu);
 		console.log("bname:"+bname);
 		console.log("bname1:"+bname1);
+		console.log("detail_addr"+detail_addr);
 		console.log("lat:"+lat);
 		console.log("lng:"+lng);
 		console.log("room_type:"+room_type);
@@ -365,6 +367,10 @@ $(function() {
 		/*if(roadAddress=="" && jibunAddress==""){
 			customAlert("error", "주소를 입력하세요.");
 			return;
+		}
+		else if(detail_addr==""){
+			customAlert("error", "상세 주소를 입력하세요.");
+			return;		
 		}
 		else if(room_type==""){
 			customAlert("error", "방 종류를 선택해 주세요.");
@@ -414,7 +420,7 @@ $(function() {
 			customAlert("error", "사진을 등록하세요.");
 			return;
 		}*/		
-				
+		
 		var formData = new FormData();
 		formData.append("roadAddress",roadAddress);
 		formData.append("jibunAddress",jibunAddress);
@@ -422,6 +428,7 @@ $(function() {
 		formData.append("sigungu",sigungu);
 		formData.append("bname",bname);
 		formData.append("bname1",bname1);
+		formData.append("detail_addr",detail_addr);
 		formData.append("lat",lat);
 		formData.append("lng",lng);
 		formData.append("deposit1",deposit1);
@@ -469,8 +476,8 @@ $(function() {
 				alert("데이터 전송 성공!!"+data);
 			},
 			error:function(){
-				alert("전송 실패");
-			}			
+				alert("전송 오류 발생");
+			}
 		});
 	}		
 });
