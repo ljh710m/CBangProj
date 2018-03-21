@@ -39,7 +39,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>옵션관리</h1>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
 		                                  		<th scope="col">#</th>
 		                                  		<th scope="col">옵션코드</th>
 		                                  		<th scope="col">옵션이름</th>
-		                                  		<th scope="col">Handle</th>
+		                                  		<th scope="col"></th>
 		                              		</tr>
 			                          	</thead>
 			                          	<tbody>
@@ -79,54 +79,65 @@
 			                              		<th scope="row">1</th>
 			                              		<td>Mark</td>
 			                              		<td>Otto</td>
-			                              		<td>@mdo</td>
+			                              		<td>
+			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              		</td>
 			                          		</tr>
 			                          		<tr>
 			                              		<th scope="row">2</th>
-			                              		<td>Jacob</td>
-			                              		<td>Thornton</td>
-			                              		<td>@fat</td>
+			                              		<td>Jacobddd</td>
+			                              		<td>Thornt</td>
+			                              		<td>
+			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              		</td>
 			                          		</tr>
 			                          		<tr>
 			                              		<th scope="row">3</th>
 			                              		<td>Larry</td>
-			                              		<td>the Bird</td>
-			                              		<td>@twitter</td>
+			                              		<td>가 나</td>
+			                              		<td>
+			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              		</td>
 			                          		</tr>
 			                      		</tbody>
 			                  		</table>
 		                  		</div>
-		                  		<div class="col-lg-6">
-			                  		<table class="table table-hover">
-		                            	<thead>
-		                                	<tr>
-		                                  		<th scope="col">#</th>
-		                                  		<th scope="col">First</th>
-		                                  		<th scope="col">Last</th>
-		                                  		<th scope="col">Handle</th>
-		                              		</tr>
-			                          	</thead>
-			                          	<tbody>
-			                            	<tr>
-			                              		<th scope="row">1</th>
-			                              		<td>Mark</td>
-			                              		<td>Otto</td>
-			                              		<td>@mdo</td>
-			                          		</tr>
-			                          		<tr>
-			                              		<th scope="row">2</th>
-			                              		<td>Jacob</td>
-			                              		<td>Thornton</td>
-			                              		<td>@fat</td>
-			                          		</tr>
-			                          		<tr>
-			                              		<th scope="row">3</th>
-			                              		<td>Larry</td>
-			                              		<td>the Bird</td>
-			                              		<td>@twitter</td>
-			                          		</tr>
-			                      		</tbody>
-			                  		</table>
+		                  		<div class="offset-lg-1 col-lg-5">
+		                  			<div class="card">
+				                        <div class="card-header">
+				                            <strong class="card-title">건물 옵션 등록</strong>
+				                        </div>
+                        				<div class="card-body">
+					                  		<table class="table table-bordered">
+					                  			<colgroup>
+													<col style="width:30%">
+													<col>									
+												</colgroup>		                            	
+					                          	<tbody>
+					                            	<tr>
+					                              		<th style="background-color: #EBF5FF">옵션코드</th>
+					                              		<td>자동생성</td>			                              		
+					                          		</tr>
+					                          		<tr>
+					                          			<th style="background-color: #EBF5FF;">옵션이름</th>
+					                              		<td>
+					                              			<div class="row form-group">
+		                            							<div class="col"><input type="text" placeholder="옵션이름" class="form-control"></div>
+		                          							</div>
+		                          						</td>
+					                          		</tr>
+					                          		<tr>
+					                          			<td colspan="2" style="text-align: center;">
+					                          				<button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i>&nbsp;등록</button>
+					                          			</td>
+					                          		</tr>                  		
+					                      		</tbody>
+					                  		</table>
+			                  			</div>
+			                  		</div>
 		                  		</div>
 	                  		</div>
                         </div>
@@ -147,6 +158,22 @@
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
+    <script>
+    	(function($) {
+        	$('button[name=edit]').click(function(){
+            	var edit = $(this).parent().prev();
+            	var option_name = edit.text();
+            	var input = $('<input/>').addClass('form-control').attr({type:'text',style:'width:150px;padding:0;display:inline'}).val(option_name)
+            	.keypress(function (e){
+                	if(e.which == 13){
+                    	console.log("Enter");
+                    }
+                });
+            	edit.html(input).append("&nbsp;").append($('<i/>').addClass('fa fa-edit'));        		
+            });
+	    		
+    	})(jQuery);
+    </script>
        
 </body>
 </html>
