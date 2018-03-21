@@ -27,6 +27,41 @@
     
 </head>
 <body>
+	<!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 class="modal-title">상세보기</h4>
+	          <button type="button" class="close" data-dismiss="modal">×</button>
+	        </div>
+	        <div class="modal-body">
+	        	<div style="display: inline-block;">
+	        		<img alt="프로필사진" />
+	        	</div>
+	        	<div style="display: inline-block;float: right;width: 60%">
+	        		중개사 회원번호:<label class="modal-office_no"></label>
+	        		<br />
+	        		E-mail:<label class="modal-email"></label>
+	        		<br />
+	        		회원명:<label class="modal-name"></label>
+	        		<br />
+	        		휴대폰 번호:<label class="modal-phone"></label>
+	        		<br />
+	        	</div>
+	          
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-edit">수정</button>
+	          <button type="button" class="btn btn-delete">삭제</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div>
     <!-- Left Panel -->
     <jsp:include page="/backend/template/LeftPanel.jsp"/>
 	
@@ -66,9 +101,10 @@
         					<th>회원 Email</th>
         					<th>회원명</th>
         					<th>휴대폰 번호</th>
-        					<th>회원 관리</th>
+        					<th>상세보기(관리)</th>
         				</tr>
         				</thead>
+        				
         				<c:forEach items="${list }" var="list">
 	        				<tbody>
 	        					<tr style="cursor: pointer;">
@@ -78,8 +114,7 @@
 		        					<td>${list.name }</td>
 		        					<td>${list.phone }</td>
 		        					<td>
-		        					<a href="#">수정</a>
-		        					<a href="#">삭제</a>
+		        					<a href="#" data-toggle="modal" data-target="#myModal" class="viewModal">보기</a>
 		        					</td>
 		        				</tr>
 	        				</tbody>
@@ -100,10 +135,18 @@
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script>
-   (function($){
-		  	
-    	})(jQuery);
-			
+    (function($){
+        $('.viewModal').click(function(){
+        	var memberIdx = $(this).parent().parent().find('td:eq(0)').html();
+        	var memberEmail = $(this).parent().parent().find('td:eq(1)').html();
+        	var memberName = $(this).parent().parent().find('td:eq(2)').html();
+        	var memberPhone = $(this).parent().parent().find('td:eq(3)').html();
+				$('.modal-office_no').html(memberIdx);
+				$('.modal-email').html(memberEmail);
+				$('.modal-name').html(memberName);
+				$('.modal-phone').html(memberPhone);
+            });
+	})(jQuery);
     </script>
 </body>
 </html>
