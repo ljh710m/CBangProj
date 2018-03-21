@@ -166,7 +166,7 @@
 					<div class="col-md-12">
 						<h3 class="SitemapMenu-title">공인중개사 회원가입</h3>
 						<ul class="SitemapMenu-list">
-							<li><a href="#">다방 이용 설명서</a></li>
+							<li><a href="<c:url value='/frontend/manage/Manual.jsp'/>">다방 이용 설명서</a></li>
 							<li><a href="#">가입신청</a></li>							
 						</ul>
 					</div>
@@ -186,7 +186,7 @@
 					<div class="col-md-12">
 						<h3 class="SitemapMenu-title">다방 뉴스</h3>
 						<ul class="SitemapMenu-list">
-							<li><a href="#">공지사항</a></li>
+							<li><a href="<c:url value='/frontend/notice/Main.jsp'/>">공지사항</a></li>
 							<li><a href="#">이벤트</a></li>
 							<li><a href="#">기사보기</a></li>														
 						</ul>
