@@ -45,7 +45,7 @@ body, html {
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp" />
-	<form action="<c:url value='/ACCOUNT/PLoginProcess.do' />" method="post">
+	<form action="<c:url value='/ACCOUNT/PLogin.do' />" method="post">
 		<div id="body" class="col-md-8 col-md-offset-2">
 			<div>
 				<h1>회원가입</h1>
@@ -95,11 +95,11 @@ body, html {
 					</tr>
 					<tr>
 						<th class="title">사업자등록번호</th>
-						<td><input name="permit_no" type="number" max="999"
+						<td><input name="permit_no1" type="number" min="0" max="999"
 							class="number" maxlength="3" required /> <span
-							class="input-dash"> - </span> <input type="number" max="99"
+							class="input-dash"> - </span> <input type="number" min="0" max="99" name="permit_no2"
 							class="number" maxlength="2" required /> <span
-							class="input-dash"> - </span> <input type="number" max="99999"
+							class="input-dash"> - </span> <input type="number" min="0" max="99999" name="permit_no3"
 							class="number" maxlength="5" required style="margin-right: 10px;" />
 							<button id="certification" type="button" class="Btn--md Btn--red"
 								style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
@@ -113,7 +113,7 @@ body, html {
 						<th class="title">중개사무소 주소</th>
 						<td>
 							<div>
-								<select class="selectBox" id="si-do" required>
+								<select name="si-do" class="selectBox" id="si-do" required>
 									<option>시/도 선택</option>
 									<option value="seoul">서울특별시</option>
 									<option value="incheon">인천광역시</option>
@@ -132,7 +132,7 @@ body, html {
 									<option value="gyeongbook">경상북도</option>
 									<option value="jejudo">제주특별자치도</option>
 									<option value="jejusi">제주특별자치시</option>
-								</select> <select class="selectBox" id="goo-goon" required>
+								</select> <select name="goo-goon" class="selectBox" id="goo-goon" required>
 									<option>구/군 선택</option>
 								</select> <input type="text" name="office_address"
 									placeholder="상세주소를 입력해주세요." required autocomplete="off" />
@@ -199,9 +199,9 @@ body, html {
 								<option>017</option>
 								<option>018</option>
 								<option>019</option>
-						</select> <span class="input--dash">- </span> <input type="number"
+						</select> <span class="input--dash">- </span> <input type="number" min="0"
 							max="9999" class="number" name="phone" required maxlength="4" />
-							<span class="input--dash">- </span> <input type="number"
+							<span class="input--dash">- </span> <input type="number" min="0"
 							max="9999" class="number" name="phone" required maxlength="4" />
 						</td>
 					</tr>
@@ -228,19 +228,19 @@ body, html {
 								<option>064</option>
 								<option>070</option>
 								<option>010</option>
-						</select> <span class="input--dash"> - </span> <input type="number"
+						</select> <span class="input--dash"> - </span> <input type="number" min="0"
 							max="9999" class="number" name="phone" required maxlength="4" />
-							<span class="input--dash"> - </span> <input type="number"
+							<span class="input--dash"> - </span> <input type="number" min="0"
 							max="9999" class="number" name="phone" required maxlength="4" />
 						</td>
 					</tr>
 					<tr>
 						<th class="title">이메일 주소</th>
-						<td style="padding: 10px 20px;"><input type="text"
+						<td style="padding: 10px;"><input type="text" style="width:138px;"
 							class="Email--input" name="email" required autocomplete="off" />
-							<span class="input--dash"> @ </span> <select>
+							<span class="input--dash"> @ </span> <select class="select-email">
 								<option>이메일 선택</option>
-								<option>직접 입력</option>
+								<option value="직접입력">직접 입력</option>
 								<option>naver.com</option>
 								<option>hanmail.net</option>
 								<option>daum.net</option>
@@ -323,6 +323,12 @@ body, html {
 	
 	$('.file-type').click(function() {
 		$('input[name="real-file1"]').click();
+			if($(this).parent().find('span.File--name').text().length > 0){
+					btn_file1.val('');
+					$('i').removeClass();
+					$('span.File--name').html('');
+				}
+			
 	});
 	$('.Profile--upload').click(function(e) {
 		$('input[name="real-file2"]').click();
@@ -332,7 +338,7 @@ body, html {
 	btn_file1.on('change',function(e){
 		var fileValue = btn_file1.val().split("\\");
 		var fileName = fileValue[fileValue.length-1]; // 파일명
-			$('.File--name').css('width',(fileName.length*7)+'px');
+			$('.File--name').css('width',(fileName.length)+'em');
 			$('span.File--name').append(fileName);
 			if($('i').html() != undefined)
 				$('i').addClass('fas fa-window-close');
@@ -348,18 +354,17 @@ body, html {
 	$('input[name="real-file2"]').on('change',function(){
 		readURL(this);
 	});
-
-	function readURL(input) {
-			if(input.files && input.files[0]){
-					var reader = new FileReader();
-
-					reader.onload = function(e){
-							$('.Profile--img').css('background','url('+e.target.result+') no-repeat center center');							
-						}
-					reader.readAsDataURL(input.files[0]);
-				}
-		}
 	
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+	
+				reader.onload = function(e) {
+					$('.Profile--img').css('background', 'url(' + e.target.result + ') no-repeat center center');
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
 	</script>
 </body>
 </html>

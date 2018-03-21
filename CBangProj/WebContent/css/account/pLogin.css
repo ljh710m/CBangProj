@@ -75,6 +75,10 @@ table tbody tr td{
 	border-right: none;
 	border-bottom: none;
 }
+#body2 > table > tbody > tr:nth-child(1) > th{
+	text-align: center;
+	line-height: 100px;
+}
 .file_input_textbox{
 	border: none;
 	float: right;	
@@ -132,9 +136,8 @@ input{
 	outline: none;
 	font-size: 13px;
 }
-input[type="number"]{
-	width: 138px;
-	height: 35px;
+input[type="number"], input.self-code{
+	width: 138px;  
 	border: 1px solid #e7e7e7;
 }
 select{
