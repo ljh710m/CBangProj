@@ -1,2 +1,5 @@
-create user CBANG identified by CBANG;
-grant connect, resource to CBANG;
+Database Server IP : 45.119.146.174
+Database SID : xe
+
+create user NBANG identified by NBANG;
+grant connect, resource to NBANG;

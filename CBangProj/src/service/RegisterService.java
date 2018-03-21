@@ -24,22 +24,22 @@ public class RegisterService {
 				JdbcUtil.rollback(conn);
 				throw new DuplicatedException();
 			}
-			
+						
 			adminDao.insert(conn,
 					new AdminDto(
 							null,
-							regReq.getId(),
-							regReq.getPassword(),
+							regReq.getId(),							
+							regReq.getPassword(),							
 							regReq.getName(),					
 							regReq.getEmail(),
 							null)
 					);
-			conn.commit();
-			
+			conn.commit();			
 		} catch(SQLException e) {
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);
-		} finally {
+		} catch(Exception e) {} 
+		finally {
 			JdbcUtil.close(conn);
 		}
 	}

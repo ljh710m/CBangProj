@@ -9,6 +9,7 @@ import java.util.List;
 
 import jdbc.JdbcUtil;
 import model.AdminDto;
+import util.PBKDF2;
 
 public class AdminDao {
 	
@@ -42,11 +43,11 @@ public class AdminDao {
 		String sql="INSERT INTO cbang_admin VALUES(admin_code_seq.nextval,?,?,?,?,1)";
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, dto.getId());
-			pstmt.setString(2, dto.getPassword());
+			pstmt.setString(2, PBKDF2.createHash(dto.getPassword()));
 			pstmt.setString(3, dto.getName());
 			pstmt.setString(4, dto.getEmail());
 			pstmt.executeUpdate();			
-		}
+		} catch(Exception e) {}
 	}
 	
 	//전체 레코드 수]

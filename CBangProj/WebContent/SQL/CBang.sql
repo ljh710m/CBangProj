@@ -135,7 +135,7 @@ CREATE TABLE CBANG_ADMIN
 (
 	admin_code number NOT NULL,
 	id varchar2(20) NOT NULL UNIQUE,
-	password varchar2(30) NOT NULL,
+	password varchar2(200) NOT NULL,
 	name varchar2(20),
 	email varchar2(80),
 	privilege_code number NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE CBANG_MEMBER
 	member_no number NOT NULL,
 	name varchar2(20),
 	email varchar2(80) NOT NULL UNIQUE,
-	password varchar2(30) NOT NULL,
+	password varchar2(200) NOT NULL,
 	phone varchar2(30) NOT NULL UNIQUE,
 	profile_photo varchar2(100),
 	join_date date DEFAULT SYSDATE NOT NULL,
