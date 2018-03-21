@@ -17,4 +17,23 @@
 		</property>
 	</bean>
 	
+	<!-- ============================================================= -->
+	<!-- 마이바티스 지원을 위한 빈 등록 -->
+	<!-- ============================================================= -->
+	<!-- 1]SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 데이타소스:데이타베이스 연결정보 -->
+     	<property name="dataSource" ref="datasourceByJNDIXE"/>
+     	<!-- 환경설정 파일 위치 설정 -->
+     	<property name="configLocation" value="/WEB-INF/spring/mybatis/mybatis-config.xml"/>
+	</bean>
+	<!-- 2]SqlSessionTemplate -->
+	<bean id="sqlMapper" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	<!-- Transaction을 관리하기위한 Bean을 생성하고 id를 부여-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasourceByJNDI"/>
+	</bean>
+	
 </beans>
