@@ -55,7 +55,86 @@
         </div>
 		
 		<!-- content -->
-        <div class="content mt-3">        	
+        <div class="content mt-3">
+        	<div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">건물 옵션</strong>
+                        </div>
+                        <div class="card-body">
+                        	<div class="row"> 
+	                        	<div class="col-lg-6">                      	
+		                            <table class="table table-hover">
+		                            	<thead>
+		                                	<tr>
+		                                  		<th scope="col">#</th>
+		                                  		<th scope="col">옵션코드</th>
+		                                  		<th scope="col">옵션이름</th>
+		                                  		<th scope="col">Handle</th>
+		                              		</tr>
+			                          	</thead>
+			                          	<tbody>
+			                            	<tr>
+			                              		<th scope="row">1</th>
+			                              		<td>Mark</td>
+			                              		<td>Otto</td>
+			                              		<td>@mdo</td>
+			                          		</tr>
+			                          		<tr>
+			                              		<th scope="row">2</th>
+			                              		<td>Jacob</td>
+			                              		<td>Thornton</td>
+			                              		<td>@fat</td>
+			                          		</tr>
+			                          		<tr>
+			                              		<th scope="row">3</th>
+			                              		<td>Larry</td>
+			                              		<td>the Bird</td>
+			                              		<td>@twitter</td>
+			                          		</tr>
+			                      		</tbody>
+			                  		</table>
+		                  		</div>
+		                  		<div class="col-lg-6">
+			                  		<table class="table table-hover">
+		                            	<thead>
+		                                	<tr>
+		                                  		<th scope="col">#</th>
+		                                  		<th scope="col">First</th>
+		                                  		<th scope="col">Last</th>
+		                                  		<th scope="col">Handle</th>
+		                              		</tr>
+			                          	</thead>
+			                          	<tbody>
+			                            	<tr>
+			                              		<th scope="row">1</th>
+			                              		<td>Mark</td>
+			                              		<td>Otto</td>
+			                              		<td>@mdo</td>
+			                          		</tr>
+			                          		<tr>
+			                              		<th scope="row">2</th>
+			                              		<td>Jacob</td>
+			                              		<td>Thornton</td>
+			                              		<td>@fat</td>
+			                          		</tr>
+			                          		<tr>
+			                              		<th scope="row">3</th>
+			                              		<td>Larry</td>
+			                              		<td>the Bird</td>
+			                              		<td>@twitter</td>
+			                          		</tr>
+			                      		</tbody>
+			                  		</table>
+		                  		</div>
+	                  		</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+			</div>                      	
         		       	
         </div> <!-- .content -->
     </div><!-- /#right-panel -->

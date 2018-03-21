@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
 	<!-- Basic script -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
