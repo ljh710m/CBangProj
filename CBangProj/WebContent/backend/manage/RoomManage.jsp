@@ -128,13 +128,13 @@
 					                          			<th style="background-color: #EBF5FF;">옵션이름</th>
 					                              		<td>
 					                              			<div class="row form-group">
-		                            							<div class="col"><input type="text" placeholder="옵션이름" class="form-control"></div>
+		                            							<div class="col"><input type="text" placeholder="옵션이름" class="form-control" id="option_name"></div>
 		                          							</div>
 		                          						</td>
 					                          		</tr>
 					                          		<tr>
 					                          			<td colspan="2" style="text-align: center;">
-					                          				<button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i>&nbsp;등록</button>
+					                          				<button type="button" class="btn btn-outline-primary btn-sm" name="register"><i class="fa fa-pencil"></i>&nbsp;등록</button>
 					                          			</td>
 					                          		</tr>                  		
 					                      		</tbody>

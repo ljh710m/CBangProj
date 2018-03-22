@@ -20,7 +20,7 @@ public class BuildingOptionListDao {
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, name);
 			pstmt.executeUpdate();
-		} catch(Exception e) {}
+		}
 	}
 	
 	//전체 레코드 수]

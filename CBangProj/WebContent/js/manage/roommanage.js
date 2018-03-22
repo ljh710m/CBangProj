@@ -54,5 +54,34 @@
 	            $(".ui-dialog-titlebar-close", $(this).parent()).hide(); 
 			}				
 		});		
-	});		
+	});
+	
+	$('button[name=register]').click(function(){		
+		if($('#option_name').val() == ""){
+			customAlert("error", "등록할 옵션이름을 입력해주세요.");
+			return;
+		}
+		bOption("regit");		
+	});
+	
+	//건물 옵션 Ajax
+	function bOption(mode){
+		$.ajax({
+			type:'POST',
+			url:'BuildingOption.admin',
+			data:
+			{
+				mode:mode,
+				name:$('#option_name').val()
+			},
+			dataType:'json',
+			success:function(data){				
+				custumAlert("success","입력 완료");								
+			},
+			error:function(){
+				customAlert("error","오류 발생");
+			}
+		});
+	}	
+	
 })(jQuery);
