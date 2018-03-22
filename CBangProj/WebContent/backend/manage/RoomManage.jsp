@@ -18,13 +18,16 @@
 	<link href="<c:url value='/vendor/sufee/css/font-awesome.min.css'/>" rel="stylesheet">
 	<link href="<c:url value='/vendor/sufee/css/themify-icons.css'/>" rel="stylesheet">     
     <link href="<c:url value='/vendor/sufee/css/flag-icon.min.css'/>" rel="stylesheet">
-    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">    
+    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">
+    <!-- JQuery CSS -->
+    <link href="<c:url value='/vendor/jquery/css/jquery-ui.css'/>" rel="stylesheet">    
 	<!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
-    
+    <!-- Basic script -->
+    <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
 </head>
 <body>
     <!-- Left Panel -->
@@ -81,7 +84,7 @@
 			                              		<td>Otto</td>
 			                              		<td>
 			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
 			                              		</td>
 			                          		</tr>
 			                          		<tr>
@@ -90,7 +93,7 @@
 			                              		<td>Thornt</td>
 			                              		<td>
 			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
 			                              		</td>
 			                          		</tr>
 			                          		<tr>
@@ -99,7 +102,7 @@
 			                              		<td>가 나</td>
 			                              		<td>
 			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
 			                              		</td>
 			                          		</tr>
 			                      		</tbody>
@@ -151,29 +154,15 @@
     </div><!-- /#right-panel -->
     <!-- Right Panel -->
 
-	<!-- Basic script -->
-    <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
+	<!-- Basic script -->	
+    <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>    
+    <script src="<c:url value='/vendor/jquery/jquery-ui.min.js'/>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>    
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script>
-    	(function($) {
-        	$('button[name=edit]').click(function(){
-            	var edit = $(this).parent().prev();
-            	var option_name = edit.text();
-            	var input = $('<input/>').addClass('form-control').attr({type:'text',style:'width:150px;padding:0;display:inline'}).val(option_name)
-            	.keypress(function (e){
-                	if(e.which == 13){
-                    	console.log("Enter");
-                    }
-                });
-            	edit.html(input).append("&nbsp;").append($('<i/>').addClass('fa fa-edit'));        		
-            });
-	    		
-    	})(jQuery);
-    </script>
+    <script src="<c:url value='/js/manage/roommanage.js'/>"></script>            
        
 </body>
 </html>
