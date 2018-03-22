@@ -157,7 +157,7 @@
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script>
+    <script>  
     (function($){
         $('.viewModal').click(function(){
         	var memberIdx = $(this).parent().parent().find('td:eq(0)').html();
