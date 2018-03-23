@@ -11,7 +11,7 @@ import jdbc.connection.ConnectionProvider;
 import model.MembershipDto;
 import model.dao.MembershipDao;
 
-public class MembershipService {
+public class MembershipService {  
 	
 	private MembershipDao dao = new MembershipDao();
 	

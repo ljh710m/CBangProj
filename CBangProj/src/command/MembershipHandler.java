@@ -13,7 +13,7 @@ public class MembershipHandler implements CommandHandler{
 	
 	private MembershipService service = new MembershipService();
 	
-	@Override
+	@Override  
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		
 		List<MembershipDto> list = service.selectList(1, 10);
