@@ -21,7 +21,7 @@ import model.MembershipDto;
 public class MembershipDao {
 	
 	public List<MembershipDto> membershipList(Connection conn, int start, int end) throws SQLException{
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null;  
 		ResultSet rs = null;
 		String sql = "SELECT * FROM CBANG_MEMBER M JOIN REAL_ESTATE_OFFICE O ON M.OFFICE_NO = O.OFFICE_NO JOIN JOIN_PATH P ON M.PATH_CODE = P.PATH_CODE ORDER BY O.OFFICE_NO ASC";
 		try {

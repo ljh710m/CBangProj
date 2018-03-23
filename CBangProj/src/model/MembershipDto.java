@@ -5,7 +5,7 @@ import java.sql.Date;
 public class MembershipDto {
 	
 	private String member_no;
-	private String name;
+	private String name;  
 	private String email;
 	private String password;
 	private String phone;

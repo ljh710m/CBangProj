@@ -155,7 +155,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>    
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
-    <!-- Additional Script -->
+    <!-- Additional Script -->  
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script>  
     (function($){
