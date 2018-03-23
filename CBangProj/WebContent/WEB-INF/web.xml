@@ -38,6 +38,11 @@
 		</param-value>
 	</context-param>
 	
+	<context-param>
+	  	<param-name>TOMCAT_JNDI_ROOT</param-name>
+	  	<param-value>java:comp/env</param-value>
+  	</context-param>
+	
 	<!-- ============================================================= -->
 	<!-- ControllerUsingURI 컨트롤러 서블릿 -->
 	<!-- ============================================================= -->
