@@ -1,6 +1,8 @@
 package command;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +38,41 @@ public class BuildingOptionHandler implements CommandHandler{
 	}
 		
 	private String register(HttpServletRequest req, HttpServletResponse resp) {
-				
-		service.insert(req.getParameter("name"));
+		
+		JSONArray listArray = new JSONArray();
+		JSONObject optionInfo = null;
+					
+		//service.insert(req.getParameter("name"));
 		
 		List<BuildingOptionListDto> list = service.buildingOptionList();
 		
-		System.out.println(JSONArray.toJSONString(list));
+		for(int i=0; i<list.size(); i++) {
+			optionInfo = new JSONObject();
+			optionInfo.put("option_code", list.get(i).getOption_code());
+			optionInfo.put("name", list.get(i).getName());
+			listArray.add(optionInfo);
+		}
+		System.out.println(listArray.toJSONString());
+		//System.out.println(listArray);
 		
-		return JSONArray.toJSONString(list);
+		//System.out.println(JSONArray.toJSONString(list));		
+		//return JSONArray.toJSONString(list);
+		
+		try {
+			resp.setCharacterEncoding("UTF-8");
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			
+			//resp.setContentType("application/json");
+				
+						
+			out.print(listArray.toJSONString());
+			
+			out.flush();
+			
+		} catch (IOException e) {}
+		
+		return "";
 	}
 
 }

@@ -74,9 +74,12 @@
 				mode:mode,
 				name:$('#option_name').val()
 			},
-			dataType:'json',
-			success:function(data){				
-				custumAlert("success","입력 완료");								
+			dataType:'text',
+			success:function(data){
+				//console.log(data);
+				var obj = JSON.parse(data);
+				console.log(obj[0].name);
+				customAlert("success","입력 완료");								
 			},
 			error:function(){
 				customAlert("error","오류 발생");
