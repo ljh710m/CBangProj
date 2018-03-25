@@ -6,22 +6,22 @@ import java.util.List;
 
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
-import model.BuildingOptionListDto;
-import model.dao.BuildingOptionListDao;
+import model.RoomTypesDto;
+import model.dao.RoomTypesDao;
 
-public class BuildingOptionListService {
+public class RoomTypesService {
 	
-	private BuildingOptionListDao dao = new BuildingOptionListDao();
+	private RoomTypesDao dao = new RoomTypesDao();
 	
 	//등록]
-	public void insert(String name) {
+	public void insert(String room_type) {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 	
-			dao.insert(conn,name);
+			dao.insert(conn,room_type);
 			conn.commit();
 		} catch(SQLException e) {
 			JdbcUtil.rollback(conn);
@@ -32,14 +32,14 @@ public class BuildingOptionListService {
 	}
 	
 	//변경]
-	public void update(String name, String code) {
+	public void update(String room_type, String rm_type_code) {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 	
-			dao.update(conn,name,code);
+			dao.update(conn,room_type,rm_type_code);
 			conn.commit();
 		} catch(SQLException e) {
 			JdbcUtil.rollback(conn);
@@ -50,14 +50,14 @@ public class BuildingOptionListService {
 	}
 	
 	//삭제]
-	public void delete(String code) {
+	public void delete(String rm_type_code) {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 	
-			dao.delete(conn, code);
+			dao.delete(conn, rm_type_code);
 			conn.commit();
 		} catch(SQLException e) {
 			JdbcUtil.rollback(conn);
@@ -87,13 +87,13 @@ public class BuildingOptionListService {
 	}	
 	
 	//목록]
-	public List<BuildingOptionListDto> buildingOptionList(int start,int end){
+	public List<RoomTypesDto> roomTypesList(int start,int end){
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
-			List<BuildingOptionListDto> content = dao.select(conn,start,end);
+			List<RoomTypesDto> content = dao.select(conn,start,end);
 			return content;
 		} catch(SQLException e) {
 			JdbcUtil.rollback(conn);
@@ -101,6 +101,6 @@ public class BuildingOptionListService {
 		} finally {
 			JdbcUtil.close(conn);
 		}			
-	}	
+	}
 
 }

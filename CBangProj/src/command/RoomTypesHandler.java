@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import model.BuildingOptionListDto;
+import model.RoomTypesDto;
 import mvc.command.CommandHandler;
-import service.BuildingOptionListService;
+import service.RoomTypesService;
 import util.SimplePagingUtil;
 
-public class BuildingOptionHandler implements CommandHandler{
+public class RoomTypesHandler implements CommandHandler{
 	
-	private BuildingOptionListService service = new BuildingOptionListService();
+	private RoomTypesService service = new RoomTypesService();
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -39,20 +39,20 @@ public class BuildingOptionHandler implements CommandHandler{
 	}
 	
 	private void register(HttpServletRequest req, HttpServletResponse resp) {
-		service.insert(req.getParameter("name"));		
+		service.insert(req.getParameter("room_type"));		
 	}
 	
 	private void edit(HttpServletRequest req, HttpServletResponse resp) {		
-		service.update(req.getParameter("name"), req.getParameter("code"));		
+		service.update(req.getParameter("room_type"), req.getParameter("rm_type_code"));		
 	}
 	
 	private void delete(HttpServletRequest req, HttpServletResponse resp) {
-		service.delete(req.getParameter("code"));
+		service.delete(req.getParameter("rm_type_code"));
 	}	
 	
 	//건물 옵션 리스트 전송하는 메소드
 	private void sendList(HttpServletRequest req, HttpServletResponse resp) {
-		//페이징을 위한 로직 시작]		
+		//페이징을 위한 로직 시작]
 		//전체 레코드 수
 		int totalRecordCount = service.getTotalRowCount();
 		int pageSize = 5;
@@ -73,12 +73,12 @@ public class BuildingOptionHandler implements CommandHandler{
 		JSONObject optionInfo = null;
 		
 		List totalList = null;
-		List<BuildingOptionListDto> list = service.buildingOptionList(start,end);
+		List<RoomTypesDto> list = service.roomTypesList(start,end);
 		
 		for(int i=0; i<list.size(); i++) {
 			optionInfo = new JSONObject();
-			optionInfo.put("option_code", list.get(i).getOption_code());
-			optionInfo.put("name", list.get(i).getName());
+			optionInfo.put("option_code", list.get(i).getRm_type_code());
+			optionInfo.put("name", list.get(i).getRoom_type());
 			listArray.add(optionInfo);
 		}
 				

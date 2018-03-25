@@ -1,4 +1,7 @@
 (function($) {
+	/* 
+	 * 건물 옵션 
+	*/
 	//건물 옵션 등록
 	$('button[name=register]').click(function(){		
 		if($('#option_name').val() == ""){
@@ -13,7 +16,7 @@
 			modal: true,
 			buttons:{
 				"등록":function(){					
-					bOption("regit",$('#option_name').val(),null);
+					bOption("regit",$('#option_name').val(),null,1);
 					customAlert("success","등록이 완료되었습니다.");
 					$(this).dialog("close");
 				},
@@ -28,7 +31,7 @@
 	});
 	
 	//건물 옵션 Ajax
-	function bOption(mode,name,code){
+	function bOption(mode,name,code,nowPage){
 		$.ajax({
 			type:'POST',
 			url:'BuildingOption.admin',
@@ -37,7 +40,7 @@
 				mode:mode,
 				name:name,
 				code:code,
-				nowPage:7
+				nowPage:nowPage
 			},
 			dataType:'text',
 			success:function(data){				
@@ -61,9 +64,20 @@
 									.append($('<button/>').attr('type','button').addClass("btn btn-outline-danger btn-sm").attr('name','delete')
 											.append($('<i/>').addClass("fa fa-times")).append("&nbsp;Delete"))
 							)
-					);		
+					);
 				}
 				$('#paging').html(pagingText);
+				$('#paging li').click(function(){
+					var nowPage = $(this).text();
+					
+					if(nowPage.trim() == "»"){
+						nowPage = parseInt($(this).prev().text())+1;
+					}
+					else if(nowPage.trim() == "«"){
+						nowPage = parseInt($(this).next().text())-1;			
+					}
+					bOption(null,null,null,nowPage,1)		
+				});
 				
 				//Edit버튼
 				$('button[name=edit]').click(function(){
@@ -76,6 +90,7 @@
 			        	if(e.which == 13){
 			        		var new_name = $(this).val();
 			        		var code = $(this).parent().prev().html();
+			        		var nowPage = $('#paging li.active').text();			        		
 			        					        		
 			        		if(option_name == $(this).val() || $(this).val() == ""){
 			        			customAlert("warning","변경될 이름을 입력해주세요.");
@@ -90,7 +105,7 @@
 			        			modal: true,
 			        			buttons:{
 			        				"수정":function(){
-			        					bOption("edit",new_name,code);			        					
+			        					bOption("edit",new_name,code,nowPage);			        					
 			        					customAlert("success","수정되었습니다.");
 			        					$(this).dialog("close");
 			        				},
@@ -110,6 +125,7 @@
 				//Delete 버튼
 				$('button[name=delete]').click(function(){
 					var code = $(this).parent().prev().prev().html();
+					var nowPage = $('#paging li.active').text();
 					
 					var dialog = $('<div/>').attr('title',"옵션 삭제").append($('<p/>').html('정말 삭제하시겠습니까?')).dialog({
 						position:{my:"center top", at:"center top", of:window},				
@@ -119,7 +135,7 @@
 						modal: true,
 						buttons:{
 							"확인":function(){					
-								bOption("delete",null,code);
+								bOption("delete",null,code,nowPage);
 								customAlert("success","삭제되었습니다.");
 								$(this).dialog("close");
 							},
@@ -140,4 +156,118 @@
 		});
 	}
 	
+	//Edit버튼
+	$('button[name=edit]').click(function(){
+		var button = $(this);
+		button.prop("disabled", true);					
+    	var edit = $(this).parent().prev();
+    	var option_name = edit.text();
+    	var input = $('<input/>').addClass('form-control').attr({type:'text',style:'width:150px;padding:0;display:inline'}).val(option_name)
+    	.keypress(function (e){
+        	if(e.which == 13){
+        		var new_name = $(this).val();
+        		var code = $(this).parent().prev().html();
+        		var nowPage = $('#paging li.active').text();
+        					        		
+        		if(option_name == $(this).val() || $(this).val() == ""){
+        			customAlert("warning","변경될 이름을 입력해주세요.");
+        			return;
+        		}
+        		
+            	var dialog = $('<div/>').attr('title',"옵션 수정").append($('<p/>').html("수정 전:"+option_name+"<br>수정 후:"+$(this).val())).dialog({
+        			position:{my:"center top", at:"center top", of:window},				
+        			resizable:false,
+        			height:"auto",
+        			width:400,
+        			modal: true,
+        			buttons:{
+        				"수정":function(){
+        					bOption("edit",new_name,code,nowPage);			        					
+        					customAlert("success","수정되었습니다.");
+        					$(this).dialog("close");
+        				},
+        				"취소":function(){
+        					$(this).dialog("close");								
+        				}
+        			},
+        			open: function() {
+        	            $(".ui-dialog-titlebar-close", $(this).parent()).hide(); 
+        			}				
+        		});
+            }
+        });
+    	edit.html(input).append("&nbsp;").append($('<i/>').addClass('fa fa-times').attr('style','cursor:pointer;').click(function(){edit.html(option_name); button.prop("disabled", false)}));        		
+    });
+	
+	//Delete 버튼
+	$('button[name=delete]').click(function(){		
+		var code = $(this).parent().prev().prev().html();
+		var nowPage = $('#paging li.active').text();
+		
+		var dialog = $('<div/>').attr('title',"옵션 삭제").append($('<p/>').html('정말 삭제하시겠습니까?')).dialog({
+			position:{my:"center top", at:"center top", of:window},				
+			resizable:false,
+			height:"auto",
+			width:400,
+			modal: true,
+			buttons:{
+				"확인":function(){					
+					bOption("delete",null,code,nowPage);
+					customAlert("success","삭제되었습니다.");
+					$(this).dialog("close");
+				},
+				"취소":function(){
+					$(this).dialog("close");								
+				}
+			},
+			open: function() { 
+	            $(".ui-dialog-titlebar-close", $(this).parent()).hide(); 
+			}				
+		});
+	});
+	
+	$('#paging li').click(function(){		
+		var nowPage = $(this).text();
+		
+		if(nowPage.trim() == "»"){
+			nowPage = parseInt($(this).prev().text())+1;
+		}
+		else if(nowPage.trim() == "«"){
+			nowPage = parseInt($(this).next().text())-1;			
+		}
+		bOption(null,null,null,nowPage)
+	});
+	
+	/*
+	 * 방 종류
+	*/
+	//방 종류 등록
+	$('button[name=registerR]').click(function(){		
+		if($('#room_type').val() == ""){
+			customAlert("error", "등록할 방 종류를 입력해주세요.");
+			return;
+		}
+		var dialog = $('<div/>').attr('title',"방 종류 등록").append($('<p/>').html('등록하시겠습니까?')).dialog({
+			position:{my:"center top", at:"center top", of:window},				
+			resizable:false,
+			height:"auto",
+			width:400,
+			modal: true,
+			buttons:{
+				"등록":function(){					
+					//bOption("regit",$('#option_name').val(),null,1);
+					customAlert("success","등록이 완료되었습니다.");
+					$(this).dialog("close");
+				},
+				"취소":function(){
+					$(this).dialog("close");								
+				}
+			},
+			open: function() { 
+	            $(".ui-dialog-titlebar-close", $(this).parent()).hide(); 
+			}	
+		});
+	});
+	
+		
 })(jQuery);

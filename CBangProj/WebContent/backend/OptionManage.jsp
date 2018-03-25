@@ -52,7 +52,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">방종류 | 건물옵션 | 매물옵션</li>
+                            <li class="active">건물옵션 | 방종류 | 매물옵션</li>
                         </ol>
                     </div>
                 </div>
@@ -62,7 +62,91 @@
 		<!-- content -->
         <div class="content mt-3">
         	<div class="row">
-        		<%-- <div class="col-lg-12">
+        		<!-- 건물 옵션 -->     		       
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">건물 옵션</strong>
+                        </div>
+                        <div class="card-body">
+                        	<div class="row">
+	                        	<div class="col-lg-6">        	
+		                            <table class="table table-hover">
+		                            	<thead>
+		                                	<tr>
+		                                  		<th scope="col">#</th>
+		                                  		<th scope="col">옵션코드</th>
+		                                  		<th scope="col">옵션이름</th>
+		                                  		<th scope="col"></th>
+		                              		</tr>
+			                          	</thead>
+			                          	<tbody id="Boption">
+			                        <c:if test="${empty requestScope.buildingOptionList }" var="flag">
+							 				<tr>
+							 					<td colspan="4" style="text-align: center;">등록된 옵션이 없습니다</td>
+							 				</tr>
+									</c:if>
+									<c:if test="${not flag }">
+										<c:forEach var="item" items="${requestScope.buildingOptionList}" varStatus="loop">
+							  				<tr>
+							  					<th>${buildingMap.totalRecordCount - (((buildingMap.nowPage - 1) * buildingMap.pageSize) + loop.index)}</th>							  					
+							  					<td>${item.option_code}</td>
+							  					<td>${item.name}</td>
+							  					<td>
+			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              		</td>			   					
+							  				</tr>
+					 				</c:forEach>
+									</c:if>
+			                      		</tbody>
+			                  		</table>
+			                  		<!-- pagination start-->
+				                    <div id="paging">
+				                    	${buildingPaging}		                	
+					                </div>
+					                <!-- pagination end-->
+		                  		</div>
+		                  		<div class="offset-lg-1 col-lg-5">
+		                  			<div class="card">
+				                        <div class="card-header">
+				                            <strong class="card-title">건물 옵션 등록</strong>
+				                        </div>
+                        				<div class="card-body">
+					                  		<table class="table table-bordered">
+					                  			<colgroup>
+													<col style="width:30%">
+													<col>									
+												</colgroup>		                            	
+					                          	<tbody>
+					                            	<tr>
+					                              		<th style="background-color: #EBF5FF">옵션코드</th>
+					                              		<td>자동생성</td>			                              		
+					                          		</tr>
+					                          		<tr>
+					                          			<th style="background-color: #EBF5FF;">옵션이름</th>
+					                              		<td>
+					                              			<div class="row form-group">
+		                            							<div class="col"><input type="text" placeholder="옵션이름" class="form-control" id="option_name"></div>
+		                          							</div>
+		                          						</td>
+					                          		</tr>
+					                          		<tr>
+					                          			<td colspan="2" style="text-align: center;">
+					                          				<button type="button" class="btn btn-outline-primary btn-sm" name="register"><i class="fa fa-pencil"></i>&nbsp;등록</button>
+					                          			</td>
+					                          		</tr>                  		
+					                      		</tbody>
+					                  		</table>
+			                  			</div>
+			                  		</div>
+		                  		</div>
+	                  		</div>	                  		
+                        </div>
+                    </div>
+                </div><!-- 건물 옵션 -->
+                <!-- 방종류 -->
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">방 종류</strong>
@@ -79,7 +163,7 @@
 		                                  		<th scope="col"></th>
 		                              		</tr>
 			                          	</thead>
-			                          	<tbody id="Boption">
+			                          	<tbody id="roomType">
 			                            	<tr>
 			                              		<th scope="row">1</th>
 			                              		<td>Mark</td>
@@ -118,13 +202,27 @@
                         				<div class="card-body">
 					                  		<table class="table table-bordered">
 					                  			<colgroup>
-													<col style="width:35%">
+													<col style="width:30%">
 													<col>									
 												</colgroup>		                            	
 					                          	<tbody>
 					                            	<tr>
-			                              				<td colspan="4" style="text-align: center;">등록된 방 종류가 없습니다.</td>
-			                          				</tr>                  		
+					                              		<th style="background-color: #EBF5FF">방 종류 코드</th>
+					                              		<td>자동생성</td>			                              		
+					                          		</tr>
+					                          		<tr>
+					                          			<th style="background-color: #EBF5FF;">방 종류</th>
+					                              		<td>
+					                              			<div class="row form-group">
+		                            							<div class="col"><input type="text" placeholder="방 종류 이름" class="form-control" id="room_type"></div>
+		                          							</div>
+		                          						</td>
+					                          		</tr>
+					                          		<tr>
+					                          			<td colspan="2" style="text-align: center;">
+					                          				<button type="button" class="btn btn-outline-primary btn-sm" name="registerR"><i class="fa fa-pencil"></i>&nbsp;등록</button>
+					                          			</td>
+					                          		</tr>                  		
 					                      		</tbody>
 					                  		</table>
 			                  			</div>
@@ -133,94 +231,7 @@
 	                  		</div> 
                         </div>
                     </div>
-                </div> --%>
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">건물 옵션</strong>
-                        </div>
-                        <div class="card-body">
-                        	<div class="row">
-	                        	<div class="col-lg-6">        	
-		                            <table class="table table-hover">
-		                            	<thead>
-		                                	<tr>
-		                                  		<th scope="col">#</th>
-		                                  		<th scope="col">옵션코드</th>
-		                                  		<th scope="col">옵션이름</th>
-		                                  		<th scope="col"></th>
-		                              		</tr>
-			                          	</thead>
-			                          	<tbody id="Boption">
-			                            	<tr>
-			                              		<td colspan="4" style="text-align: center;">등록된 옵션이 없습니다.</td>
-			                          		</tr>
-			                      		</tbody>
-			                  		</table>
-			                  		<!-- pagination start-->
-				                    <div id="paging">
-					                	<nav style="text-align: center;">                		
-										  	<ul class="pagination">
-											    <li>
-											      <a href="#" aria-label="Previous">
-											        <span aria-hidden="true">&laquo;</span>
-											      </a>
-											    </li>
-											    <li><a href="#">1</a></li>
-											    <li><a href="#">2</a></li>
-											    <li><a href="#">3</a></li>
-											    <li><a href="#">4</a></li>
-											    <li><a href="#">5</a></li>
-											    <li>
-											      <a href="#" aria-label="Next" onclick="">
-											        <span aria-hidden="true">&raquo;</span>
-											      </a>
-											    </li>
-										  	</ul>
-										</nav>
-					                </div>
-					                <!-- pagination end-->
-		                  		</div>
-		                  		<div class="offset-lg-1 col-lg-5">
-		                  			<div class="card">
-				                        <div class="card-header">
-				                            <strong class="card-title">건물 옵션 등록</strong>
-				                        </div>
-                        				<div class="card-body">
-					                  		<table class="table table-bordered">
-					                  			<colgroup>
-													<col style="width:30%">
-													<col>									
-												</colgroup>		                            	
-					                          	<tbody>
-					                            	<tr>
-					                              		<th style="background-color: #EBF5FF">옵션코드</th>
-					                              		<td>자동생성</td>			                              		
-					                          		</tr>
-					                          		<tr>
-					                          			<th style="background-color: #EBF5FF;">옵션이름</th>
-					                              		<td>
-					                              			<div class="row form-group">
-		                            							<div class="col"><input type="text" placeholder="옵션이름" class="form-control" id="option_name"></div>
-		                          							</div>
-		                          						</td>
-					                          		</tr>
-					                          		<tr>
-					                          			<td colspan="2" style="text-align: center;">
-					                          				<button type="button" class="btn btn-outline-primary btn-sm" name="register"><i class="fa fa-pencil"></i>&nbsp;등록</button>
-					                          			</td>
-					                          		</tr>                  		
-					                      		</tbody>
-					                  		</table>
-			                  			</div>
-			                  		</div>
-		                  		</div>
-	                  		</div>
-	                  		
-                        </div>
-                    </div>
-                </div>
-                
+                </div><!-- 방종류 -->
 
                 
 			</div>                      	
