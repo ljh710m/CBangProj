@@ -14,7 +14,7 @@ public class RoomTypesDao {
 	
 	//입력용]
 	public void insert(Connection conn, String room_type) throws SQLException{
-		String sql="INSERT INTO rooom_types VALUES(ROOM_TYPES_CODE_SEQ.nextval,?)";
+		String sql="INSERT INTO room_types VALUES(ROOM_TYPES_CODE_SEQ.nextval,?)";
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, room_type);
 			pstmt.executeUpdate();
@@ -23,7 +23,7 @@ public class RoomTypesDao {
 	
 	//수정용]
 	public void update(Connection conn, String room_type, String rm_type_code) throws SQLException{
-		String sql="UPDATE rooom_types SET room_type = ? WHERE rm_type_code = ?";
+		String sql="UPDATE room_types SET room_type = ? WHERE rm_type_code = ?";
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, room_type);
 			pstmt.setString(2, rm_type_code);
@@ -33,7 +33,7 @@ public class RoomTypesDao {
 	
 	//삭제용]
 	public void delete(Connection conn, String rm_type_code) throws SQLException{
-		String sql="DELETE FROM rooom_types WHERE rm_type_code = ?";
+		String sql="DELETE FROM room_types WHERE rm_type_code = ?";
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)){			
 			pstmt.setString(1, rm_type_code);
 			pstmt.executeUpdate();
@@ -44,7 +44,7 @@ public class RoomTypesDao {
 	public int getTotalRowCount(Connection conn) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT count(*) FROM rooom_types";
+		String sql = "SELECT count(*) FROM room_types";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -63,7 +63,7 @@ public class RoomTypesDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM (SELECT b.*,rownum r FROM rooom_types b) WHERE r BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT b.*,rownum r FROM room_types b) WHERE r BETWEEN ? AND ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);			

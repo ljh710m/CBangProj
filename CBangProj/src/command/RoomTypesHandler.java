@@ -24,7 +24,7 @@ public class RoomTypesHandler implements CommandHandler{
 		
 		String mode = req.getParameter("mode");
 		if(mode.equals("regit")) {//등록
-			register(req,resp);						
+			register(req,resp);
 		}
 		else if(mode.equals("edit")){//수정
 			edit(req,resp);			
@@ -77,8 +77,8 @@ public class RoomTypesHandler implements CommandHandler{
 		
 		for(int i=0; i<list.size(); i++) {
 			optionInfo = new JSONObject();
-			optionInfo.put("option_code", list.get(i).getRm_type_code());
-			optionInfo.put("name", list.get(i).getRoom_type());
+			optionInfo.put("rm_type_code", list.get(i).getRm_type_code());
+			optionInfo.put("room_type", list.get(i).getRoom_type());
 			listArray.add(optionInfo);
 		}
 				

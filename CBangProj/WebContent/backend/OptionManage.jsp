@@ -164,35 +164,31 @@
 		                              		</tr>
 			                          	</thead>
 			                          	<tbody id="roomType">
-			                            	<tr>
-			                              		<th scope="row">1</th>
-			                              		<td>Mark</td>
-			                              		<td>Otto</td>
-			                              		<td>
-			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
-			                              		</td>
-			                          		</tr>
-			                          		<tr>
-			                              		<th scope="row">2</th>
-			                              		<td>Jacobddd</td>
-			                              		<td>Thornt</td>
-			                              		<td>
-			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
-			                              		</td>
-			                          		</tr>
-			                          		<tr>
-			                              		<th scope="row">3</th>
-			                              		<td>Larry</td>
-			                              		<td>가 나</td>
-			                              		<td>
-			                              			<button type="button" class="btn btn-outline-success btn-sm" name="edit"><i class="fa fa-edit"></i>&nbsp;Edit</button>
-			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="delete"><i class="fa fa-times"></i>&nbsp;Delete</button>
-			                              		</td>
-			                          		</tr>
+		                          	<c:if test="${empty requestScope.roomTypesList }" var="flag">
+							 				<tr>
+							 					<td colspan="4" style="text-align: center;">등록된 방 종류가 없습니다</td>
+							 				</tr>
+									</c:if>
+									<c:if test="${not flag }">
+										<c:forEach var="item" items="${requestScope.roomTypesList}" varStatus="loop">
+							  				<tr>
+							  					<th>${roomMap.totalRecordCount - (((roomMap.nowPage - 1) * roomMap.pageSize) + loop.index)}</th>							  					
+							  					<td>${item.rm_type_code}</td>
+							  					<td>${item.room_type}</td>
+							  					<td>
+			                              			<button type="button" class="btn btn-outline-success btn-sm" name="editR"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+			                              			<button type="button" class="btn btn-outline-danger btn-sm" name="deleteR"><i class="fa fa-times"></i>&nbsp;Delete</button>
+			                              		</td>	   					
+							  				</tr>
+					 					</c:forEach>
+									</c:if>			                            	
 			                      		</tbody>
 			                  		</table>
+			                  		<!-- pagination start-->
+				                    <div id="pagingR">
+				                    	${roomPaging}		                	
+					                </div>
+					                <!-- pagination end-->
 		                  		</div>
 		                  		<div class="offset-lg-1 col-lg-5">
 		                  			<div class="card">
@@ -214,7 +210,7 @@
 					                          			<th style="background-color: #EBF5FF;">방 종류</th>
 					                              		<td>
 					                              			<div class="row form-group">
-		                            							<div class="col"><input type="text" placeholder="방 종류 이름" class="form-control" id="room_type"></div>
+		                            							<div class="col"><input type="text" placeholder="방 종류 이름" class="form-control" id="room_type_name"></div>
 		                          							</div>
 		                          						</td>
 					                          		</tr>

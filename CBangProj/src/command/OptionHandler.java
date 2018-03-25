@@ -28,8 +28,7 @@ public class OptionHandler implements CommandHandler{
 		buildingOption(req);
 		//방 종류
 		roomType(req);
-		
-				
+						
 		return "/backend/OptionManage.jsp";
 	}
 	
