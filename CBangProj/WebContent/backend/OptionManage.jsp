@@ -61,7 +61,7 @@
 		
 		<!-- content -->
         <div class="content mt-3">
-        	<div class="row">
+        	<div class="row animated fadeIn">
         		<!-- 건물 옵션 -->     		       
                 <div class="col-lg-12">
                     <div class="card">
