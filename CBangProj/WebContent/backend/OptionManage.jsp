@@ -26,6 +26,8 @@
     
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/util/pagination.css'/>" rel="stylesheet">
+    
     <!-- Basic script -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
 </head>
@@ -50,7 +52,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
+                            <li class="active">방종류 | 건물옵션 | 매물옵션</li>
                         </ol>
                     </div>
                 </div>
@@ -60,24 +62,24 @@
 		<!-- content -->
         <div class="content mt-3">
         	<div class="row">
-                <div class="col-lg-12">
+        		<%-- <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">건물 옵션</strong>
+                            <strong class="card-title">방 종류</strong>
                         </div>
                         <div class="card-body">
-                        	<div class="row"> 
+                        	<div class="row">
 	                        	<div class="col-lg-6">                      	
 		                            <table class="table table-hover">
 		                            	<thead>
 		                                	<tr>
 		                                  		<th scope="col">#</th>
-		                                  		<th scope="col">옵션코드</th>
-		                                  		<th scope="col">옵션이름</th>
+		                                  		<th scope="col">방 종류 코드</th>
+		                                  		<th scope="col">방 종류 이름</th>
 		                                  		<th scope="col"></th>
 		                              		</tr>
 			                          	</thead>
-			                          	<tbody>
+			                          	<tbody id="Boption">
 			                            	<tr>
 			                              		<th scope="row">1</th>
 			                              		<td>Mark</td>
@@ -107,6 +109,77 @@
 			                          		</tr>
 			                      		</tbody>
 			                  		</table>
+		                  		</div>
+		                  		<div class="offset-lg-1 col-lg-5">
+		                  			<div class="card">
+				                        <div class="card-header">
+				                            <strong class="card-title">방 종류 등록</strong>
+				                        </div>
+                        				<div class="card-body">
+					                  		<table class="table table-bordered">
+					                  			<colgroup>
+													<col style="width:35%">
+													<col>									
+												</colgroup>		                            	
+					                          	<tbody>
+					                            	<tr>
+			                              				<td colspan="4" style="text-align: center;">등록된 방 종류가 없습니다.</td>
+			                          				</tr>                  		
+					                      		</tbody>
+					                  		</table>
+			                  			</div>
+			                  		</div>
+		                  		</div>
+	                  		</div> 
+                        </div>
+                    </div>
+                </div> --%>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">건물 옵션</strong>
+                        </div>
+                        <div class="card-body">
+                        	<div class="row">
+	                        	<div class="col-lg-6">        	
+		                            <table class="table table-hover">
+		                            	<thead>
+		                                	<tr>
+		                                  		<th scope="col">#</th>
+		                                  		<th scope="col">옵션코드</th>
+		                                  		<th scope="col">옵션이름</th>
+		                                  		<th scope="col"></th>
+		                              		</tr>
+			                          	</thead>
+			                          	<tbody id="Boption">
+			                            	<tr>
+			                              		<td colspan="4" style="text-align: center;">등록된 옵션이 없습니다.</td>
+			                          		</tr>
+			                      		</tbody>
+			                  		</table>
+			                  		<!-- pagination start-->
+				                    <div id="paging">
+					                	<nav style="text-align: center;">                		
+										  	<ul class="pagination">
+											    <li>
+											      <a href="#" aria-label="Previous">
+											        <span aria-hidden="true">&laquo;</span>
+											      </a>
+											    </li>
+											    <li><a href="#">1</a></li>
+											    <li><a href="#">2</a></li>
+											    <li><a href="#">3</a></li>
+											    <li><a href="#">4</a></li>
+											    <li><a href="#">5</a></li>
+											    <li>
+											      <a href="#" aria-label="Next" onclick="">
+											        <span aria-hidden="true">&raquo;</span>
+											      </a>
+											    </li>
+										  	</ul>
+										</nav>
+					                </div>
+					                <!-- pagination end-->
 		                  		</div>
 		                  		<div class="offset-lg-1 col-lg-5">
 		                  			<div class="card">
@@ -143,9 +216,11 @@
 			                  		</div>
 		                  		</div>
 	                  		</div>
+	                  		
                         </div>
                     </div>
                 </div>
+                
 
                 
 			</div>                      	
@@ -156,13 +231,13 @@
 
 	<!-- Basic script -->	
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>    
-    <script src="<c:url value='/vendor/jquery/jquery-ui.min.js'/>"></script>
+    <script src="<c:url value='/vendor/jquery/jquery-ui.min.js'/>"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>    
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script src="<c:url value='/js/manage/roommanage.js'/>"></script>            
+    <script src="<c:url value='/js/manage/optionmanage.js'/>"></script>            
        
 </body>
 </html>

@@ -26,6 +26,9 @@
                         <li><i class="fa fa-bars"></i><a href="ui-tabs.html">신고매물관리</a></li>                        
                     </ul>
                 </li>
+                <li>
+                    <a href="option.admin"> <i class="menu-icon ti-email"></i>옵션관리 </a>
+                </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>옵션관리</a>
                     <ul class="sub-menu children dropdown-menu">

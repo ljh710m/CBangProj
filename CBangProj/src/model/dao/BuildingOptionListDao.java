@@ -23,8 +23,27 @@ public class BuildingOptionListDao {
 		}
 	}
 	
+	//수정용]
+	public void update(Connection conn, String name, String code) throws SQLException{
+		String sql="UPDATE building_option_list SET name = ? WHERE option_code = ?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, name);
+			pstmt.setString(2, code);
+			pstmt.executeUpdate();
+		}
+	}
+	
+	//삭제용]
+	public void delete(Connection conn, String code) throws SQLException{
+		String sql="DELETE FROM building_option_list WHERE option_code = ?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){			
+			pstmt.setString(1, code);
+			pstmt.executeUpdate();
+		}
+	}
+	
 	//전체 레코드 수]
-	public int selectCount(Connection conn) throws SQLException{
+	public int getTotalRowCount(Connection conn) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT count(*) FROM building_option_list";
@@ -42,13 +61,17 @@ public class BuildingOptionListDao {
 	}
 	
 	//전체 목록 가져오기]
-	public List<BuildingOptionListDto> select(Connection conn) throws SQLException{
+	public List<BuildingOptionListDto> select(Connection conn,int start,int end) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM building_option_list";
+		
+		String sql = "SELECT * FROM (SELECT b.*,rownum r FROM building_option_list b) WHERE r BETWEEN ? AND ?";
+		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			pstmt = conn.prepareStatement(sql);			
+			pstmt.setString(1, String.valueOf(start));
+			pstmt.setString(2, String.valueOf(end));
+			rs = pstmt.executeQuery();			
 			List<BuildingOptionListDto> result = new ArrayList<>();
 			while(rs.next()) {
 				result.add(convertOption(rs));
@@ -64,7 +87,7 @@ public class BuildingOptionListDao {
 	private BuildingOptionListDto convertOption(ResultSet rs) throws SQLException{
 		BuildingOptionListDto buildingOptionListDto = new BuildingOptionListDto(
 				rs.getString("option_code"),
-				rs.getString("name"));		
+				rs.getString("name"));
 		
 		return buildingOptionListDto;
 	}
