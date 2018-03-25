@@ -13,7 +13,7 @@ import service.RegisterService;
 
 public class RegisterHandler implements CommandHandler{
 	
-	private static final String FORM_VIEW = "/backend/admin/register.jsp";
+	private static final String FORM_VIEW = "/backend/register.jsp";
 	private RegisterService registerService = new RegisterService();
 
 	@Override

@@ -57,7 +57,7 @@ public class LoginHandler implements CommandHandler{
 			//User 객체를 세션의 authAdmin 속성에 저장한다.
 			req.getSession().setAttribute("authAdmin", user);
 			//admin.jsp로 리다이렉트한다.
-			resp.sendRedirect(req.getContextPath() + "/backend/admin/admin.jsp");
+			resp.sendRedirect(req.getContextPath() + "/backend/admin.jsp");
 			return null;
 		} catch (LoginFailException e) {
 			//로그인에 실패해서 LoginFailException이 발생하면 해당 에러를 추가하고, 폼을 위한 뷰를 리턴한다.

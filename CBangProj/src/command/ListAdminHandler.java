@@ -16,7 +16,7 @@ public class ListAdminHandler implements CommandHandler{
 		AdminPage adminPage = listService.getAdminPage();
 		req.setAttribute("adminPage", adminPage);		
 		
-		return "/backend/admin/listAdmin.jsp";
+		return "/backend/listAdmin.jsp";
 	}
 
 }
