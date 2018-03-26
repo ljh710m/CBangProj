@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.BuildingOptionListDto;
+import model.RoomOptionListDto;
 import model.RoomTypesDto;
 import mvc.command.CommandHandler;
 import service.BuildingOptionListService;
+import service.RoomOptionListService;
 import service.RoomTypesService;
 import util.SimplePagingUtil;
 
@@ -18,6 +20,7 @@ public class OptionHandler implements CommandHandler{
 	
 	private BuildingOptionListService buildingOptionservice = new BuildingOptionListService();
 	private RoomTypesService roomTypesService = new RoomTypesService();
+	private RoomOptionListService roomOptionListService = new RoomOptionListService();
 	private int pageSize =5; //페이지당 나타낼 옵션 수 
 	private int blockPage = 5; //한 화면에 나타낼 페이징 수
 	private int nowPage = 1; //현재 페이지
@@ -28,7 +31,9 @@ public class OptionHandler implements CommandHandler{
 		buildingOption(req);
 		//방 종류
 		roomType(req);
-						
+		//매물 옵션
+		roomOption(req);
+		
 		return "/backend/OptionManage.jsp";
 	}
 	
@@ -76,6 +81,29 @@ public class OptionHandler implements CommandHandler{
 		req.setAttribute("roomTypesList", list);
 		req.setAttribute("roomPaging", pagingText);
 		req.setAttribute("roomMap", roomMap);		
+	}
+	
+	private void roomOption(HttpServletRequest req) {
+		//페이징을 위한 로직 시작]
+		//전체 레코드 수
+		int totalRecordCount = roomOptionListService.getTotalRowCount();
+		//전체 페이지수
+		int totalPage =(int)Math.ceil((double)totalRecordCount/pageSize);		
+		//시작 및 끝 ROWNUM구하기
+		int start= (nowPage-1)*pageSize +1;
+		int end  = nowPage*pageSize;
+		//페이징을 위한 로직 끝]
+		List<RoomOptionListDto> list = roomOptionListService.roomOptionList(start,end);
+		String pagingText = SimplePagingUtil.pagingText(totalRecordCount, pageSize, blockPage, nowPage, null);
+		Map<String, Integer> roomOptionMap = new HashMap<String, Integer>();
+		roomOptionMap.put("totalRecordCount", totalRecordCount);
+		roomOptionMap.put("pageSize", pageSize);
+		roomOptionMap.put("blockPage", blockPage);
+		roomOptionMap.put("nowPage", nowPage);
+		
+		req.setAttribute("roomOptionList", list);
+		req.setAttribute("optionPaging", pagingText);
+		req.setAttribute("roomOptionMap", roomOptionMap);	
 	}
 
 }
