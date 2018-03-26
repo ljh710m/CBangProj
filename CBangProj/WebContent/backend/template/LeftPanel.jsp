@@ -78,11 +78,11 @@
                       
                 <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>관리자 관리</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-key"></i>관리자 관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="listAdmin.admin">관리자 목록</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">관리자 등록</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">관리자 권한</a></li>                        
+                        <li><i class="menu-icon fa fa-list-ul"></i><a href="listAdmin.admin">관리자 목록</a></li>
+                        <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="page-register.html">관리자 등록</a></li>
+                        <li><i class="menu-icon fa fa-lock"></i><a href="adminPrivilege.admin">관리자 권한</a></li>                        
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">

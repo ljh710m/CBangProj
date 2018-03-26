@@ -48,9 +48,10 @@
             <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li>관리자 관리</li>
-                            <li class="active">관리자 목록</li>
+                        <ol class="breadcrumb text-right">                            
+                            <li><a href="listAdmin.admin">관리자 목록</a></li>
+                            <li>관리자 등록</li>
+                            <li>관리자 권한</li>
                         </ol>
                     </div>
                 </div>

@@ -57,7 +57,7 @@ public class RegisterHandler implements CommandHandler{
 		} catch(DuplicatedException e) {
 			errors.put("duplicateId", Boolean.TRUE);
 			return FORM_VIEW;
-		} 
+		}
 	}
 
 }
