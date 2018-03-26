@@ -27,7 +27,12 @@
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/util/pagination.css'/>" rel="stylesheet">
-    
+    <style>
+    	ol li:hover{
+    		color: blue;
+    		font-weight: bold;
+    	}
+    </style>
     <!-- Basic script -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
 </head>
@@ -51,8 +56,10 @@
             <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active">건물옵션 | 방종류 | 매물옵션</li>
+                        <ol class="breadcrumb text-right" style="cursor: pointer;">
+                            <li>건물옵션</li>
+                            <li>방종류</li>
+                            <li>매물옵션</li>
                         </ol>
                     </div>
                 </div>

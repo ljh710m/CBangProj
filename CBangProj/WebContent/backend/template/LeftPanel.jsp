@@ -27,16 +27,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="option.admin"> <i class="menu-icon ti-email"></i>옵션관리 </a>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>옵션관리</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="tables-basic.html">방 종류</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">건물 옵션</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">매물 옵션</a></li>                        
-                    </ul>
-                </li>
+                    <a href="option.admin"> <i class="menu-icon fa fa-gavel"></i>옵션관리 </a>
+                </li>               
 
                 <h3 class="menu-title">고객관리</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">

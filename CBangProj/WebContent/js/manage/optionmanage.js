@@ -616,7 +616,7 @@
 						modal: true,
 						buttons:{
 							"확인":function(){					
-								bOption("delete",null,code,nowPage);
+								rOption("delete",null,code,nowPage);
 								customAlert("success","삭제되었습니다.");
 								$(this).dialog("close");
 							},
@@ -693,7 +693,7 @@
 			modal: true,
 			buttons:{
 				"확인":function(){					
-					bOption("delete",null,code,nowPage);
+					rOption("delete",null,code,nowPage);
 					customAlert("success","삭제되었습니다.");
 					$(this).dialog("close");
 				},
@@ -705,6 +705,42 @@
 	            $(".ui-dialog-titlebar-close", $(this).parent()).hide(); 
 			}				
 		});		
+	});
+	
+	$('#pagingRO li').click(function(){
+		var nowPage = $(this).text();
+		
+		if(nowPage.trim() == "»"){
+			nowPage = parseInt($(this).prev().text())+1;
+		}
+		else if(nowPage.trim() == "«"){
+			nowPage = parseInt($(this).next().text())-1;			
+		}
+		rOption(null,null,null,nowPage,1)		
+	});
+	
+	//href='#' Jquery 링크 동작 방지 이벤트 무시
+	$(document).on('click', 'a[href="#"]', function(e){
+	    e.preventDefault();
+	});
+	
+	$('ol li').click(function(){
+		var sBOption = $('#Boption').offset().top-120;
+		var sRoomType = $('#roomType').offset().top-120;
+		var sRoomOption = $('#roomOption').offset().top-120;
+		
+		switch($(this).index()){
+			case 0:
+				$('html, body').animate( { scrollTop : sBOption }, 400 );
+				break;
+			case 1:
+				$('html, body').animate( { scrollTop : sRoomType }, 400 );
+				break;
+			case 2:
+				$('html, body').animate( { scrollTop : sRoomOption }, 400 );
+				break;		
+		}		
+		
 	});	
 		
 })(jQuery);
