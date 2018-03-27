@@ -51,7 +51,7 @@
                         <ol class="breadcrumb text-right">                            
                             <li><a href="listAdmin.admin">관리자 목록</a></li>
                             <li>관리자 등록</li>
-                            <li>관리자 권한</li>
+                            <li><a href="adminPrivilege.admin">관리자 권한</a></li>
                         </ol>
                     </div>
                 </div>

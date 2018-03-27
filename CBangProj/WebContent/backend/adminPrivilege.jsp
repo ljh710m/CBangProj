@@ -18,12 +18,17 @@
 	<link href="<c:url value='/vendor/sufee/css/font-awesome.min.css'/>" rel="stylesheet">
 	<link href="<c:url value='/vendor/sufee/css/themify-icons.css'/>" rel="stylesheet">     
     <link href="<c:url value='/vendor/sufee/css/flag-icon.min.css'/>" rel="stylesheet">
-    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">    
+    <link href="<c:url value='/vendor/sufee/css/cs-skin-elastic.css'/>" rel="stylesheet">
+    <!-- JQuery CSS -->
+    <link href="<c:url value='/vendor/jquery/css/jquery-ui.css'/>" rel="stylesheet">    
 	<!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/util/pagination.css'/>" rel="stylesheet">
+    <!-- Basic script -->
+    <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
     
 </head>
 <body>
@@ -49,7 +54,7 @@
                         <ol class="breadcrumb text-right" style="cursor: pointer;">
                             <li><a href="listAdmin.admin">관리자 목록</a></li>
                             <li>관리자 등록</li>
-                            <li>관리자 권한</li>
+                            <li><a href="adminPrivilege.admin">관리자 권한</a></li>
                         </ol>
                     </div>
                 </div>
@@ -99,7 +104,7 @@
 			                  		</table>
 			                  		<!-- pagination start-->
 				                    <div id="paging">
-				                    	${buildingPaging}		                	
+				                    	${paging}		                	
 					                </div>
 					                <!-- pagination end-->
 		                  		</div>
@@ -148,11 +153,13 @@
 
 	<!-- Basic script -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>
+    <script src="<c:url value='/vendor/jquery/jquery-ui.min.js'/>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>    
     <script src="<c:url value='/vendor/sufee/js/plugins.js'/>"></script>
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->
     <script src="<c:url value='/js/util/alert.js'/>"></script>
+    <script src="<c:url value='/js/admin/adminPrivilege.js'/>"></script>
        
 </body>
 </html>

@@ -15,23 +15,26 @@ import util.SimplePagingUtil;
 public class AdminPrivilegeHandler implements CommandHandler {
 	
 	private AdminPrivilegeService service = new AdminPrivilegeService();
-		
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		/*String mode = req.getParameter("mode");
-		if(mode.equals("regit")) {//등록
-			service.insert(req.getParameter("privilege_info"));		
-		}
-		else if(mode.equals("edit")){//수정
-			service.update(req.getParameter("privilege_info"), req.getParameter("privilege_code"));			
-		}
-		else if(mode.equals("delete")) {//삭제
-			service.delete(req.getParameter("privilege_code"));
-		}*/
+		String mode = req.getParameter("mode");
 		
-		//sendList(req);
+		if(mode != null) {
+			if(mode.equals("regit")) {//등록
+				service.insert(req.getParameter("privilege_info"));		
+			}
+			else if(mode.equals("edit")){//수정
+				service.update(req.getParameter("privilege_info"), req.getParameter("privilege_code"));			
+			}
+			else if(mode.equals("delete")) {//삭제
+				service.delete(req.getParameter("privilege_code"));
+			}
+		}
 		
-		return "/backend/adminPrivilege.jsp";
+		sendList(req);
+		
+		return "/backend/adminPrivilege.jsp";		
 	}
 	
 	private void sendList(HttpServletRequest req) {
@@ -40,7 +43,8 @@ public class AdminPrivilegeHandler implements CommandHandler {
 		int totalRecordCount = service.getTotalRowCount();
 		int pageSize = 5;
 		int blockPage = 5;
-		int nowPage = Integer.parseInt(req.getParameter("nowPage"));
+		int nowPage = 1;
+		if(req.getParameter("mode") != null) nowPage = Integer.parseInt(req.getParameter("nowPage"));
 		
 		//전체 페이지수]
 		int totalPage =(int)Math.ceil((double)totalRecordCount/pageSize);		
