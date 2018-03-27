@@ -35,7 +35,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>회원관리</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">회원정보 조회</a></li>
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="<c:url value='/backend/admin/membership.admin' />">공인중개사 관리</a></li>
+                        <li><i class="menu-icon ti-themify-logo"></i><a href="membership.admin">공인중개사 관리</a></li>
                         <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">가입 경로 설정</a></li>
                     </ul>
                 </li>
