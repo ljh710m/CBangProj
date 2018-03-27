@@ -27,881 +27,398 @@
     background: transparent;
 }
 
+/* 로그인 폼 */
+.nbang-modal {
+    width: 100%;
+    height: 100%;
+}
+.nbang-modal {
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    outline: 0;
+}
+.nbang-modal-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.nbang-modal-bg {
+    overflow: hidden;
+    z-index: 1051;    
+}
+.nbang-modal-dialog {
+    padding-bottom: 20px;
+    border-top: 5px #ff7473 solid;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+}
+.nbang-modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1052;
+    margin: auto;
+    text-align: left;
+}
+.nbang-modal-header {
+    color: #fff;
+}
+.nbang-modal-header .nbang-icon-remove {
+    display: inline-block;
+    position: absolute;
+    top: -25px;
+    right: -20px;
+    cursor: pointer;
+}
+.nbang-modal-header .nbang-icon-remove:hover {
+    color: #d1d1d1;
+}
+.icon-size-2xl {
+    vertical-align: -5px;
+    font-size: 19px;
+}
+.nbang-modal-body {
+    background-color: #fff;
+}
+.Account {
+    padding-top: 7px;
+    color: #585858;
+}
+.Account-title {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+}
+.Login {
+    margin-top: 47px;
+    text-align: center;
+}
+.Login form {
+    margin: 0;
+}
+.Account-form__row {
+    display: table;
+    width: 100%;
+}
+.Account-form__row+.Account-form__row {
+    margin-top: 13px;
+}
+.Login .Account-form__cell:first-child {
+    width: 75px;
+}
+.Account-form__cell:first-child {
+    text-align: left;
+}
+.Account-form__cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.Account-form__label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.Account-form__cell label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+.Account-form__input {
+    width: 100%;
+    height: 40px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid #d1d1d1;
+}
+.Account-form__submit {
+    width: 100%;
+    margin-top: 30px;
+}
+.Login .btn-lg {
+	height : 50px;
+    font-size: 15px;    
+}
+.btn-pink {
+    border: 1px #ff3737 solid;
+    background-color: #ff7473;
+    color: #fff;
+}
+.btn-pink:hover {
+    border: 1px #ff3737 solid;
+    background-color: #ff5151;
+    color: #fff;
+}
+.Account .btn-no-bg {
+    background-color: transparent;
+}
+.Account .btn-no-border {
+    border: 0;
+}
+.Login-auth {
+    margin-top: 10px;
+}
+.Login-auth__item {
+    font-size: 13px;
+    letter-spacing: -0.04em;
+    color: inherit;
+}
+.Login-auth__item+.Login-auth__item:before {
+    content: "|";
+    display: inline-block;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #d1d1d1;
+}
+.Login-sns {
+    margin-top: 28px;
+}
+.Login-sns__btn {
+    width: 158px;
+    height: 44px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.btn-kakao {
+    border-color: #7b7117;
+    background-color: #fae100;
+    color: #342215;
+}
+.btn-kakao:hover {
+    background-color: #bdab0a;
+}
+.btn-facebook {
+    border-color: #1b356b;
+    background-color: #3b5999;
+    color: #fff;
+}
+.btn-facebook:hover {
+    background-color: #29447f;
+}
+.Login-sns__btn+.Login-sns__btn {
+    margin-left: 5px;
+}
+.Login-pro_register {
+    display: block;
+    padding-top: 20px;
+    border-top: 1px solid #d1d1d1;
+    margin-top: 20px;
+    letter-spacing: -0.04em;
+}
+.Login-pro_register>a {
+    color: #585858;
+    text-decoration : none;
+    background-color: transparent;
+}
+.Login-pro_register__icon {
+    display: inline-block;
+    width: 25px;
+    height: 17px;
+    margin-right: 2px;
+    background: url(../images/accountlogin/icon-pro.png) no-repeat;
+    vertical-align: middle;
+}
 
-/* accountlogin css */
+/* 비밀번호 찾기 */
+.ForgotPassword {
+    margin-top: 26px;
+}
+.ForgotPassword-message {
+    font-size: 12px;
+    text-align: center;
+}
+.ForgotPassword .Account-form {
+    margin-top: 15px;
+}
+.ForgotPassword form {
+    margin: 0;
+}
+.ForgotPassword .Account-form__cell:first-child {
+    width: 75px;
+}
+.ForgotPassword .btn-lg {
+	height : 50px;
+    font-size: 15px;    
+}
 
-	.DBang-modal {
-		display: block;
-	    width: 100%;
-	    height: 100%;
-	}
-	.DBang-modal {
-	    -webkit-overflow-scrolling: touch;
-	    display: none;
-	    overflow: hidden;
-	    position: fixed;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1050;
-	    outline: 0;
-	}
-	.DBang-modal-bg {
-	    position: absolute;
-	    width: 100%;
-	    height: 100%;
-	    overflow: hidden;
-	    z-index: 1051;
-	    background: #0b0b0b;
-	    opacity: .5;
-	}
-	
-	.DBang-modal-dialog {
-	    padding-bottom: 20px;
-	    border-top: 5px #c91f3b solid;
-	    border-radius: 0 0 5px 5px;
-	    background-color: #fff;
-	}
-	.DBang-modal-dialog {
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1052;
-	    margin: auto;
-	    text-align: left;
-	}
-	.DBang-modal-header {
-	    color: #fff;
-	}
-	
-	.DBang-modal-header .DBang-icon-remove {
-	    display: inline-block;
-	    position: absolute;
-	    top: -27px;
-	    right: -25px;
-	    cursor: pointer;
-	}
-	
-	
-	<!-- -->
-	.modal-icon {
-	    font-style: normal;
-	}
-	
-	.modalmodalAccount {
-	    padding-top: 30px;
-	    color: #585858;
-	}
-	
-	.modalmodalAccount-title {
-	    font-size: 24px;
-	    color: #000;
-	    text-align: center;
-	}
-	
-	
-	
-	
-	.modalLogin {
-	    margin-top: 47px;
-	    text-align: center;
-	}
-	
-	.modalAccount-form__row {
-		margin: 0;
-	    display: table;
-	    width: 100%;
-	}
-	.modalLogin .modalAccount-form__cell:first-child {
-	    width: 75px;
-	}
-	.modalAccount-form__cell:first-child {
-	    text-align: left;
-	}
-	
-	.modalAccount-form__cell {
-	    display: table-cell;
-	    vertical-align: middle;
-	    padding: 1px 0px;
-	}
-	.modalAccount-form__label {
-	    margin-bottom: 0;
-	    cursor: pointer;
-	    display: inline-block;
-	    max-width: 100%;
-	    margin-bottom: 5px;
-	    font-weight: normal;
-	}
-	
-	.modalAccount-form__input {
-	    width: 100%;
-	    height: 40px;
-	    padding-right: 15px;
-	    padding-left: 15px;
-	    border: 1px solid #d1d1d1;
-	    outline: none;
-	    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
-	    
-	}
-	.modalAccount-form__row+.modalAccount-form__row {
-	    margin-top: 13px;
-	}
-	
-	.modalAccount-form__submit {
-	    width: 100%;
-	    margin-top: 30px;
-	    outline: none;
-	    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
-	    
-	}
-	.btn-lg {
-	    width: 230px;
-	    height: 50px;
-	    font-size: 15px;
-	    line-height: 48px;
-	}
-	.btn-full{
-		width: 325px;
-	    height: 50px;
-	    line-height: 48px;
-	}
-	.btn-login {
-	    display: inline-block;
-	    padding: 0 13px;
-	    background-image: none;
-	    margin-bottom: 0;
-	    font-size: 12px;
-	    font-weight: 400;
-	    line-height: 1.53856154;
-	    text-align: center;
-	    text-decoration: none;
-	    white-space: nowrap;
-	    vertical-align: middle;
-	    -ms-touch-action: manipulation;
-	    touch-action: manipulation;
-	    cursor: pointer;
-	    transition: all .1s ease;
-	    -webkit-user-select: none;
-	    -moz-user-select: none;
-	    -ms-user-select: none;
-	    user-select: none;
-	}
-	.btn-red {
-	    border: 1px #ff7473 solid;
-	    background-color: #ff7473;
-	    color: #fff;
-	}
-	.btn-red:hover {
-	    border: 1px #c91f3b solid;
-	    background-color: #c91f3b;
-	    color: #fff;
-	}
-	.border-radius-large {
-	    border-radius: 5px;
-	}
-	
-	.modalLogin-auth {
-	    margin-top: 10px;
-	    outline: none;
-	    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
-	    font-size: 13px;
-	    color: inherit;
-	    font: inherit;
-	    margin: 0;
-	    padding: 1px 6px;
-	}
-	.modalLogin-auth__item {
-		margin-top: 10px;
-	    font-size: 13px;
-	    letter-spacing: -0.04em;
-	    color: inherit;
-	}
-	.btn-no-bg {
-	    background-color: transparent;
-	}
-	.btn-no-border {
-	    border: 0;
-	}
-
-	.modalLogin-sns {
-	    margin-top: 28px;
-	    outline: none;
-	    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
-	}
-	
-	.modalLogin-sns__btn {
-	    width: 158px;
-	    height: 44px;
-	    border: 1px solid;
-	    border-radius: 5px;
-	    
-	}
-	.btn-kakao {
-	    border-color: #7b7117;
-	    background-color: #fae100;
-	    color: #342215;
-	    float: left;
-	}
-	.btn-kakao.hover, .btn-kakao:hover {
-		border-color: #342215;
-	    border: 1px #342215 solid;
-	    background-color: #EDF105;
-	    color: #342215;
-	}
-	.modalLogin-sns__btn+.modalLogin-sns__btn {
-	    margin-left: 9px;
-	}
-	.modalLogin-sns__btn {
-	    width: 158px;
-	    height: 44px;
-	    border: 1px solid;
-	    border-radius: 5px;
-	}
-	.btn-facebook {
-	    border-color: #1b356b;
-	    background-color: #3b5999;
-	    color: #fff;
-	    float: right;
-	}
-	.btn-facebook.hover, .btn-facebook:hover {
-		border-color: #fff;
-	    border: 1px #406AF9 solid;
-	    background-color: #406AF9;
-	    color: #fff;
-	}
-	.modalLogin-auth__item+.modalLogin-auth__item:before {
-	    content: "|";
-	    display: inline-block;
-	    padding-right: 10px;
-	    font-weight: bold;
-	    color: #d1d1d1;
-	}
-	.modalLogin-pro_register {
-	    display: block;
-	    padding-top: 13px;
-	    border-top: 1px solid #d1d1d1;
-	    margin-top: 95px;
-	    letter-spacing: -0.04em;
-	}
-	.modalLogin-pro_register>a {
-	    color: #585858;
-	}
-
-	.modalLogin-pro_register__icon {
-	    display: inline-block;
-	    width: 25px;
-	    height: 15px;
-	    margin-right: 2px;
-	    background: url("/images/modalLoginLogo/ProLogo2.png") no-repeat;
-	    vertical-align: middle;
-	}
-	.close {
-    	text-decoration: none;
-    	background-color: transparent;
-	}
-	
-	.modalAccount_email{
-		line-height: normal;
-		color: inherit;
-	    font: inherit;
-	    margin: 0;
-	    padding: 1px 0px;
-	}
-	.modalAccount_password{
-		line-height: normal;
-		color: inherit;
-	    font: inherit;
-	    margin: 0;
-	    padding: 1px 0px;
-	    -webkit-text-security: disc;
-	}
-	
-/* agree css */
-
-
-		.agree-modal {
-	    width: 100%;
-	    height: 100%;
-	}
-	.agree-modal-bg {
-		position: absolute;
-	    width: 100%;
-	    height: 100%;
-	    overflow: hidden;
-	    z-index: 1051;
-	    opacity: .5;
-	}    
-	.agree-modal {
-	    -webkit-overflow-scrolling: touch;
-	    display: none;
-	    overflow: hidden;
-	    position: fixed;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1050;
-	    outline: 0;
-
-	}
-	
-
-		
-
-	.agree-modal-dialog {
-		width: 520px;
-		padding-right: 20px;
-		padding-left: 20px;
-		height: 613px;
-		float: right;
-		color: rgb(209, 209, 209);
-		margin-top: 17px;
-		text-align: right;
-		padding-bottom: 20px;
-		border-top: 5px #3b8de0 solid;
-		border-radius: 0 0 5px 5px;
-		background-color: #fff;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 1052;
-		margin: auto;
-		text-align: left;
-	}
-
-.agree-modal-header {
-	    color: #fff;
-	}
-	.agree-modal-body {
-	    background-color: #fff;
-	}
-	.Account {
-	    padding-top: 30px;
-	    color: #585858;
-	}
-	.Account-title {
-	    font-size: 24px;
-	    color: #000;
-	    text-align: center;
-	}
-	
-	.Agreement {
-	    margin-top: 35px;
-	}
-	.Agreement-terms__title {
-	    float: left;
-	    font-size: 14px;
-	    font-weight: normal;
-	    color: #2a2a2a;
-	    margin-top: 0;
-	}
-	
-	:focus {
-	    outline: -webkit-focus-ring-color auto 5px;
-	}
-	.Agreement-terms__title>em {
-	    color: #3b8de0;
-	    font-style: normal;
-	}
-	.Agreement-terms .Checkbox {
-	    top: 0;
-	    height: 16px;
-	}
-	.Checkbox {
-	    position: relative;
-	    margin-bottom: 0;
-	    line-height: 1;
-	    cursor: pointer;
-	}
-	
-	.fas :fa-check {
-	    top: -3px;
-	    font-size: 22px;
-	    position: relative;
-	    font-size: 19px;
-	    display: inline-block;
-	    vertical-align: middle;
-	    content: "\e02d";
-	}
-	
-	
-	
-	
-	.Checkbox--chk .Checkbox-input {
-	    left: auto;
-	    right: 0;
-	}
-	
-	.Checkbox-input {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    cursor: pointer;
-	    opacity: 0;
-	    filter: alpha(opacity=0);
-	}
-	
-	.Agreement-terms .Checkbox--chk .Checkbox-label {
-	    margin-right: 6px;
-	}
-	.Checkbox--chk .Checkbox-label {
-	    float: left;
-	    margin-left: 0;
-	    margin-right: 7px;
-	    font-size: 13px;
-	    line-height: 1.15384615em;
-	    color: #000;
-	}
-	.Checkbox-label {
-	    -webkit-user-select: none;
-	    -moz-user-select: none;
-	    -ms-user-select: none;
-	    user-select: none;
-	    margin-left: 9px;
-	    color: #919191;
-	}
-	.Agreement-terms__desc {
-	    clear: both;
-	    margin-top: 8px;
-	    background-color: #ecf0f5;
-	}
-	
-	.Agreement-terms+.Agreement-terms {
-	    margin-top: 21px;
-	}
-	.Agreement-nav {
-	    margin-top: 27px;
-	}
-	.Agreement-nav__btn {
-	    width: 236px;
-	}
-	.btn-lg {
-	    width: 230px;
-	    height: 50px;
-	    font-size: 15px;
-	    line-height: 48px;
-	}
-	.btn-login{
-	    display: inline-block;
-	    padding: 0 13px;
-	    background-image: none;
-	    margin-bottom: 0;
-	    font-size: 12px;
-	    font-weight: 400;
-	    line-height: 1.53856154;
-	    text-align: center;
-	    text-decoration: none;
-	    white-space: nowrap;
-	    vertical-align: middle;
-	    -ms-touch-action: manipulation;
-	    touch-action: manipulation;
-	    cursor: pointer;
-	    transition: all .1s ease;
-	    -webkit-user-select: none;
-	    -moz-user-select: none;
-	    -ms-user-select: none;
-	    user-select: none;
-	}
-	.btn-white-gray {
-	    border: 1px #d1d1d1 solid;
-	    background-color: #fff;
-	    color: #d1d1d1;
-	}
-	.border-radius-large {
-	    border-radius: 5px;
-	}
-	.Agreement-nav__btn+.Agreement-nav__btn {
-	    float: right;
-	}
-	.btn-login-next {
-	   border: 1px #d1d1d1 solid;
-	   background-color: #fff;
-	   color: #d1d1d1;
-
-	}
-	.btn-login-next:hover{
-	   border: 1px solid #ff6660;
-	   background-color: #ff6660;
-	   color: #fff;
-	}
-	.btn-white-gray.hover, .btn-white-gray:hover {
-		border-color: #ff7473;
-	    border: 1px #ff7473 solid;
-	    background-color: #ff7473;
-	    color: #fff;
-	}
-	
-/* member css */
-	.memberAccount-title {
-		font-size: 24px;
-		color: #000;
-		text-align: center;
-	}
-	
-	
-	.memberAccount {
-	    padding-top: 30px;
-	}
-	.memberjoin-modal-bg {
-	    position: absolute;
-	    width: 100%;
-	    height: 100%;
-	    overflow: hidden;
-	    z-index: 1051;
-	    opacity: .5;
-	}
-	
-	.memberjoin-modal-dialog {
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1052;
-	    margin: auto;
-	}
-	.memberjoin-modal {
-	    width: 100%;
-	    height: 100%;
-	}
-	.memberjoin-modal {
-	    -webkit-overflow-scrolling: touch;
-	    display: none;
-	    overflow: hidden;
-	    position: fixed;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1050;
-	    outline: 0;
-	}
-	
-	.memberjoin-modal-dialog {
-	    padding-bottom: 20px;
-	    border-top: 5px #ff7473 solid;
-	    border-radius: 0 0 5px 5px;
-	    background-color: #fff;
-	}
-	.memberjoin-modal-dialog {
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    z-index: 1052;
-	    margin: auto;
-	    text-align: left;
-	}
-	.memberjoin-modal-header {
-	    color: #fff;
-	}
-	.memberjoin-modal-body {
-	    background-color: #fff;
-	}
-	.memberAccount {
-	    padding-top: 30px;
-	    color: #585858;
-	}
-	.UserSignup {
-	    margin-top: 38px;
-	}
-	
-	.memberAccount-form__row {
-	    display: table;
-	    width: 100%;
-	}
-	.UserSignup .memberAccount-form__cell:first-child {
-	    width: 90px;
-	}
-	.memberAccount-form__cell:first-child {
-	    text-align: left;
-	}
-	.memberAccount-form__cell {
-	    display: table-cell;
-	    vertical-align: middle;
-	}
-	.memberAccount-form__label {
-	    margin-bottom: 0;
-	    cursor: pointer;
-	}
-	
-	.UserSignup .memberAccount-form__input {
-	    height: 34px;
-	}
-	.memberAccount-form__input {
-	    width: 100%;
-	    height: 40px;
-	    padding-right: 15px;
-	    padding-left: 15px;
-	    border: 1px solid #d1d1d1;
-	}
-	
-	.memberAccount-form__select {
-	    height: 35px;
-	    padding-right: 25px;
-	    padding-left: 15px;
-	    border: 1px solid #d1d1d1;
-	    border-radius: 0;
-	    background-color: #fff;
-	    background-image: url("/Yim/memberjoin/im/arrows.png");
-	    background-repeat: no-repeat;
-	    background-position: 90% 50%;
-	    -webkit-appearance: none;
-	    appearance: none;
-	    cursor: pointer;
-	}
-	
-	.memberAccount-form__submit {
-	    width: 100%;
-	    margin-top: 30px;
-	}
-	.btn-lg {
-	    width: 230px;
-	    height: 50px;
-	    font-size: 15px;
-	    line-height: 48px;
-	}
-	.btn-login{
-	    display: inline-block;
-	    padding: 0 13px;
-	    background-image: none;
-	    margin-bottom: 0;
-	    font-size: 12px;
-	    font-weight: 400;
-	    line-height: 1.53856154;
-	    text-align: center;
-	    text-decoration: none;
-	    white-space: nowrap;
-	    vertical-align: middle;
-	    -ms-touch-action: manipulation;
-	    touch-action: manipulation;
-	    cursor: pointer;
-	    transition: all .1s ease;
-	    -webkit-user-select: none;
-	    -moz-user-select: none;
-	    -ms-user-select: none;
-	    user-select: none;
-	}
-	.btn-pink {
-	    border: 1px #ff7473 solid;
-	    background-color: #ff7473;
-	    color: #fff;
-	}
-	.border-radius-large {
-	    border-radius: 5px;
-	}
-	.memberAccount-form__abled .memberAccount-form__input {
-	    width: 82px;
-	}
-	.memberAccount-form__row+.memberAccount-form__row {
-	    margin-top: 13px;
-	}
-	.memberAccount-form__row button {
-	    float: right;
-	    width: 100px;
-	    height: 34px;
-	    vertical-align: top;
-	}
-	.btn-white-blue {
-	    border: 1px #3b8de0 solid;
-	    background-color: #fff;
-	    color: #3b8de0;
-	}
-	
-/* findpwd css */
-	
-	.pwd-modal {
-		-webkit-overflow-scrolling: touch;
-		display: none;
-		overflow: hidden;
-		position: fixed;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		z-index: 1050;
-		outline: 0;
-	}
-	
-	.pwd-modal {
-		width: 100%;
-		height: 100%;
-	}
-	
-	.pwd-modal-bg {
-		overflow: hidden;
-		z-index: 1051;
-		background: #0b0b0b;
-		opacity: 0.5;
-		filter: alpha(opacity = 50);
-	}
-	
-	.pwd-modal-bg {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
-	
-	.pwd-modal-dialog {
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		bottom: 0px;
-		left: 0px;
-		z-index: 1052;
-		margin: auto;
-		text-align: left;
-	}
-	
-	.pwd-modal-dialog {
-		padding-bottom: 20px;
-		border-top: 5px #ff7473 solid;
-		border-radius: 0 0 5px 5px;
-		background-color: #fff;
-	}
-	
-	.pwd-modal-header {
-		color: #fff;
-	}
-	
-	.pwd-modal-body {
-		background-color: #fff;
-	}
-	
-	.Accountpwd {
-		padding-top: 30px;
-		color: #585858;
-	}
-	
-	
-	
-	.Accountpwd-title {
-		font-size: 24px;
-		color: #000;
-		text-align: center;
-	}
-	
-	.ForgotPassword {
-		margin-top: 26px;
-	}
-	
-	.ForgotPassword-message {
-		font-size: 13px;
-		text-align: center;
-	}
-	
-	.ForgotPassword .Accountpwd-form {
-		margin-top: 15px;
-	}
-	
-	.Accountpwd-form__row {
-		display: table;
-		width: 100%;
-	}
-	
-	.border-radius-large {
-		border-radius: 5px;
-	}
-	
-	.btn-pink {
-		border: 1px #ff7473 solid;
-		background-color: #ff7473;
-		color: #fff;
-	}
-	
-	.btn-login {
-		display: inline-block;
-		padding: 0 13px;
-		background-image: none;
-		margin-bottom: 0px;
-		font-size: 12px;
-		font-weight: 400;
-		line-height: 1.5385;
-		text-align: center;
-		text-decoration: none;
-		white-space: nowrap;
-		vertical-align: middle;
-		-ms-touch-action: manipulation;
-		touch-action: manipulation;
-		cursor: pointer;
-		transition: all .1s ease;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
-	
-	.btn-lg {
-		width: 230px;
-		height: 50px;
-		font-size: 15px;
-		line-height: 48px;
-	}
-	
-	.Accountpwd-form__submit {
-		width: 100%;
-		margin-top: 30px;
-	}
-	
-	.Accountpwd-form__cell {
-		display: table-cell;
-		vertical-align: middle;
-	}
-	
-	:first-child.Accountpwd-form__cell {
-		text-align: left;
-	}
-	
-	.ForgotPassword :first-child.Accountpwd-form__cell {
-		width: 75px;
-	}
-	
-	.Accountpwd-form__input {
-		width: 100%;
-		height: 40px;
-		padding-right: 15px;
-		padding-left: 15px;
-		border: 1px solid #d1d1d1;
-	}
-	
-	.Accountpwd-form__label {
-		margin-bottom: 0px;
-		cursor: pointer;
-	}
-	
-	.pwd-modal-icon {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	
-	.icon-size-2xl {
-		font-size: 19px;
-		vertical-align: -5px;
-	}
-	
-	.pwd-modal-icon {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	
-	.icon-size-2xl {
-		vertical-align: -5px;
-		font-size: 19px;
-	}
-	
-	
-	
-	.pwd-modal-header .pwd-modal-icon-remove {
-		display: inline-block;
-		position: absolute;
-		top: -27px;
-		right: -25px;
-		cursor: pointer;
-	}
-	
+/* 약관동의 */
+.Agreement h2{
+	margin: 0;
+}
+.Agreement {
+    margin-top: 35px;
+}
+.Agreement-terms__title {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    color: #2a2a2a;
+}
+.Agreement-terms__title>em {
+    color: #3b8de0;
+    font-style: normal;
+}
+.Agreement-terms .Checkbox {
+    top: 0;
+    height: 16px;
+}
+.Checkbox {
+    position: relative;
+    margin-bottom: 0;
+    line-height: 1;
+    cursor: pointer;
+}
+.Checkbox .nbang-icon {
+    position: relative;
+    font-size: 19px;
+}
+.Checkbox--chk .nbang-icon {
+    top: -2px;
+    font-size: 20px;
+}
+.nbang-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+.Checkbox--chk .Checkbox-input {
+    left: auto;
+    right: 0;
+}
+.Agreement input[type="checkbox"], .Agreement input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+.Checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.Agreement-terms+.Agreement-terms {
+    margin-top: 21px;
+}
+.Agreement-terms .Checkbox--chk .Checkbox-label {
+    margin-right: 6px;
+}
+.Checkbox--chk .Checkbox-label {
+    float: left;
+    margin-left: 0;
+    margin-right: 7px;
+    font-size: 13px;
+    line-height: 1.15384615em;
+    color: #000;
+}
+.Agreement-terms__desc {
+    clear: both;
+    margin-top: 8px;
+    background-color: #ecf0f5;
+}
+.Agreement-nav {
+    margin-top: 27px;
+}
+.Agreement-nav__btn {
+    width: 236px;
+}
+.Agreement .btn-lg {    
+    height: 50px;
+    font-size: 15px;    
+}
+.btn-white-gray {
+    border: 1px #585858 solid;
+    background-color: #fff;
+    color: #585858;
+}
+.btn-white-gray.hover, .btn-white-gray:hover {
+    border: 1px #585858 solid;
+    background-color: #ecf0f5;
+    color: #585858;
+}
+.btn-default {
+    border: 1px #585858 solid;
+    background-color: #fff;
+    color: #585858;
+}
+/* 회원가입 */
+.UserSignup {
+    margin-top: 38px;
+}
+.UserSignup form{
+	margin: 0;
+}
+.UserSignup .Account-form__cell:first-child {
+    width: 95px;
+}
+.UserSignup .Account-form__input {
+    height: 34px;
+}
+.Account-form__select {
+    height: 35px;
+    padding-right: 25px;
+    padding-left: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: 0;
+    background-color: #fff;
+    background-image: url(../images/accountlogin/data_image.png);
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+.Account-form__abled .Account-form__input {
+    width: 82px;
+}
+.Account-form__row button {
+    float: right;
+    width: 100px;
+    height: 34px;
+    vertical-align: top;
+}
+.Account-form__row+.Account-form__row {
+    margin-top: 13px;
+}
+.btn-white-blue {
+    border: 1px #3b8de0 solid;
+    background-color: #fff;
+    color: #3b8de0;
+}
+.btn-white-blue.hover, .btn-white-blue:hover {
+    border: 1px #3b8de0 solid;
+    background-color: #ecf0f5;
+    color: #3b8de0;
+}
+.UserSignup .btn {
+    display: inline-block;
+    padding: 0 13px;
+    background-image: none;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.53856154;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.UserSignup .btn-lg{
+	font-size: 15px;
+	height: 50px;
+}	
