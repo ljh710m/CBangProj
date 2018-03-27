@@ -24,6 +24,7 @@
     
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/util/pagination.css'/>" rel="stylesheet">
     
 </head>
 <body>
@@ -106,45 +107,57 @@
 		
 		<!-- content -->
         <div class="content mt-3">        	
-        	<div class="col-sm-10 col-sm-offset-1">
+        	<div class="col-sm-12">
         		<div>
-        			<table class="table table-hover">
+        			<table class="table table-bordered">
         				<thead>
         				<tr>
         				<th>#</th>
-        					<th>중개사 회원번호</th>
+        					<th>중개사 등록번호</th>
         					<th>회원 Email</th>
         					<th>회원명</th>
         					<th>휴대폰 번호</th>
+        					<th>중개사 대표번호</th>
         					<th>상세보기(관리)</th>
         				</tr>
         				</thead>
-        				
-        				<c:forEach items="${list }" var="list">
+        				<c:if test="${not empty list}" var="result">
+        				<c:forEach items="${list }" var="list" varStatus="loop">
 	        				<tbody>
-	        					<tr style="cursor: pointer;">
-		        					<th scope="row">회원NO</th>
-		        					<td>${list.office_no }</td>
-		        					<td>${list.email }</td>
-		        					<td>${list.name }</td>
-		        					<td>${list.phone }</td>
+	        					<tr>
+		        					<th scope="row" style="width: 1%">${loop.index+1 }</th>
+		        					<td style="width: 8%">${list.office_no }</td>
+		        					<td style="width: 20%">${list.email }</td>
+		        					<td style="width: 8%">${list.name }</td>
+		        					<td style="width: 10%">${list.phone }</td>
+		        					<td style="width: 10%">${list.office_phone }</td>
 		        					<td hidden>${list.path_type }</td>
 		        					<td hidden>${list.path_code }</td>
 		        					<td hidden>${list.join_date }</td>
 		        					<td hidden>${list.job }</td>
-		        					<td hidden>${list.office_phone }</td>
 		        					<td hidden>${list.permit_no }</td>
 		        					<td hidden>${list.represent }</td>
 		        					<td hidden>${list.address }</td>
-		        					<td>
-		        					<a href="#" data-toggle="modal" data-target="#myModal" class="viewModal">보기</a>
+		        					<td style="width: 10%;text-align: center">
+		        					<a href="#" data-toggle="modal" data-target="#myModal" class="viewModal">보기</a> 
 		        					</td>
 		        				</tr>
 	        				</tbody>
         				</c:forEach>
+        				</c:if>
+        				<c:if test="${not result }">
+        					<tbody>
+        						<tr>
+        							<td colspan="6" style="text-align: center">등록된 중개회원이 없습니다.</td>
+        						</tr>
+        					</tbody>
+        				</c:if>
         			</table>
         		</div>
-        	</div>	       	
+        		<div id="paging">
+        			${paging }
+				</div>
+			</div>	       	
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
     <!-- Right Panel -->
@@ -157,46 +170,6 @@
     <script src="<c:url value='/vendor/sufee/js/main.js'/>"></script>
     <!-- Additional Script -->  
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script>  
-    (function($){
-        $('.viewModal').click(function(){
-        	var memberIdx = $(this).parent().parent().find('td:eq(0)').html();
-        	var memberEmail = $(this).parent().parent().find('td:eq(1)').html();
-        	var memberName = $(this).parent().parent().find('td:eq(2)').html();
-        	var memberPhone = $(this).parent().parent().find('td:eq(3)').html();
-        	var memberPath_type = $(this).parent().parent().find('td:eq(4)').html();
-        	var memberPath_code = $(this).parent().parent().find('td:eq(5)').html();
-        	var memberJoin_date = $(this).parent().parent().find('td:eq(6)').html();
-        	var memberJob = $(this).parent().parent().find('td:eq(7)').html();
-			var memberOffice_phone = $(this).parent().parent().find('td:eq(8)').html();
-			var memberPermit_no = $(this).parent().parent().find('td:eq(9)').html();
-			var memberRepresent = $(this).parent().parent().find('td:eq(10)').html();
-			var memberAddress = $(this).parent().parent().find('td:eq(11)').html();
-        	
-           /*  $.ajax({
-					url:"/CBangProj/backend/admin/membership.admin?office_no="+memberIdx,
-					type:"post",
-					data:{},
-					dataType:"json",
-					success: function(data){
-							
-						}
-                }); */
-                
-				$('.modal-office_no').html(memberIdx);
-				$('.modal-email').html(memberEmail);
-				$('.modal-name').html(memberName);
-				$('.modal-phone').html(memberPhone);
-				$('.modal-path_type').html(memberPath_type);
-				$('.modal-path_code').html(memberPath_code);
-				$('.modal-join_date').html(memberJoin_date);
-				$('.modal-job').html(memberJob);
-				$('.modal-office_phone').html(memberOffice_phone);
-				$('.modal-permit_no').html(memberPermit_no);
-				$('.modal-represent').html(memberRepresent);
-				$('.modal-address').html(memberAddress);
-            });
-	})(jQuery);
-    </script>
+    <script src="<c:url value='/js/admin/membership.js'/>"></script>
 </body>
 </html>
