@@ -199,7 +199,7 @@
 										<span>평</span>
 										<span>
 											<span>(</span>
-											<span id="total_area"></span>
+											<span id="stotal_area"></span>
 										</span>
 										<span>
 											<span>m</span>
@@ -213,7 +213,7 @@
 										<span>평</span>
 										<span>
 											<span>(</span>
-											<span id="area"></span>
+											<span id="sarea"></span>
 										</span>
 										<span>
 											<span>m</span>
