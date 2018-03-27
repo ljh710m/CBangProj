@@ -55,6 +55,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/js/common.js'/>"></script>
     <script src="<c:url value='/js/favorite/recentlymap.js'/>"></script> 
     <script src="<c:url value='/js/favorite/favorite.js'/>"></script>  
     <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
