@@ -25,11 +25,7 @@
     <!-- Custom styles for this template -->
     <link href="<c:url value='/css/navbar.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/main.css'/>" rel="stylesheet">
-    <link href="<c:url value='/css/footer.css'/>" rel="stylesheet">         
-	<link href="<c:url value='/css/account/accountlogin.css'/>" rel="stylesheet">     
-    <link href="<c:url value='/css/account/agree.css'/>" rel="stylesheet">
-    <link href="<c:url value='/css/account/member.css'/>" rel="stylesheet">
-    <link href="<c:url value='/css/account/findpwd.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/footer.css'/>" rel="stylesheet">
 <style>
 	body, html {
     	width: 100%;
