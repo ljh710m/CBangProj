@@ -23,10 +23,10 @@ $(function() {
 	$('input[name$=area]').on("input",function(){				
 		var area = $(this).attr('name');
 		if($(this).val()!=""){
-			$('#'+area).html((parseInt($(this).val())*3.3058).toFixed(1));
+			$('#s'+area).html((parseInt($(this).val())*3.3058).toFixed(1));
 		}
 		else{
-			$('#'+area).html("0.0");
+			$('#s'+area).html("0.0");
 		}
 	});	
 	
@@ -70,9 +70,8 @@ $(function() {
 		
 		$('#addition').append($(wrap).append($(div).append(span1).append(price1).append(span2).append(price2).append(span3).append(span4).append(icon)));
 	});	
-	
-	
-	$('input[type="checkbox"]').click(function(){
+		
+	/*$('input[type="checkbox"]').click(function(){
 		var name = $(this).attr('name');
 		
 		//옵션 선택이 아닐시
@@ -102,7 +101,36 @@ $(function() {
 					break;
 			}
 		}
+	});*/
+	//관리비
+	$('input[type="checkbox"][name=common_charge_ch]').click(function(){
+		$('input[type="checkbox"][name="common_charge_ch"]').prop('checked',false);
+		$(this).prop('checked',true);
+		if($(this).next().html()=="있음"){
+			$('input[type="text"][name="common_charge"]').removeAttr('readonly');
+		}
+		else{
+			$('input[type="text"][name="common_charge"]').attr('readonly','readonly').val("");
+		}		
 	});
+	//주차비
+	$('input[type="checkbox"][name=parking]').click(function(){
+		$('input[type="checkbox"][name="parking"]').prop('checked',false);
+		$(this).prop('checked',true);
+		if($(this).next().html()=="가능"){
+			$('input[type="text"][name="parking_charge"]').removeAttr('readonly');
+		}
+		else{
+			$('input[type="text"][name="parking_charge"]').attr('readonly','readonly').val("");
+		}	
+	});
+	//입주일(즉시 입주,날짜 협의 선택시)
+	$('input[type="checkbox"][name=move_date_ch]').click(function(){
+		$('input[type="checkbox"][name="move_date_ch"]').prop('checked',false);
+		$(this).prop('checked',true);
+		$('input[type="text"][name="move_date"]').val($(this).next().html());	
+	});	
+	
 	
 	//해당 층수를 건물 층수보다 높게 선택못하도록 방지
 	$('select[name=floor]').change(function(){
