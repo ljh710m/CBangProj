@@ -4,7 +4,7 @@
 <div class="modal" id="userSignup">
 	<div class="nbang-modal" style="display:block;">
 		<div class="nbang-modal-bg"></div>
-		<div class="nbang-modal-dialog" style="width: 520px; height: 472px; padding-right: 20px; padding-left: 20px;">
+		<div class="nbang-modal-dialog" style="width: 520px; height: 510px; padding-right: 20px; padding-left: 20px;">
 			<div class="nbang-modal-frame">
 				<div class="nbang-modal-content">
 					<div class="nbang-modal-header">
@@ -15,7 +15,7 @@
 							<h1 class="Account-title" style="margin-top: 20px">회원가입</h1>
 							<div class="Account-body">
 								<div class="UserSignup">
-									<form class="Account-form">
+									<form class="Account-form" onsubmit="return false;">
 										<div class="Account-form__row">
 											<div class="Account-form__cell">
 												<label for="name" class="Account-form__label">이름</label>
@@ -76,7 +76,7 @@
 													</div>
 													<div class="Account-form__cell Account-form__abled">
 														<div>
-															<select class="Account-form__select">
+															<select class="Account-form__select" id="phone_1">
 																<option value="010">010</option>
 																<option value="011">011</option>
 																<option value="016">016</option>
@@ -94,13 +94,23 @@
 												</div>
 												<div class="Account-form__row">
 													<div class="Account-form__cell">
-														<label class="Account-form__label" style="display:none;">핸드폰 인증 확인</label>
+														<label class="Account-form__label" style="display:none;">이메일 인증 확인</label>
 													</div>
 													<div class="Account-form__cell">
-														<input type="text" autocomplete="off" value="" class="Account-form__input" style="width:275px;">
-														<button class="btn btn-white-blue" type="button">인증번호 확인</button>
+														<input type="text" autocomplete="off" value="" class="Account-form__input" style="width:275px;" id="authNumber_confirm">
+														<button class="btn btn-white-blue" type="button" id="authCheck">인증번호 확인</button>
 													</div>
 												</div>
+											</div>
+										</div>
+										<div class="Account-form__row">
+											<div class="Account-form__cell">
+												<label for="join_path_select" class="Account-form__label">가입 경로</label>
+											</div>
+											<div class="Account-form__cell">
+												<select id="join_path_select" class="Account-form__select">
+													<option value="">가입 경로 선택</option>																									
+												</select>
 											</div>
 										</div>
 										<button class="Account-form__submit btn btn-pink btn-lg" style="display:block;width:236px;margin-right:auto;margin-left:auto;">일반 회원가입</button>

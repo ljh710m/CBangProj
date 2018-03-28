@@ -95,21 +95,128 @@ $(function() {
 		}		
 	});
 	
+	/* 이메일 인증 */
+	var authNumber="";
 	$('#authNumber').click(function(){
+		var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		var tomail = $('#email_user').val()+"@"+$('#email_host').val();
+		if($('#email_user').val()=="" || $('#email_host').val()==""){
+			customAlert("error", "이메일을 입력해 주세요.");			
+			return;
+		}
+		else if(!regEmail.test(tomail)){
+			customAlert("error", "이메일 주소가 올바르지 않습니다.");
+			return;
+		}
 		$.ajax({
 	        type:"POST",
 	        url:"/CBangProj/Mail/GmailSending.do",
-	        data : {tomail : "aristort@naver.com"},
+	        data : {tomail : $('#email_user').val()+"@"+$('#email_host').val()},
 	        dataType : "text",
-	        success: function(e){
-	            console.log(e);
-	            customAlert("success", "메일 보내기 성공");
+	        success: function(data){	            
+	            authNumber = data;            
+	            customAlert("success", "고객님의 이메일 주소로 인증 이메일을 보내드렸습니다.");
 	        },
 	        error: function(error) {
 	        	customAlert("error", error);
-	        }  
+	        }
 	    });		
+	});
+	
+	var isAuth=false;
+	$('#authCheck').click(function(){		
+		if($('#authNumber_confirm') == ""){
+			customAlert("error", "인증번호를 입력하지 않았습니다.");
+			$('#authNumber_confirm').focus();
+		}
+		else if(authNumber==""){
+			customAlert("error", "인증번호를 요청해 주세요.");
+		}		
+		else if($('#authNumber_confirm').val() != authNumber){
+			console.log(authNumber);
+			customAlert("error", "인증번호가 올바르지 않습니다.");						
+		}
+		else{		
+			$('#authNumber').prop('disabled','disabled');
+			$('#authCheck').prop('disabled','disabled');
+			$('#authNumber_confirm').prop('disabled','disabled');
+			$('#email_user').prop('disabled','disabled');
+			$('#email_host').prop('disabled','disabled');
+			customAlert("success", "이메일이 인증되었습니다.");
+			isAuth = true;
+		}			
+	});
+
+	
+	/* 유효성 검사 */
+	$('#phone_2').on('input', function(){
+		if(isNaN($(this).val())){
+			$(this).val("");
+			customAlert("error", "숫자만 입력하세요.");			
+		} 		
+	});
+	$('#phone_3').on('input', function(){
+		if(isNaN($(this).val())){
+			$(this).val("");
+			customAlert("error", "숫자만 입력하세요.");			
+		}
+	});	
+	
+	$('.Account-form__submit').click(function(){
+		var name = $('#name').val();
+		var email = $('#email_user').val()+"@"+$('#email_host').val();
+		var password = $('#password').val();
+		var password_confirm = $('#password_confirm').val();
+		var phone = $('#phone_1').val()+"-"+$('#phone_2').val()+"-"+$('#phone_3').val();
+		var path_code = $('#join_path_select').val();
+				
+		// 정규식 - 이메일 유효성 검사
+		var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+				
+		if(name == ""){
+			$('#name').focus();
+			customAlert("error", "이름을 입력해 주세요.");			
+		}
+		else if($('#email_user').val() == "" || $('#email_host').val()==""){			
+			if($('#email_user').val() == ""){
+				$('#email_user').focus();				
+			}
+			else{
+				$('#email_host').focus();
+			}		
+			customAlert("error", "이메일을 입력해 주세요.");
+		}
+		else if(!regEmail.test(email)){
+			customAlert("error", "영문 소문자,숫자,(-,_,.)만 사용할 수 있습니다. 단(,(.)은 처음과 끝에 사용불가)");						
+		}
+		else if(password == ""){
+			$('#password').focus();
+			customAlert("error", "비밀번호를 입력해 주세요.");
+		}
+		else if(password != password_confirm){
+			$('#password_confirm').focus();
+			customAlert("error", "비밀번호가 동일하지 않습니다.");
+		}
+		else if($('#phone_2').val()=="" || $('#phone_3').val()==""){
+			if($('#phone_2').val() == ""){
+				$('#phone_2').focus();				
+			}
+			else{
+				$('#phone_3').focus();
+			}	
+			customAlert("error", "핸드폰 번호가 없습니다.");			
+		}
+		else if(!isAuth){
+			customAlert("error", "인증을 하지 않았습니다.");			
+		}
+		else if(path_code==""){
+			customAlert("error", "가입 경로를 선택하지 않았습니다.");
+		}
+		else{
+			//submit code 작성 예정
+		}
 		
 	});
+	
 		
 });
