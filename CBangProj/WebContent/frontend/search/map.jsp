@@ -22,6 +22,7 @@
     <!-- Custom styles for this template -->
     <link href="<c:url value='/css/navbar.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/search/map.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
 
 <style>
 	body, html {
@@ -458,6 +459,7 @@
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>     
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
+    <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script src="<c:url value='/js/search/map.js'/>"></script>     
     <script src="<c:url value='/js/search/googlemaps.js'/>"></script>
     <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>

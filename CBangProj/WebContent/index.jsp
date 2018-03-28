@@ -26,6 +26,7 @@
     <link href="<c:url value='/css/navbar.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/main.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/footer.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
 <style>
 	body, html {
     	width: 100%;
@@ -233,6 +234,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<c:url value='/vendor/jquery/jquery-3.3.1.min.js'/>"></script>     
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
     	
 </body>

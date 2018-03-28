@@ -90,7 +90,7 @@
 															<input type="text" id="phone_3" maxlength="4" value="" autocomplete="off" class="Account-form__input">
 														</div>
 													</div>
-													<button class="btn btn-white-blue" type="button">인증번호 요청</button>
+													<button class="btn btn-white-blue" type="button" id="authNumber">인증번호 요청</button>
 												</div>
 												<div class="Account-form__row">
 													<div class="Account-form__cell">

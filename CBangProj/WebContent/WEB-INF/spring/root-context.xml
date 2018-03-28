@@ -36,4 +36,22 @@
 		<property name="dataSource" ref="datasourceByJNDI"/>
 	</bean>
 	
+	<!-- ============================================================= -->
+	<!-- SMTP 사용을 위한 빈 등록 -->
+	<!-- ============================================================= -->
+	<bean id="gmailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+      	<property name="port" value="587" />
+      	<property name="username" value="ljh710m2@gmail.com" />
+      	<property name="password" value="ljh710m@" />
+      	<property name="javaMailProperties">
+	        <props>
+	        	<prop key="mail.transport.protocol">smtp</prop>
+	        	<prop key="mail.smtp.auth">true</prop>
+	        	<prop key="mail.smtp.starttls.enable">true</prop>
+	        	<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
 </beans>

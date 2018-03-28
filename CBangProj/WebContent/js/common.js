@@ -93,6 +93,23 @@ $(function() {
 		else{
 			$('#email_host').val($(this).val()).removeAttr('disabled');
 		}		
-	});	
+	});
+	
+	$('#authNumber').click(function(){
+		$.ajax({
+	        type:"POST",
+	        url:"/CBangProj/Mail/GmailSending.do",
+	        data : {tomail : "aristort@naver.com"},
+	        dataType : "text",
+	        success: function(e){
+	            console.log(e);
+	            customAlert("success", "메일 보내기 성공");
+	        },
+	        error: function(error) {
+	        	customAlert("error", error);
+	        }  
+	    });		
+		
+	});
 		
 });
