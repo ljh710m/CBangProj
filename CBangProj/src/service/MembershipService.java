@@ -16,10 +16,10 @@ public class MembershipService {
 	
 	private MembershipDao dao = new MembershipDao();
 	
-	public List<MembershipDto> selectList(int start, int end) {
+	public List<MembershipDto> selectList(int start, int end, String office_no) {
 		
 		try (Connection conn = ConnectionProvider.getConnection()){
-			List<MembershipDto> list = dao.membershipList(conn, start, end);
+			List<MembershipDto> list = dao.membershipList(conn, start, end, office_no);
 			return list;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

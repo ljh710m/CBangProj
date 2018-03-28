@@ -1,5 +1,6 @@
 package command;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,17 +21,15 @@ public class MembershipHandler implements CommandHandler{
 	
 	@Override  
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String mode = req.getParameter("mode");
+		String office_no = req.getParameter("memberIdx");
+		List<MembershipDto> memberOne = service.selectList(0, 0, office_no);
 		
-		if(mode != null) {
-			/*switch(mode) {
-			case "membershipList":
-				req.setAttribute("", "");
-			}*/
-		}
-		
+		/*for(int i = 0; i < memberOne.size(); i++) {
+			System.out.println(memberOne.get(i).getOffice_no());
+		}*/
+		req.setAttribute("memberOne", memberOne); 
+
 		sendList(req);
-		
 		return "/backend/membership.jsp";
 	}
 	
@@ -41,7 +40,8 @@ public class MembershipHandler implements CommandHandler{
 		int pageSize = 5;
 		int blockPage = 5;
 		int nowPage = 1;
-		/*if(req.getParameter("mode") != null)*/ nowPage = Integer.parseInt(req.getParameter("nowPage"));
+		/*if(req.getParameter("mode") != null)*/ 
+		nowPage = Integer.parseInt(req.getParameter("nowPage"));
 		
 		//전체 페이지수]
 		int totalPage =(int)Math.ceil((double)totalRecordCount/pageSize);		
@@ -52,7 +52,7 @@ public class MembershipHandler implements CommandHandler{
 		int end  = nowPage*pageSize;		
 		//페이징을 위한 로직 끝]
 		
-		List<MembershipDto> list = service.selectList(start, end);
+		List<MembershipDto> list = service.selectList(start, end, null);
 		String pagingText = MembershipPagingUtil.pagingText(totalRecordCount, pageSize, blockPage, nowPage, null);
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("totalRecordCount", totalRecordCount);

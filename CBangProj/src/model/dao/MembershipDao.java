@@ -25,23 +25,43 @@ public class MembershipDao {
 	private ResultSet rs;
 	private PreparedStatement pstmt;
 	
-	public List<MembershipDto> membershipList(Connection conn, int start, int end) throws SQLException{
-		PreparedStatement pstmt = null;  
+	public List<MembershipDto> membershipList(Connection conn, int start, int end, String office_no) throws SQLException{
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL) WHERE R BETWEEN ? AND ?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, String.valueOf(start));
-			pstmt.setString(2, String.valueOf(end));
-			rs = pstmt.executeQuery();
-			List<MembershipDto> list = new ArrayList<>();
-			while(rs.next()) {
-				list.add(convertMember(rs));		
+		String sql = "SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL) ";
+		
+		if(office_no == null) {
+			 sql+= "WHERE R BETWEEN ? AND ?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, String.valueOf(start));
+				pstmt.setString(2, String.valueOf(end));
+				rs = pstmt.executeQuery();		
+				List<MembershipDto> list = new ArrayList<>();
+				while (rs.next()) {
+					list.add(convertMember(rs));
+				}
+				return list;
+			} finally {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
 			}
-			return list;
-		} finally {
-			JdbcUtil.close(rs);
-			JdbcUtil.close(pstmt);
+		}
+		else {
+			sql+= "WHERE OFFICE_NO = ?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, office_no);
+				rs = pstmt.executeQuery();		
+				List<MembershipDto> list = new ArrayList<>();
+				while (rs.next()) {
+					list.add(convertMember(rs));
+				}
+				return list;
+			} finally {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+			}
 		}
 		
 	}/////////////////////////////////////////////////////
@@ -64,7 +84,6 @@ public class MembershipDao {
 				rs.getString("office_phone"),
 				rs.getString("path_type")
 				);
-		
 		return dto;
 	}
 	
