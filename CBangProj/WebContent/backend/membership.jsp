@@ -43,7 +43,7 @@
 	        		<img class="modal-profile_photo" alt="프로필사진" />
 	        	</div>
 	        	<div style="display: inline-block;float: right;width: 60%">
-	        		중개등록번호:<label class="modal-office_no"></label>
+	        		중개등록번호:<label class="modal-office_no">${memberOne['0'].office_no }</label>
 	        		<br />
 	        		회원명:<label class="modal-name"></label>
 	        		<br />
@@ -148,7 +148,7 @@
         				<c:if test="${not result }">
         					<tbody>
         						<tr>
-        							<td colspan="6" style="text-align: center">등록된 중개회원이 없습니다.</td>
+        							<td colspan="7" style="text-align: center">등록된 중개회원이 없습니다.</td>
         						</tr>
         					</tbody>
         				</c:if>

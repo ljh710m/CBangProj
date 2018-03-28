@@ -11,35 +11,8 @@
         	var memberJob = $(this).parent().parent().find('td:eq(8)').html();
 			var memberPermit_no = $(this).parent().parent().find('td:eq(9)').html();
 			var memberRepresent = $(this).parent().parent().find('td:eq(10)').html();
-			var memberAddress = $(this).parent().parent().find('td:eq(11)').html();  
-        	
-			/*$.ajax({
-				url:"membership.admin",
-				data: {
-					mode:"membershipList",
-					office_no : $(this).parent().parent().find('td:eq(0)').html(),
-					email : $(this).parent().parent().find('td:eq(1)').html(),
-		        	name : $(this).parent().parent().find('td:eq(2)').html(),
-		        	phone : $(this).parent().parent().find('td:eq(3)').html(),
-		        	office_phone : $(this).parent().parent().find('td:eq(4)').html(),
-		        	path_type : $(this).parent().parent().find('td:eq(5)').html(),
-		        	path_code : $(this).parent().parent().find('td:eq(6)').html(),
-		        	join_date : $(this).parent().parent().find('td:eq(7)').html(),
-		        	job : $(this).parent().parent().find('td:eq(8)').html(),
-					permit_no : $(this).parent().parent().find('td:eq(9)').html(),
-					represent : $(this).parent().parent().find('td:eq(10)').html(),
-					address : $(this).parent().parent().find('td:eq(11)').html()  
-					},
-					success:function(){
-						location.reload();
-					},
-					error:function(){
-						customAlert("error","오류");
-					}
-					
-			});*/
-			
-				$('.modal-office_no').html(memberIdx);
+			var memberAddress = $(this).parent().parent().find('td:eq(11)').html();
+				/*$('.modal-office_no').html(memberIdx);
 				$('.modal-email').html(memberEmail);
 				$('.modal-name').html(memberName);
 				$('.modal-phone').html(memberPhone);
@@ -50,7 +23,7 @@
 				$('.modal-office_phone').html(memberOffice_phone);
 				$('.modal-permit_no').html(memberPermit_no);
 				$('.modal-represent').html(memberRepresent);
-				$('.modal-address').html(memberAddress);
+				$('.modal-address').html(memberAddress);*/
             });
         
         $('#paging li').click(function(){
