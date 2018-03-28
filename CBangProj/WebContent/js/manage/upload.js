@@ -129,8 +129,17 @@ $(function() {
 		$('input[type="checkbox"][name="move_date_ch"]').prop('checked',false);
 		$(this).prop('checked',true);
 		$('input[type="text"][name="move_date"]').val($(this).next().html());	
+	});
+	//엘리베이터
+	$('input[type="checkbox"][name=elevator]').click(function(){
+		$('input[type="checkbox"][name=elevator]').prop('checked',false);
+		$(this).prop('checked',true);				
+	});
+	//펫
+	$('input[type="checkbox"][name=pat]').click(function(){
+		$('input[type="checkbox"][name=pat]').prop('checked',false);
+		$(this).prop('checked',true);				
 	});	
-	
 	
 	//해당 층수를 건물 층수보다 높게 선택못하도록 방지
 	$('select[name=floor]').change(function(){
