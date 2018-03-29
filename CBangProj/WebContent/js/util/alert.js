@@ -1,5 +1,5 @@
 //CustomAlert창
-//type: success, warning, error
+//type: info, success, warning, error
 var customAlert = function(type,message){	
 	$('.Alert').remove();
 	
@@ -10,5 +10,5 @@ var customAlert = function(type,message){
 
 	$('body').append($(alert).append($(wrap).append(icon).append(text)));
 	
-	$('.Alert').animate({opacity:'0'},3000);
+	$('.Alert').animate({opacity:'0'},3500);
 };

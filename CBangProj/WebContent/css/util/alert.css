@@ -27,6 +27,7 @@
 	text-shadow:0 -1px rgba(0,0,0,0.3);
 	color:#fff
 }
+.Alert-message.info{background-color:#3b8de0}
 .Alert-message.success{	background-color:#7dc88a}
 .Alert-message.warning{background-color:#e3b000}
 .Alert-message.error{background-color:#cb1d2b}
@@ -39,6 +40,7 @@
 	background-position:-8px -8px;
 	margin-top:-2px
 }
+.info .Alet-icon{background-position: -8px -8px}
 .success .Alert-icon{background-position:-48px -8px}
 .warning .Alert-icon{background-position:-88px -8px}
 .error .Alert-icon{background-position:-128px -8px}
