@@ -1,5 +1,7 @@
 package model;
 
+import util.PBKDF2;
+
 public class MemberDto {
 	private String member_no;
 	private String name;
@@ -11,6 +13,8 @@ public class MemberDto {
 	private String job;
 	private String office_no;
 	private String path_code;
+	
+	private String path_type;
 	
 	//게터]
 	public String getMember_no() {
@@ -42,6 +46,9 @@ public class MemberDto {
 	}
 	public String getPath_code() {
 		return path_code;
+	}	
+	public String getPath_type() {
+		return path_type;
 	}
 	
 	//세터]
@@ -74,5 +81,18 @@ public class MemberDto {
 	}
 	public void setPath_code(String path_code) {
 		this.path_code = path_code;
+	}
+	public void setPath_type(String path_type) {
+		this.path_type = path_type;
+	}
+	
+	//암호 관련 기능 구현에 사용
+	public boolean matchPassword(String pwd) {		
+		try {
+			if(PBKDF2.validatePassword(pwd, password))
+				return true;
+			else return false;
+		} 
+		catch (Exception e) {return false;}
 	}
 }

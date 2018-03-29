@@ -16,13 +16,13 @@
 							<h1 class="Account-title" style="margin-top: 20px">로그인</h1>
 							<div class="Account-body">
 								<div class="Login">
-									<form class="Account-form">
+									<form class="Account-form" id="loginForm" onsubmit="return false;">
 										<div class="Account-form__row">
 											<div class="Account-form__cell">
 												<label for="account_email" class="Account-form__label">이메일</label>
 											</div>
 											<div class="Account-form__cell">
-												<input type="text" id="account_email" class="Account-form__input">
+												<input type="text" id="account_email" class="Account-form__input" name="email">
 											</div>
 										</div>
 										<div class="Account-form__row">
@@ -30,10 +30,10 @@
 												<label for="account_password" class="Account-form__label">비밀번호</label>
 											</div>
 											<div class="Account-form__cell">
-												<input type="password" id="account_password" class="Account-form__input" autocomplete="off">
+												<input type="password" id="account_password" class="Account-form__input" autocomplete="off" name="password">
 											</div>
 										</div>
-										<button type="submit" class="Account-form__submit btn-pink btn-lg btn-full">로그인</button>
+										<button class="Account-form__submit btn-pink btn-lg btn-full" id="login">로그인</button>
 									</form>
 									<div class="Login-auth">
 										<button class="Login-auth__item btn-no-border btn-no-bg">비밀번호 찾기</button>

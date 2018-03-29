@@ -112,7 +112,7 @@
 												</select>
 											</div>
 										</div>
-										<button class="Account-form__submit btn btn-pink btn-lg" style="display:block;width:236px;margin-right:auto;margin-left:auto;">일반 회원가입</button>
+										<button class="Account-form__submit btn btn-pink btn-lg" style="display:block;width:236px;margin-right:auto;margin-left:auto;" id="join">일반 회원가입</button>
 									</form>
 								</div>								
 							</div>

@@ -18,7 +18,12 @@
     	<result property="job" column="job"/>
     	<result property="office_no" column="office_no"/>
     	<result property="path_code" column="path_code"/>
+    	<result property="path_type" column="path_type"/>
 	</resultMap>
+ 	
+ 	<select id="MemberLogin" parameterType="java.util.Map" resultType="MemberDto">
+		SELECT cm.*,path_type FROM CBANG_MEMBER cm JOIN JOIN_PATH j ON cm.path_code=j.path_code WHERE email=#{email}		
+	</select>
  	
 	<insert id="MemberInsert" parameterType="MemberDto">
 		INSERT INTO CBANG_MEMBER(member_no,name,email,password,phone,join_date,path_code) VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},default,#{path_code})

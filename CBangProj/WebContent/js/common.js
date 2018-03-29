@@ -104,6 +104,8 @@ $(function() {
 	    });
 		
 	});
+	
+	/* 일반 회원가입 */
 	//회원가입 창에서 이메일 선택시
 	$('#email_host_select').change(function(){
 		if($(this).val()!=""){
@@ -114,7 +116,7 @@ $(function() {
 		}
 	});
 	
-	/* 이메일 인증 */
+	//이메일 인증
 	var authNumber="";
 	$('#authNumber').click(function(){
 		var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -165,7 +167,7 @@ $(function() {
 		}			
 	});
 	
-	/* 유효성 검사 */
+	//유효성 검사
 	$('#phone_2').on('input', function(){
 		if(isNaN($(this).val())){
 			$(this).val("");
@@ -179,16 +181,15 @@ $(function() {
 		}
 	});	
 	
-	$('.Account-form__submit').click(function(){
+	// 정규식 - 이메일 유효성 검사
+	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	$('#join').click(function(){
 		var name = $('#name').val();
 		var email = $('#email_user').val()+"@"+$('#email_host').val();
 		var password = $('#password').val();
 		var password_confirm = $('#password_confirm').val();
 		var phone = $('#phone_1').val()+"-"+$('#phone_2').val()+"-"+$('#phone_3').val();
-		var path_code = $('#join_path_select').val();
-				
-		// 정규식 - 이메일 유효성 검사
-		var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		var path_code = $('#join_path_select').val();					
 				
 		if(name == ""){
 			$('#name').focus();
@@ -262,5 +263,45 @@ $(function() {
 		
 	});//$('.Account-form__submit').click
 	
+	/* 로그인 */
+	$('#login').click(function(){
+		
+		//유효성 체크 후 아이디 체크
+		if($('#account_email').val()==""){
+			customAlert("error", "이메일을 주소를 입력하세요.");		
+		}
+		else if(!regEmail.test($('#account_email').val())){
+			customAlert("error", "이메일을 형식을 확인해주세요.");
+		}
+		else if($('#account_password').val()==""){
+			customAlert("error", "비밀번호를 입력해주세요.");
+		}
+		else{			
+			$.ajax({
+		        type:"POST",
+		        url:"/CBangProj/Account/Login.do",
+		        data: $('#loginForm').serialize(),
+		        dataType : "text",
+		        success: function(data){
+		        	var result = JSON.parse(data);		        	
+		        	if(result.notExistEmail){		        		
+		        		customAlert("error", "존재하지 않는 이메일입니다.");		        		
+		        	}
+		        	else if(result.pwdNotMatch){
+		        		customAlert("error", "비밀번호가 일치하지 않습니다.");		        		
+		        	}
+		        	else{
+		        		$('#modalLogin').modal('hide');
+		        		customAlert("info", "로그인이 완료되었습니다.");	        		
+		        	}
+		        },
+		        error: function(error) {		        	
+		        	customAlert("error", error);
+		        }
+		    });			
+		}
+		
+							
+	});//$('#login').click
 		
 });

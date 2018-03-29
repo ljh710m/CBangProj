@@ -1,5 +1,7 @@
 package com.cbang.frontend.service;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -19,5 +21,9 @@ public class MemberService {
 		
 		return dao.insert(dto);		
 	}
-
+	
+	public MemberDto login(Map map) {			
+		
+		return dao.login(map);
+	}
 }

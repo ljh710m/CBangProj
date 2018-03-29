@@ -1,5 +1,7 @@
 package com.cbang.frontend.dao;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,6 +22,11 @@ public class MemberDao {
 		} catch (Exception e) {}		
 		
 		return sqlMapper.insert("MemberInsert", dto);		
+	}
+	
+	public MemberDto login(Map map) {
+				
+		return sqlMapper.selectOne("MemberLogin", map);
 	}
 
 }
