@@ -33,7 +33,7 @@
 	</bean>
 	<!-- Transaction을 관리하기위한 Bean을 생성하고 id를 부여-->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="datasourceByJNDI"/>
+		<property name="dataSource" ref="datasourceByJNDIXE"/>
 	</bean>
 	
 	<!-- ============================================================= -->

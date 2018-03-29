@@ -110,8 +110,7 @@
 	});
 	
 	//관리자 권한  Ajax
-	function privilege(mode,privilege_info,privilege_code,nowPage){
-		console.log(privilege_info);
+	function privilege(mode,privilege_info,privilege_code,nowPage){		
 		var form = $('<form/>');
 	    form.attr('action', 'adminPrivilege.admin');
 	    form.attr('method', 'post');

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<mapper namespace="mybatis.Member_myBatis">
+
+	<resultMap id="MemberDtoResult" type="MemberDto">
+		<!--resultMap사용시 column속성 필수  -->
+    	<result property="member_no" column="member_no"/>
+    	<result property="name" column="name"/>
+    	<result property="email" column="email"/>
+    	<result property="password" column="password"/>
+    	<result property="phone" column="phone"/>
+    	<result property="profile_photo" column="profile_photo"/>
+    	<result property="join_date" column="join_date"/>
+    	<result property="job" column="job"/>
+    	<result property="office_no" column="office_no"/>
+    	<result property="path_code" column="path_code"/>
+	</resultMap>
+ 	
+	<insert id="MemberInsert" parameterType="MemberDto">
+		INSERT INTO CBANG_MEMBER(member_no,name,email,password,phone,join_date,path_code) VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},default,#{path_code})
+	</insert>
+	
+</mapper>

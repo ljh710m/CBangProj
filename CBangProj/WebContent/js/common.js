@@ -81,9 +81,28 @@ $(function() {
 		$('.Checkbox-input').prop("checked", false).prev().css("color","#d1d1d1");
 		$('#nextBtn').removeClass("btn-pink").addClass("btn-default").prop('disabled','disabled');
 	});
+	//모두 동의 후 다음 단계 클릭시 
 	$('#nextBtn').click(function(){
 		$('#agree').modal('hide');
-		$('#userSignup').modal();		
+		//가입경로를 데이터베이스에서 가져옴
+		$.ajax({
+	        type:"POST",
+	        url:"/CBangProj/Account/JoinPath.do",	        
+	        dataType : "text",
+	        success: function(data){
+	        	var list = JSON.parse(data);	        	
+	        	$('#join_path_select').html("");
+	        	for(var i=0; i<list.length; i++){	        		
+	        		$('#join_path_select').append($('<option/>').val(list[i].path_code).html(list[i].path_type));	        		
+	        	}
+	        	$('#join_path_select').prepend($('<option/>').val("").attr("selected","selected").html("가입 경로 선택"));
+	            $('#userSignup').modal();
+	        },
+	        error: function(error) {
+	        	customAlert("error", error);
+	        }
+	    });
+		
 	});
 	//회원가입 창에서 이메일 선택시
 	$('#email_host_select').change(function(){
@@ -92,7 +111,7 @@ $(function() {
 		}
 		else{
 			$('#email_host').val($(this).val()).removeAttr('disabled');
-		}		
+		}
 	});
 	
 	/* 이메일 인증 */
@@ -132,8 +151,7 @@ $(function() {
 		else if(authNumber==""){
 			customAlert("error", "인증번호를 요청해 주세요.");
 		}		
-		else if($('#authNumber_confirm').val() != authNumber){
-			console.log(authNumber);
+		else if($('#authNumber_confirm').val() != authNumber){			
 			customAlert("error", "인증번호가 올바르지 않습니다.");						
 		}
 		else{		
@@ -146,7 +164,6 @@ $(function() {
 			isAuth = true;
 		}			
 	});
-
 	
 	/* 유효성 검사 */
 	$('#phone_2').on('input', function(){
@@ -213,10 +230,37 @@ $(function() {
 			customAlert("error", "가입 경로를 선택하지 않았습니다.");
 		}
 		else{
-			//submit code 작성 예정
-		}
+			//회원 가입 정보 전송
+		    $.ajax({
+		        type:"POST",
+		        url:"/CBangProj/Account/Join.do",
+		        data:
+		        {
+		        	name:name,
+		        	email:email,
+		        	password:password,
+		        	phone:phone,
+		        	path_code:path_code
+		        },
+		        dataType : "text",
+		        success: function(result){
+		        	if(result == "1"){
+		        		$('#userSignup').modal('hide');
+		        		$('#modalLogin').modal();
+		        		customAlert("success", "회원 가입이 완료되었습니다.");		        		
+		        	}
+		        	else{
+		        		customAlert("error", "서버 오류로 인한 가입실패");
+		        	}
+		        },
+		        error: function(error) {
+		        	customAlert("error", error);
+		        }
+		    });//ajax
+		    
+		}//else	
 		
-	});
+	});//$('.Account-form__submit').click
 	
 		
 });
