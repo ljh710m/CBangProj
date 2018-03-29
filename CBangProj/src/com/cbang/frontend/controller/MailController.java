@@ -36,7 +36,7 @@ public class MailController {
 	    		"			<p>N방 서비스 이용을 위해 이메일 주소 인증을 요청하셨습니다.</p>\r\n" + 
 	    		"			<br>\r\n" + 
 	    		"			<p>인증 번호 :</p>\r\n" + 
-	    		"			<p style=\"display: inline;\">"+authNumber+"</p>\r\n" + 
+	    		"			<p style=\"display: inline; font-weight: bold;\">"+authNumber+"</p>\r\n" + 
 	    		"	    </div>\r\n" + 
 	    		"	</div>\r\n" +
 	    		"</div>";
