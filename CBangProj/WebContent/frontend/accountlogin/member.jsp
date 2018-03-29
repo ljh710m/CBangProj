@@ -108,8 +108,7 @@
 												<label for="join_path_select" class="Account-form__label">가입 경로</label>
 											</div>
 											<div class="Account-form__cell">
-												<select id="join_path_select" class="Account-form__select">
-													<option value="">가입 경로 선택</option>																									
+												<select id="join_path_select" class="Account-form__select" style="background-position: 98% 50%;">																																						
 												</select>
 											</div>
 										</div>
