@@ -292,7 +292,8 @@ $(function() {
 		        	}
 		        	else{
 		        		$('#modalLogin').modal('hide');
-		        		customAlert("info", "로그인이 완료되었습니다.");	        		
+		        		customAlert("info", "로그인이 완료되었습니다.");
+		        		window.location.href = "/CBangProj/index.jsp";
 		        	}
 		        },
 		        error: function(error) {		        	
