@@ -52,7 +52,7 @@ function showHide(index){
 		$('.buttonNext').click(function(){
 			if(btnAll.hasClass('active') && 
 					btnAgree.hasClass('active')){
-				location.href = 'PLogin.jsp';
+				location.href = '/CBangProj/ACCOUNT/PLoginTerms.do';
 			}
 			else
 				customAlert("error", "모든 필수 약관을 동의해주세요.");
