@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<mapper namespace="mybatis.PLogin_myBatis">
+
+	<resultMap id="MembershipDtoResult" type="MembershipDto">
+		<!--resultMap사용시 column속성 필수  -->
+    	<result property="member_no" column="member_no"/>
+    	<result property="name" column="name"/>
+    	<result property="email" column="email"/>
+    	<result property="password" column="password"/>
+    	<result property="phone" column="phone"/>
+    	<result property="profile_photo" column="profile_photo"/>
+    	<result property="join_date" column="join_date"/>
+    	<result property="job" column="job"/>
+    	<result property="office_no" column="office_no"/>
+    	<result property="path_code" column="path_code"/>
+    	<result property="path_type" column="path_type"/>
+    	<result property="office_name" column="office_name"/>
+    	<result property="permit_no" column="permit_no"/>
+    	<result property="address" column="address"/>
+    	<result property="represent" column="represent"/>
+    	<result property="office_phone" column="office_phone"/>
+	</resultMap>
+ 	
+	<insert id="PLoginInsert" parameterType="MembershipDto">
+		INSERT INTO REAL_ESTATE_OFFICE VALUES(#{office_no},#{office_name},#{permit_no},#{address},#{represent},#{office_phone})
+	</insert>
+	
+	<insert id="PLoginPInsert" parameterType="MembershipDto">
+		INSERT INTO CBANG_MEMBER VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},#{profile_photo},default,#{job},#{office_no},#{path_code})		
+	</insert>
+	
+	<select id="PLoginMembership" parameterType="java.util.Map" resultType="MembershipDto">
+		SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL) WHERE OFFICE_NO = #{office_no}
+	</select>
+	
+</mapper>
