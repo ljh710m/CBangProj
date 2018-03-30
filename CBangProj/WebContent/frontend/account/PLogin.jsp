@@ -274,10 +274,11 @@ body, html {
 						<th class="title">회원가입 경로</th>
 						<td><select name="path_code">
 								<option>가입 경로 선택</option>
-								<option>인터넷 광고(검색, 카페, 블로그 등)</option>
-								<option>TV광고·옥외광고·포스터 등(오프라인)</option>
-								<option>미디어윌 영업대행</option>
-								<option>지인 추천 및 기타</option>
+						<c:if test="${not empty path_code }">
+						<c:forEach items="${path_code }" var="path">
+								<option value="${path.path_code }">${path.path_type }</option>
+						</c:forEach>
+						</c:if>
 						</select></td>
 					</tr>
 				</tbody>
