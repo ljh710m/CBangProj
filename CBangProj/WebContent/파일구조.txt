@@ -1,0 +1,18 @@
+** BACKEND 파일 구조
+Java Resources/src/model : DTO 파일
+Java Resources/src/model.dao : DAO 파일
+Java Resources/src/service : service 파일
+Java Resources/src/command : handler 혹은 controller 파일
+
+** FRONTEND 파일 구조
+Java Resources/src/model : DTO 파일
+Java Resources/src/com.cbang.frontend.dao : DAO 파일
+Java Resources/src/com.cbang.frontend.service : service 파일
+Java Resources/src/com.cbang.frontend.controller : controller 파일
+
+** MyBatis 파일 구조
+1) WEB-INF/spring/mybatis/mybatis-config.xml
+   - 자바빈 별칭 : <typeAliases> 태그 사이에 기술
+   - 매퍼파일 : <mappers> 태그 사이에 기술
+   
+2) Java Resources/src/mybatis : MyBatis로 주입할 SQL문 xml 파일
