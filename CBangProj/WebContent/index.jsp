@@ -55,7 +55,7 @@
 	<div class="ThemeSearch">
 		<div class="ThemeSearch-header">
 			<h2 class="ThemeSearch-title">테마 검색</h2>
-			<p class="ThemeSearch-subtitle">C방의 다양한 검색 조건으로 방을 찾아보세요</p>
+			<p class="ThemeSearch-subtitle">N방의 다양한 검색 조건으로 방을 찾아보세요</p>
 		</div>
 		<div class="ThemeSearch-contents">
 			<div class="ThemeSearch-contents__wrap">
@@ -164,7 +164,7 @@
 					<div class="col-md-12">
 						<h3 class="SitemapMenu-title">공인중개사 회원가입</h3>
 						<ul class="SitemapMenu-list">
-							<li><a href="<c:url value='/frontend/manage/Manual.jsp'/>">다방 이용 설명서</a></li>
+							<li><a href="<c:url value='/frontend/manage/Manual.jsp'/>">N방 이용 설명서</a></li>
 							<li><a href="#">가입신청</a></li>							
 						</ul>
 					</div>
@@ -201,7 +201,7 @@
 				</div>	
 			</div>
 			<div class="col-md-2">
-				<h3 class="SitemapMenu-title">About C방</h3>
+				<h3 class="SitemapMenu-title">About N방</h3>
 				<ul class="SitemapMenu-list">
 					<li><a href="#">회사소개</a></li>
 					<li><a href="#">오시는 길</a></li>

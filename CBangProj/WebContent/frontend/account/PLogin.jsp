@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet">
 <!-- Font Awesome font -->
+<link href="<c:url value='/vendor/fontawesome/css/fa-solid.min.css'/>" rel="stylesheet">
 <link href="<c:url value='/vendor/fontawesome/css/fa-brands.min.css'/>"
 	rel="stylesheet">
 <link

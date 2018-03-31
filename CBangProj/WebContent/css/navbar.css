@@ -421,4 +421,56 @@
 .UserSignup .btn-lg{
 	font-size: 15px;
 	height: 50px;
-}	
+}
+
+/* 로그인 시 */
+.Header-profile{
+	display: block;
+	position: relative;
+	height: 58px;
+    padding: 0 3px;
+    margin: 0 15px;
+}
+.HeaderProfile {
+    display: block;
+    width: 145px;
+    height: 58px;
+    line-height: 58px;
+    cursor: pointer;
+}
+.HeaderProfile .Profile {
+    width: 32px;
+    height: 32px;
+    margin: 12px 0 0;
+    position: relative;
+}
+.Profile.Profile--default {
+    float: left;
+}
+.HeaderProfile .Profile-img {
+    border: 2px solid #fff;
+}
+.Profile--default .Profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.Profile-img {
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: url(../images/accountlogin/top_menu_profile.png) center center no-repeat;
+    background-size: cover;    
+}
+.HeaderProfile-name {
+    overflow: hidden;
+    float: left;
+    max-width: 62px;
+    margin-right: 3px;
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.nbang-icon-sort-desc{
+	margin-left: 14px;	
+}

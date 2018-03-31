@@ -53,11 +53,12 @@ public class MemberController {
 		return errorInfo.toJSONString();
 	}
 	
-	//로그아웃 처리]	
+	//로그아웃 처리]
+	@RequestMapping("/Account/Logout.do")
 	public String logout(SessionStatus status) throws Exception{
 		//로그 아웃처리-세션영역에 속성 삭제]
 		status.setComplete();
 		
-		return "";
+		return "redirect:/index.jsp";
 	}
 }

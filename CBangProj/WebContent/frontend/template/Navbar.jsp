@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
@@ -24,14 +23,30 @@
         		<li><a href="<c:url value='/frontend/favorite/Recently.jsp'/>">관심목록</a></li>
         		<li><a href="<c:url value='/frontend/manage/NewRoom.jsp'/>">방 등록</a></li>
         		<li><a href="<c:url value='/frontend/account/PLoginTerms.jsp'/>" style="font-size: 12px;">공인중개사 회원가입</a></li>        		        		
-        	<c:if test="${!empty sessionScope.member_no}" var="flag">
-        		<li>${sessionScope.name }</li>
+        	<c:if test="${!empty sessionScope.member_no}" var="flag">        		
+        		<li>
+        			<div class="Header-profile">
+        				<div class="HeaderProfile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        					<div class="Profile Profile--default">
+					          <div class="Profile-img"></div>
+					          <div class="Profile-img"></div>
+					        </div>
+					        <span class="HeaderProfile-name">${sessionScope.name}</span>님
+					        <span class="caret nbang-icon-sort-desc"></span>
+        				</div>
+	        			<ul class="dropdown-menu" role="menu" style="min-width: 140px; text-align: ceter;">
+					    	<li><a href="#">내 계정</a></li>
+					    	<li class="divider"></li>
+					    	<li><a href="<c:url value='/Account/Logout.do'/>">로그아웃</a></li>
+					  	</ul>
+				  	</div>
+        		</li>
         	</c:if>
         	<c:if test="${not flag}">
         		<li><a href="javascript:loginmodal()">회원가입 및 로그인</a></li>
-        	</c:if>
-      		</ul>      		
-		</div><!--/.nav-collapse -->
+        	</c:if>        		
+      		</ul>      		      		
+		</div><!--/.nav-collapse -->		
 	</div>
 </nav>
 <jsp:include page="/frontend/accountlogin/login.jsp"/>
