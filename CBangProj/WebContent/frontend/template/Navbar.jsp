@@ -13,7 +13,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
       		</button>
-      		<a class="navbar-brand" href="#" style="padding-top: 10px; padding-left: 60px;">
+      		<a class="navbar-brand" href="<c:url value='/index.jsp'/>" style="padding-top: 10px; padding-left: 60px;">
         		<img alt="Brand" src="<c:url value='/images/logo.png'/>">        		      		
       		</a>
     	</div>
