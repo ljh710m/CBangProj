@@ -21,9 +21,18 @@
 			<ul class="nav navbar-nav navbar-right">        		
         		<li><a href="<c:url value='/frontend/search/map.jsp'/>">방 검색 </a></li>
         		<li><a href="<c:url value='/frontend/favorite/Recently.jsp'/>">관심목록</a></li>
+        	<c:if test="${!empty sessionScope.member_no}" var="flag1">
         		<li><a href="<c:url value='/frontend/manage/NewRoom.jsp'/>">방 등록</a></li>
+        	</c:if>
+        	<c:if test="${not flag1}">
+        		<li><a href="javascript:loginmodal()">방 등록</a></li>        		
+        	</c:if>
+        		
+        	<c:if test="${!empty sessionScope.member_no}">
+        		<li><a href="#">관리</a></li>
+        	</c:if>
         		<li><a href="<c:url value='/frontend/account/PLoginTerms.jsp'/>" style="font-size: 12px;">공인중개사 회원가입</a></li>        		        		
-        	<c:if test="${!empty sessionScope.member_no}" var="flag">        		
+        	<c:if test="${!empty sessionScope.member_no}" var="flag2">        		
         		<li>
         			<div class="Header-profile">
         				<div class="HeaderProfile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -42,7 +51,7 @@
 				  	</div>
         		</li>
         	</c:if>
-        	<c:if test="${not flag}">
+        	<c:if test="${not flag2}">
         		<li><a href="javascript:loginmodal()">회원가입 및 로그인</a></li>
         	</c:if>        		
       		</ul>      		      		
