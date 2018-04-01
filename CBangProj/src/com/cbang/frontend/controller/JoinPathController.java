@@ -14,7 +14,7 @@ import service.JoinPathService;
 @Controller
 public class JoinPathController {
 	
-	JoinPathService service = new JoinPathService();
+	private JoinPathService service = new JoinPathService();
 		
 	@ResponseBody
 	@RequestMapping(value = "/Account/JoinPath.do", produces = "text/html; charset=utf8")

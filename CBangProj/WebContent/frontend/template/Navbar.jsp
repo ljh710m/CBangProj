@@ -22,7 +22,7 @@
         		<li><a href="<c:url value='/frontend/search/map.jsp'/>">방 검색 </a></li>
         		<li><a href="<c:url value='/frontend/favorite/Recently.jsp'/>">관심목록</a></li>
         	<c:if test="${!empty sessionScope.member_no}" var="flag1">
-        		<li><a href="<c:url value='/frontend/manage/NewRoom.jsp'/>">방 등록</a></li>
+        		<li><a href="<c:url value='/Form/RegisterRoom.do'/>">방 등록</a></li>
         	</c:if>
         	<c:if test="${not flag1}">
         		<li><a href="javascript:loginmodal()">방 등록</a></li>        		

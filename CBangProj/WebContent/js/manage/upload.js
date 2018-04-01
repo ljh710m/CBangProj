@@ -324,7 +324,7 @@ $(function() {
 		var detail_addr = $('#addr2').val();
 		var lat = $('#lat').val();
 		var lng = $('#lng').val();
-		var room_type = $('#room_type').val();
+		var rm_type_code = $('#rm_type_code').val();
 		var deposit1 = $('#deposit1').val();
 		var deposit2 = [];
 		var month_price = [];
@@ -350,7 +350,8 @@ $(function() {
 				}		
 			}
 		});
-		var parking_charge = $('input:text[name=parking_charge]').val()==""?"불가능":$('input:text[name=parking_charge]').val();
+		//var parking_charge = $('input:text[name=parking_charge]').val()==""?"불가능":$('input:text[name=parking_charge]').val();
+		var parking = $('input:checkbox[name=parking]:checked').val();
 		var heating = $('#heating').val();
 		var elevator = $('input:checkbox[name=elevator]:checked').val();
 		var pat = $('input:checkbox[name=pat]:checked').val();
@@ -379,7 +380,7 @@ $(function() {
 		console.log("detail_addr"+detail_addr);
 		console.log("lat:"+lat);
 		console.log("lng:"+lng);
-		console.log("room_type:"+room_type);
+		console.log("rm_type_code:"+rm_type_code);
 		console.log("deposit1:"+deposit1);
 		console.log("short_term:"+short_term);
 		console.log("total_floor:"+total_floor);
@@ -388,7 +389,8 @@ $(function() {
 		console.log("area:"+area);
 		console.log("common_charge:"+common_charge);
 		console.log("charge_list:"+charge_list);
-		console.log("parking_charge:"+parking_charge);
+		//console.log("parking_charge:"+parking_charge);
+		console.log("parking:"+parking);
 		console.log("heating:"+heating);
 		console.log("elevator:"+elevator);
 		console.log("pat:"+pat);
@@ -401,7 +403,7 @@ $(function() {
 		console.log("deposit2:"+deposit2);
 		console.log("month_price:"+month_price);	
 		
-		/*if(roadAddress=="" && jibunAddress==""){
+		if(roadAddress=="" && jibunAddress==""){
 			customAlert("error", "주소를 입력하세요.");
 			return;
 		}
@@ -409,7 +411,7 @@ $(function() {
 			customAlert("error", "상세 주소를 입력하세요.");
 			return;		
 		}
-		else if(room_type==""){
+		else if(rm_type_code==""){
 			customAlert("error", "방 종류를 선택해 주세요.");
 			return;
 		}
@@ -434,7 +436,7 @@ $(function() {
 			return;
 		}
 		else if(heating==""){
-			customAlert("error", "난장종류를 선택해주세요.");
+			customAlert("error", "난방종류를 선택해주세요.");
 			return;
 		}
 		else if(move_date==""){
@@ -452,7 +454,7 @@ $(function() {
 		else if(content==""){
 			customAlert("error", "상세 설명을 입력하세요.");
 			return;
-		}
+		}/*
 		else if(sel_files.length==0){
 			customAlert("error", "사진을 등록하세요.");
 			return;
@@ -478,7 +480,8 @@ $(function() {
 		formData.append("area",area);
 		formData.append("common_charge",common_charge);
 		formData.append("charge_list",charge_list);
-		formData.append("parking_charge",parking_charge);
+		//formData.append("parking_charge",parking_charge);
+		formData.append("parking",parking);
 		formData.append("heating",heating);
 		formData.append("elevator",elevator);
 		formData.append("pat",pat);
@@ -506,15 +509,16 @@ $(function() {
 			url:'/CBangProj/Manage/RegisterRoom.do',
 			data : formData,
 			enctype: 'multipart/form-data',
-			processData: false, //data 지정한 개체를 쿼리 문자열로 변환할지 여부를 설정(post방식:false)	
+			processData: false, //data 지정한 개체를 쿼리 문자열로 변환할지 여부를 설정(post방식:false)
 			contentType: false, //서버에 데이터를 보낼 때 사용(header 정보에 포함)
 			dataType: 'text',
 			success:function(data){
 				alert("데이터 전송 성공!!"+data);
+				//$(location).attr('href','/CBangProj/index.jsp');
 			},
 			error:function(){
 				alert("전송 오류 발생");
 			}
 		});
-	}		
+	}
 });

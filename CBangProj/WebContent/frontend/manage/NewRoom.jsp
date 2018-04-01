@@ -127,12 +127,13 @@
 							<tr>
 								<th>방 종류</th>
 								<td colspan="3" style="position: relative;">
-									<select class="form-control" style="display: inline;" id="room_type" name="room_type">
+									<select class="form-control" style="display: inline;" id="rm_type_code" name="rm_type_code">
 										<option value="">방 종류 선택</option>
-										<option value="원룸">원룸</option>
-										<option value="1.5룸">1.5룸</option>
-										<option value="투룸">투룸</option>
-										<option value="쓰리룸">쓰리룸</option>
+								<c:if test="${!empty roomTypesList}">
+									<c:forEach var="item" items="${roomTypesList}">
+										<option value="${item.rm_type_code}">${item.room_type}</option>									
+									</c:forEach>
+								</c:if>							
 									</select>
 									<div style="display: inline-block; width: 750px; position: absolute; top: 9px; padding-left: 15px;">
 										<p>
@@ -155,7 +156,7 @@
 										<label>
 											<input type="checkbox" style="width: 20px;" id="short_term" name="short_term">
 											<span style="position: relative; top: 1px;">단기가능</span>											
-										</label>										
+										</label>							
 									</div>
 									<div class="transaction-item" style="padding: 5px 10px;line-height: 18px;color: #ef4351">
 										<span>거래 종류를 추가해 주세요. 다중 선택이 가능하며, 첫번째 선택한 거래종류가 우선 노출됩니다.</span>
@@ -285,13 +286,13 @@
 								<th>주차 여부</th>
 								<td>
 									<label>
-										<input type="checkbox" name="parking">
+										<input type="checkbox" name="parking" value="가능">
 										<span>가능</span>																				
 									</label>
 									<input type="text" class="form-control" name="parking_charge" readonly="readonly">
 									<span style="margin-right: 23px;">만원</span>
 									<label>
-										<input type="checkbox" name="parking" checked="checked">
+										<input type="checkbox" name="parking" value="불가능" checked="checked">
 										<span>불가능</span>																				
 									</label>
 								</td>
