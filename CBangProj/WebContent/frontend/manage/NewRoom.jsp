@@ -69,7 +69,7 @@
 			<form action="<c:url value='/Manage/RegisterRoom.do'/>" method="get" id="registerRoom" onsubmit="return false;">
 				<div class="LocationAddress">
 					<h3><i class="fas fa-map-marker-alt"></i>위치정보</h3>
-					<table class="table">						
+					<table class="table">			
 						<colgroup>
 							<col style="width:150px;"><!-- 131px -->
 							<col style="width:465px;"><!-- 425px -->
@@ -156,7 +156,7 @@
 										<label>
 											<input type="checkbox" style="width: 20px;" id="short_term" name="short_term">
 											<span style="position: relative; top: 1px;">단기가능</span>											
-										</label>							
+										</label>
 									</div>
 									<div class="transaction-item" style="padding: 5px 10px;line-height: 18px;color: #ef4351">
 										<span>거래 종류를 추가해 주세요. 다중 선택이 가능하며, 첫번째 선택한 거래종류가 우선 노출됩니다.</span>
@@ -286,13 +286,13 @@
 								<th>주차 여부</th>
 								<td>
 									<label>
-										<input type="checkbox" name="parking" value="가능">
-										<span>가능</span>																				
+										<input type="checkbox" name="parking" value="1">
+										<span>가능</span>											
 									</label>
 									<input type="text" class="form-control" name="parking_charge" readonly="readonly">
 									<span style="margin-right: 23px;">만원</span>
 									<label>
-										<input type="checkbox" name="parking" value="불가능" checked="checked">
+										<input type="checkbox" name="parking" value="" checked="checked">
 										<span>불가능</span>																				
 									</label>
 								</td>
@@ -321,11 +321,11 @@
 								<th>반려 동물</th>
 								<td>
 									<label>
-										<input type="checkbox" name="pat" value="가능">
+										<input type="checkbox" name="pat" value="2">
 										<span>가능</span>																				
 									</label>
 									<label>
-										<input type="checkbox" name="pat" value="불가능" checked="checked">
+										<input type="checkbox" name="pat" value="" checked="checked">
 										<span>불가능</span>																				
 									</label>
 								</td>										
@@ -349,58 +349,14 @@
 								<th>옵션항목</th>
 								<td colspan="3" style="line-height: 2.2">
 									<div>
+								<c:if test="${!empty roomOptionList}">										
+									<c:forEach var="item" items="${roomOptionList}">
 										<label>
-											<input type="checkbox" name="chkList2" value="에어컨">
-											<span>에어컨</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2" value="세탁기">
-											<span>세탁기</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2" value="침대">
-											<span>침대</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="책상">
-											<span>책상</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="옷장">
-											<span>옷장</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="TV">
-											<span>TV</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="신발장">
-											<span>신발장</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="냉장고">
-											<span>냉장고</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="가스레인지">
-											<span>가스레인지</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="인덕션">
-											<span>인덕션</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="전자레인지">
-											<span>전자레인지</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="전자도어락">
-											<span>전자도어락</span>																		
-										</label>
-										<label>
-											<input type="checkbox" name="chkList2"  value="비데">
-											<span>비데</span>																		
-										</label>										
+											<input type="checkbox" name="chkList2" value="${item.option_code}">
+											<span>${item.name}</span>
+										</label>																		
+									</c:forEach>
+								</c:if>																					
 									</div>									
 								</td>							
 							</tr>

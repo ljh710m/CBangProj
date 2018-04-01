@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<mapper namespace="mybatis.Room_myBatis">
+ 	
+ 	<insert id="RoomInsert" parameterType="RoomDto">
+		INSERT INTO ROOM VALUES(ROOM_NO_SEQ.NEXTVAL,#{member_no},#{floor},#{area},#{location_code},#{rent_type},#{trade_type},#{rm_type_code},#{deposit1},#{deposit2},#{month_price},'거래중',default)
+		<selectKey resultType="String" keyProperty="room_no" order="AFTER">
+			SELECT ROOM_NO_SEQ.currval FROM dual
+		</selectKey>
+	</insert>
+	
+	<insert id="DetailInsert" parameterType="DetailDto">
+		INSERT INTO DETAIL VALUES(#{room_no},#{detail_addr},#{common_charge},#{charge_list},#{heating},#{elevator},#{move_date},#{total_floor},#{total_area},#{room_title},#{room_desc},#{memo})		
+	</insert>
+	
+	<insert id="RoomOptionInsert" parameterType="java.util.Map">
+		INSERT ALL
+		<foreach collection="room_option" item="item">
+			INTO ROOM_OPTION
+			VALUES(#{room_no},#{item})
+		</foreach>
+		SELECT * FROM dual
+	</insert>
+	
+	<insert id="BuildingOptionInsert" parameterType="java.util.Map">
+		INSERT ALL
+		<foreach collection="building_option" item="item">
+			INTO BUILDING_OPTION
+			VALUES(#{room_no},#{item})
+		</foreach>
+		SELECT * FROM dual				
+	</insert>
+	
+	<insert id="TradeTypeInsert" parameterType="java.util.Map">
+		INSERT ALL
+		<foreach collection="tradeList" item="item">
+			INTO TRADE_TYPE
+			VALUES(TRADE_TYPE_CODE_SEQ.NEXTVAL,#{item.deposit2},#{item.deposit1},#{item.month_price},${room_no})
+		</foreach>
+		SELECT * FROM dual
+	</insert>
+	
+</mapper>

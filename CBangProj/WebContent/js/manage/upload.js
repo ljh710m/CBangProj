@@ -332,13 +332,14 @@ $(function() {
 			deposit2.push($('[id^=deposit2').eq(i).val());
 			month_price.push($('[id^=month_price').eq(i).val());
 		}
+		var trade_type = $('.tag:eq(0)').html();
 		
-		var short_term = $('#short_term').is(":checked")?"Y":"N";
+		var short_term = $('#short_term').is(":checked")?"5":"";
 		var total_floor = $('#total_floor').val();
 		var floor = $('#floor').val();
 		var total_area = $('#total_area').val();
 		var area = $('#area').val();
-		var common_charge = $('#common_charge_ch').is(":checked")?$('#common_charge').val():"-";
+		var common_charge = $('#common_charge_ch').is(":checked")?$('#common_charge').val():"";
 		var charge_list="";	
 		$('input:checkbox[name=chkList1]').each(function(){
 			if($(this).is(':checked')){
@@ -347,7 +348,7 @@ $(function() {
 				}
 				else{
 					charge_list += ", "+($(this).val());				
-				}		
+				}
 			}
 		});
 		//var parking_charge = $('input:text[name=parking_charge]').val()==""?"불가능":$('input:text[name=parking_charge]').val();
@@ -401,9 +402,10 @@ $(function() {
 		console.log("memo:"+memo);
 		console.log(sel_files);
 		console.log("deposit2:"+deposit2);
-		console.log("month_price:"+month_price);	
+		console.log("month_price:"+month_price);
+		console.log("trade_type:"+trade_type);
 		
-		if(roadAddress=="" && jibunAddress==""){
+		/*if(roadAddress=="" && jibunAddress==""){
 			customAlert("error", "주소를 입력하세요.");
 			return;
 		}
@@ -454,7 +456,7 @@ $(function() {
 		else if(content==""){
 			customAlert("error", "상세 설명을 입력하세요.");
 			return;
-		}/*
+		}*//*
 		else if(sel_files.length==0){
 			customAlert("error", "사진을 등록하세요.");
 			return;
@@ -470,9 +472,11 @@ $(function() {
 		formData.append("detail_addr",detail_addr);
 		formData.append("lat",lat);
 		formData.append("lng",lng);
+		formData.append("rm_type_code",rm_type_code);
 		formData.append("deposit1",deposit1);
 		formData.append("deposit2",deposit2);
 		formData.append("month_price",month_price);
+		formData.append("trade_type",trade_type);
 		formData.append("short_term",short_term);
 		formData.append("total_floor",total_floor);
 		formData.append("floor",floor);
@@ -487,8 +491,8 @@ $(function() {
 		formData.append("pat",pat);
 		formData.append("move_date",move_date);
 		formData.append("room_option",room_option);
-		formData.append("title",title);
-		formData.append("content",content);
+		formData.append("room_title",title);
+		formData.append("room_desc",content);
 		formData.append("memo",memo);
 				
 		console.log(sel_files.length);

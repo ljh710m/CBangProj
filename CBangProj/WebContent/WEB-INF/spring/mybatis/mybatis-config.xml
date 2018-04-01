@@ -8,13 +8,18 @@
 <configuration>	
 	<!-- 자바빈 별칭:매퍼파일에서 환경설정 파일로 위치됨. -->
 	<typeAliases>
-		<typeAlias alias="MemberDto" type="model.MemberDto"/>	
+		<typeAlias alias="MemberDto" type="model.MemberDto"/>
+		<typeAlias alias="LocationsDto" type="model.LocationsDto"/>
+		<typeAlias alias="RoomDto" type="model.RoomDto"/>
+		<typeAlias alias="DetailDto" type="model.DetailDto"/>
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>
-	</typeAliases>	
+	</typeAliases>
 	 
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->
 	<mappers>
 		<mapper resource="mybatis/Member_myBatis.xml"/>
+		<mapper resource="mybatis/Locations_myBatis.xml"/>
+		<mapper resource="mybatis/Room_myBatis.xml"/>
 		<mapper resource="mybatis/PLogin_myBatis.xml"/>
 	</mappers>
 	
