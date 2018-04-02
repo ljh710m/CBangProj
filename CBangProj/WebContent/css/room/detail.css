@@ -109,7 +109,7 @@ sub, sup {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    -ms-behavior: url(/eb60851…/js/backgroundsize.min.htc);
+    opacity: 0.8;    
 }
 .btn-no-bg {
     background-color: transparent;
