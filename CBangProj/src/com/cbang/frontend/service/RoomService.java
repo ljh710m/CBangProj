@@ -1,6 +1,5 @@
 package com.cbang.frontend.service;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -8,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.cbang.frontend.dao.LocationsDao;
 import com.cbang.frontend.dao.RoomDao;
@@ -15,6 +15,7 @@ import com.cbang.frontend.dao.RoomDao;
 import model.DetailDto;
 import model.LocationsDto;
 import model.RoomDto;
+import util.FileUpDownUtils;
 
 @Service("roomService")
 public class RoomService {
@@ -27,14 +28,16 @@ public class RoomService {
 	private String room_no;
 	
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor={Exception.class})
-	public void insert(LocationsDto locationDto, RoomDto roomDto, DetailDto detailDto,Map<String, Object> map) {		
+	public void insert(LocationsDto locationDto, RoomDto roomDto, DetailDto detailDto,Map<String, Object> map, MultipartHttpServletRequest req) {		
 		String locationCode = locationDao.insert(locationDto);
 		roomDto.setLocation_code(locationCode);
 		
 		room_no = roomDao.insertRoom(roomDto);
 		map.put("room_no", room_no);
 		detailDto.setRoom_no(room_no);
-		
+
+		FileUpDownUtils.
+
 		roomDao.insertDetail(detailDto);
 		if(map.containsKey("building_option")) roomDao.insertBuildingOption(map);
 		if(map.containsKey("room_option")) roomDao.insertRoomOption(map);

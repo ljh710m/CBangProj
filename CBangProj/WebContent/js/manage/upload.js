@@ -405,7 +405,7 @@ $(function() {
 		console.log("month_price:"+month_price);
 		console.log("trade_type:"+trade_type);
 		
-		/*if(roadAddress=="" && jibunAddress==""){
+		if(roadAddress=="" && jibunAddress==""){
 			customAlert("error", "주소를 입력하세요.");
 			return;
 		}
@@ -456,7 +456,7 @@ $(function() {
 		else if(content==""){
 			customAlert("error", "상세 설명을 입력하세요.");
 			return;
-		}*//*
+		}/*
 		else if(sel_files.length==0){
 			customAlert("error", "사진을 등록하세요.");
 			return;
