@@ -14,10 +14,9 @@ public class FileUpDownUtils {
 	
 	private static final String FILE_PATH = "/Upload";
 	
-	public List<Map<String,Object>> parseInsertFileInfo(MultipartHttpServletRequest req,String room_no) throws Exception{
+	public static List<Map<String,Object>> parseInsertFileInfo(MultipartHttpServletRequest req,String room_no) throws Exception{
 		Iterator<String> iterator =  req.getFileNames();
-		
-		MultipartFile multipartFile = null;
+				
         String originalFileName = null;
         String originalFileExtension = null;
         String storedFileName = null;
@@ -31,26 +30,28 @@ public class FileUpDownUtils {
         if(file.exists() == false){
             file.mkdirs();
         }
-
-        while(iterator.hasNext()){
-            multipartFile = req.getFile(iterator.next());
-            if(multipartFile.isEmpty() == false){
-                originalFileName = multipartFile.getOriginalFilename();
+                
+		if(iterator.hasNext()) {
+			String uploadFile = iterator.next();
+			List<MultipartFile> mFileList = req.getFiles(uploadFile);
+						
+			for(int i=0; i<mFileList.size();i++) {
+				originalFileName = mFileList.get(i).getOriginalFilename();
                 originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
                 storedFileName = CommonUtils.getRandomString() + originalFileExtension;
-
+                
                 file = new File(phisicalPath+File.separator+storedFileName);
-                multipartFile.transferTo(file);
-
+                mFileList.get(i).transferTo(file);
+                
                 listMap = new HashMap<String,Object>();
                 listMap.put("room_no", room_no);
                 listMap.put("original_file_name", originalFileName);
                 listMap.put("stored_file_name", storedFileName);
-                listMap.put("file_size", multipartFile.getSize());
-                list.add(listMap);
-            }
-        }
-		
+                listMap.put("file_size", mFileList.get(i).getSize());
+                list.add(listMap);												
+			}	
+		}
+        		
 		return list;
 	}
 }

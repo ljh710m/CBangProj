@@ -1,22 +1,17 @@
 package com.cbang.frontend.controller;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.cbang.frontend.service.RoomService;
@@ -97,23 +92,9 @@ public class RoomRegisterController {
 		map.put("month_price", month_price);
 		if(building_option.size() != 0) map.put("building_option", building_option);
 		if(req.getParameter("room_option").length() != 0) map.put("room_option", req.getParameter("room_option").split(","));		
-				
+		
 		service.insert(locationsDto,roomDto,detailDto,map,req);
-					
 		
-		/*String path="";
-		File dir = new File(path);
-		
-		Iterator<String> files =  req.getFileNames();
-		if(files.hasNext()) {
-			String uploadFile = files.next();
-			List<MultipartFile> mFileList = req.getFiles(uploadFile);
-						
-			for(int i=0; i<mFileList.size();i++) {
-				System.out.println(mFileList.get(i).getOriginalFilename());								
-			}	
-		}*/
-
 		//return "redirect:/index.jsp";
 		return "Y";
 	}

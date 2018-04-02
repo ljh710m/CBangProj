@@ -39,9 +39,18 @@
 		INSERT ALL
 		<foreach collection="tradeList" item="item">
 			INTO TRADE_TYPE
-			VALUES(TRADE_TYPE_CODE_SEQ.NEXTVAL,#{item.deposit2},#{item.deposit1},#{item.month_price},${room_no})
+			VALUES(null,#{item.deposit2},#{item.deposit1},#{item.month_price},${room_no})
 		</foreach>
 		SELECT * FROM dual
+	</insert>
+	
+	<insert id="FileInsert" parameterType="java.util.Map">		
+		INSERT ALL
+		<foreach collection="fileList" item="item">
+			INTO PHOTO(photo_id,room_no,original_file_name,stored_file_name,file_size)
+			VALUES(null,#{room_no},#{item.original_file_name},#{item.stored_file_name},#{item.file_size})			 						
+		</foreach>		
+		SELECT * FROM dual		
 	</insert>
 	
 </mapper>

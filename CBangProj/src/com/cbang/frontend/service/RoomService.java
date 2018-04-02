@@ -1,5 +1,6 @@
 package com.cbang.frontend.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -34,10 +35,14 @@ public class RoomService {
 		
 		room_no = roomDao.insertRoom(roomDto);
 		map.put("room_no", room_no);
-		detailDto.setRoom_no(room_no);
-
-		FileUpDownUtils.
-
+		detailDto.setRoom_no(room_no);		
+		
+		try {
+			List<Map<String,Object>> list = FileUpDownUtils.parseInsertFileInfo(req, room_no);
+			map.put("fileList", list);
+			roomDao.insertFile(map);
+		} catch (Exception e) {e.printStackTrace();}
+		
 		roomDao.insertDetail(detailDto);
 		if(map.containsKey("building_option")) roomDao.insertBuildingOption(map);
 		if(map.containsKey("room_option")) roomDao.insertRoomOption(map);

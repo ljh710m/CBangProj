@@ -38,4 +38,8 @@ public class RoomDao {
 		sqlMapper.insert("TradeTypeInsert",map);			
 	}
 	
+	public void insertFile(Map<String, Object> map) {
+		sqlMapper.insert("FileInsert",map);
+	}
+	
 }
