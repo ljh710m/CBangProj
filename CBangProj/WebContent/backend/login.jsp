@@ -56,7 +56,7 @@
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">로그인</button>
                         <div class="social-login-content">
                             <div class="social-button">
-                            	<a class="btn social facebook btn-flat btn-addon mb-3" href="<c:url value='/backend/admin/register.jsp'/>" role="button">계정 신청</a>                                
+                            	<a class="btn social facebook btn-flat btn-addon mb-3" href="<c:url value='/backend/register.jsp'/>" role="button">계정 신청</a>                                
                                 <button type="button" class="btn social twitter btn-flat btn-addon mt-2">비밀번호 찾기</button>
                             </div>
                         </div> 
