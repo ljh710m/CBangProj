@@ -34,8 +34,8 @@
 		INSERT INTO CBANG_MEMBER VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},#{profile_photo},default,#{job},#{office_no},#{path_code})		
 	</insert>
 	
-	<select id="PLoginMembership" parameterType="java.util.Map" resultType="MembershipDto">
-		SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL) WHERE OFFICE_NO = #{office_no}
+	<select id="PLoginIsPermit_no" parameterType="MembershipDto" resultType="String">
+		SELECT permit_no FROM REAL_ESTATE_OFFICE WHERE permit_no = #{permit_no}
 	</select>
 	
 </mapper>

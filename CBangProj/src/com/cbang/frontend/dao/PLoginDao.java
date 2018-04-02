@@ -34,8 +34,8 @@ public class PLoginDao {
 		return sqlMapper.insert("PLoginPInsert", dto);
 	}
 	
-	public MembershipDto login(Map map) {
-		return sqlMapper.selectOne("PLoginMembership", map);
+	public String isPermit_no(String permit_no) {
+		return sqlMapper.selectOne("PLoginIsPermit_no", permit_no);
 	}
 
 }
