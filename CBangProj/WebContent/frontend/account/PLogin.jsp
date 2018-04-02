@@ -46,7 +46,7 @@ body, html {
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp" />
-	<form action="<c:url value='/ACCOUNT/PLogin.do' />" method="post">
+	<form onsubmit="return false;" method="post" id="allform">
 		<div id="body" class="col-md-8 col-md-offset-2">
 			<div>
 				<h1>회원가입</h1>
@@ -96,13 +96,13 @@ body, html {
 					</tr>
 					<tr>
 						<th class="title">사업자등록번호</th>
-						<td><input name="permit_no1" type="number" min="0" max="999"
+						<td><input id="permit_no1" type="number" min="0" max="999" name="permit_no1"
 							class="number" maxlength="3" required /> <span
-							class="input-dash"> - </span> <input type="number" min="0" max="99" name="permit_no2"
+							class="input-dash"> - </span> <input type="number" min="0" max="99" id="permit_no2" name="permit_no2"
 							class="number" maxlength="2" required /> <span
-							class="input-dash"> - </span> <input type="number" min="0" max="99999" name="permit_no3"
+							class="input-dash"> - </span> <input type="number" min="0" max="99999" id="permit_no3" name="permit_no3"
 							class="number" maxlength="5" required style="margin-right: 10px;" />
-							<button id="certification" type="button" class="Btn--md Btn--red"
+							<button name="certification" id="certification" type="button" class="Btn--md Btn--red"
 								style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
 							<button type="button" class="Btn--md Btn--disabled">사업자
 								등록증 첨부</button>
@@ -116,23 +116,23 @@ body, html {
 							<div>
 								<select name="si-do" class="selectBox" id="si-do" required>
 									<option>시/도 선택</option>
-									<option value="seoul">서울특별시</option>
-									<option value="incheon">인천광역시</option>
-									<option value="busan">부산광역시</option>
-									<option value="daejeon">대전광역시</option>
-									<option value="dae-gu">대구광역시</option>
-									<option value="ulsan">울산광역시</option>
-									<option value="gwangju">광주광역시</option>
-									<option value="gyeonggi">경기도</option>
-									<option value="gangwon">강원도</option>
-									<option value="jeonnam">전라남도</option>
-									<option value="jeonbook">전라북도</option>
-									<option value="choongnam">충청남도</option>
-									<option value="choongbook">충청북도</option>
-									<option value="gyeongnam">경상남도</option>
-									<option value="gyeongbook">경상북도</option>
-									<option value="jejudo">제주특별자치도</option>
-									<option value="jejusi">제주특별자치시</option>
+									<option value="서울특별시">서울특별시</option>
+									<option value="인천광역시">인천광역시</option>
+									<option value="부산광역시">부산광역시</option>
+									<option value="대전광역시">대전광역시</option>
+									<option value="대구광역시">대구광역시</option>
+									<option value="울산광역시">울산광역시</option>
+									<option value="광주광역시">광주광역시</option>
+									<option value="경기도">경기도</option>
+									<option value="강원도">강원도</option>
+									<option value="전라남도">전라남도</option>
+									<option value="전라북도">전라북도</option>
+									<option value="충청남도">충청남도</option>
+									<option value="충청북도">충청북도</option>
+									<option value="경상남도">경상남도</option>
+									<option value="경상북도">경상북도</option>
+									<option value="제주특별자치도">제주특별자치도</option>
+									<option value="제주특별자치시">제주특별자치시</option>
 								</select> <select name="goo-goon" class="selectBox" id="goo-goon" required>
 									<option>구/군 선택</option>
 								</select> <input type="text" name="office_address"
@@ -201,75 +201,77 @@ body, html {
 								<option>018</option>
 								<option>019</option>
 						</select> <span class="input--dash">- </span> <input type="number" min="0"
-							max="9999" class="number" name="phone" required maxlength="4" />
+							max="9999" class="number" name="mphone" required maxlength="4" />
 							<span class="input--dash">- </span> <input type="number" min="0"
-							max="9999" class="number" name="phone" required maxlength="4" />
+							max="9999" class="number" name="lphone" required maxlength="4" />
 						</td>
 					</tr>
 					<tr>
 						<th class="title">대표전화번호</th>
-						<td><select name="office_phone" class="selectBox Bold"
+						<td><select name="office-phone" class="selectBox Bold"
 							required>
-								<option>02</option>
-								<option>031</option>
-								<option>032</option>
-								<option>033</option>
-								<option>041</option>
-								<option>042</option>
-								<option>043</option>
-								<option>044</option>
-								<option>051</option>
-								<option>052</option>
-								<option>053</option>
-								<option>054</option>
-								<option>055</option>
-								<option>061</option>
-								<option>062</option>
-								<option>063</option>
-								<option>064</option>
-								<option>070</option>
-								<option>010</option>
+								<option value="02">02</option>
+								<option value="031">031</option>
+								<option value="032">032</option>
+								<option value="033">033</option>
+								<option value="041">041</option>
+								<option value="042">042</option>
+								<option value="043">043</option>
+								<option value="044">044</option>
+								<option value="051">051</option>
+								<option value="052">052</option>
+								<option value="053">053</option>
+								<option value="054">054</option>
+								<option value="055">055</option>
+								<option value="061">061</option>
+								<option value="062">062</option>
+								<option value="063">063</option>
+								<option value="064">064</option>
+								<option value="070">070</option>
+								<option value="010">010</option>
 						</select> <span class="input--dash"> - </span> <input type="number" min="0"
-							max="9999" class="number" name="phone" required maxlength="4" />
+							max="9999" class="number" name="office-mphone" required maxlength="4" />
 							<span class="input--dash"> - </span> <input type="number" min="0"
-							max="9999" class="number" name="phone" required maxlength="4" />
+							max="9999" class="number" name="office-lphone" required maxlength="4" />
 						</td>
 					</tr>
 					<tr>
 						<th class="title">이메일 주소</th>
 						<td style="padding: 10px;"><input type="text" style="width:138px;"
 							class="Email--input" name="email" required autocomplete="off" />
-							<span class="input--dash"> @ </span> <select class="select-email">
+							<span class="input--dash"> @ </span>
+							<input name="email2" type="text" disabled style="width:138px;height:35px;border: 1px solid #e7e7e7;" />
+							 <select class="select-email" name="select-email">
 								<option>이메일 선택</option>
 								<option value="직접입력">직접 입력</option>
-								<option>naver.com</option>
-								<option>hanmail.net</option>
-								<option>daum.net</option>
-								<option>gmail.com</option>
-								<option>nate.com</option>
-								<option>icloud.com</option>
-								<option>hotmail.com</option>
-								<option>korea.com</option>
-								<option>empal.com</option>
-								<option>dreamwiz.com</option>
-								<option>yahoo.com</option>
-								<option>ymail.com</option>
-								<option>live.com</option>
-								<option>aol.com</option>
-								<option>msn.com</option>
-								<option>me.com</option>
-								<option>rocketmail.com</option>
-								<option>qq.com</option>
+								<option value="naver.com">naver.com</option>
+								<option value="haqnmail.com">hanmail.net</option>
+								<option value="daum.net">daum.net</option>
+								<option value="gmail.com">gmail.com</option>
+								<option value="nate.com">nate.com</option>
+								<option value="icloud.com">icloud.com</option>
+								<option value="hotmail.com">hotmail.com</option>
+								<option value="korea.com">korea.com</option>
+								<option value="empal.com">empal.com</option>
+								<option value="dreamwiz.com">dreamwiz.com</option>
+								<option value="yahho.com">yahoo.com</option>
+								<option value="ymail.com">ymail.com</option>
+								<option value="live.com">live.com</option>
+								<option value="aol.com">aol.com</option>
+								<option value="msn.com">msn.com</option>
+								<option value="me.com">me.com</option>
+								<option value="rocketmail.com">rocketmail.com</option>
+								<option value="qq.com">qq.com</option>
 						</select><br /> <!-- 이메일 입력 안했을 때 <small>※이메일을 입력하세요</small> --></td>
 					</tr>
 					<tr>
 						<th class="title">비밀번호</th>
-						<td><input type="password"
+						<td><input type="password" name="password"
 							placeholder="8자 이상, 문자, 숫자, 특수문자 포함" /></td>
 					</tr>
 					<tr>
 						<th class="title">비밀번호 확인</th>
-						<td><input type="password" placeholder="다시 한번 비밀번호를 입력해주세요." /></td>
+						<td><input type="password" name="password2" placeholder="다시 한번 비밀번호를 입력해주세요." /></td>
 					</tr>
 					<tr>
 						<th class="title">회원가입 경로</th>

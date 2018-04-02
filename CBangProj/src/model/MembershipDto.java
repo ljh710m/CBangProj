@@ -2,6 +2,8 @@ package model;
 
 import java.sql.Date;
 
+import util.PBKDF2;
+
 public class MembershipDto {
 	
 	private String member_no;
@@ -20,6 +22,8 @@ public class MembershipDto {
 	private String represent;
 	private String office_phone;
 	private String path_type;
+	
+	public MembershipDto() {}
 	
 	public MembershipDto(String member_no, String name, String email, String password, String phone,
 			String profile_photo, Date join_date, String job, String office_no, String path_code, String office_name,
@@ -177,8 +181,15 @@ public class MembershipDto {
 
 	public void setPath_type(String path_type) {
 		this.path_type = path_type;
-	}	
+	}
 	
-	
+	public boolean matchPassword(String pwd) {		
+		try {
+			if(PBKDF2.validatePassword(pwd, password))
+				return true;
+			else return false;
+		} 
+		catch (Exception e) {return false;}
+	}
 	
 }

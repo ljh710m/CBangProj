@@ -33,82 +33,82 @@ $(function() {
 
 	$('#si-do').change(function() {
 		$('#goo-goon').find('option').remove();
-		if ($(this).val() == 'seoul') {
+		if ($(this).val() == '서울특별시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInSeoul) {
 				$('#goo-goon').append('<option>' + gooGoonInSeoul[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'incheon') {
+		} else if ($(this).val() == '인천광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInIncheon) {
 				$('#goo-goon').append('<option>' + gooGoonInIncheon[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'busan') {
+		} else if ($(this).val() == '부산광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInIncheon) {
 				$('#goo-goon').append('<option>' + gooGoonInIncheon[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'daejeon') {
+		} else if ($(this).val() == '대전광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInDaejeon) {
 				$('#goo-goon').append('<option>' + gooGoonInDaejeon[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'dae-gu') {
+		} else if ($(this).val() == '대구광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInDaegu) {
 				$('#goo-goon').append('<option>' + gooGoonInDaegu[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'ulsan') {
+		} else if ($(this).val() == '울산광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInUlsan) {
 				$('#goo-goon').append('<option>' + gooGoonInUlsan[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'gwangju') {
+		} else if ($(this).val() == '광주광역시') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInGwangju) {
 				$('#goo-goon').append('<option>' + gooGoonInGwangju[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'gyeonggi') {
+		} else if ($(this).val() == '경기도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInGyeonggi) {
 				$('#goo-goon').append('<option>' + gooGoonInGyeonggi[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'gangwon') {
+		} else if ($(this).val() == '강원도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInGangwon) {
 				$('#goo-goon').append('<option>' + gooGoonInGangwon[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'jeonnam') {
+		} else if ($(this).val() == '전라남도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInJeonnam) {
 				$('#goo-goon').append('<option>' + gooGoonInJeonnam[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'jeonbook') {
+		} else if ($(this).val() == '전라북도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInJeonbook) {
 				$('#goo-goon').append('<option>' + gooGoonInJeonbook[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'choongnam') {
+		} else if ($(this).val() == '충청남도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInChoongnam) {
 				$('#goo-goon').append('<option>' + gooGoonInChoongnam[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'choongbook') {
+		} else if ($(this).val() == '충청북도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInChoongbook) {
 				$('#goo-goon').append('<option>' + gooGoonInChoongbook[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'gyeongnam') {
+		} else if ($(this).val() == '경상남도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInGyeongnam) {
 				$('#goo-goon').append('<option>' + gooGoonInGyeongnam[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'gyeongbook') {
+		} else if ($(this).val() == '경상북도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInGyeongbook) {
 				$('#goo-goon').append('<option>' + gooGoonInGyeongbook[gG] + '</option>');
 			}
-		} else if ($(this).val() == 'jejudo') {
+		} else if ($(this).val() == '제주도') {
 			$('#goo-goon').append('<option>구/군 선택</option>');
 			for (var gG in gooGoonInJejudo) {
 				$('#goo-goon').append('<option>' + gooGoonInJejudo[gG] + '</option>');
@@ -123,19 +123,15 @@ $(function() {
 	});
 
 	$('.Btn--disabled').click(function() {
-		if ($(this).hasClass('Btn--disabled')) {
+		console.log($(this));
+		/*if ($(this).attr) {
 			customAlert("error", "사업자 등록증을 첨부하기 전에 인증을 먼저 해야합니다.");
 		}
+		else {
+			console.log('gd');
+		}*/
 	});
-
-	$('#certification').click(function() {
-		if ($('[name="permit_no"]').val().length != 0) {
-
-		} else {
-			customAlert("error", "사업자 등록번호가 없거나 틀렸습니다.");
-		}
-	});
-
+	
 	$('input[type="number"]').on('input', function(e) {
 		var inputNumber = parseInt($(this).val());
 		if (inputNumber > parseInt($(this).attr('max'))) {
@@ -143,13 +139,59 @@ $(function() {
 		}
 	});
 	
-	$('.select-email').change(function(e){
-		if($(this).val() == "직접입력"){
-			$(this).prev().after('<input type="text" style="width:138px;height:35px;border: 1px solid #e7e7e7;" />');
+	$('[name="select-email"]').change(function(){
+		if($(this).val()!="직접입력"){
+			$('[name="email2"]').val($(this).val()).prop('disabled','disabled');			
 		}
-		
+		else{
+			$('[name="email2"]').removeAttr('disabled');
+		}
 	});
 	
+	$('.joinOk').click(function(){
+		$.ajax({
+			type : "POST",
+			url : "/CBangProj/ACCOUNT/mathPassword.do",
+			data : $('#allform').serialize(),
+			dataType : "text",
+			success : function(data){
+				var result = JSON.parse(data);
+				if(result.pwdNotMatch)
+					customAlert("error", "비밀번호가 일치하지 않습니다.");
+				else {
+					customAlert("info", "회원가입이 완료되었습니다.");
+					window.location.href = "/CBangProj/index.jsp";
+				}
+					
+			},
+			error : function(){
+				
+			}
+		});
+	});
 	
+	$('[name="certification"]').click(function(){
+		var isCertification = "";
+		$.ajax({
+			type : "POST",
+			url : "/CBangProj/ACCOUNT/certification.do",
+			data : {
+				permit_no : $.trim($('#permit_no1').val()+$('#permit_no2').val()+$('#permit_no3').val())
+				},
+			dataType : "text",
+			success : function(data){
+				isCertification = data;
+				if(isCertification == "true") {
+					customAlert("success","인증이 완료되었습니다.");
+					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white'});
+				}
+				else if(isCertification == "null")
+					customAlert("error", "사업자 등록번호가 잘못되었거나 없은 사업자 등록번호입니다.");
+			},
+			error : function(error) {
+				customAlert("error", "에러남");
+			}
+			});
+		});
 	
 });

@@ -25,8 +25,7 @@ public class PLoginService {
 		return dao.pInsert(dto);
 	}
 	
-	public MembershipDto login(Map map) {
-		return dao.login(map);
+	public String isPermit_no(String permit_no) {
+		return dao.isPermit_no(permit_no);
 	}
-		
 }
