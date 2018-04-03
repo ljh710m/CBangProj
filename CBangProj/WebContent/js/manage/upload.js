@@ -69,39 +69,7 @@ $(function() {
 		});
 		
 		$('#addition').append($(wrap).append($(div).append(span1).append(price1).append(span2).append(price2).append(span3).append(span4).append(icon)));
-	});	
-		
-	/*$('input[type="checkbox"]').click(function(){
-		var name = $(this).attr('name');
-		
-		//옵션 선택이 아닐시
-		if(name.indexOf("chkList")==-1 && name.indexOf("short")==-1){
-			$('input[type="checkbox"][name="'+name+'"]').prop('checked',false);
-			$(this).prop('checked',true);
-						
-			switch(name){			
-				case "common_charge_ch"://관리비
-					if($(this).next().html()=="있음"){
-						$('input[type="text"][name="common_charge"]').removeAttr('readonly');
-					}
-					else{
-						$('input[type="text"][name="common_charge"]').attr('readonly','readonly').val("");
-					}				
-					break;			
-				case "parking"://주차비
-					if($(this).next().html()=="가능"){
-						$('input[type="text"][name="parking_charge"]').removeAttr('readonly');
-					}
-					else{
-						$('input[type="text"][name="parking_charge"]').attr('readonly','readonly').val("");
-					}
-					break;
-				case "move_date_ch"://입주일(즉시 입주,날짜 협의 선택시)
-					$('input[type="text"][name="move_date"]').val($(this).next().html());
-					break;
-			}
-		}
-	});*/
+	});		
 	//관리비
 	$('input[type="checkbox"][name=common_charge_ch]').click(function(){
 		$('input[type="checkbox"][name="common_charge_ch"]').prop('checked',false);
@@ -371,41 +339,9 @@ $(function() {
 		var title = $('input:text[name=title]').val();
 		var content = $('textarea[name=content]:visible').val();
 		var memo = $('textarea[name=memo]:visible').val();
-				
-		console.log("roadAddress:"+roadAddress);
-		console.log("jibunAddress:"+jibunAddress);
-		console.log("sido:"+sido);
-		console.log("sigungu:"+sigungu);
-		console.log("bname:"+bname);
-		console.log("bname1:"+bname1);
-		console.log("detail_addr"+detail_addr);
-		console.log("lat:"+lat);
-		console.log("lng:"+lng);
-		console.log("rm_type_code:"+rm_type_code);
-		console.log("deposit1:"+deposit1);
-		console.log("short_term:"+short_term);
-		console.log("total_floor:"+total_floor);
-		console.log("floor:"+floor);
-		console.log("total_area:"+total_area);
-		console.log("area:"+area);
-		console.log("common_charge:"+common_charge);
-		console.log("charge_list:"+charge_list);
-		//console.log("parking_charge:"+parking_charge);
-		console.log("parking:"+parking);
-		console.log("heating:"+heating);
-		console.log("elevator:"+elevator);
-		console.log("pat:"+pat);
-		console.log("move_date:"+move_date);
-		console.log("room_option:"+room_option);
-		console.log("title:"+title);
-		console.log("content:"+content);
-		console.log("memo:"+memo);
-		console.log(sel_files);
-		console.log("deposit2:"+deposit2);
-		console.log("month_price:"+month_price);
-		console.log("trade_type:"+trade_type);
 		
-		/*if(roadAddress=="" && jibunAddress==""){
+		//유효성 검사
+		if(roadAddress=="" && jibunAddress==""){
 			customAlert("error", "주소를 입력하세요.");
 			return;
 		}
@@ -456,12 +392,13 @@ $(function() {
 		else if(content==""){
 			customAlert("error", "상세 설명을 입력하세요.");
 			return;
-		}*//*
+		}
 		else if(sel_files.length==0){
 			customAlert("error", "사진을 등록하세요.");
 			return;
-		}*/		
+		}	
 		
+		//Form 데이터 생성
 		var formData = new FormData();
 		formData.append("roadAddress",roadAddress);
 		formData.append("jibunAddress",jibunAddress);
@@ -494,13 +431,11 @@ $(function() {
 		formData.append("room_title",title);
 		formData.append("room_desc",content);
 		formData.append("memo",memo);
-				
-		console.log(sel_files.length);
 		
 		for(var i=0; i<sel_files.length;i++){
 			console.log(sel_files[i]);
 			formData.append("photo", sel_files[i], sel_files[i].name)			
-		}		
+		}
 		
 		submitAction(formData);
 								
@@ -517,11 +452,13 @@ $(function() {
 			contentType: false, //서버에 데이터를 보낼 때 사용(header 정보에 포함)
 			dataType: 'text',
 			success:function(data){
-				alert("데이터 전송 성공!!"+data);
+				if(data == "Y"){
+					customAlert("success", "등록되었습니다.");
+				}				
 				//$(location).attr('href','/CBangProj/index.jsp');
 			},
 			error:function(){
-				alert("전송 오류 발생");
+				customAlert("방 등록 오류 발생");
 			}
 		});
 	}

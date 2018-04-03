@@ -1,0 +1,244 @@
+.myaccount-wrap {
+    overflow: hidden;
+    width: 100%;
+    min-width: 1110px;
+    display: block;
+    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
+    font-size: 13px;
+}
+.myaccount-container {
+    margin-top: 0;
+}
+#myaccount-component .myaccount-content {
+    width: 1000px;
+    min-height: 500px;
+    margin: 45px auto 50px;
+}
+.myimg{
+	border: 0;
+}
+.myaccount-form{
+	margin: 0;
+	display: block;
+}
+.myaccount-title{
+	float: left;
+	margin:0;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 32px;
+}
+.myaccount-btn-unregister{
+	margin-top: 8px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.btn-no-bg-unregister {
+    background-color: transparent;
+}
+.btn-no-border-unregister {
+    border: 0;
+}
+.unregister-right {
+    float: right !important;
+}
+.myaccount-table {
+	display: table;
+    table-layout: fixed;
+    clear: both;
+    width: 100%;
+    border-bottom: 1px solid #dfdfdf;
+    word-break: break-all;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.myaccount-caption {
+    display: table-caption;
+    text-align: -webkit-center;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.myaccount-colgroup {
+    display: table-column-group;
+}
+.myaccount-tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.myaccount-tbody >tr{
+	display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.myaccount-tbody >tr>th{
+    padding: 17px 0 17px 15px;
+    border: 0;
+    border-top: 1px solid #dfdfdf;
+    background-color: #ecf0f5;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.6;
+    text-align: left;
+}
+.myaccount-tbody >tr>td{
+    padding: 17px 0 17px 35px;
+    border: 0;
+    border-top: 1px solid #dfdfdf;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: left;
+}
+.MyProfile{
+	position: relative;
+}
+.MyProfile--register{
+	height: 92px;
+}
+.MyProfile--register .MyProfile-img:first-child {
+    background-position: 0;
+}
+.MyProfile--register .MyProfile-img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #d1d1d1;
+    margin: 0;
+    background-size: cover;
+}
+.MyProfile-img {
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: url(../images/accountlogin/top_menu_profile.png) center center no-repeat;
+    background-size: cover;
+}
+.MyProfile-upload{
+	position: absolute !important;
+    bottom: -1px;
+    width: 98px;
+    background-color: #000;
+    font-size: 12px;
+    line-height: 1.53846154em;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    opacity: .6;
+}
+.myaccount-tbody >tr:first-child {
+    border-top: 2px solid #2a2a2a;
+}
+#myaccount-component .myaccount-content .myaccount-table .input1 {
+    width: 440px;
+}
+.myaccount-form-control {
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    background-image: none;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: middle;
+    color: #585858;
+}
+.myaccount-Phone .myaccount-Phone-auth {
+    display: inline-block;
+}
+.myaccount-form-control.disabled, .myaccount-form-control:disabled {
+    background-color: #ecf0f5;
+}
+.myaccount-form-control {
+    width: 137px;
+}
+.myaccount-input-dash {
+    display: inline-block;
+    margin: 0 5px;
+    color: #d1d1d1;
+}
+.myaccount-Phone > button {
+    display: inline-block;
+    width: 110px;
+    height: 34px;
+    margin-left: 14px;
+    vertical-align: top;
+}
+.myaccount-btn {
+    display: inline-block;
+    padding: 0 13px;
+    background-image: none;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.53856154;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.myaccount-btn-white-blue {
+    border: 1px #3b8de0 solid;
+    background-color: #fff;
+    color: #3b8de0;
+}
+.modify-password{
+	margin: 0;
+}
+#myaccount-component .myaccount-content .modify-password .input1 {
+    margin-top: 10px;
+}
+.myaccount-btn-xl {
+    width: 260px;
+    height: 60px;
+    font-size: 15px;
+    line-height: 58px;
+}
+.btn-myaccount-gray{
+    border: 1px #2a2a2a solid;
+    background-color: #585858;
+    color: #fff;
+}
+.myaccount-border-radius-large {
+    border-radius: 5px;
+}
+.myaccount-nbang-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+.myaccount-icon-size-2xl {
+    font-size: 19px;
+}
+#myaccount-component .myaccount-content .myaccount-icon-text {
+    font-size: 15px;
+}
+.myaccount-icon-text {
+    margin-left: 5px;
+}
+.myaccount-icon-text {
+    margin-left: 5px;
+}
+.btn-myaccount-pink {
+    border: 1px #ff7473 solid;
+    background-color: #ff7473;
+    color: #fff;
+}
+.myaccount-table-button-wrap {
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+

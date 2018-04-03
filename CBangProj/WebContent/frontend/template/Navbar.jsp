@@ -44,7 +44,7 @@
 					        <span class="caret nbang-icon-sort-desc"></span>
         				</div>
 	        			<ul class="dropdown-menu" role="menu" style="min-width: 140px; text-align: ceter;">
-					    	<li><a href="#">내 계정</a></li>
+					    	<li><a href="<c:url value="/frontend/accountlogin/MyAccount.jsp"/>">내 계정</a></li>
 					    	<li class="divider"></li>
 					    	<li><a href="<c:url value='/Account/Logout.do'/>">로그아웃</a></li>
 					  	</ul>
