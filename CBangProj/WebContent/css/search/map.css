@@ -661,8 +661,88 @@ legend {
     bottom: 0;
     left: 0;
 }
+.Map .marker-overlay {
+    font-family: 'Nanum Gothic','Malgun Gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+.Map .cluster-marker-overlay{
+	position:absolute;
+	width:56px;
+	height:56px;
+	border-radius:100%;
+	background:rgba(59,169,205,0.85);
+	margin-top:-28px;
+	margin-left:-28px;
+	line-height:56px;
+	color:#fff;
+	font-size:15px
+}
+.Map .cluster-marker-overlay:before{
+	content:'';
+	box-sizing:content-box;
+	position:absolute;
+	top:0;
+	left:0;
+	width:56px;
+	height:56px;
+	border:0 solid transparent;
+	border-radius:inherit;
+	background:transparent;
+	margin-top:0;
+	margin-left:0
+}
+.Map .cluster-marker-overlay.active,
+.Map .cluster-marker-overlay:hover{
+	z-index:999999;
+	background:#0f94bf;
+	color:#fff
+}
+.Map .cluster-marker-overlay.active:before,
+.Map .cluster-marker-overlay:hover:before{
+	border:6px solid rgba(255,255,255,0.7);
+	margin-top:-6px;
+	margin-left:-6px;
+	transition:border .1s,margin .1s
+}
+.Map .cluster-marker-overlay.active{
+	background:#0f94bf;
+	color:#fff
+}
+.Map .cluster-marker-overlay.active:before{
+	border:6px solid rgba(255,255,255,0.7);
+	margin-top:-6px;
+	margin-left:-6px
+}
+.Map .cluster-marker-overlay.small{
+	width:40px;
+	height:40px;
+	margin-top:-20px;
+	margin-left:-20px;
+	font-size:12px;
+	line-height:40px
+}
+.Map .cluster-marker-overlay.small:before{
+	width:40px;
+	height:40px
+}
 
+/*
+.Map .name-marker-overlay{
+	position:absolute;
+	width:92px;
+	height:28px;
+	border-radius:100%;
+	background:rgba(59,169,205,0.85);
+	margin-top:-14px;
+	margin-left:-46px;
+	line-height:28px;
+	color:#fff;
+	border-radius:5px;
+}
+/* .Map .name-marker-overlay:before{content:'';box-sizing:content-box;position:absolute;top:0;left:0;width:92px;height:28px;border:0 solid transparent;border-radius:inherit;background:transparent;margin-top:0;margin-left:0}.Map .name-marker-overlay.active,.Map .name-marker-overlay:hover{z-index:999999;background:#0f94bf;color:#fff}.Map .name-marker-overlay.active:before,.Map .name-marker-overlay:hover:before{border:8px solid rgba(255,255,255,0.7);margin-top:-8px;margin-left:-8px;transition:border .1s,margin .1s}.Map .name-marker-overlay.active{background:#0f94bf;color:#fff}.Map .name-marker-overlay.active:before{border:8px solid rgba(255,255,255,0.7);margin-top:-8px;margin-left:-8px}.Map .name-marker-overlay .count{display:none}.Map .name-marker-overlay .name{position:static;z-index:1;width:100%;height:100%;padding:0;margin:0;font-size:11px;font-weight:normal;line-height:28px;text-shadow:none;color:#fff;transition:none;-webkit-transform:translateX(0);-moz-transform:translateX(0);-o-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)} */
 
+/* .Map .cluster-marker-overlay:hover .name{top:62px}.Map .cluster-marker-overlay.active .name{top:62px}.Map .cluster-marker-overlay.small .name{top:40px}.Map .cluster-marker-overlay.small:hover .name,.Map .cluster-marker-overlay.small.active .name{top:46px}.Map .subway-marker-overlay:after,.Map .univ-marker-overlay:after{content:'';display:block;width:24px;height:24px;background-position:center;background-repeat:no-repeat;background-size:100%}.Map .subway-marker-overlay{position:absolute;width:24px;height:24px;border-radius:100%;background:#fc7781;margin-top:-12px;margin-left:-12px;line-height:24px;color:#fff}.Map .subway-marker-overlay:before{content:'';box-sizing:content-box;position:absolute;top:0;left:0;width:24px;height:24px;border:0 solid transparent;border-radius:inherit;background:transparent;margin-top:0;margin-left:0}.Map .subway-marker-overlay.active,.Map .subway-marker-overlay:hover{z-index:999999;background:#eb5a61;color:#fff}.Map .subway-marker-overlay.active:before,.Map .subway-marker-overlay:hover:before{border:6px solid rgba(255,255,255,0.7);margin-top:-6px;margin-left:-6px;transition:border .1s,margin .1s}.Map .subway-marker-overlay.active{background:#eb5a61;color:#fff}.Map .subway-marker-overlay.active:before{border:6px solid rgba(255,255,255,0.7);margin-top:-6px;margin-left:-6px}.Map .subway-marker-overlay .name{top:23px}.Map .subway-marker-overlay:hover .name{top:26px}.Map .subway-marker-overlay.active .name{top:28px}.Map .subway-marker-overlay:after{background-image:url("/89225d82bd5d406ba8528ff7f0f80b96/img/web/search/icon_subway.png")}.Map .univ-marker-overlay{position:absolute;width:24px;height:24px;border-radius:100%;background:#7f82c9;margin-top:-12px;margin-left:-12px;line-height:24px;color:#fff}.Map .univ-marker-overlay:before{content:'';box-sizing:content-box;position:absolute;top:0;left:0;width:24px;height:24px;border:0 solid transparent;border-radius:inherit;background:transparent;margin-top:0;margin-left:0}.Map .univ-marker-overlay.active,.Map .univ-marker-overlay:hover{z-index:999999;background:#6c6da5;color:#fff}.Map .univ-marker-overlay.active:before,.Map .univ-marker-overlay:hover:before{border:6px solid rgba(255,255,255,0.7);margin-top:-6px;margin-left:-6px;transition:border .1s,margin .1s}.Map .univ-marker-overlay.active{background:#6c6da5;color:#fff}.Map .univ-marker-overlay.active:before{border:6px solid rgba(255,255,255,0.7);margin-top:-6px;margin-left:-6px}.Map .univ-marker-overlay .name{top:23px}.Map .univ-marker-overlay:hover .name{top:26px}.Map .univ-marker-overlay.active .name{top:28px}.Map .univ-marker-overlay:after{background-image:url("/89225d82bd5d406ba8528ff7f0f80b96/img/web/search/icon_university.png")}.Map .pin-marker-overlay{box-sizing:content-box;position:absolute;width:17px;height:17px;padding:0;border-radius:100%;background-color:rgba(46,46,46,0.2);margin-top:-8.5px;margin-left:-8.5px}.Map .pin-marker-overlay:before{content:'';position:absolute;top:50%;left:50%;width:17px;height:17px;border-radius:100%;background:#00b92f url("/89225d82bd5d406ba8528ff7f0f80b96/img/web/search/icon_location.png") no-repeat center center;margin-top:-8.5px;margin-left:-8.5px}.Map .pin-marker-overlay.active{z-index:999999;animation-name:radar;animation-duration:.5s;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:5;animation-direction:normal;animation-fill-mode:forwards;animation-play-state:running}@keyframes radar{to{padding:20px;margin-top:-28.5px;margin-left:-28.5px}}.Map{display:block;position:absolute;top:101px;right:460px;bottom:0;left:0}.Map .marker-overlay.active .name{background-color:rgba(0,0,0,0.43);text-shadow:none;font-weight:normal;color:#fff} */	
 
 @media (min-width: 1024px){
 	.filter .filter-dropdown .title {

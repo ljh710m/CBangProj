@@ -980,7 +980,7 @@ Cluster.prototype.getMap = function() {
 Cluster.prototype.updateIcon = function() {
   var zoom = this.map_.getZoom();
   var mz = this.markerClusterer_.getMaxZoom();
-
+  console.log(zoom);//13일때 
   if (mz && zoom > mz) {
     // The zoom is greater than our max zoom so show all the markers in cluster.
     for (var i = 0, marker; marker = this.markers_[i]; i++) {
@@ -1058,12 +1058,24 @@ ClusterIcon.prototype.triggerClusterClick = function(event) {
  * Adding the cluster icon to the dom.
  * @ignore
  */
-ClusterIcon.prototype.onAdd = function() {
+ClusterIcon.prototype.onAdd = function() {	
   this.div_ = document.createElement('DIV');
+  this.div_.classList.add("marker-overlay");
+  this.div_.classList.add("cluster-marker-overlay");
+  // 클러스터 숫자 나타낼 element
+  var count = document.createElement('DIV');
+  count.classList.add("count");
+  // 줌레벨이 13이상일 경우 small 적용
+  if(this.map_.getZoom() >= 13){
+	  this.div_.classList.add("small");
+  }  
+  
   if (this.visible_) {
     var pos = this.getPosFromLatLng_(this.center_);
-    this.div_.style.cssText = this.createCss(pos);
-    this.div_.innerHTML = this.sums_.text;
+    //this.div_.style.cssText = this.createCss(pos);
+    count.innerHTML = this.sums_.text;
+    this.div_.appendChild(count);
+    //this.div_.innerHTML = this.sums_.text;//(기존코드)
   }
 
   var panes = this.getPanes();
@@ -1137,7 +1149,7 @@ ClusterIcon.prototype.hide = function() {
 ClusterIcon.prototype.show = function() {
   if (this.div_) {
     var pos = this.getPosFromLatLng_(this.center_);
-    this.div_.style.cssText = this.createCss(pos);
+    //this.div_.style.cssText = this.createCss(pos);
     this.div_.style.display = '';
   }
   this.visible_ = true;
