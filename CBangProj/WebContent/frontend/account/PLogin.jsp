@@ -46,7 +46,7 @@ body, html {
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp" />
-	<form onsubmit="return false;" method="post" id="allform">
+	<form onsubmit="return false;" action="<c:url value='/ACCOUNT/Join.do' />" method="post" id="allform">
 		<div id="body" class="col-md-8 col-md-offset-2">
 			<div>
 				<h1>회원가입</h1>
@@ -182,13 +182,14 @@ body, html {
 							required autocomplete="off" />
 							<p style="display: inline-block;">
 								<span class="rank">직책/직급</span>
-							</p> <input type="text" placeholder="직책/직급" name="jop"
-							class="input--position" required autocomplete="off" /> <select>
-								<option>권한/자격</option>
-								<option>대표공인중개사</option>
-								<option>소속공인중개사</option>
-								<option>중개보조원</option>
-								<option>중개인</option>
+							</p> <input type="text" placeholder="직책/직급" name="job"
+							class="input--position" required autocomplete="off" />
+							 <select name="authority">
+								<option value="">권한/자격</option>
+								<option value="대표공인중개사">대표공인중개사</option>
+								<option value="소속공인중개사">소속공인중개사</option>
+								<option value="중개보조원">중개보조원</option>
+								<option value="중개인">중개인</option>
 						</select></td>
 					</tr>
 					<tr>
@@ -266,7 +267,7 @@ body, html {
 					</tr>
 					<tr>
 						<th class="title">비밀번호</th>
-						<td><input type="password" name="password"
+						<td><input type="password" name="password1"
 							placeholder="8자 이상, 문자, 숫자, 특수문자 포함" /></td>
 					</tr>
 					<tr>
@@ -364,9 +365,12 @@ body, html {
 				var reader = new FileReader();
 	
 				reader.onload = function(e) {
-					$('.Profile--img').css('background', 'url(' + e.target.result + ') no-repeat center center');
+					$('.Profile--img').css({'background':'url(' + e.target.result + ') no-repeat center center','background-size':'100px 100px'});
 				}
 				reader.readAsDataURL(input.files[0]);
+				$.ajax({
+						
+					});
 			}
 		}
 	</script>

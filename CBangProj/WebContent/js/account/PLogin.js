@@ -148,44 +148,95 @@ $(function() {
 		}
 	});
 	
-	$('.joinOk').click(function(){
+	var joinMember = function(){
+		var office_name = $('[name="office_name"]').val();
+		var office_no = $('[name="office_no"]').val();
+		var permit_no = $('[name="permit_no1"]').val()+"-"+$('[name="permit_no2"]').val()+"-"+$('[name="permit_no3"]').val();
+		var address = $('[name="si-do"]').val()+" "+$('[name="goo-goon"]').val()+" "+$('[name="office_address"]').val();
+		var represent = $('[name="represent"]').val();
+		var profile_photo = $('[name="real-file2"]').val();
+		var name = $('[name="name="]').val();
+		var job = $('[name="job"]').val()+"("+$('[name="authority"]').val()+")";
+		var phone = $('[name="phone"]').val()+"-"+$('[name="mphone"]').val()+"-"+$('[name="lphone"]').val();
+		var office_phone = $('[name="office-phone"]').val()+"-"+$('[name="office-mphone"]').val()+"-"+$('[name="office-lphone"]').val();
+		var email = $('[name="email"]').val()+"@"+$('[name="email2"]').val();
+		var password = $('[name="password1"]').val();
+		var path_code = $('[name="path_code"]').val();
+		
+		var formData = new FormData();
+		formData.append("office_name", office_name);
+		formData.append("office_no", office_no);
+		formData.append("permit_no", permit_no);
+		formData.append("address", address);
+		formData.append("represent", represent);
+		formData.append("profile_photo", profile_photo);
+		formData.append("name", name);
+		formData.append("job", job);
+		formData.append("phone", phone);
+		formData.append("office_phone", office_phone);
+		formData.append("email", email);
+		formData.append("password", password);
+		formData.append("path_code", path_code);
+		
 		$.ajax({
 			type : "POST",
-			url : "/CBangProj/ACCOUNT/mathPassword.do",
-			data : $('#allform').serialize(),
+			contentType: false,
+			processData: false,
+			url : "/CBangProj/ACCOUNT/Join.do",
+			data : formData,
+			dataType : "text",
+			success : function(data){
+				/*location.href(data);*/
+				console.log('성공');
+			},
+			error : function(){console.log('joinMember에러');}
+		});
+	};
+	
+	$('.joinOk').click(function(){
+		joinMember();
+		$.ajax({
+			type : "POST",
+			url : "/CBangProj/ACCOUNT/match.do",
+			data : {
+				mode : "pass",
+				password1 : $('[name="password1"]').val(),
+				password2 : $('[name="password2"]').val()
+			},
 			dataType : "text",
 			success : function(data){
 				var result = JSON.parse(data);
-				if(result.pwdNotMatch)
-					customAlert("error", "비밀번호가 일치하지 않습니다.");
-				else {
-					customAlert("info", "회원가입이 완료되었습니다.");
-					window.location.href = "/CBangProj/index.jsp";
+				
+				if(result.pwdNotMatch){
+					joinMember();
 				}
-					
+				else {
+					customAlert("error", "비밀번호가 일치하지 않습니다.");
+					$('[name="password1"]').focus();
+				}					
 			},
 			error : function(){
-				
+				console.log('joinOk ajax에러');
 			}
 		});
 	});
 	
 	$('[name="certification"]').click(function(){
-		var isCertification = "";
 		$.ajax({
 			type : "POST",
-			url : "/CBangProj/ACCOUNT/certification.do",
+			url : "/CBangProj/ACCOUNT/match.do",
 			data : {
-				permit_no : $.trim($('#permit_no1').val()+$('#permit_no2').val()+$('#permit_no3').val())
+				mode : "permit",
+				permit_no : $('#permit_no1').val()+"-"+$('#permit_no2').val()+"-"+$('#permit_no3').val()
 				},
 			dataType : "text",
 			success : function(data){
-				isCertification = data;
-				if(isCertification == "true") {
+				var result = JSON.parse(data);
+				if(result.pertmitNotMatch) {
 					customAlert("success","인증이 완료되었습니다.");
 					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white'});
 				}
-				else if(isCertification == "null")
+				else
 					customAlert("error", "사업자 등록번호가 잘못되었거나 없은 사업자 등록번호입니다.");
 			},
 			error : function(error) {
