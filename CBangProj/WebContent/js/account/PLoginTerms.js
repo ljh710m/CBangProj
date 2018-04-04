@@ -49,6 +49,14 @@ function showHide(index){
 			$(this).toggleClass('active');
 		});
 		
+		$('.buttonCancel').click(function(){
+			var cancel_confirm = confirm('회원가입을 취소하시겠습니까?');
+			if(cancel_confirm){
+				location.href='/CBangProj/frontend/search/map.jsp';			
+			}
+				
+		});
+		
 		$('.buttonNext').click(function(){
 			if(btnAll.hasClass('active') && 
 					btnAgree.hasClass('active')){
