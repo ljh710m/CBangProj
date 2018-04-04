@@ -980,7 +980,7 @@ Cluster.prototype.getMap = function() {
 Cluster.prototype.updateIcon = function() {
   var zoom = this.map_.getZoom();
   var mz = this.markerClusterer_.getMaxZoom();
-  console.log(zoom);//13일때 
+  console.log("줌레벨:"+zoom);//13일때 
   if (mz && zoom > mz) {
     // The zoom is greater than our max zoom so show all the markers in cluster.
     for (var i = 0, marker; marker = this.markers_[i]; i++) {
@@ -1048,8 +1048,23 @@ ClusterIcon.prototype.triggerClusterClick = function(event) {
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_, event);
 
   if (markerClusterer.isZoomOnClick()) {
-    // Zoom into the cluster.
-    this.map_.fitBounds(this.cluster_.getBounds());
+    // Zoom into the cluster.	  
+	  /*console.log(this.cluster_.getBounds().toJSON());
+	  var bounds = this.cluster_.getBounds().toJSON();
+	  var rectangle = new google.maps.Rectangle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          map: this.map_,
+          bounds: bounds
+        });*/
+	 for(var i=0; i<this.cluster_.getMarkers().length;i++){
+		 console.log(this.cluster_.getMarkers()[i].getPosition().lat());
+		 console.log(this.cluster_.getMarkers()[i].getPosition().lng());		 
+	 }
+    this.map_.fitBounds(this.cluster_.getBounds());    
   }
 };
 
@@ -1094,7 +1109,7 @@ ClusterIcon.prototype.onAdd = function() {
   });
   google.maps.event.addDomListener(this.div_, 'mousemove', function() {
     isDragging = true;
-  });
+  });  
 };
 
 

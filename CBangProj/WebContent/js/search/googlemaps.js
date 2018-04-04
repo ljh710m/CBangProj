@@ -4,7 +4,7 @@ function initMap() {
 		zoom: 8,
 		center: {lat: 36.2683, lng: 127.6358},		
 		maxZoom: 16, //최대 줌 레벨
-		minZoom: 9 //최소 줌 레벨
+		minZoom: 8 //최소 줌 레벨
 	}); 
 	
 	// 자바 스크립트  Array.prototype.map()
@@ -14,7 +14,6 @@ function initMap() {
 	//		});
 	// });	
 	var markers = locations.map(function(location, i) {		
-				
     	return new google.maps.Marker({
     		position: location
     	});
@@ -23,84 +22,11 @@ function initMap() {
 	// Add a marker clusterer to manage the markers.
 	var markerCluster = new MarkerClusterer(map, markers,
 			{
-				imagePath: '/CBangProj/vendor/googlemaps/images/m',				
-				//averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
+				//imagePath: '/CBangProj/vendor/googlemaps/images/m',				
+				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
 		        minimumClusterSize : 1 //클러스터링 할 최소 마커 수 (default: 2) 
 			}
-	);
-	/* =========================================================================  */
-	
-	var overlay;
-	USGSOverlay.prototype = new google.maps.OverlayView();
-	
-	overlay = new USGSOverlay(bounds, srcImage, map);
-		
-	/** @constructor */
-	function USGSOverlay(bounds, image, map) {
-
-	  // Initialize all properties.
-	  this.bounds_ = bounds;
-	  this.image_ = image;
-	  this.map_ = map;
-
-	  // Define a property to hold the image's div. We'll
-	  // actually create this div upon receipt of the onAdd()
-	  // method so we'll leave it null for now.
-	  this.div_ = null;
-
-	  // Explicitly call setMap on this overlay.
-	  this.setMap(map);
-	}
-	
-	/**
-	 * onAdd is called when the map's panes are ready and the overlay has been
-	 * added to the map.
-	 */
-	USGSOverlay.prototype.onAdd = function() {
-
-	  var div = document.createElement('div');
-	  div.style.borderStyle = 'none';
-	  div.style.borderWidth = '0px';
-	  div.style.position = 'absolute';
-
-	  // Create the img element and attach it to the div.
-	  var img = document.createElement('img');
-	  img.src = this.image_;
-	  img.style.width = '100%';
-	  img.style.height = '100%';
-	  img.style.position = 'absolute';
-	  div.appendChild(img);
-
-	  this.div_ = div;
-	  
-	  // "overlayMouseTarget" pane에 객체 추가
-	  // 이 창에는 DOM 이벤트를 수신하는 요소가 들어 있습니다.(창3)
-	  var panes = this.getPanes();
-	  panes.overlayMouseTarget.appendChild(div);
-	};
-	
-	USGSOverlay.prototype.draw = function() {
-
-		  // We use the south-west and north-east
-		  // coordinates of the overlay to peg it to the correct position and size.
-		  // To do this, we need to retrieve the projection from the overlay.
-		  var overlayProjection = this.getProjection();
-
-		  // Retrieve the south-west and north-east coordinates of this overlay
-		  // in LatLngs and convert them to pixel coordinates.
-		  // We'll use these coordinates to resize the div.
-		  var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
-		  var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
-
-		  // Resize the image's div to fit the indicated dimensions.
-		  var div = this.div_;
-		  div.style.left = sw.x + 'px';
-		  div.style.top = ne.y + 'px';
-		  div.style.width = (ne.x - sw.x) + 'px';
-		  div.style.height = (sw.y - ne.y) + 'px';
-		};
-	
-	/* =========================================================================  */
+	);	
 		
 }
 	var locations = [	   
