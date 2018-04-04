@@ -1060,9 +1060,11 @@ ClusterIcon.prototype.triggerClusterClick = function(event) {
           map: this.map_,
           bounds: bounds
         });*/
-	 for(var i=0; i<this.cluster_.getMarkers().length;i++){
+	 for(var i=0; i<this.cluster_.getMarkers().length;i++){		 
 		 console.log(this.cluster_.getMarkers()[i].getPosition().lat());
 		 console.log(this.cluster_.getMarkers()[i].getPosition().lng());		 
+		 console.log(this.cluster_.getMarkers()[i].getTitle());
+		 
 	 }
     this.map_.fitBounds(this.cluster_.getBounds());    
   }

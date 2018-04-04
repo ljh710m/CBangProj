@@ -355,7 +355,7 @@
 						<li class="list">
 							<a href="#" class="">
 								<i class="dabang-icon icon-size-lg fab fa-microsoft"></i>
-								<span data-reactid=".0.2.1.0.1">리스트</span>
+								<span>리스트</span>
 							</a>
 						</li>
 					</ul>
@@ -364,17 +364,17 @@
 		</div>
 		<div>
 			<div class="contents">
-				<div class="map-component">
+				<div class="map-component">									
 					<div class="Map" id="map" style="overflow: hidden;">
 						
 					</div>
 				</div>
-				<div class="List list-component map-page">
+				<div class="List list-component map-page">					
 					<div class="ListOutWrap">
 						<div class="ListInfo room-info clearfix">
 							<i class="dabang-icon icon-size-lg fas fa-chevron-right"></i>
 							<span class="icon-text">
-								<span> </span><span>풍동</span><span> 검색결과 </span><strong>9</strong><span>개</span>
+								<span> </span><span>풍동</span><span> 검색결과 </span><strong>${searchList.size()}</strong><span>개</span>
 							</span>
 							<i class="dabang-icon dabang-icon-remove icon-size-lg right" style="cursor:pointer;"></i>
 						</div>
@@ -462,10 +462,10 @@
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script src="<c:url value='/js/search/map.js'/>"></script>     
     <script src="<c:url value='/js/search/googlemaps.js'/>"></script>
-    <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
-    
+    <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>    
     <script 
-    src="//maps.googleapis.com/maps/api/js?key=AIzaSyBHqUjETYyMHerCmQT_1u-zEGIT2-7a5_c&callback=initMap"></script>    
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyBHqUjETYyMHerCmQT_1u-zEGIT2-7a5_c&callback=initMap"></script>
+        
 
 </body>
 </html>

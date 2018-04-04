@@ -240,7 +240,7 @@ $(function() {
 		}		
 		$('#'+id).remove();
 		sel_files.splice($('#'+id).index(), 1);		
-		console.log(sel_files);
+		//console.log(sel_files);
 		photo_count--;
 		//사진을 모두 삭제했을 때 원래모양으로 복귀
 		if($('.photo-elem').length==0){
@@ -300,7 +300,7 @@ $(function() {
 			deposit2.push($('[id^=deposit2').eq(i).val());
 			month_price.push($('[id^=month_price').eq(i).val());
 		}
-		var trade_type = $('.tag:eq(0)').html();
+		var rent_type = $('.tag:eq(0)').html();
 		
 		var short_term = $('#short_term').is(":checked")?"5":"";
 		var total_floor = $('#total_floor').val();
@@ -315,7 +315,7 @@ $(function() {
 					charge_list = $(this).val();
 				}
 				else{
-					charge_list += ", "+($(this).val());				
+					charge_list += ","+($(this).val());				
 				}
 			}
 		});

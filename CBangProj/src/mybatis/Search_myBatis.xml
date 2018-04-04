@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<mapper namespace="mybatis.Search_myBatis">
+	
+	<select id="SearchRoom" parameterType="java.util.Map" resultType="SearchDto">
+		SELECT * 
+		FROM room 
+		JOIN detail USING(room_no) 
+		JOIN locations USING(location_code) 
+		JOIN room_types USING(rm_type_code)
+		JOIN (SELECT * FROM photo WHERE del_gb = 'Y') USING(room_no)
+		WHERE state = '거래중'
+	 <if test="not trade_type.equals('All')">
+		AND trade_type = #{trade_type}
+	</if>
+	<choose>
+		<when test="rent_type.equals('전세')">
+			AND deposit1 BETWEEN #{deposit1s} AND #{deposit1e}	
+		</when>
+		<when test="rent_type.equals('월세')">
+			AND deposit2 BETWEEN #{deposit2s} AND #{deposit2e}
+			AND month_price BETWEEN #{month1} AND #{month2}			
+		</when>		
+	</choose>	
+	<if test="not room_type.equals('All')">
+		AND room_type IN (#{room_type})
+	</if>			
+		AND area BETWEEN #{area1} AND #{area2}
+		AND floor BETWEEN #{floor1} AND #{floor2} 				
+	</select>
+	<!-- <if test="option_code!=null">
+		AND room_no IN (SELECT DISTINCT room_no FROM building_option WHERE option_code in (#{option_code}));
+	</if>	 -->	
+	
+</mapper>

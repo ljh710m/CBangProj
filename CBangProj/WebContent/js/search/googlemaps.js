@@ -1,5 +1,16 @@
-function initMap() {
-			
+var gbl_data;
+$.ajax({
+		type:'POST',
+		url:'/CBangProj/Search/MapSearch.do',		
+		dataType:'json',
+		async:false, // true: 비동기, false: 동기
+		success:function(data){
+			gbl_data =data;			
+		}
+});
+function initMap() {	
+	console.log(gbl_data);
+	
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: {lat: 36.2683, lng: 127.6358},		
@@ -13,12 +24,20 @@ function initMap() {
 	//			position : {lat: 위도값, lng: 경도값 }
 	//		});
 	// });	
+	var markers = gbl_data.map(function(location, i) {		
+    	return new google.maps.Marker({
+    		position: new google.maps.LatLng(location.lat,location.lng),
+    		title: location.room_no
+    	});
+    });
+	
+	/* 기존 코드
 	var markers = locations.map(function(location, i) {		
     	return new google.maps.Marker({
     		position: location
     	});
-    });	
-	
+    });	*/
+		
 	// Add a marker clusterer to manage the markers.
 	var markerCluster = new MarkerClusterer(map, markers,
 			{

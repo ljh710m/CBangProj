@@ -17,7 +17,7 @@ import com.cbang.frontend.service.MemberService;
 
 import model.MemberDto;
 
-@SessionAttributes({"member_no","name","rent_type"})
+@SessionAttributes({"member_no","name","trade_type"})
 @Controller
 public class MemberController {
 	//서비스 주입]
@@ -49,10 +49,10 @@ public class MemberController {
 			model.addAttribute("member_no",	dto.getMember_no());
 			model.addAttribute("name", dto.getName());
 			if(dto.getOffice_no()==null) {
-				model.addAttribute("rent_type","직거래");
+				model.addAttribute("trade_type","직거래");
 			}
 			else {
-				model.addAttribute("rent_type","중개");
+				model.addAttribute("trade_type","중개");
 			}
 		}
 		

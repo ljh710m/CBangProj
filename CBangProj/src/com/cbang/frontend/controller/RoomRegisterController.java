@@ -41,16 +41,16 @@ public class RoomRegisterController {
 		Map<String, String> tradeMap;
 		
 		roomDto.setMember_no(session.getAttribute("member_no").toString());
-		roomDto.setRent_type(session.getAttribute("rent_type").toString());
+		roomDto.setRent_type(session.getAttribute("trade_type").toString());
 		
 		List<String> deposit2 = new ArrayList<>();
-		List<String> month_price = new ArrayList<>();
-		if(req.getParameter("deposit2").length() !=0) {
+		List<String> month_price = new ArrayList<>();		
+		if(req.getParameter("deposit2").length() !=0) {			
 			Collections.addAll(deposit2,req.getParameter("deposit2").split(","));
 			Collections.addAll(month_price,req.getParameter("month_price").split(","));			
 		}
 		
-		if(roomDto.getTrade_type().equals("월세")) {
+		if(roomDto.getRent_type().equals("월세")) {
 			if(roomDto.getDeposit1() != "") {
 				tradeMap = new HashMap<String, String>();
 				tradeMap.put("deposit1",roomDto.getDeposit1());
@@ -58,22 +58,21 @@ public class RoomRegisterController {
 				tradeMap.put("month_price","");
 				tradeList.add(tradeMap);
 			}
-			roomDto.setDeposit1("");	
+			roomDto.setDeposit1("");
 			
 			roomDto.setDeposit2(deposit2.get(0));
 			roomDto.setMonth_price(month_price.get(0));			
 			if(deposit2.size() !=0) {
 				deposit2.remove(0);
-				month_price.remove(0);
-			}
+				month_price.remove(0);				
+			}			
 		}
 		else {
 			roomDto.setDeposit2("");
 			roomDto.setMonth_price("");			
-		}
-		
-		if(req.getParameter("deposit2").length()!=0) {
-			for(int i=0; i<deposit2.size();i++) {				
+		}		
+		if(deposit2.size() != 0) {
+			for(int i=0; i<deposit2.size();i++) {
 				tradeMap =  new HashMap<String, String>();
 				tradeMap.put("deposit1", "");
 				tradeMap.put("deposit2", deposit2.get(i));

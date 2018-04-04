@@ -12,6 +12,7 @@
 		<typeAlias alias="LocationsDto" type="model.LocationsDto"/>
 		<typeAlias alias="RoomDto" type="model.RoomDto"/>
 		<typeAlias alias="DetailDto" type="model.DetailDto"/>
+		<typeAlias alias="SearchDto" type="model.SearchDto"/>
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>
 	</typeAliases>
 	 
@@ -20,6 +21,7 @@
 		<mapper resource="mybatis/Member_myBatis.xml"/>
 		<mapper resource="mybatis/Locations_myBatis.xml"/>
 		<mapper resource="mybatis/Room_myBatis.xml"/>
+		<mapper resource="mybatis/Search_myBatis.xml"/>
 		<mapper resource="mybatis/PLogin_myBatis.xml"/>
 	</mappers>
 	
