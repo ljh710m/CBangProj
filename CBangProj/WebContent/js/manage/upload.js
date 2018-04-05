@@ -413,7 +413,7 @@ $(function() {
 		formData.append("deposit1",deposit1);
 		formData.append("deposit2",deposit2);
 		formData.append("month_price",month_price);
-		formData.append("trade_type",trade_type);
+		formData.append("rent_type",rent_type);
 		formData.append("short_term",short_term);
 		formData.append("total_floor",total_floor);
 		formData.append("floor",floor);

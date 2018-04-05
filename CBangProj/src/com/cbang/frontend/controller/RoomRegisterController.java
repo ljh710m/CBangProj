@@ -41,7 +41,7 @@ public class RoomRegisterController {
 		Map<String, String> tradeMap;
 		
 		roomDto.setMember_no(session.getAttribute("member_no").toString());
-		roomDto.setRent_type(session.getAttribute("trade_type").toString());
+		roomDto.setTrade_type(session.getAttribute("trade_type").toString());
 		
 		List<String> deposit2 = new ArrayList<>();
 		List<String> month_price = new ArrayList<>();		
