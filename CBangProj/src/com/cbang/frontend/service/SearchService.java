@@ -34,7 +34,7 @@ public class SearchService {
 		initMap.put("area2",99999);
 		initMap.put("floor1",-1);
 		initMap.put("floor2",50);		
-						
+		
 		return searchDao.searchRoom(initMap);
 	}
 

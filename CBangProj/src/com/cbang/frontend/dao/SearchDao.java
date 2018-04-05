@@ -1,6 +1,5 @@
 package com.cbang.frontend.dao;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -18,13 +17,7 @@ public class SearchDao {
 	private SqlSessionTemplate sqlMapper;	
 	
 	public List<SearchDto> searchRoom(Map map){
-		
-		Iterator<String> keys = map.keySet().iterator();
-		while(keys.hasNext()) {
-			String key = keys.next();
-			System.out.println(key+":"+ map.get(key));			
-		}
-		
+				
 		return sqlMapper.selectList("SearchRoom",map);
 	}	
 	

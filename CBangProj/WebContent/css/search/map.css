@@ -434,11 +434,10 @@ legend {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/eb60851…/img/web/search/emptyimg.png);
+    /* background-image: url(/eb60851…/img/web/search/emptyimg.png); */
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    -ms-behavior: url(/eb60851…/js/backgroundsize.min.htc);
+    background-size: cover;    
 }
 .RoomItem-preview__cover {
     position: absolute;
@@ -646,11 +645,30 @@ legend {
 }
 .ListLoading-icon:before {
     z-index: 1;
-    width: 23px;
+    width: 128px;
     height: 24px;
-    margin-top: -14px;
-    margin-left: -11.5px;
-    background-image: url(/eb60851…/img/web/search/loading-bi.png);
+    margin-top: 130px;
+    margin-left: -64.5px;
+    background-image: url(../../images/search/pano_loading.gif);
+}
+.ListLoading-bg {
+    position: absolute;
+    top: 42px;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: .6;
+    filter: alpha(opacity=60);
+}
+.ListLoading-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    display: block;
 }
 /* Map */
 .Map {
@@ -725,6 +743,21 @@ legend {
 .Map .cluster-marker-overlay.small:before{
 	width:40px;
 	height:40px
+}
+
+/* list zero */
+.ListZero.search {
+    background-size: 194px 220.5px;
+    background-image: url(../../images/search/ListZero--search.png);
+}
+.ListZero {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: 50%;
+    background-repeat: no-repeat;
 }
 
 /*

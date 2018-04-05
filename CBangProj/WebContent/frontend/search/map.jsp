@@ -374,65 +374,18 @@
 						<div class="ListInfo room-info clearfix">
 							<i class="dabang-icon icon-size-lg fas fa-chevron-right"></i>
 							<span class="icon-text">
-								<span> </span><span>풍동</span><span> 검색결과 </span><strong>${searchList.size()}</strong><span>개</span>
+								<span> </span><span> 검색결과 </span><strong></strong><span>개</span>
 							</span>
 							<i class="dabang-icon dabang-icon-remove icon-size-lg right" style="cursor:pointer;"></i>
 						</div>
 						<div class="ListWrap list-wrap" style="opacity: 1;">
-							<noscript></noscript>
+							
 							<div class="AreaRoom new-rooms clearfix">
 								<div class="Room-header new-rooms-title">
 									<div class="Room-title new-list-rooms-title" >이 지역 주변 방</div>
 								</div>
 								<ul class="Room-list items">
-									<li class="Room-item">
-										<a href="<c:url value='/frontend/room/detail.jsp'/>">
-											<div class="RoomItem-preview">
-												<div class="RoomItem-preview__mask">
-													<div class="RoomItem-preview__image"></div>	
-													<div class="RoomItem-preview__image" style="background-image:url(https://d1774jszgerdmk.cloudfront.net/512/4e63d31c-41a1-4ef3-974e-2ac88985482f);"></div>
-													<div class="RoomItem-preview__cover"></div>
-												</div>
-											</div>
-											<div class="RoomItem-detail">
-												<div class="RoomItem-info">
-													<div class="RoomItem-header">
-														<div class="RoomItem-price">
-															<p>
-																<span class="RoomItem-price__type">월세</span>
-																<span class="RoomsItem-price__title is-0">1억1000/95</span>
-															</p>
-														</div>
-														<span class="room-visited"><i class="dabang-icon"></i></span>
-														<div class="RoomItem-icons">
-															<span class="room-favorite">
-																<i class="dabang-icon icon-size-2xl far fa-heart"></i>
-															</span>
-														</div>
-													</div>
-													<span class="RoomItem-summary">
-														<span>아파트 </span>
-														<span> 18층 </span>
-														<span> 144.02m² </span>
-														<span> 관리비 32만원</span>
-													</span>
-													<div class="RoomItem-types types">
-														<span class="#직거래 tag">#직거래</span>
-														<span class="#주차 tag">#주차</span>
-														<span class="#반려동물 tag">#반려동물</span>
-													</div>
-													<span class="RoomItem-title">큰평형 귀한반전세 월세 네고가능</span>
-													<span class="RoomItem-date">2달전</span>
-												</div>
-												<div class="RoomItem-options">
-													<span class="option-list clearfix">
-														<span class="title">옵션</span>
-														<span class="ellipsis">에어컨, 옷장, 냉장고, 인덕션, 전자도어락</span>
-													</span>
-												</div>
-											</div>
-										</a>
-									</li>
+									
 								</ul>
 							</div>
 						</div>
@@ -443,7 +396,8 @@
 								<li><a class="Pagination-item Pagination-item--next disable">NEXT &gt;</a></li>
 							</ul>
 						</div>
-						<div class="ListLoading" style="opacity: 0; z-index: -1;">
+						<div class="ListZero search hidden"></div>
+						<div class="ListLoading" style="visibility:hidden;">
 							<div class="ListLoading-bg"></div>
 							<div class="ListLoading-icon"></div>
 						</div>
@@ -460,12 +414,10 @@
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script src="<c:url value='/js/search/map.js'/>"></script>     
-    <script src="<c:url value='/js/search/googlemaps.js'/>"></script>
-    <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>    
+    <script src="<c:url value='/js/search/map.js'/>"></script> 
+    <script src="<c:url value='/js/search/googlemaps.js'/>"></script>        
+    <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
     <script 
     src="//maps.googleapis.com/maps/api/js?key=AIzaSyAL2Mw8oEwGSz9kBH5Qws5Zg7Y25uZefrY&callback=initMap"></script>
-       
-
 </body>
 </html>

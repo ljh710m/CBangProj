@@ -55,7 +55,7 @@ public class SearchController {
 			optionInfo.put("trade_type", list.get(i).getTrade_type());
 			optionInfo.put("room_type", list.get(i).getRoom_type());
 			optionInfo.put("floor", list.get(i).getFloor());
-			optionInfo.put("area", list.get(i).getArea());
+			optionInfo.put("area", Math.round((Double.parseDouble(list.get(i).getArea())*3.3058)*10)/10.0);			
 			optionInfo.put("parking", list.get(i).isParking());
 			optionInfo.put("pat", list.get(i).isPat());
 			optionInfo.put("short_term", list.get(i).isShort_term());
