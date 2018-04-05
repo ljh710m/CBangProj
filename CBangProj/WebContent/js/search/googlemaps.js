@@ -45,9 +45,87 @@ function initMap() {
 				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
 		        minimumClusterSize : 1 //클러스터링 할 최소 마커 수 (default: 2) 
 			}
-	);	
+	);
+		
+	console.log(markers);
+	var markerLength = 0;
+	var markerList = [];
+	// idle:중심 좌표나 확대 수준이 변경되면 발생한다. 현재 맵 범위좌표 확인.		
+	google.maps.event.addListener(map, 'idle', function(){
+		markerLength = 0;
+		markerList = [];
+	    startLat = map.getBounds().getSouthWest().lat();	    
+	    startLng = map.getBounds().getSouthWest().lng();
+	    endLat = map.getBounds().getNorthEast().lat();
+	    endLng = map.getBounds().getNorthEast().lng();	    
+	    for(var i=0; i<markers.length; i++){
+	    	if (parseFloat(startLat) <= parseFloat(markers[i].getPosition().lat()) && parseFloat(startLng) <= parseFloat(markers[i].getPosition().lng()) && parseFloat(endLat) >= parseFloat(markers[i].getPosition().lat()) && parseFloat(endLng) >= parseFloat(markers[i].getPosition().lng())){
+	    		markerLength++;
+	    		markerList.push(gbl_data[i]);	    		
+	    	}
+	    }
+	    
+	    console.log(markerList);
+	    paging(300,12);
+	});
+
+}
+
+//페이징
+function paging(markerLength,nowPage){
+	console.log("페이징");
+	var pagingStr = "";
+	var pageSize = 5;//25
+	var blockPage = 10;
+	var totalPage= Math.ceil(markerLength/pageSize);		
+	var intTemp = parseInt(nowPage/blockPage) * blockPage + 1;
+	
+	var pagination = $('.Pagination');	
+	pagination.html("");
+	if(markerLength == 0) return;
+	
+	if(intTemp != 1){
+		pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item Pagination-item--prev').html("&lt; PREV").click(function(){		
+			var a = intTemp-blockPage-1;
+			paging(200,a);
+		})));					
+	}
+	else{
+		pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item Pagination-item--prev disable').html("&lt; PREV")));
+	}
+	
+	//페이지 표시 제어를 위한 변수
+	var blockCount = 1;
+	//페이지를 뿌려주는 로직
+	//블락 페이지 수만큼 혹은 마지막 페이지가 될때까지 페이지를 표시한다.
+	while(blockCount <= blockPage && intTemp <= totalPage){  // 페이지 오버 를 체크		
+		//현재 페이지를 의미함
+		if(intTemp == nowPage){
+			pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item active').html(intTemp).click(function(){
+				$('.Pagination-item.active').removeClass("active");
+	    		$(this).addClass("active");
+	    	})));
+		}
+	    else{
+	    	 pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item').html(intTemp).click(function(){
+	    		 $('.Pagination-item.active').removeClass("active");
+	    		 $(this).addClass("active");
+	    	 })));
+	    }
+		intTemp = intTemp + 1;
+		blockCount = blockCount + 1;		
+	}
+	if(intTemp <= totalPage){		
+		pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item Pagination-item--next').html('NEXT &gt;')));
+	}
+	else{
+		pagination.append($('<li/>').append($('<a/>').addClass('Pagination-item Pagination-item--next disable').html('NEXT &gt;')));		
+	}	
+}
+function list(nowPage){
 		
 }
+
 	var locations = [	   
        {
          "lat": 37.27943075229118,
