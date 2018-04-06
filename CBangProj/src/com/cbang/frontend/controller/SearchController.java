@@ -25,16 +25,10 @@ public class SearchController {
 	private SearchService searchService;
 	
 	@RequestMapping(value="/Search/Map.do")
-	public String initMap(@RequestParam Map map, Model model) {				
-		List<SearchDto> searchList = searchService.searchRoom(map);			
-		
-		model.addAttribute("searchList", searchList);		
-		for(SearchDto dto : searchList) {
-			System.out.println(dto.getLat()+","+dto.getLng());
-			System.out.println(dto.getRoom_no());
-			System.out.println(dto.getRoom_title());
-		}
-		
+	public String initMap(Model model) {				
+				
+		model.addAttribute("lists", searchService.listsMap());
+				
 		return "forward:/frontend/search/map.jsp";
 	}
 	

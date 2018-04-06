@@ -53,7 +53,7 @@
 								</div>
 								<div>
 									<label class="checkbox-wrap clearfix">
-										<input class="checkbox" type="checkbox" checked="" value="월세 + 전세" name="check1">
+										<input class="checkbox" type="checkbox" checked="" value="All" name="check1">
 										<span class="name">월세 + 전세</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
@@ -81,7 +81,7 @@
 								</div>					
 								<div>
 									<label class="checkbox-wrap clearfix">
-										<input class="checkbox" type="checkbox" checked="" value="전체" name="check2">
+										<input class="checkbox" type="checkbox" checked="" value="All" name="check2">
 										<span class="name">전체</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
@@ -115,46 +115,20 @@
 								<div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="전체" name="check3" checked>
+											<input class="checkbox" type="checkbox" value="All" name="check3" checked>
 											<span class="name">전체</span>
 										</label>
 									</div>
+							<c:if test="${not empty lists.roomTypes}">
+								<c:forEach items="${lists.roomTypes}" var="item">
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="원룸" name="check3">
-											<span class="name">원룸</span>
+											<input class="checkbox" type="checkbox" value="${item.rm_type_code}" name="check3">
+											<span class="name">${item.room_type}</span>
 										</label>
-									</div>
-									<div>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="1.5룸" name="check3">
-											<span class="name">1.5룸</span>
-										</label>
-									</div>
-									<div>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="투룸" name="check3">
-											<span class="name" >투룸</span>
-										</label>
-									</div>
-									<div>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="쓰리룸" name="check3">
-											<span class="name">쓰리룸</span>
-										</label>
-									</div>
-									<div>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="오피스텔" name="check3">
-											<span class="name">오피스텔</span>
-										</label>
-									</div>
-									<div>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="아파트" name="check3">
-											<span class="name">아파트</span>
-										</label>
-									</div>
+									</div>									
+								</c:forEach>
+							</c:if>									
 								</div>
 							</div>
 						</div>
@@ -267,22 +241,14 @@
 								</div>
 								<div>
 									<div>
+								<c:if test="${not empty lists.buildingOptions}">
+									<c:forEach items="${lists.buildingOptions}" var="item">
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="주차가능" name="option1">
-											<span class="name">주차가능</span>
+											<input class="checkbox" type="checkbox" value="${item.option_code}" name="option1">
+											<span class="name">${item.name}</span>	
 										</label>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="반려동물" name="option1">
-											<span class="name">반려동물</span>
-										</label>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="단기임대" name="option1">
-											<span class="name">단기임대</span>
-										</label>
-										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="360도매물" name="option1">
-											<span class="name">360도매물</span>
-										</label>
+									</c:forEach>
+								</c:if>
 									</div>
 									<div class="line"></div>
 									<div>
@@ -302,23 +268,23 @@
 									<div class="line"></div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="반지층" name="option3">
+											<input class="checkbox" type="checkbox" value="-1" name="option3">
 											<span class="name">반지층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="저층 1층~3층" name="option3">
+											<input class="checkbox" type="checkbox" value="1,3" name="option3">
 											<span class="name">저층 1층~3층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="중층 4층~6층" name="option3">
+											<input class="checkbox" type="checkbox" value="4,6" name="option3">
 											<span class="name">중층 4층~6층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="고층 7층이상" name="option3">
+											<input class="checkbox" type="checkbox" value="7,50" name="option3">
 											<span class="name">고층 7층이상</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="옥탑" name="option3">
+											<input class="checkbox" type="checkbox" value="0" name="option3">
 											<span class="name">옥탑</span>
 										</label>
 									</div>

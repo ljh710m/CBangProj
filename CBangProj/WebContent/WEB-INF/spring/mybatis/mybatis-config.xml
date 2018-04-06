@@ -13,6 +13,9 @@
 		<typeAlias alias="RoomDto" type="model.RoomDto"/>
 		<typeAlias alias="DetailDto" type="model.DetailDto"/>
 		<typeAlias alias="SearchDto" type="model.SearchDto"/>
+		<typeAlias alias="BuildingOptionDto" type="model.BuildingOptionDto"/>
+		<typeAlias alias="BuildingOptionListDto" type="model.BuildingOptionListDto"/>		
+		<typeAlias alias="RoomTypesDto" type="model.RoomTypesDto"/>		
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>
 	</typeAliases>
 	 

@@ -8,6 +8,9 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import model.BuildingOptionDto;
+import model.BuildingOptionListDto;
+import model.RoomTypesDto;
 import model.SearchDto;
 
 @Repository
@@ -19,6 +22,21 @@ public class SearchDao {
 	public List<SearchDto> searchRoom(Map map){
 				
 		return sqlMapper.selectList("SearchRoom",map);
-	}	
+	}
+	
+	public List<BuildingOptionDto> buildingOptionList(Map map){
+		
+		return sqlMapper.selectList("BOptionList", map);
+	}
+	
+	public List<BuildingOptionListDto> buildingOptions(){
+		
+		return sqlMapper.selectList("BOptions");
+	}
+	
+	public List<RoomTypesDto> roomTypes(){
+		
+		return sqlMapper.selectList("RoomTypes");
+	}
 	
 }

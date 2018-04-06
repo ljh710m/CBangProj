@@ -5,6 +5,7 @@ public class RoomTypesDto {
 	private String rm_type_code;
 	private String room_type;
 	
+	public RoomTypesDto() {}	
 	public RoomTypesDto(String rm_type_code, String room_type) {		
 		this.rm_type_code = rm_type_code;
 		this.room_type = room_type;

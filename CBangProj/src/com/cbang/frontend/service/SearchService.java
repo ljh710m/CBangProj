@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.cbang.frontend.dao.SearchDao;
 
+import model.BuildingOptionDto;
+import model.BuildingOptionListDto;
+import model.RoomTypesDto;
 import model.SearchDto;
 
 @Service("searchService")
@@ -19,7 +22,19 @@ public class SearchService {
 	@Resource(name="searchDao")
 	private SearchDao searchDao;
 	
-	public List<SearchDto> searchRoom(Map map){		
+	public Map<String, List> listsMap(){		
+		Map<String, List> map = new HashMap<>();
+		
+		List<BuildingOptionListDto> buildingOptions = searchDao.buildingOptions();
+		List<RoomTypesDto> roomTypes = searchDao.roomTypes();
+		
+		map.put("buildingOptions", buildingOptions);
+		map.put("roomTypes", roomTypes);
+		
+		return map;
+	}
+	
+	public List<SearchDto> searchRoom(Map map){	
 		Map initMap = new HashMap<>();
 		initMap.put("trade_type","All");
 		initMap.put("rent_type","All");
@@ -35,7 +50,36 @@ public class SearchService {
 		initMap.put("floor1",-1);
 		initMap.put("floor2",50);		
 		
-		return searchDao.searchRoom(initMap);
+		List<SearchDto> list = searchDao.searchRoom(initMap);		
+		List<BuildingOptionDto>	buildingOptionList = searchDao.buildingOptionList(initMap);
+		for(int i=0; i<buildingOptionList.size(); i++) {			
+			if(buildingOptionList.get(i).getName().equals("주차가능")) {				
+				for(int j=0; j<list.size();j++) {					
+					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+						list.get(j).setParking(true);
+						break;
+					}
+				}
+			}
+			if(buildingOptionList.get(i).getName().equals("반려동물")) {				
+				for(int j=0; j<list.size();j++) {					
+					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+						list.get(j).setPat(true);
+						break;
+					}
+				}				
+			}
+			if(buildingOptionList.get(i).getName().equals("단기임대")) {				
+				for(int j=0; j<list.size();j++) {					
+					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+						list.get(j).setShort_term(true);
+						break;
+					}
+				}				
+			}
+		}
+		
+		return list;
 	}
 
 }

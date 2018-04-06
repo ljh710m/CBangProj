@@ -139,7 +139,7 @@ function list(start,end){
 	var roomList = $('.Room-list');
 	roomList.html("");
 	
-	if(markerLength != 0){		
+	if(markerLength != 0){
 		for(var i=start-1;i<end;i++){			
 			var li = $('<li/>').addClass("Room-item");
 			var a = $('<a/>').attr('href',"/CBangProj/Room/Detail.do?roomNo="+markerList[i].room_no);
@@ -170,7 +170,29 @@ function list(start,end){
 						.append($('<span/>').addClass("RoomItem-price__type").html("월세"))		
 							.append($('<span/>').addClass("RoomsItem-price__title is-0").html(deposit2+"/"+markerList[i].month_price)));		
 			}
-					
+			
+			var summaryDiv = $('<span/>').addClass("RoomItem-summary")
+						.append($('<span/>').html(markerList[i].room_type+" "))
+						.append($('<span/>').html(" "+markerList[i].floor+"층 "))
+						.append($('<span/>').html(" "+markerList[i].area+"m²"));
+			
+			if(markerList[i].common_charge != null){				
+				summaryDiv.append($('<span/>').html(" 관리비 "+markerList[i].common_charge+"만원"));
+			}
+			
+			var bOptionDiv = $('<div/>').addClass("RoomItem-types types")
+						.append($('<span/>').addClass("tag").html("#"+markerList[i].trade_type));
+			
+			if(markerList[i].parking){
+				bOptionDiv.append($('<span/>').addClass("tag").html("#주차"));
+			}
+			if(markerList[i].pat){
+				bOptionDiv.append($('<span/>').addClass("tag").html("#반려동물"));			
+			}
+			if(markerList[i].short_term){
+				bOptionDiv.append($('<span/>').addClass("tag").html("#단기가능"));			
+			}			
+		
 			roomList.append(li.append(a
 						.append(previewDiv)
 						.append($('<div/>').addClass("RoomItem-detail")
@@ -183,30 +205,17 @@ function list(start,end){
 																)
 														)
 												)
-												.append($('<span/>').addClass("RoomItem-summary")
-														.append($('<span/>').html(markerList[i].room_type+" "))
-														.append($('<span/>').html(" "+markerList[i].floor+"층 "))
-														.append($('<span/>').html(" "+markerList[i].area+"m²"))														
+												.append(summaryDiv													
 												)
-												.append($('<div/>').addClass("RoomItem-types types")
-														.append($('<span/>').addClass("tag").html("#"+markerList[i].trade_type))
+												.append(bOptionDiv
 												)
 												.append($('<span/>').addClass("RoomItem-title").html(markerList[i].room_title))
 										)
 								)
 						
 						)	
-			);
+			);			
 			
-			if(markerList[i].common_charge != null){
-				$('.RoomItem-summary').append($('<span/>').html(" 관리비 "+markerList[i].common_charge+"만원"));			
-			}		
-			if(markerList[i].parking){
-				$('.RoomItem-types').append($('<span/>').addClass("tag").html("#주차"));
-			}
-			if(markerList[i].pat){
-				$('.RoomItem-types').append($('<span/>').addClass("tag").html("#반려동물"));			
-			}
 		}
 		
 	}

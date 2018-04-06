@@ -36,4 +36,15 @@
 		AND room_no IN (SELECT DISTINCT room_no FROM building_option WHERE option_code in (#{option_code}));
 	</if>	 -->	
 	
+	<select id="BOptionList" parameterType="java.util.Map" resultType="BuildingOptionDto">
+		SELECT * FROM building_option JOIN building_option_list USING(option_code)		
+	</select>
+	
+	<select id="BOptions" resultType="BuildingOptionListDto">
+		SELECT * FROM building_option_list
+	</select>
+	
+	<select id="RoomTypes" resultType="RoomTypesDto">
+		SELECT * FROM room_types		
+	</select>
 </mapper>
