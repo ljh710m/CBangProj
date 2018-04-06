@@ -74,7 +74,7 @@ body, html {
 					<tr>
 						<th class="title">중개등록번호</th>
 						<td style="position: relative;"><input type="text"
-							name="office_no" placeholder="“-” 가 있을 경우 표함하여 입력해주세요." required
+							name="office_no" placeholder="“-” 가 있을 경우 표함하여 입력해주세요."
 							value="" autocomplete="off" style="margin-right: 10px;">
 							<div class="Btn--md Btn--red file-type"
 								style="display: inline-block; cursor: pointer; position: relative; z-index: 1;">중개등록증
@@ -97,24 +97,26 @@ body, html {
 					<tr>
 						<th class="title">사업자등록번호</th>
 						<td><input id="permit_no1" type="number" min="0" max="999" name="permit_no1"
-							class="number" maxlength="3" required /> <span
+							class="number" maxlength="3" /> <span
 							class="input-dash"> - </span> <input type="number" min="0" max="99" id="permit_no2" name="permit_no2"
-							class="number" maxlength="2" required /> <span
+							class="number" maxlength="2" /> <span
 							class="input-dash"> - </span> <input type="number" min="0" max="99999" id="permit_no3" name="permit_no3"
-							class="number" maxlength="5" required style="margin-right: 10px;" />
+							class="number" maxlength="5" style="margin-right: 10px;" />
 							<button name="certification" id="certification" type="button" class="Btn--md Btn--red"
 								style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
-							<button type="button" class="Btn--md Btn--disabled">사업자
+							<button id="btn_permit" type="button" class="Btn--md Btn--disabled">사업자
 								등록증 첨부</button>
-							<div class="SignUpForm--file__wrap">
-								<span class="File--name2"></span>
-							</div></td>
+								<div class="permitName_div">
+								<span class="permit_name"></span>
+							</div>
+							<div class="permit_div"></div>
+							</td>
 					</tr>
 					<tr>
 						<th class="title">중개사무소 주소</th>
 						<td>
 							<div>
-								<select name="si-do" class="selectBox" id="si-do" required>
+								<select name="si-do" class="selectBox" id="si-do">
 									<option>시/도 선택</option>
 									<option value="서울특별시">서울특별시</option>
 									<option value="인천광역시">인천광역시</option>
@@ -133,10 +135,10 @@ body, html {
 									<option value="경상북도">경상북도</option>
 									<option value="제주특별자치도">제주특별자치도</option>
 									<option value="제주특별자치시">제주특별자치시</option>
-								</select> <select name="goo-goon" class="selectBox" id="goo-goon" required>
+								</select> <select name="goo-goon" class="selectBox" id="goo-goon">
 									<option>구/군 선택</option>
 								</select> <input type="text" name="office_address"
-									placeholder="상세주소를 입력해주세요." required autocomplete="off" />
+									placeholder="상세주소를 입력해주세요." autocomplete="off" />
 							</div>
 						</td>
 
@@ -179,11 +181,11 @@ body, html {
 						<th class="title">본인 성명</th>
 						<td><input name="name" type="text"
 							placeholder="실무자 본인 성명을 입력해주세요." name="name" class="input--name"
-							required autocomplete="off" />
+							autocomplete="off" />
 							<p style="display: inline-block;">
 								<span class="rank">직책/직급</span>
 							</p> <input type="text" placeholder="직책/직급" name="job"
-							class="input--position" required autocomplete="off" />
+							class="input--position" autocomplete="off" />
 							 <select name="authority">
 								<option value="">권한/자격</option>
 								<option value="대표공인중개사">대표공인중개사</option>
@@ -194,7 +196,7 @@ body, html {
 					</tr>
 					<tr>
 						<th class="title">휴대폰 번호</th>
-						<td><select name="phone" class="selectBox Bold" required>
+						<td><select name="phone" class="selectBox Bold">
 								<option>010</option>
 								<option>011</option>
 								<option>016</option>
@@ -202,15 +204,14 @@ body, html {
 								<option>018</option>
 								<option>019</option>
 						</select> <span class="input--dash">- </span> <input type="number" min="0"
-							max="9999" class="number" name="mphone" required maxlength="4" />
+							max="9999" class="number" name="mphone" maxlength="4" />
 							<span class="input--dash">- </span> <input type="number" min="0"
-							max="9999" class="number" name="lphone" required maxlength="4" />
+							max="9999" class="number" name="lphone" maxlength="4" />
 						</td>
 					</tr>
 					<tr>
 						<th class="title">대표전화번호</th>
-						<td><select name="office-phone" class="selectBox Bold"
-							required>
+						<td><select name="office-phone" class="selectBox Bold">
 								<option value="02">02</option>
 								<option value="031">031</option>
 								<option value="032">032</option>
@@ -231,15 +232,15 @@ body, html {
 								<option value="070">070</option>
 								<option value="010">010</option>
 						</select> <span class="input--dash"> - </span> <input type="number" min="0"
-							max="9999" class="number" name="office-mphone" required maxlength="4" />
+							max="9999" class="number" name="office-mphone" maxlength="4" />
 							<span class="input--dash"> - </span> <input type="number" min="0"
-							max="9999" class="number" name="office-lphone" required maxlength="4" />
+							max="9999" class="number" name="office-lphone" maxlength="4" />
 						</td>
 					</tr>
 					<tr>
 						<th class="title">이메일 주소</th>
 						<td style="padding: 10px;"><input type="text" style="width:138px;"
-							class="Email--input" name="email" required autocomplete="off" />
+							class="Email--input" name="email1" autocomplete="off" />
 							<span class="input--dash"> @ </span>
 							<input name="email2" type="text" disabled style="width:138px;height:35px;border: 1px solid #e7e7e7;" />
 							 <select class="select-email" name="select-email">
@@ -342,7 +343,7 @@ body, html {
 	var btn_file1 = $('input[name="real-file1"]');
 	btn_file1.on('change',function(e){
 		var fileValue = btn_file1.val().split("\\");
-		var fileName = fileValue[fileValue.length-1]; // 파일명
+		var fileName = fileValue[fileValue.length-1].split(".")[0]; // 파일명
 			$('.File--name').css('width',(fileName.length)+'em');
 			$('span.File--name').append(fileName);
 			if($('i').html() != undefined)

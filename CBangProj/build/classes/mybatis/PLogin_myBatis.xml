@@ -6,8 +6,8 @@
 <!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
 <mapper namespace="mybatis.PLogin_myBatis">
 
-	<resultMap id="MembershipDtoResult" type="MembershipDto">
-		<!--resultMap사용시 column속성 필수  -->
+	<!-- <resultMap id="MembershipDtoResult" type="MembershipDto">
+		resultMap사용시 column속성 필수 
     	<result property="member_no" column="member_no"/>
     	<result property="name" column="name"/>
     	<result property="email" column="email"/>
@@ -24,22 +24,22 @@
     	<result property="address" column="address"/>
     	<result property="represent" column="represent"/>
     	<result property="office_phone" column="office_phone"/>
-	</resultMap>
+	</resultMap> -->
  	
 	<insert id="PLoginInsert" parameterType="MembershipDto">
-		INSERT INTO REAL_ESTATE_OFFICE VALUES(#{office_no},#{permit_no},#{address},#{represent},#{office_phone},#{office_name},#{office_photo},#{permit_photo})
+		INSERT INTO REAL_ESTATE_OFFICE VALUES(#{office_no},#{office_name},#{permit_no},#{address},#{represent},#{office_phone},#{office_photo},#{permit_photo})
 	</insert>
 	
 	<insert id="PLoginPInsert" parameterType="MembershipDto">
 		INSERT INTO CBANG_MEMBER VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},#{profile_photo},default,#{job},#{office_no},#{path_code})		
 	</insert>
 	
-	<select id="PLoginIsPermit_no" parameterType="MembershipDto" resultType="String">
-		SELECT permit_no FROM REAL_ESTATE_OFFICE WHERE permit_no = #{permit_no}
+	<select id="PLoginSelectOffice_no" parameterType="MembershipDto" resultType="String">
+		SELECT member_no FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE R ON C.OFFICE_NO = R.OFFICE_NO WHERE C.OFFICE_NO = #{office_no}
 	</select>
 	
-	<select id="PLoginSelectOffice_no" parameterType="MembershipDto" resultType="String">
-		SELECT member_no FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE R ON C.OFFICE_NO = R.OFFICE_NO WHERE C.OFFICE_NO = #{OFFICE_NO}
+	<select id="PLoginIsPermit_no" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM PERMIT WHERE PERMIT_NO = #{permit_no}
 	</select>
 	
 </mapper>

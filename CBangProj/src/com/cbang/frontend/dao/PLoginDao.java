@@ -16,12 +16,7 @@ public class PLoginDao {
 	@Resource(name="sqlMapper")
 	private SqlSessionTemplate sqlMapper;
 	
-	public int insert(MembershipDto dto) {
-		try {
-			dto.setPassword(PBKDF2.createHash(dto.getPassword()));
-			
-		} catch (Exception e) {System.out.println("PLoginDao Error");}
-		
+	public int insert(MembershipDto dto) {		
 		return sqlMapper.insert("PLoginInsert", dto);
 	}
 	
@@ -34,8 +29,12 @@ public class PLoginDao {
 		return sqlMapper.insert("PLoginPInsert", dto);
 	}
 	
-	public String isPermit_no(String permit_no) {
-		return sqlMapper.selectOne("PLoginIsPermit_no", permit_no);
+	public String searchMember_no(String office_no) {
+		return sqlMapper.selectOne("PLoginSelectOffice_no", office_no);
 	}
-
+	
+	public int isPermit_no(Map map) {
+		return sqlMapper.selectOne("PLoginIsPermit_no", map);
+	}
+	
 }
