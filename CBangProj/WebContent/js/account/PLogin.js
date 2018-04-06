@@ -155,13 +155,15 @@ $(function() {
 		var address = $('[name="si-do"]').val()+" "+$('[name="goo-goon"]').val()+" "+$('[name="office_address"]').val();
 		var represent = $('[name="represent"]').val();
 		var profile_photo = $('[name="real-file2"]').val();
-		var name = $('[name="name="]').val();
+		var name = $('[name="name"]').val();
 		var job = $('[name="job"]').val()+"("+$('[name="authority"]').val()+")";
 		var phone = $('[name="phone"]').val()+"-"+$('[name="mphone"]').val()+"-"+$('[name="lphone"]').val();
 		var office_phone = $('[name="office-phone"]').val()+"-"+$('[name="office-mphone"]').val()+"-"+$('[name="office-lphone"]').val();
-		var email = $('[name="email"]').val()+"@"+$('[name="email2"]').val();
+		var email = $('[name="email1"]').val()+"@"+$('[name="email2"]').val();
 		var password = $('[name="password1"]').val();
 		var path_code = $('[name="path_code"]').val();
+		var office_photo = $('[name="real-file1"]').val();
+		var permit_photo = $('[name="permit_file"]').val();
 		
 		var formData = new FormData();
 		formData.append("office_name", office_name);
@@ -177,6 +179,8 @@ $(function() {
 		formData.append("email", email);
 		formData.append("password", password);
 		formData.append("path_code", path_code);
+		formData.append("office_photo", office_photo);
+		formData.append("permit_photo", permit_photo);
 		
 		$.ajax({
 			type : "POST",
@@ -186,15 +190,13 @@ $(function() {
 			data : formData,
 			dataType : "text",
 			success : function(data){
-				/*location.href(data);*/
-				console.log('성공');
+				location.href = '/CBangProj/index.jsp';
 			},
 			error : function(){console.log('joinMember에러');}
 		});
 	};
 	
 	$('.joinOk').click(function(){
-		joinMember();
 		$.ajax({
 			type : "POST",
 			url : "/CBangProj/ACCOUNT/match.do",
@@ -232,17 +234,28 @@ $(function() {
 			dataType : "text",
 			success : function(data){
 				var result = JSON.parse(data);
-				if(result.pertmitNotMatch) {
+				if(result.permitNotMatch) {
 					customAlert("success","인증이 완료되었습니다.");
-					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white'});
+					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white','cursor':'pointer'});
+					$('.permit_div').append('<input type="file" name="permit_file" />');
+					$('[name="permit_file"]').change(function(){
+						var fileValue = $('[name="permit_file"]').val().split("\\");
+						var fileName = fileValue[fileValue.length-1];
+						$('.permit_name').html(fileName);
+					});
 				}
-				else
+				else{
 					customAlert("error", "사업자 등록번호가 잘못되었거나 없은 사업자 등록번호입니다.");
+				}
 			},
 			error : function(error) {
 				customAlert("error", "에러남");
 			}
 			});
 		});
+	
+	$('#btn_permit').click(function(e){
+		customAlert('error','사업자 등록증을 첨부하기전에 인증을 먼저 해야합니다.');
+	});
 	
 });
