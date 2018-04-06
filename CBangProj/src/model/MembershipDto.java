@@ -22,12 +22,14 @@ public class MembershipDto {
 	private String represent;
 	private String office_phone;
 	private String path_type;
+	private String office_photo;
+	private String permit_photo;
 	
 	public MembershipDto() {}
 	
 	public MembershipDto(String member_no, String name, String email, String password, String phone,
 			String profile_photo, Date join_date, String job, String office_no, String path_code, String office_name,
-			String permit_no, String address, String represent, String office_phone, String path_type) {
+			String permit_no, String address, String represent, String office_phone, String path_type, String office_photo, String permit_photo) {
 
 		this.member_no = member_no;
 		this.name = name;
@@ -45,6 +47,9 @@ public class MembershipDto {
 		this.represent = represent;
 		this.office_phone = office_phone;
 		this.path_type = path_type;
+		this.office_photo = office_photo;
+		this.permit_photo = permit_photo;
+		
 	}
 
 	public String getMember_no() {
@@ -183,6 +188,22 @@ public class MembershipDto {
 		this.path_type = path_type;
 	}
 	
+	public String getOffice_photo() {
+		return office_photo;
+	}
+
+	public void setOffice_photo(String office_photo) {
+		this.office_photo = office_photo;
+	}
+
+	public String getPermit_photo() {
+		return permit_photo;
+	}
+
+	public void setPermit_photo(String permit_photo) {
+		this.permit_photo = permit_photo;
+	}
+
 	public boolean matchPassword(String pwd) {		
 		try {
 			if(PBKDF2.validatePassword(pwd, password))
