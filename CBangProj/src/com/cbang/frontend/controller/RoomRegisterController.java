@@ -51,12 +51,14 @@ public class RoomRegisterController {
 		}
 		
 		if(roomDto.getRent_type().equals("월세")) {
-			if(roomDto.getDeposit1() != "") {
+			if(roomDto.getDeposit1() != "" && !roomDto.getDeposit1().equals("undefined")) {
 				tradeMap = new HashMap<String, String>();
 				tradeMap.put("deposit1",roomDto.getDeposit1());
 				tradeMap.put("deposit2","");
 				tradeMap.put("month_price","");
 				tradeList.add(tradeMap);
+				System.out.println("deposit1:"+roomDto.getDeposit1());
+				System.out.println("deposit2:"+tradeMap.get("deposit2"));
 			}
 			roomDto.setDeposit1("");
 			
@@ -65,14 +67,14 @@ public class RoomRegisterController {
 			if(deposit2.size() !=0) {
 				deposit2.remove(0);
 				month_price.remove(0);				
-			}			
+			}
 		}
 		else {
 			roomDto.setDeposit2("");
 			roomDto.setMonth_price("");			
-		}		
+		}	
 		if(deposit2.size() != 0) {
-			for(int i=0; i<deposit2.size();i++) {
+			for(int i=0; i<deposit2.size();i++) {				
 				tradeMap =  new HashMap<String, String>();
 				tradeMap.put("deposit1", "");
 				tradeMap.put("deposit2", deposit2.get(i));
@@ -92,10 +94,11 @@ public class RoomRegisterController {
 		if(building_option.size() != 0) map.put("building_option", building_option);
 		if(req.getParameter("room_option").length() != 0) map.put("room_option", req.getParameter("room_option").split(","));		
 		
-		service.insert(locationsDto,roomDto,detailDto,map,req);
+		String room_no = service.insert(locationsDto,roomDto,detailDto,map,req);
+				
+		map.get("tradeList");
 		
-		//return "redirect:/index.jsp";
-		return "Y";
+		return room_no;
 	}
 	
 }

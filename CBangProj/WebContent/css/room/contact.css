@@ -1,0 +1,145 @@
+.Enquiry {
+    font-size: 13px;
+    text-align: center;
+}
+.screen-reader-only {
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+}
+.Enquiry-title {
+    padding: 6px 0;
+    background-color: #ecf0f5;
+    font-size: 13px;
+    line-height: 1.4em;
+}
+.Enquiry-title .text {
+    color: #000;
+}
+.Enquiry-profile .Profile {
+    float: inherit;
+    height: 110px;
+}
+.Enquiry-profile .Profile-img {
+    width: 90px;
+    height: 90px;
+    margin: 20px auto 0;
+}
+.Enquiry-profile .agent-profile-wrap {
+    margin-bottom: 19px;
+}
+.Enquiry-profile .agent-profile-wrap .profile-name .agent-name-wrap {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #2a2a2a;
+}
+.Enquiry-profile .agent-profile-wrap .profile-name .agent-name-wrap .name {
+    font-size: 13px;
+}
+.Enquiry-profile .agent-profile-wrap .profile-name .agent-name-wrap .number {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 15px;
+    background-color: #0958a6;
+    margin-top: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+.Enquiry-profile .agent-profile-wrap .profile-name .seq-wrap {
+    display: inline-block;
+    width: 188px;
+    border-radius: 4px;
+    margin: 8px 0 0;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #2a2a2a;
+}
+.Enquiry-profile .line {
+    border-bottom: 1px solid #d1d1d1;
+    margin: 0 11px;
+}
+.Enquiry-contact {
+    padding: 0 10px;
+    margin-top: 12px;
+    text-align: left;
+}
+.EnquiryContact-title {
+    font-size: 15px;
+    text-align: left;
+}
+.EnquiryContact-title .dot {
+    font-size: 24px;
+    vertical-align: -3px;
+    color: #3b8de0;
+}
+.EnquiryContact-description {
+    padding: 0 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #585858;
+}
+.EnquiryContact-description .additional-description {
+    display: inline-block;
+    margin: 6px 0 10px;
+}
+.Enquiry-contact .additional-description .icon {
+    font-size: 13px;
+    padding-right: 3px;
+    /* vertical-align: -3px; */
+}
+.Enquiry-profile .agent-info-wrap {
+    margin-bottom: 20px;
+}
+.Enquiry-profile .agent-info-wrap table.agent-info {
+    width: 314px;
+    max-width: 314px;
+    margin: 0 auto;
+}
+.Enquiry-profile .agent-info-wrap table.agent-info td, .Enquiry-profile .agent-info-wrap table.agent-info th {
+    padding: 7px 5px;
+    border: 1px #d1d1d1 solid;
+    font-size: 12px;
+}
+.Enquiry-profile .agent-info-wrap table.agent-info th {
+    color: #2a2a2a;
+    text-align: center;
+}
+.Enquiry-profile .agent-info-wrap table.agent-info td {
+    text-align: left;
+    color: #585858;
+}
+.EnquiryContact-form {
+    margin-top: 3px;
+}
+.EnquiryContact-form .form-control {
+    float: left;
+    width: 100%;
+    border-radius: 3px 0 0 3px;
+    margin-bottom: 9px;
+}
+.Enquiry-contact .additional-description {
+    display: inline-block;
+    margin: 6px 0 10px;
+    clear: both;
+    font-size: 11px;
+    text-align: left;
+    letter-spacing: -1px;
+    color: #585858;
+}
+.EnquiryContact-form button {
+    display: block;
+    width: 236px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 48px;
+    border-radius: 5px;
+    margin: 18px auto 0;
+}

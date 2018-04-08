@@ -138,7 +138,7 @@
 						<div class="title" title="보증금">
 							<h2 class="name">
 								<span>
-									<span><i class="filter-icon deposit"></i></span>
+									<span><i class="filter-icon deposit" id="iconType"></i></span>
 									<span id="deposit__from">0 만원</span>
 									<span class="swing" style="display:inline;margin:0 5px;">~</span>
 									<span id="deposit__to">무제한</span>
@@ -150,9 +150,9 @@
 							<div class="filter-item filter-small-view price-filter">
 								<div class="popup-title"><span>보증금 가격</span></div>
 								<p class="placeholder">보증금 (ex. 10,000만원 = 1억원)</p>
-								<input class="input1" type="number" value="0">
+								<input class="input1" type="number" value="0" id="deposit1s">
 								<div class="swing">~</div>
-								<input class="input2" type="number" value="999999">
+								<input class="input2" type="number" value="999999" id="deposit1e">
 								<div class="price-line"></div>
 								<div class="clearfix">
 									<div class="price-select-list from">
@@ -197,9 +197,9 @@
 						<div class="content hidden" style="width:241px;">
 							<div class="filter-item filter-small-view price-filter">
 								<div class="popup-title"><span>월세 가격</span></div>								
-								<input class="input1" type="number" value="0">
+								<input class="input1" type="number" value="0" id="month1">
 								<div class="swing">~</div>
-								<input class="input2" type="number" value="999999">
+								<input class="input2" type="number" value="999999" id="month2">
 								<div class="price-line"></div>
 								<div class="clearfix">
 									<div class="price-select-list from">
@@ -253,15 +253,15 @@
 									<div class="line"></div>
 									<div>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="5평 이하" name="option2">
+											<input class="checkbox" type="checkbox" value="5" name="option2">
 											<span class="name">5평 이하</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="5평 ~ 10평 이하" name="option2">
+											<input class="checkbox" type="checkbox" value="10" name="option2">
 											<span class="name">5평 ~ 10평 이하</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="10평 이상" name="option2">
+											<input class="checkbox" type="checkbox" value="1000" name="option2">
 											<span class="name">10평 이상</span>
 										</label>
 									</div>
@@ -272,15 +272,15 @@
 											<span class="name">반지층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="1,3" name="option3">
+											<input class="checkbox" type="checkbox" value="3" name="option3">
 											<span class="name">저층 1층~3층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="4,6" name="option3">
+											<input class="checkbox" type="checkbox" value="6" name="option3">
 											<span class="name">중층 4층~6층</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
-											<input class="checkbox" type="checkbox" value="7,50" name="option3">
+											<input class="checkbox" type="checkbox" value="7" name="option3">
 											<span class="name">고층 7층이상</span>
 										</label>
 										<label class="checkbox-wrap clearfix">
@@ -314,13 +314,13 @@
 					<ul>
 						<li class="map">
 							<a href="#" class="active">
-								<i class="dabang-icon icon-size-lg fas fa-map"></i>
+								<i class="dabang-icon icon-size-lg fas fa-map" style="vertical-align: 0"></i>
 								<span>지도</span>
 							</a>
 						</li>
 						<li class="list">
 							<a href="#" class="">
-								<i class="dabang-icon icon-size-lg fab fa-microsoft"></i>
+								<i class="dabang-icon icon-size-lg fab fa-microsoft" style="vertical-align: 0"></i>
 								<span>리스트</span>
 							</a>
 						</li>
@@ -338,7 +338,7 @@
 				<div class="List list-component map-page">					
 					<div class="ListOutWrap">
 						<div class="ListInfo room-info clearfix">
-							<i class="dabang-icon icon-size-lg fas fa-chevron-right"></i>
+							<i class="dabang-icon icon-size-lg fas fa-chevron-right" style="vertical-align: 0"></i>
 							<span class="icon-text">
 								<span> </span><span> 검색결과 </span><strong></strong><span>개</span>
 							</span>

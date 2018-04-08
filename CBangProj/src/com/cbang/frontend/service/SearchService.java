@@ -48,7 +48,21 @@ public class SearchService {
 		initMap.put("area1",0);
 		initMap.put("area2",99999);
 		initMap.put("floor1",-1);
-		initMap.put("floor2",50);		
+		initMap.put("floor2",50);
+		initMap.put("option_code", "");
+				
+		initMap.putAll(map);
+		if(!initMap.get("room_type").equals("All")) {
+			String[] room_type = initMap.get("room_type").toString().split(",");
+			initMap.put("room_type", room_type);
+		}
+		if(initMap.get("option_code").equals("")) {
+			initMap.put("option_code", "All");
+		}
+		else {
+			String[] option = initMap.get("option_code").toString().split(",");
+			initMap.put("option_code", option);
+		}
 		
 		List<SearchDto> list = searchDao.searchRoom(initMap);		
 		List<BuildingOptionDto>	buildingOptionList = searchDao.buildingOptionList(initMap);
@@ -79,7 +93,7 @@ public class SearchService {
 			}
 		}
 		
-		return list;
+		return list;		
 	}
 
 }

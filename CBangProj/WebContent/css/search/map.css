@@ -184,6 +184,8 @@ a {
     background-image: url(../../images/search/icon-filter.png);
     /*margin-top: 14px;*/
     margin-right: 5px;
+}.filter .filter-dropdown .filter-icon.deal {
+    background-position: 0 0;
 }.filter .filter-dropdown .filter-icon.deposit {
     background-position: -13px 0;
 }

@@ -29,11 +29,19 @@ $(function() {
 	});
 	*/
 	//체크박스 -> 라디오 버튼
-	$('input[name^="check"]').click(function(){
+	$('input[name^="check"]').click(function(){		
 		switch($(this).attr('name')){
 			case "check1"://매물종류
 				$('input[name="check1"]').prop('checked',false);
 				$(this).prop('checked',true);
+				if($(this).val()=="전세"){
+					$('#iconType').removeClass('deposit');
+					$('#iconType').addClass('deal');					
+				}
+				else if($(this).val()=="월세"){
+					$('#iconType').removeClass('deal');
+					$('#iconType').addClass('deposit');		
+				}
 				break;
 			case "check2"://거래종류
 				$('input[name="check2"]').prop('checked',false);
@@ -55,7 +63,8 @@ $(function() {
 					$('[title="방 종류"] > h2 > span > span:eq(1)').html("").removeClass('badge').addClass('hidden');
 				}
 				break;
-		}		
+		}
+		search();
 	});	
 	
 	//보증금,전세,월세
@@ -117,7 +126,7 @@ $(function() {
 			$('#month__from').html(price+" 만원");
 			$('#month__to').html(price+" 만원");
 		}
-		
+		search();		
 	});
 	
 	$('input[type=number]').on("change",function() {
@@ -154,7 +163,8 @@ $(function() {
 			case 3:
 				$('#month__to').html(price+" 만원");
 				break;
-		}		
+		}
+		search();
 	});
 	
 	//추가 옵션
@@ -192,9 +202,106 @@ $(function() {
 		if($('input[name^="option"]:checked').length==0){
 			$('[title="추가옵션"] > h2 > span > span:eq(1)').html("").removeClass('badge').addClass('hidden');			
 		}
+		search();
+	});	
 		
-	});
-	
-	
 	
 });
+
+function search(){	
+	var trade_type = $('input[name="check2"]:checked').val();
+	var rent_type = $('input[name="check1"]:checked').val();
+	var room_type = "";	
+	$('input[name="check3"]:checked').each(function(i,e) {
+		if(room_type == ""){
+			room_type=e.value;
+		}
+		else{
+			room_type+=","+e.value;
+		}					
+	});	
+	var deposit1s = $('#deposit1s').val();
+	var deposit1e = $('#deposit1e').val();
+	var deposit2s = $('#deposit1s').val();
+	var deposit2e = $('#deposit1e').val();
+	var month1 = $('#month1').val();
+	var month2 = $('#month2').val();
+	var area1=0;
+	var area2=99999;		
+	switch($('input[name="option2"]:checked').val()){
+		case "5":
+			area1=0;
+			area2=5;
+			break;
+		case "10":
+			area1=5;
+			area2=10;
+			break;
+		case "1000":
+			area1=10;
+			area2=1000;
+			break;
+	}		
+	var floor1=-1;
+	var floor2=50;
+	switch($('input[name="option3"]:checked').val()){
+		case "-1":
+			floor1=-1;
+			floor2=-1;
+			break;
+		case "3":
+			floor1=1;
+			floor2=3;
+			break;
+		case "6":
+			floor1=4;
+			floor2=6;
+			break;
+		case "7":
+			floor1=7;
+			floor2=50;
+			break;
+		case "0":
+			floor1=0;
+			floor2=0;
+			break;
+	}
+	var option_code = "";
+	$('input[name="option1"]:checked').each(function(i,e) {
+		if(option_code == ""){
+			option_code=e.value;
+		}
+		else{
+			option_code+=","+e.value;
+		}					
+	});	
+	
+	$.ajax({
+		type:'POST',
+		url:'/CBangProj/Search/MapSearch.do',
+		data:
+		{
+			trade_type:trade_type,
+			rent_type:rent_type,
+			room_type:room_type,
+			deposit1s:deposit1s,
+			deposit1e:deposit1e,
+			deposit2s:deposit2s,
+			deposit2e:deposit2e,
+			month1:month1,
+			month2:month2,
+			area1:area1,
+			area2:area2,
+			floor1:floor1,
+			floor2:floor2,
+			option_code:option_code
+		},
+		dataType:'json',
+		async:false, // true: 비동기, false: 동기
+		success:function(data){			
+			gbl_data =data;			
+			renew();
+		}
+	});
+	
+}

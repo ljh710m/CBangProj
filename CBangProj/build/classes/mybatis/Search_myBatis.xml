@@ -18,6 +18,10 @@
 		AND trade_type = #{trade_type}
 	</if>
 	<choose>
+		<when test="rent_type.equals('All')">
+			AND (deposit1 BETWEEN #{deposit1s} AND #{deposit1e}
+			OR month_price BETWEEN #{month1} AND #{month2})
+		</when>
 		<when test="rent_type.equals('전세')">
 			AND deposit1 BETWEEN #{deposit1s} AND #{deposit1e}	
 		</when>
@@ -25,16 +29,22 @@
 			AND deposit2 BETWEEN #{deposit2s} AND #{deposit2e}
 			AND month_price BETWEEN #{month1} AND #{month2}			
 		</when>		
-	</choose>	
+	</choose>
 	<if test="not room_type.equals('All')">
-		AND room_type IN (#{room_type})
-	</if>			
-		AND area BETWEEN #{area1} AND #{area2}
-		AND floor BETWEEN #{floor1} AND #{floor2} 				
+		AND rm_type_code IN 
+		<foreach collection="room_type" item="type" open="(" close=")" separator=",">
+			#{type}
+		</foreach>		
+	</if>	
+		AND area BETWEEN #{area1} AND #{area2}	
+		AND floor BETWEEN #{floor1} AND #{floor2}
+	<if test="not option_code.equals('All')">
+		AND room_no IN (SELECT DISTINCT room_no FROM building_option WHERE option_code in
+		<foreach collection="option_code" item="option" open="(" close="))" separator=",">
+			#{option}			
+		</foreach>
+	</if>
 	</select>
-	<!-- <if test="option_code!=null">
-		AND room_no IN (SELECT DISTINCT room_no FROM building_option WHERE option_code in (#{option_code}));
-	</if>	 -->	
 	
 	<select id="BOptionList" parameterType="java.util.Map" resultType="BuildingOptionDto">
 		SELECT * FROM building_option JOIN building_option_list USING(option_code)		
@@ -45,6 +55,6 @@
 	</select>
 	
 	<select id="RoomTypes" resultType="RoomTypesDto">
-		SELECT * FROM room_types		
+		SELECT * FROM room_types
 	</select>
 </mapper>

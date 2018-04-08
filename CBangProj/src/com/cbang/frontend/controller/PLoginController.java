@@ -24,7 +24,7 @@ import com.cbang.frontend.service.PLoginService;
 
 import model.MemberDto;
 import model.MembershipDto;
-import util.PLoginUpload;
+//import util.PLoginUpload;
 
 @SessionAttributes({"memer_no","name"})
 @Controller
@@ -46,7 +46,7 @@ public class PLoginController {
 	public String upload(@RequestParam Map map, MultipartHttpServletRequest req) throws Exception {
 		String member_no = service.searchMember_no(map.get("office_no").toString());
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		list = PLoginUpload.parseInsertFileInfo(req, member_no);		
+		//list = PLoginUpload.parseInsertFileInfo(req, member_no);		
 		
 		return "";
 	}

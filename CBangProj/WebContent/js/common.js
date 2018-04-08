@@ -20,6 +20,7 @@ $(function() {
 		$('#modalLogin').modal('hide');
 		$('#findpwd').modal('hide');
 		$('#userSignup').modal('hide');
+		$('#modelContact').modal('hide');
 		$('.Checkbox-input').prop("checked", false).prev().css("color","#d1d1d1");
 		$('#nextBtn').removeClass("btn-pink").addClass("btn-default").prop('disabled','disabled');
 		$('.UserSignup input').val("");
@@ -31,6 +32,7 @@ $(function() {
 		$('.Checkbox-input').prop("checked", false).prev().css("color","#d1d1d1");
 		$('#nextBtn').removeClass("btn-pink").addClass("btn-default").prop('disabled','disabled');
 		$('#userSignup').modal('hide');
+		$('#modelContact').modal('hide');
 	});
 	//비밀번호 찾기 클릭
 	$('.Login-auth button:eq(0)').click(function(){

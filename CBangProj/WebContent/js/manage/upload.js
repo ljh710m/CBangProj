@@ -345,10 +345,10 @@ $(function() {
 			customAlert("error", "주소를 입력하세요.");
 			return;
 		}
-		else if(detail_addr==""){
+		/*else if(detail_addr==""){
 			customAlert("error", "상세 주소를 입력하세요.");
 			return;		
-		}
+		}*/
 		else if(rm_type_code==""){
 			customAlert("error", "방 종류를 선택해 주세요.");
 			return;
@@ -455,7 +455,7 @@ $(function() {
 				if(data == "Y"){
 					customAlert("success", "등록되었습니다.");
 				}				
-				//$(location).attr('href','/CBangProj/index.jsp');
+				$(location).attr('href','/CBangProj//Room/Detail.do?roomNo='+data);
 			},
 			error:function(){
 				customAlert("방 등록 오류 발생");

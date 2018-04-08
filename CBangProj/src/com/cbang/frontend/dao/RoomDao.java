@@ -1,5 +1,6 @@
 package com.cbang.frontend.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -7,8 +8,15 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import model.BuildingOptionDto;
 import model.DetailDto;
+import model.OfficeDto;
+import model.PhotoDto;
+import model.RoomDetailDto;
 import model.RoomDto;
+import model.RoomOptionCheckDto;
+import model.RoomOptionDto;
+import model.TradeTypeDto;
 
 @Repository
 public class RoomDao {
@@ -42,4 +50,38 @@ public class RoomDao {
 		sqlMapper.insert("FileInsert",map);
 	}
 	
+	public RoomDetailDto selectRoom(String room_no) {
+		
+		return sqlMapper.selectOne("RoomDetail",room_no);
+	}
+	
+	public List<BuildingOptionDto> selectBuildingOption(String room_no){
+		
+		return sqlMapper.selectList("RoomBuildingOption", room_no);
+	}
+	
+	public List<RoomOptionDto> selectOption(String room_no){
+		
+		return sqlMapper.selectList("RoomOption",room_no);
+	}
+	
+	public List<RoomOptionCheckDto> selectOptionList(){
+		
+		return sqlMapper.selectList("RoomOptionList");
+	}
+	
+	public List<PhotoDto> selectPhotoList(String room_no){
+		
+		return sqlMapper.selectList("RoomPhotos",room_no);
+	}
+	
+	public List<TradeTypeDto> selectTradeType(String room_no){
+		
+		return sqlMapper.selectList("RoomTradeType",room_no);
+	}
+	
+	public OfficeDto selectOfficeInfo(String office_no) {
+		
+		return sqlMapper.selectOne("OfficeInfo", office_no);
+	}
 }

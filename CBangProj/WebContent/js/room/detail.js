@@ -1,7 +1,10 @@
-$(function() {	
+$(function() {
+	var lat = $('#lat').val();
+	var lng = $('#lng').val();
+	
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
-        center: new daum.maps.LatLng(37.47861, 126.8786259), // 지도의 중심좌표
+        center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
     
@@ -17,10 +20,10 @@ $(function() {
 	// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 	var zoomControl = new daum.maps.ZoomControl();
 	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-	
+		
     // 지도에 표시할 원을 생성합니다
-    var circle = new daum.maps.Circle({
-        center : new daum.maps.LatLng(37.47861, 126.8786259),  // 원의 중심좌표 입니다 
+    var circle = new daum.maps.Circle({         
+    	center : new daum.maps.LatLng(lat, lng),  // 원의 중심좌표 입니다
         radius: 50, // 미터 단위의 원의 반지름입니다 
         strokeWeight: '1.75px', // 선의 두께입니다 
         strokeColor: '#0958a6', // 선의 색깔입니다
@@ -47,8 +50,8 @@ $(function() {
     // 마커이미지의 주소와, 크기로 마커 이미지를 생성하여 리턴하는 함수
     // 1:지하철, 2:편의점, 3:카페, 4:은행, 5:관공서
     function createMarkerImage(index) {
-        var markerImage = new daum.maps.MarkerImage(
-        		"../../images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));        
+        var markerImage = new daum.maps.MarkerImage(        		
+        		"/CBangProj/images/room/icon_roadview_0"+index+".png", new daum.maps.Size(35, 35));
         return markerImage;
     }    	
     
@@ -141,7 +144,7 @@ $(function() {
 	createMarkers(2);
 	createMarkers(3);
 	createMarkers(4);
-	
+		
 	// 마커들의 지도 표시 여부를 설정하는 함수
 	function setStoreMarkers(index, map) {
 		switch(index){
@@ -183,14 +186,97 @@ $(function() {
     	}    	
     });
     
+    //사진 슬라이드 기능
+    var index = 1;
+    var totalPhoto = $('#totalIndex').html();    
+    $('.prev').click(function() {    	
+    	if(index != 1){
+    		index--;
+    	}
+    	else{
+    		index=totalPhoto;
+    	}    	
+    	$('#currentIndex').html(index);
+    	    	
+    	if(index-1 < 1 ){
+    		$('.photo[data-index='+totalPhoto+']').css({'transform':'translate(-640px, 0px)','transition-duration': '0ms'});
+    	}
+    	else{
+    		$('.photo[data-index='+(index-1)+']').css({'transform':'translate(-640px, 0px)','transition-duration': '0ms'});    		
+    	}    	
+    	$('.photo[data-index='+index+']').css({'transform':'translate(0px, 0px)','transition-duration': '300ms'});    	
+    	if(index+1 > totalPhoto){
+    		$('.photo[data-index=1]').css({'transform':'translate(640px, 0px)','transition-duration': '0ms'});
+    	}
+    	else{
+    		$('.photo[data-index='+(index+1)+']').css({'transform':'translate(640px, 0px)','transition-duration': '300ms'});    		
+    	}
+    });
+    $('.next').click(function() {    	
+    	if(index != totalPhoto){
+    		index++;
+    	}
+    	else{
+    		index=1;
+    	}
+    	$('#currentIndex').html(index);
+    	if(index-1 < 1 ){
+    		$('.photo[data-index='+totalPhoto+']').css({'transform':'translate(-640px, 0px)','transition-duration': '0ms'});
+    	}
+    	else{
+    		$('.photo[data-index='+(index-1)+']').css({'transform':'translate(-640px, 0px)','transition-duration': '300ms'});    		
+    	}
+    	$('.photo[data-index='+index+']').css({'transform':'translate(0px, 0px)','transition-duration': '300ms'});    	
+    	if(index+1 > totalPhoto){
+    		$('.photo[data-index=1]').css({'transform':'translate(640px, 0px)','transition-duration': '0ms'});
+    	}
+    	else{
+    		$('.photo[data-index='+(index+1)+']').css({'transform':'translate(640px, 0px)','transition-duration': '0ms'});    		
+    	}
+    });
+    
+    // 가격정보 여러개일 시
+    $('#price_info').hover(function() {// 마우스 오버
+    	$('.list-wrap').prop("hidden",false);    	    	
+    }, function() {// 마우스 아웃
+    	$('.list-wrap').prop("hidden",true);
+    });
+    
+    // 평/면적 변경
+    $('.btn-pyeong').click(function(){
+    	var area = $('#area').html();
+    	var total_area = $('#total_area').html();
+    	
+    	if($('#area').next().html()=="P"){
+    		$('#area').html((area*3.3058).toFixed(1));
+    		$('#total_area').html((total_area*3.3058).toFixed(1))
+    		$('#area').next().html("m").parent().append($('<sup/>').html("2"));
+    		$('#total_area').next().html("m").parent().append($('<sup/>').html("2"));
+    	}
+    	else{
+    		$('#area').html((area/3.3058).toFixed(1));
+    		$('#total_area').html((total_area/3.3058).toFixed(1))
+    		$('#area').next().html("P").parent().children('sup').remove();
+    		$('#total_area').next().html("P").parent().children('sup').remove();   		    		
+    	}    	
+    });
+    
+    //연락처 보기 클릭시
+    $('#contactButton').click(function(){
+    	$('#modelContact').modal();   	
+    });
+    
     /* 스크롤바 감지 */
-    $(document).scroll(function(){    	
-    	if ($(document).scrollTop() >= 996) {
-    		$('.infos').attr("style", "position:absolute;top:1075px;");    		
+    $(document).scroll(function(){
+    	var top = $('.neighborhood').offset().top - $('.infos').height();
+    	var position = top - 60;
+    	
+    	if ($(document).scrollTop() >= position) {
+    		$('.infos').attr("style", "position:absolute;top:"+top+"px;");    		
     	}
     	else{
     		$('.infos').removeAttr("style");
     	}  	    	
-    });    
+    });  
     
 });

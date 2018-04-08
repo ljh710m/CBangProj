@@ -58,8 +58,42 @@
 				</otherwise>
 			</choose>
 			)						 						
-		</foreach>		
+		</foreach>
 		SELECT * FROM dual		
 	</insert>
+	
+	<select id="RoomDetail" parameterType="String" resultType="RoomDetailDto">
+		SELECT * 
+		FROM room
+		JOIN detail USING(room_no)
+		JOIN locations USING(location_code)
+		JOIN room_types USING(rm_type_code)
+		JOIN (SELECT member_no,name,phone,profile_photo,job,office_no FROM cbang_member) USING(member_no)
+		WHERE room_no = #{value}	
+	</select>
+	
+	<select id="RoomBuildingOption" parameterType="String" resultType="BuildingOptionDto">
+		SELECT * FROM building_option JOIN building_option_list USING(option_code) WHERE room_no = #{value}
+	</select>
+	
+	<select id="RoomOption" parameterType="String" resultType="RoomOptionDto">
+		SELECT * FROM room_option JOIN room_option_list USING(option_code) WHERE room_no = #{value} 
+	</select>
+	
+	<select id="RoomOptionList" resultType="RoomOptionCheckDto">
+		SELECT * FROM room_option_list
+	</select>
+	
+	<select id="RoomPhotos" parameterType="String" resultType="PhotoDto">
+		SELECT * FROM photo WHERE room_no = #{value}
+	</select>
+	
+	<select id="RoomTradeType" parameterType="String" resultType="TradeTypeDto">
+		SELECT * FROM trade_type WHERE room_no = #{value}		
+	</select>
+	
+	<select id="OfficeInfo" parameterType="String" resultType="OfficeDto">
+		SELECT * FROM real_estate_office WHERE office_no = #{value} 
+	</select>
 	
 </mapper>

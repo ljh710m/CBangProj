@@ -11,12 +11,18 @@
 		<typeAlias alias="MemberDto" type="model.MemberDto"/>
 		<typeAlias alias="LocationsDto" type="model.LocationsDto"/>
 		<typeAlias alias="RoomDto" type="model.RoomDto"/>
+		<typeAlias alias="RoomDetailDto" type="model.RoomDetailDto"/>
 		<typeAlias alias="DetailDto" type="model.DetailDto"/>
 		<typeAlias alias="SearchDto" type="model.SearchDto"/>
 		<typeAlias alias="BuildingOptionDto" type="model.BuildingOptionDto"/>
-		<typeAlias alias="BuildingOptionListDto" type="model.BuildingOptionListDto"/>		
+		<typeAlias alias="BuildingOptionListDto" type="model.BuildingOptionListDto"/>
+		<typeAlias alias="RoomOptionDto" type="model.RoomOptionDto"/>
+		<typeAlias alias="RoomOptionCheckDto" type="model.RoomOptionCheckDto"/>		
 		<typeAlias alias="RoomTypesDto" type="model.RoomTypesDto"/>		
-		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>
+		<typeAlias alias="PhotoDto" type="model.PhotoDto"/>
+		<typeAlias alias="TradeTypeDto" type="model.TradeTypeDto"/>
+		<typeAlias alias="OfficeDto" type="model.OfficeDto"/>			
+		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>				
 	</typeAliases>
 	 
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->

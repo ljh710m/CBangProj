@@ -11,21 +11,27 @@ $.ajax({
 
 var markerList = [];
 var markerLength = 0;
-function initMap() {	
-	var map = new google.maps.Map(document.getElementById('map'), {
+var map;
+var markers;
+var markerCluster;
+function initMap() {
+	$('.ListLoading').css('visibility', "visible");
+			
+	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 8,
 		center: {lat: 36.2683, lng: 127.6358},		
 		maxZoom: 16, //최대 줌 레벨
 		minZoom: 8 //최소 줌 레벨
-	}); 
+	});
 	
 	// 자바 스크립트  Array.prototype.map()
 	// var 변수 = 요소가 포함된 배열 개체.map(function(배열 요소의 값, 인덱스){
 	//		return new google.maps.Marker({
-	//			position : {lat: 위도값, lng: 경도값 }
+	//			position : {lat: 위도값, lng: 경도값 },
+	//			title : 마커 엘리먼트의 타이틀 속성 값 (툴팁)
 	//		});
 	// });	
-	var markers = gbl_data.map(function(location, i) {		
+	markers = gbl_data.map(function(location, i) {		
     	return new google.maps.Marker({
     		position: new google.maps.LatLng(location.lat,location.lng),
     		title: location.room_no
@@ -40,7 +46,7 @@ function initMap() {
     });	*/
 		
 	// Add a marker clusterer to manage the markers.
-	var markerCluster = new MarkerClusterer(map, markers,
+	markerCluster = new MarkerClusterer(map, markers,
 			{
 				//imagePath: '/CBangProj/vendor/googlemaps/images/m',				
 				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
@@ -74,6 +80,52 @@ function initMap() {
 	    if(markerLength < 15) list(1,markerLength);
 	    else list(1,15);
 	});
+}
+function renew(){
+	$('.ListLoading').css('visibility', "visible");
+	// 지도에서 마커를 삭제 
+	for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+	// 클러스터에서 마커를 삭제
+	markerCluster.removeMarkers(markers);	
+	// 마커 초기화
+	markers = [];
+	
+	markers = gbl_data.map(function(location, i) {		
+    	return new google.maps.Marker({
+    		position: new google.maps.LatLng(location.lat,location.lng),
+    		title: location.room_no
+    	});
+	});	
+	markerCluster = new MarkerClusterer(map, markers,
+			{								
+				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
+		        minimumClusterSize : 1 //클러스터링 할 최소 마커 수 (default: 2) 
+			}
+	);
+	
+	markerLength = 0;
+	markerList = [];
+    startLat = map.getBounds().getSouthWest().lat();	    
+    startLng = map.getBounds().getSouthWest().lng();
+    endLat = map.getBounds().getNorthEast().lat();
+    endLng = map.getBounds().getNorthEast().lng();	    
+    for(var i=0; i<markers.length; i++){
+    	if (parseFloat(startLat) <= parseFloat(markers[i].getPosition().lat()) && parseFloat(startLng) <= parseFloat(markers[i].getPosition().lng()) && parseFloat(endLat) >= parseFloat(markers[i].getPosition().lat()) && parseFloat(endLng) >= parseFloat(markers[i].getPosition().lng())){
+    		markerLength++;
+    		markerList.push(gbl_data[i]);	    		
+    	}
+    }	    
+    
+    if(markerLength == 0) $('.ListZero').removeClass('hidden');
+    else $('.ListZero').addClass('hidden');
+    
+    $('.ListLoading').css('visibility', "visible");
+    $('.icon-text strong').html(markerLength);
+    paging(markerLength,1);
+    if(markerLength < 15) list(1,markerLength);
+    else list(1,15);	
 }
 
 //페이징
@@ -135,7 +187,7 @@ function paging(markerLength,nowPage){
 
 //리스트
 function list(start,end){
-	console.log(markerList);
+	//console.log(markerList);
 	var roomList = $('.Room-list');
 	roomList.html("");
 	
@@ -213,7 +265,7 @@ function list(start,end){
 										)
 								)
 						
-						)	
+						)
 			);			
 			
 		}

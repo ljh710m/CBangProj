@@ -25,13 +25,13 @@ sub, sup {
     position: relative;
     vertical-align: baseline;
 }
-.dabang-icon {
+.nbang-icon {
     display: inline-block;
     vertical-align: middle;
 }
 .icon-size-xl {
-    vertical-align: -4px;
-    font-size: 17px;
+    vertical-align: -1px;
+    font-size: 15px;
 }
 .btn-md {
     width: 180px;
@@ -131,6 +131,9 @@ sub, sup {
     background-position: -228px 46%;
     cursor: pointer;
 }
+.detail-wrap .photos .prev button:focus{
+    outline: none;    
+}
 .detail-wrap .photos .next {
     position: absolute;
     top: 32px;
@@ -144,6 +147,9 @@ sub, sup {
     background-repeat: no-repeat;
     background-position: -48px 46%;
     cursor: pointer;
+}
+.detail-wrap .photos .next button:focus{
+    outline: none;    
 }
 .detail-wrap .infos {
     position: fixed;
@@ -166,6 +172,9 @@ sub, sup {
 }
 .detail-wrap .infos .room-info-wrap .room-info-inner .room-info .room-type-wrap h2 .room-types {
     margin-right: 6px;
+}
+.detail-wrap .infos .room-info-wrap .room-info-inner .room-info .room-type-wrap h2 .room-price.is-0 {
+    color: #2074c8;
 }
 .detail-wrap .infos .room-info-wrap .room-info-inner .room-info .room-type-wrap h2 .room-price.is-1 {
     color: #f5a623;
@@ -225,14 +234,14 @@ sub, sup {
     background-color: #f7f7f7;
 }
 .detail-wrap .infos .agent-info .agent-notice {
-    padding-top: 10px;
+    padding-top: 30px;
     font-size: 11px;
     color: #585858;
 }
 .detail-wrap .infos .agent-info .agent-notice .icon {
     font-size: 13px;
-    padding-right: 3px;
-    vertical-align: -3px;
+    padding-right: 1px;
+    
 }
 .detail-wrap .infos .agent-info .user-info-wrap .info {
     float: left;
@@ -385,6 +394,37 @@ td, th {
     text-align: right;
     color: #000;
 }
+.detail-wrap .details .details-inner .detail-content-left .detail-content table .price-info {
+    position: relative;
+}
+.detail-wrap .details .details-inner .detail-content-left .detail-content table .price-info .one-price {
+    position: absolute;
+    top: -11px;
+    right: 28px;
+}
+.detail-wrap .details .details-inner .detail-content-left .detail-content table .price-info .list-wrap{
+	position:absolute;
+	top:-20px;
+	right:27px;
+	width:100px;
+	border:1px solid #d1d1d1;
+	background-color:#fff;
+	padding:0 3px;
+	margin:10px 0
+}
+.detail-wrap .details .details-inner .detail-content-left .detail-content table .price-info .list-wrap .item{
+	font-size:14px;
+	text-align:right;
+	color:#2074c8
+}
+.detail-wrap .details .details-inner .detail-content-left .detail-content table .price-info .nbang-icon {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    color: #7dc88a;
+    font-size: 20px;
+    cursor: pointer;
+}
 .detail-wrap .details .details-inner .detail-content-left .detail-content .pyeong-wrap {
     display: inline-block;
 }
@@ -514,6 +554,7 @@ td, th {
 .detail-wrap .details .details-inner .detail-content-left .details-description pre {
     margin: 37px 0 0;
     line-height: 2.6;
+    background-color : white;
     word-break: break-all;
     word-wrap: break-word;
     white-space: pre-line;

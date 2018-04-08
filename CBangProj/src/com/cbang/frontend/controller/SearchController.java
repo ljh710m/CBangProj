@@ -1,6 +1,5 @@
 package com.cbang.frontend.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +36,7 @@ public class SearchController {
 	public String searchMap(@RequestParam Map map) {
 		JSONArray listArray = new JSONArray();
 		JSONObject optionInfo = null;
-		
+				
 		List<SearchDto> list = searchService.searchRoom(map);
 		for(int i=0; i<list.size(); i++) {
 			optionInfo = new JSONObject();
