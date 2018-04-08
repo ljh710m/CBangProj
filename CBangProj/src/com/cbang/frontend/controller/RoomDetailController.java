@@ -1,6 +1,7 @@
 package com.cbang.frontend.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cbang.frontend.service.RoomService;
 
@@ -41,5 +43,13 @@ public class RoomDetailController {
 		}
 			
 		return "forward:/frontend/room/detail.jsp";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/Room/Contact.do")
+	public String contactRoom(@RequestParam Map map) {
+		service.roomContact(map);	
+				
+		return "Y";
 	}
 }

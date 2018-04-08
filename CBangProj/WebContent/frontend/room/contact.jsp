@@ -111,7 +111,7 @@
 										</div>
 										<div class="seq-wrap">
 											<span>[ 매물 번호 </span>
-											<span class="seq">${roomDetail.room_no}</span>
+											<span class="seq" id="room_no">${roomDetail.room_no}</span>
 											<span> ]</span>
 										</div>
 									</div>
@@ -142,7 +142,7 @@
 									</h2>
 									<form onsubmit="return false;">
 										<div class="EnquiryContact-form clearfix">
-											<input class="form-control" placeholder="연락처를 남겨주시면, 매물정보 확인 후 연락드립니다." type="tel" style="font-size: 13px;">
+											<input class="form-control" placeholder="연락처를 남겨주시면, 매물정보 확인 후 연락드립니다." type="tel" style="font-size: 13px;" id="contact_info">
 											<p class="additional-description">
 												<i class="icon fas fa-exclamation-circle"></i>
 												<span>중개사와의 거래 시 수수료가 발생하니 참고하세요.</span>
@@ -158,5 +158,6 @@
 			</div>
 		</div>	
 	</c:if>
-	</div>	
+	</div>
+	<div id="member_no" hidden="">${requestScope.member_no}</div>
 </div>

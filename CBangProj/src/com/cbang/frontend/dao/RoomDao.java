@@ -84,4 +84,8 @@ public class RoomDao {
 		
 		return sqlMapper.selectOne("OfficeInfo", office_no);
 	}
+	
+	public void insertRoomContact(Map map) {
+		sqlMapper.insert("RoomContact", map);		
+	}
 }

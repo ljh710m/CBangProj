@@ -96,4 +96,8 @@
 		SELECT * FROM real_estate_office WHERE office_no = #{value} 
 	</select>
 	
+	<insert id="RoomContact" parameterType="java.util.Map">
+		INSERT INTO contact_room VALUES(#{member_no},#{room_no},#{contact_info})
+	</insert>
+	
 </mapper>

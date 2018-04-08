@@ -38,8 +38,7 @@
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp"/>
-	
-	
+		
 	<div class="detail-page">
 		<div class="container-fluid">
 			<div id="detail-component">

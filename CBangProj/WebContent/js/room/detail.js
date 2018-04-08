@@ -266,6 +266,47 @@ $(function() {
     	$('#modelContact').modal();   	
     });
     
+    //연락받기 클릭시(중개일 경우)
+    $('#contactBtn').click(function(){
+    	
+    	var member_no = $('#member_no').html();
+    	var room_no = $('#room_no').html();
+    	var contact_info = $('#contact_info').val(); 
+    	
+    	if(contact_info == ""){
+    		customAlert("error","남기실 연락처를 입력해주세요.");
+    		return;
+    	}
+    	
+    	if(member_no != ""){
+    		$.ajax({
+    			type:'post',
+    			url:'/CBangProj//Room/Contact.do',
+    			data :
+    			{
+    				member_no: member_no,
+    				room_no: room_no,
+    				contact_info: contact_info				
+    			},
+    			dataType: 'text',
+    			success:function(data){
+    				if(data == "Y"){
+    					customAlert("info", "연락처를 남기는데 성공하였습니다.");
+    				}
+    			},
+    			error:function(){
+    				customAlert("error","연락요청 오류");
+    			}
+    		});
+    	}
+    	else{
+    		customAlert("error","로그인 후 이용해주세요.");
+    		$('#modelContact').modal('hide');    		
+    		$('#modalLogin').modal();
+    	}
+    	
+    });
+    
     /* 스크롤바 감지 */
     $(document).scroll(function(){
     	var top = $('.neighborhood').offset().top - $('.infos').height();

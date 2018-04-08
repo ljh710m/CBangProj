@@ -1,6 +1,5 @@
 package com.cbang.frontend.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ import model.RoomDetailDto;
 import model.RoomDto;
 import model.RoomOptionCheckDto;
 import model.RoomOptionDto;
-import model.RoomOptionListDto;
 import model.TradeTypeDto;
 import util.FileUpDownUtils;
 
@@ -160,6 +158,10 @@ public class RoomService {
 	public OfficeDto officeInfo(String office_no){
 		
 		return roomDao.selectOfficeInfo(office_no);
+	}
+	
+	public void roomContact(Map map) {
+		roomDao.insertRoomContact(map);
 	}
 	
 }
