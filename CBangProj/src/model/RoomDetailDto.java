@@ -34,6 +34,7 @@ public class RoomDetailDto {
 	private String profile_photo;//프로필
 	private String job;//직책
 	private String office_no;//중개등록번호
+	private boolean favorite;//찜 여부
 
 	//게터]
 	public String getRoom_no() {
@@ -135,6 +136,9 @@ public class RoomDetailDto {
 	public String getName() {
 		return name;
 	}
+	public boolean isFavorite() {
+		return favorite;
+	}
 	
 	//세터]
 	public void setRoom_no(String room_no) {
@@ -235,5 +239,8 @@ public class RoomDetailDto {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
 	}	
 }

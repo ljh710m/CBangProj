@@ -100,4 +100,16 @@
 		INSERT INTO contact_room VALUES(#{member_no},#{room_no},#{contact_info})
 	</insert>
 	
+	<insert id="RoomFavorite" parameterType="java.util.Map">
+		INSERT INTO favorite_room VALUES(#{member_no},#{room_no})
+	</insert>
+	
+	<delete id="RoomFavoriteCancle" parameterType="java.util.Map">
+		DELETE FROM favorite_room WHERE member_no = #{member_no} AND room_no = #{room_no}
+	</delete>
+		
+	<select id="RoomFavoriteCheck" parameterType="java.util.Map" resultType="int">
+		SELECT count(*) FROM favorite_room WHERE member_no = #{member_no} AND room_no = #{room_no} 
+	</select>
+	
 </mapper>

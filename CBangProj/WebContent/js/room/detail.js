@@ -261,6 +261,57 @@ $(function() {
     	}    	
     });
     
+    //찜 버튼 클릭
+    $('#favorite').click(function(){
+    	var member_no = $('#fmember_no').val();
+    	var room_no = $('#froom_no').val();
+    	
+    	$(this).toggleClass('active');
+    	if($(this).hasClass('active')){
+    		$.ajax({
+    			type:'post',
+    			url:'/CBangProj//Room/Favorite.do',
+    			data :
+    			{
+    				mode : "insert",
+    				member_no: member_no,
+    				room_no: room_no    							
+    			},
+    			dataType: 'text',
+    			success:function(data){
+    				if(data == "Y"){
+    					customAlert("info", "현재 매물을 찜하였습니다.");
+    				}
+    			},
+    			error:function(){
+    				customAlert("error","찜 하기 오류");
+    			}
+    		});    		
+    	}
+    	else{
+    		$.ajax({
+    			type:'post',
+    			url:'/CBangProj//Room/Favorite.do',
+    			data :
+    			{
+    				mode : "delete",
+    				member_no: member_no,
+    				room_no: room_no    							
+    			},
+    			dataType: 'text',
+    			success:function(data){
+    				if(data == "Y"){
+    					customAlert("info", "현재 매물에 찜하기가 취소되었습니다.");
+    				}
+    			},
+    			error:function(){
+    				customAlert("error","찜 하기 취소 오류");
+    			}
+    		});
+    		
+    	}
+    });    
+    
     //연락처 보기 클릭시
     $('#contactButton').click(function(){
     	$('#modelContact').modal();   	
