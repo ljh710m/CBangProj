@@ -46,7 +46,7 @@ body, html {
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp" />
-	<form onsubmit="return false;" action="<c:url value='/ACCOUNT/Join.do' />" method="post" id="allform">
+	<form onsubmit="return false;" method="post" id="allform" enctype="multipart/form-data">
 		<div id="body" class="col-md-8 col-md-offset-2">
 			<div>
 				<h1>회원가입</h1>
@@ -104,12 +104,14 @@ body, html {
 							class="number" maxlength="5" style="margin-right: 10px;" />
 							<button name="certification" id="certification" type="button" class="Btn--md Btn--red"
 								style="min-width: 0px; padding: 0px 10px; margin-right: 10px;">인증</button>
-							<button id="btn_permit" type="button" class="Btn--md Btn--disabled">사업자
+							<button id="btn_permit" type="button" class="Btn--md Btn--disabled" disabled="disabled">사업자
 								등록증 첨부</button>
 								<div class="permitName_div">
 								<span class="permit_name"></span>
 							</div>
-							<div class="permit_div"></div>
+							<div class="permit_div">
+								<input type="file" name="permit_file" disabled="disabled"/>
+							</div>
 							</td>
 					</tr>
 					<tr>
@@ -369,9 +371,6 @@ body, html {
 					$('.Profile--img').css({'background':'url(' + e.target.result + ') no-repeat center center','background-size':'100px 100px'});
 				}
 				reader.readAsDataURL(input.files[0]);
-				$.ajax({
-						
-					});
 			}
 		}
 	</script>

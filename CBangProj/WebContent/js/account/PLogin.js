@@ -190,9 +190,43 @@ $(function() {
 			data : formData,
 			dataType : "text",
 			success : function(data){
-				location.href = '/CBangProj/index.jsp';
+				uploadFiles();
 			},
 			error : function(){console.log('joinMember에러');}
+		});
+	};
+	
+	var uploadFiles = function(){
+		
+		var profile_photo = $('[name="real-file2"]')[0].files[0];
+		var office_photo = $('[name="real-file1"]')[0].files[0];
+		var permit_photo = $('[name="permit_file"]')[0].files[0];
+		/*var profile_photo = $('[name="real-file2"]').val();
+		var office_photo = $('[name="real-file1"]').val();
+		var permit_photo = $('[name="permit_file"]').val();*/
+		var office_no = $('[name="office_no"]').val(); 
+		
+		var frm = new FormData();
+		frm.append("profile_photo", profile_photo);
+		frm.append("office_photo", office_photo);
+		frm.append("permit_photo", permit_photo);
+		frm.append("office_no", office_no);
+		
+		$.ajax({
+			type : "POST",
+			enctype : "multipart/form-data",
+			url : "/CBangProj/ACCOUNT/upload.do",
+			data : frm,
+			contentType : false,
+			processData : false,
+			dataType : "text",
+			success : function(data){
+				alert("회원가입이 완료되었습니다.!!");
+				window.location.href = "/CBangProj/Search/Map.do";
+			},
+			error : function(){
+				console.log('uploadFiles에러');
+				}
 		});
 	};
 	
@@ -237,7 +271,7 @@ $(function() {
 				if(result.permitNotMatch) {
 					customAlert("success","인증이 완료되었습니다.");
 					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white','cursor':'pointer'});
-					$('.permit_div').append('<input type="file" name="permit_file" />');
+					$('[name="permit_file"]').prop('disabled', false);
 					$('[name="permit_file"]').change(function(){
 						var fileValue = $('[name="permit_file"]').val().split("\\");
 						var fileName = fileValue[fileValue.length-1];

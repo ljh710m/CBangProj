@@ -34,12 +34,20 @@
 		INSERT INTO CBANG_MEMBER VALUES(MEMBER_NO_SEQ.NEXTVAL,#{name},#{email},#{password},#{phone},#{profile_photo},default,#{job},#{office_no},#{path_code})		
 	</insert>
 	
-	<select id="PLoginSelectOffice_no" parameterType="MembershipDto" resultType="String">
+	<select id="PLoginSelectMember_no" parameterType="MembershipDto" resultType="String">
 		SELECT member_no FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE R ON C.OFFICE_NO = R.OFFICE_NO WHERE C.OFFICE_NO = #{office_no}
 	</select>
 	
 	<select id="PLoginIsPermit_no" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM PERMIT WHERE PERMIT_NO = #{permit_no}
 	</select>
+	
+	<update id="PLoginUpdatePhoto" parameterType="java.util.Map">
+		UPDATE REAL_ESTATE_OFFICE SET OFFICE_PHOTO = #{office_photo}, PERMIT_PHOTO = #{permit_photo} WHERE OFFICE_NO = #{office_no}
+	</update>
+	
+	<update id="PLoginUpdatePhoto2" parameterType="java.util.Map">
+		UPDATE CBANG_MEMBER SET PROFILE_PHOTO = #{profile_photo} WHERE MEMBER_NO = #{member_no}
+	</update>
 	
 </mapper>
