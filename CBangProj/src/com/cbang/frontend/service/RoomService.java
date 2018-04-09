@@ -1,5 +1,6 @@
 package com.cbang.frontend.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class RoomService {
 	@Resource(name="locationsDao")
 	private LocationsDao locationDao;
 	@Resource(name="roomDao")
-	private RoomDao roomDao;	
+	private RoomDao roomDao;
 	private String room_no;
 	
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor={Exception.class})
@@ -65,14 +66,14 @@ public class RoomService {
 			case "전세":
 				if(Integer.parseInt(roomDetail.getDeposit1()) >= 10000) {
 					roomDetail.setDeposit1(Integer.parseInt(roomDetail.getDeposit1())/10000+"억"+Integer.parseInt(roomDetail.getDeposit1())%10000);					
-				}			
+				}
 				break;
 			case "월세":
 				if(Integer.parseInt(roomDetail.getDeposit2()) >= 10000) {
 					roomDetail.setDeposit2(Integer.parseInt(roomDetail.getDeposit2())/10000+"억"+Integer.parseInt(roomDetail.getDeposit2())%10000);					
 				}							
 				break;		
-		}		
+		}
 		
 		List<BuildingOptionDto> buildingOption = roomDao.selectBuildingOption(room_no);
 		for(int i=0; i<buildingOption.size(); i++) {
@@ -162,6 +163,26 @@ public class RoomService {
 	
 	public void roomContact(Map map) {
 		roomDao.insertRoomContact(map);
+	}
+	
+	public void roomFavorite(Map map) {
+		roomDao.insertRoomFavorite(map);
+	}
+	
+	public void roomFavoriteCancle(Map map) {
+		roomDao.deleteRoomFavorite(map);
+	}
+	
+	public boolean roomFavoriteOne(String member_no, String room_no) {
+		Map map = new HashMap<>();
+		map.put("member_no", member_no);
+		map.put("room_no", room_no);
+		
+		if(roomDao.selectOneFavorite(map)==1) {
+			return true;
+		}
+		
+		return false;	
 	}
 	
 }

@@ -56,9 +56,7 @@ public class RoomRegisterController {
 				tradeMap.put("deposit1",roomDto.getDeposit1());
 				tradeMap.put("deposit2","");
 				tradeMap.put("month_price","");
-				tradeList.add(tradeMap);
-				System.out.println("deposit1:"+roomDto.getDeposit1());
-				System.out.println("deposit2:"+tradeMap.get("deposit2"));
+				tradeList.add(tradeMap);				
 			}
 			roomDto.setDeposit1("");
 			
@@ -98,7 +96,7 @@ public class RoomRegisterController {
 				
 		map.get("tradeList");
 		
-		return room_no;
+		return room_no;		
 	}
 	
 }

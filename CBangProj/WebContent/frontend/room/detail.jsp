@@ -132,7 +132,12 @@
 									<div class="room-info-button-wrap clearfix">
 										<div class="room-favorite">
 											<h2>
-												<button class="btn btn-xs border-radius-xsmall btn-default">
+											<c:if test="${roomDetail.favorite}" var="favoriteFlag">
+												<button class="btn btn-xs border-radius-xsmall btn-default active" id="favorite">
+											</c:if>
+											<c:if test="${not favoriteFlag}">
+												<button class="btn btn-xs border-radius-xsmall btn-default" id="favorite">
+											</c:if>													
 													<i class="nbang-icon icon-size-xl fas fa-heart"></i>
 													<span class="icon-text">찜</span>
 												</button>
@@ -430,6 +435,8 @@ ${roomDetail.room_desc}
 	
 	<input type="hidden" id="lat" value="${roomDetail.lat}">
 	<input type="hidden" id="lng" value="${roomDetail.lng}">
+	<input type="hidden" id="froom_no" value="${roomDetail.room_no}">
+	<input type="hidden" id="fmember_no" value="${roomDetail.member_no}">
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

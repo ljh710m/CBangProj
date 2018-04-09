@@ -88,4 +88,18 @@ public class RoomDao {
 	public void insertRoomContact(Map map) {
 		sqlMapper.insert("RoomContact", map);		
 	}
+	
+	public void insertRoomFavorite(Map map) {
+		sqlMapper.insert("RoomFavorite",map);
+	}
+	
+	public void deleteRoomFavorite(Map map) {
+		sqlMapper.insert("RoomFavoriteCancle",map);
+	}
+	
+	public int selectOneFavorite(Map map) {
+		int count = sqlMapper.selectOne("RoomFavoriteCheck",map);
+				
+		return count;
+	}
 }

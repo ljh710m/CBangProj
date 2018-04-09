@@ -81,7 +81,7 @@ public class SearchService {
 						list.get(j).setPat(true);
 						break;
 					}
-				}				
+				}
 			}
 			if(buildingOptionList.get(i).getName().equals("단기임대")) {				
 				for(int j=0; j<list.size();j++) {					

@@ -45,7 +45,7 @@ public class MemberController {
 		else if(!dto.matchPassword(map.get("password").toString())) {
 			errorInfo.put("pwdNotMatch", true);			
 		}
-		else {
+		else {			
 			model.addAttribute("member_no",	dto.getMember_no());
 			model.addAttribute("name", dto.getName());
 			if(dto.getOffice_no()==null) {

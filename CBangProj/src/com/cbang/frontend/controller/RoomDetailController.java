@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +27,15 @@ public class RoomDetailController {
 	private RoomService service;
 	
 	@RequestMapping("/Room/Detail.do")
-	public String detailRoom(@RequestParam(value="roomNo", required=true) String roomNo, Model model) {
+	public String detailRoom(@RequestParam(value="roomNo", required=true) String roomNo, HttpSession session, Model model) {
 		
 		RoomDetailDto roomDetail = service.roomDetail(roomNo);		
 		List<RoomOptionCheckDto> roomOption = service.roomOption(roomNo);
 		List<PhotoDto> roomPhotoList = service.roomPhotoList(roomNo);
 		List<TradeTypeDto> roomTradeType = service.roomTradeType(roomNo);
+		if(session.getAttribute("member_no")!=null) {
+			roomDetail.setFavorite(service.roomFavoriteOne(session.getAttribute("member_no").toString(), roomNo));
+		}
 		
 		model.addAttribute("roomDetail",roomDetail);
 		model.addAttribute("roomOption", roomOption);
@@ -46,10 +50,23 @@ public class RoomDetailController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("/Room/Favorite.do")
+	public String favoriteRoom(@RequestParam Map map) {
+		if(map.get("mode").equals("insert")) {			
+			service.roomFavorite(map);
+		}
+		else {
+			service.roomFavoriteCancle(map);			
+		}
+		
+		return "Y";
+	}
+	
+	@ResponseBody
 	@RequestMapping("/Room/Contact.do")
 	public String contactRoom(@RequestParam Map map) {
 		service.roomContact(map);	
 				
 		return "Y";
-	}
+	}	
 }

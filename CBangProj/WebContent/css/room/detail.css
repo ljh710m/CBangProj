@@ -330,11 +330,15 @@ sub, sup {
     width: 48%;
     margin-right: 4%;
 }
+.detail-wrap .infos .room-info-wrap .room-info-inner .room-info-button-wrap .room-favorite .active {
+    border: 1px solid #ef4351;
+    background-color: #ef4351;
+    color: #fff;
+}
 .detail-wrap .infos .room-info-wrap .room-info-inner .room-info-button-wrap .room-report {
     float: left;
     width: 48%;
 }
-
 .detail-wrap .details .details-inner .detail-content-left .title h2 {
     font-size: 20px;
 }
