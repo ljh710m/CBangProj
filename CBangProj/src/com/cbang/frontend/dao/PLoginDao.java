@@ -29,12 +29,20 @@ public class PLoginDao {
 		return sqlMapper.insert("PLoginPInsert", dto);
 	}
 	
-	public String searchMember_no(String office_no) {
-		return sqlMapper.selectOne("PLoginSelectOffice_no", office_no);
+	public String selectMember_no(String office_no) {
+		return sqlMapper.selectOne("PLoginSelectMember_no", office_no);
 	}
 	
 	public int isPermit_no(Map map) {
 		return sqlMapper.selectOne("PLoginIsPermit_no", map);
+	}
+	
+	public int updatePhoto(Map map) {
+		return sqlMapper.update("PLoginUpdatePhoto", map);
+	}
+	
+	public void updatePhoto2(Map map) {
+		sqlMapper.update("PLoginUpdatePhoto2", map);
 	}
 	
 }

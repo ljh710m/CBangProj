@@ -25,12 +25,20 @@ public class PLoginService {
 		return dao.pInsert(dto);
 	}
 	
-	public String searchMember_no(String office_no) {
-		return dao.searchMember_no(office_no);
+	public String selectMember_no(String office_no) {
+		return dao.selectMember_no(office_no);
 	}
 
 	public int isPermit_no(Map map) {
 		return dao.isPermit_no(map);
+	}
+	
+	public int updatePhoto(Map map) {
+		return dao.updatePhoto(map);
+	}
+	
+	public void updatePhoto2(Map map) {
+		dao.updatePhoto2(map);
 	}
 	
 }
