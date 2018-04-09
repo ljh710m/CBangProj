@@ -3,6 +3,7 @@ package com.cbang.frontend.controller;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -61,8 +62,12 @@ public class MemberController {
 	
 	//로그아웃 처리]
 	@RequestMapping("/Account/Logout.do")
-	public String logout(SessionStatus status) throws Exception{
-		//로그 아웃처리-세션영역에 속성 삭제]
+	public String logout(SessionStatus status,HttpServletRequest req) throws Exception{
+		/* 로그 아웃처리-세션영역에 속성 삭제]
+		 * Session 에 등록된 SimpleForm 은 SessionStatus.setComplete()을 실행하기 전까지는
+		 * Session에서 내부의 데이터를 유지하게 된다. SessionStatus.setComplete()을 실행하면
+		 * Controller에서 선언해둔 SessionAttribute에 등록된 form이 초기화된다. 
+		 */	
 		status.setComplete();
 		
 		return "redirect:/index.jsp";

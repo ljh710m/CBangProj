@@ -57,4 +57,8 @@
 	<select id="RoomTypes" resultType="RoomTypesDto">
 		SELECT * FROM room_types
 	</select>
+	
+	<select id="MemberFavorite" parameterType="String" resultType="FavoriteDto">
+		SELECT * FROM favorite_room WHERE member_no = #{value}	
+	</select>
 </mapper>

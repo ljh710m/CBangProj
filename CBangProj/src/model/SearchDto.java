@@ -18,6 +18,7 @@ public class SearchDto {
 	private String stored_file_name;//사진명
 	private String lat;//위도
 	private String lng;//경도
+	private boolean favorite;//찜 여부
 	
 	//게터]
 	public String getRoom_no() {
@@ -70,6 +71,9 @@ public class SearchDto {
 	}
 	public String getLng() {
 		return lng;
+	}	
+	public boolean isFavorite() {
+		return favorite;
 	}
 	
 	//세터]
@@ -124,4 +128,7 @@ public class SearchDto {
 	public void setLng(String lng) {
 		this.lng = lng;
 	}
+	public void setFavorite(boolean favorite) {
+		this.favorite = favorite;
+	}	
 }

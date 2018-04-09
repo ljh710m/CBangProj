@@ -1,10 +1,12 @@
 package com.cbang.frontend.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.cbang.frontend.dao.SearchDao;
 
 import model.BuildingOptionDto;
 import model.BuildingOptionListDto;
+import model.FavoriteDto;
 import model.RoomTypesDto;
 import model.SearchDto;
 
@@ -34,7 +37,7 @@ public class SearchService {
 		return map;
 	}
 	
-	public List<SearchDto> searchRoom(Map map){	
+	public List<SearchDto> searchRoom(Map map, HttpSession session){	
 		Map initMap = new HashMap<>();
 		initMap.put("trade_type","All");
 		initMap.put("rent_type","All");
@@ -64,7 +67,22 @@ public class SearchService {
 			initMap.put("option_code", option);
 		}
 		
-		List<SearchDto> list = searchDao.searchRoom(initMap);		
+		List<SearchDto> list = searchDao.searchRoom(initMap);
+		
+		if(session.getAttribute("member_no") != null) {			
+			List<FavoriteDto> memberFavorite = searchDao.memberFavorite(session.getAttribute("member_no").toString());
+			if(memberFavorite != null) {
+				for(int i=0; i<memberFavorite.size(); i++) {					
+					for(int j=0; j<list.size(); j++) {						
+						if(memberFavorite.get(i).getRoom_no().equals(list.get(j).getRoom_no())) {							
+							list.get(j).setFavorite(true);							
+							break;
+						}
+					}
+				}				
+			}
+		}
+		
 		List<BuildingOptionDto>	buildingOptionList = searchDao.buildingOptionList(initMap);
 		for(int i=0; i<buildingOptionList.size(); i++) {			
 			if(buildingOptionList.get(i).getName().equals("주차가능")) {				
@@ -90,8 +108,9 @@ public class SearchService {
 						break;
 					}
 				}				
-			}
+			}			
 		}
+		
 		
 		return list;		
 	}

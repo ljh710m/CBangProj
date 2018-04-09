@@ -243,7 +243,15 @@ function list(start,end){
 			}
 			if(markerList[i].short_term){
 				bOptionDiv.append($('<span/>').addClass("tag").html("#단기가능"));			
-			}			
+			}
+			
+			var favoriteIcon;			
+			if(markerList[i].favorite){
+				favoriteIcon = $('<i/>').addClass("icon-size-2xl fas fa-heart");			
+			}
+			else{
+				favoriteIcon = $('<i/>').addClass("icon-size-2xl far fa-heart");
+			}
 		
 			roomList.append(li.append(a
 						.append(previewDiv)
@@ -253,8 +261,26 @@ function list(start,end){
 												.append(priceDiv)
 												.append($('<div/>').addClass("RoomItem-icons")
 														.append($('<span/>').addClass("room-favorite")
-																.append($('<i/>').addClass("dabang-icon icon-size-2xl far fa-heart"))
-																)
+																.append(favoriteIcon)
+																).click(function(e){
+																	e.preventDefault();//a태그의 URL이동기능 방지
+																	var heartIcon = $(this).children().children();
+																	var member_no = $('#fmember_no').val();																	
+																	var href = $(this).parent().parent().parent().parent().attr('href');
+																	var room_no = href.substr(href.indexOf("=")+1, href.length);
+																																																			
+																	if(member_no != ""){
+																		if(heartIcon.hasClass('far')){
+																			heartIcon.removeClass('far').addClass('fas');
+																			favoriteClick("insert",member_no,room_no);																			
+																		}
+																		else{
+																			heartIcon.removeClass('fas').addClass('far');
+																			favoriteClick("delete",member_no,room_no);
+																		}
+																	}
+																	
+																})
 														)
 												)
 												.append(summaryDiv													
@@ -274,6 +300,22 @@ function list(start,end){
 	else{//검색된 방이 없을 경우
 		
 	}
-	$('.ListLoading').attr('style',"visibility:hidden;");
-	
+	$('.ListLoading').attr('style',"visibility:hidden;");	
+}
+
+function favoriteClick(mode,member_no,room_no){
+	// mode : insert(찜하기) / delete(찜하기 취소)
+	$.ajax({
+		type:'post',
+		url:'/CBangProj/Room/Favorite.do',
+		data :
+		{
+			mode : mode,
+			member_no: member_no,
+			room_no: room_no    							
+		},		
+		error:function(){
+			customAlert("error","오류 발생");
+		}
+	}); 
 }

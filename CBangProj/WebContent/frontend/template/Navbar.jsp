@@ -55,6 +55,7 @@
 		</div><!--/.nav-collapse -->		
 	</div>
 </nav>
+<input type="hidden" id="fmember_no" value="${sessionScope.member_no}">
 <jsp:include page="/frontend/accountlogin/login.jsp"/>
 <jsp:include page="/frontend/accountlogin/findpwd.jsp"/>
 <jsp:include page="/frontend/accountlogin/agree.jsp"/>	

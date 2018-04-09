@@ -302,6 +302,6 @@ function search(){
 			gbl_data =data;			
 			renew();
 		}
-	});
+	});	
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -33,11 +34,11 @@ public class SearchController {
 	
 	@ResponseBody
 	@RequestMapping(value="/Search/MapSearch.do", produces = "text/html; charset=utf8")
-	public String searchMap(@RequestParam Map map) {
+	public String searchMap(@RequestParam Map map, HttpSession session) {
 		JSONArray listArray = new JSONArray();
 		JSONObject optionInfo = null;
-				
-		List<SearchDto> list = searchService.searchRoom(map);
+		
+		List<SearchDto> list = searchService.searchRoom(map, session);
 		for(int i=0; i<list.size(); i++) {
 			optionInfo = new JSONObject();
 			optionInfo.put("room_no", list.get(i).getRoom_no());
@@ -56,7 +57,8 @@ public class SearchController {
 			optionInfo.put("room_title", list.get(i).getRoom_title());
 			optionInfo.put("stored_file_name", list.get(i).getStored_file_name());
 			optionInfo.put("lat", list.get(i).getLat());
-			optionInfo.put("lng", list.get(i).getLng());			
+			optionInfo.put("lng", list.get(i).getLng());
+			optionInfo.put("favorite", list.get(i).isFavorite());
 			listArray.add(optionInfo);
 		}
 				

@@ -265,12 +265,16 @@ $(function() {
     $('#favorite').click(function(){
     	var member_no = $('#fmember_no').val();
     	var room_no = $('#froom_no').val();
+    	if(member_no==""){
+    		customAlert("warning", "찜하기는 로그인 후 이용가능합니다.");
+    		return false;
+    	}
     	
     	$(this).toggleClass('active');
     	if($(this).hasClass('active')){
     		$.ajax({
     			type:'post',
-    			url:'/CBangProj//Room/Favorite.do',
+    			url:'/CBangProj/Room/Favorite.do',
     			data :
     			{
     				mode : "insert",
@@ -291,7 +295,7 @@ $(function() {
     	else{
     		$.ajax({
     			type:'post',
-    			url:'/CBangProj//Room/Favorite.do',
+    			url:'/CBangProj/Room/Favorite.do',
     			data :
     			{
     				mode : "delete",

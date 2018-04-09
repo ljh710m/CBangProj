@@ -435,8 +435,7 @@ ${roomDetail.room_desc}
 	
 	<input type="hidden" id="lat" value="${roomDetail.lat}">
 	<input type="hidden" id="lng" value="${roomDetail.lng}">
-	<input type="hidden" id="froom_no" value="${roomDetail.room_no}">
-	<input type="hidden" id="fmember_no" value="${roomDetail.member_no}">
+	<input type="hidden" id="froom_no" value="${roomDetail.room_no}">	
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

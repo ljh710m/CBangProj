@@ -480,14 +480,20 @@ legend {
     margin-left: 8px;
     font-size: 12px;
 }
-.RoomItem-header .room-visited .dabang-icon {
+.RoomItem-header .room-visited .nbang-icon {
     color: #d1d1d1;
 }
 .RoomItem-icons {
     float: right;
 }
-.RoomItem-icons .room-favorite .dabang-icon-heart-o {
+.RoomItem-icons .room-favorite .far.fa-heart {
     color: #d1d1d1;
+}
+.RoomItem-icons .room-favorite .far.fa-heart:hover {
+    color: #ef4351;
+}
+.RoomItem-icons .room-favorite .fas.fa-heart {
+    color: #ef4351;
 }
 .icon-size-2xl {
     vertical-align: -5px;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import model.BuildingOptionDto;
 import model.BuildingOptionListDto;
+import model.FavoriteDto;
 import model.RoomTypesDto;
 import model.SearchDto;
 
@@ -37,6 +38,11 @@ public class SearchDao {
 	public List<RoomTypesDto> roomTypes(){
 		
 		return sqlMapper.selectList("RoomTypes");
+	}
+	
+	public List<FavoriteDto> memberFavorite(String member_no){
+		
+		return sqlMapper.selectList("MemberFavorite",member_no);
 	}
 	
 }

@@ -21,7 +21,8 @@
 		<typeAlias alias="RoomTypesDto" type="model.RoomTypesDto"/>		
 		<typeAlias alias="PhotoDto" type="model.PhotoDto"/>
 		<typeAlias alias="TradeTypeDto" type="model.TradeTypeDto"/>
-		<typeAlias alias="OfficeDto" type="model.OfficeDto"/>			
+		<typeAlias alias="OfficeDto" type="model.OfficeDto"/>
+		<typeAlias alias="FavoriteDto" type="model.FavoriteDto"/>		
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>				
 	</typeAliases>
 	 
