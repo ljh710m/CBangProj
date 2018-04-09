@@ -45,12 +45,15 @@ function execDaumPostcode() {
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                     mapOption = {
                         center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-                        level: 3 // 지도의 확대 레벨
+                        level: 3 // 지도의 확대 레벨                        
                     };
                                         
                     //지도를 생성
         	        var map = new daum.maps.Map(mapContainer, mapOption);
                     
+        	        //마우스 휠이나 멀티터치로 지도 확대, 축소 기능을 막기
+        	        map.setZoomable(false);
+        	        
         	        // 지도에 표시할 원을 생성합니다
         	        var circle = new daum.maps.Circle({
         	            center : new daum.maps.LatLng(result.y, result.x),  // 원의 중심좌표 입니다 
