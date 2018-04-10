@@ -123,7 +123,7 @@
 				</div>
 				<p class="lead">
 					 <span style="font-weight:bold;">기존 부동산 서비스와 다른 새로운 방식</span><br />
-					 <span style="color:#159ae3">다방 무료계정</span> 으로 귀하의 비지니스를 성장 시키세요!
+					 <span style="color:#159ae3">N방 무료계정</span> 으로 귀하의 비지니스를 성장 시키세요!
 				</p>
 			</div>
 			<div class="col-md-12">
