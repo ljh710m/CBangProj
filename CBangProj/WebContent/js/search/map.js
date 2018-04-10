@@ -42,10 +42,22 @@ $(function() {
 					$('#iconType').removeClass('deal');
 					$('#iconType').addClass('deposit');		
 				}
+				if($(this).val()=="All"){
+					$('#rentTypeTitle').html('매물종류');
+				}
+				else{
+					$('#rentTypeTitle').html($(this).next().html());					
+				}
 				break;
 			case "check2"://거래종류
 				$('input[name="check2"]').prop('checked',false);
 				$(this).prop('checked',true);
+				if($(this).val()=="All"){
+					$('#tradeTypeTitle').html('거래종류');
+				}
+				else{
+					$('#tradeTypeTitle').html($(this).next().html());					
+				}
 				break;
 			case "check3"://방 종류				
 				if($('input[name="check3"]:eq(0)').val() !=  $(this).val()){					
@@ -301,6 +313,103 @@ function search(){
 		success:function(data){			
 			gbl_data =data;			
 			renew();
+		}
+	});	
+	
+}
+
+function initSearch(){	
+	var trade_type = $('input[name="check2"]:checked').val();
+	var rent_type = $('input[name="check1"]:checked').val();
+	var room_type = "";	
+	$('input[name="check3"]:checked').each(function(i,e) {
+		if(room_type == ""){
+			room_type=e.value;
+		}
+		else{
+			room_type+=","+e.value;
+		}					
+	});	
+	var deposit1s = $('#deposit1s').val();
+	var deposit1e = $('#deposit1e').val();
+	var deposit2s = $('#deposit1s').val();
+	var deposit2e = $('#deposit1e').val();
+	var month1 = $('#month1').val();
+	var month2 = $('#month2').val();
+	var area1=0;
+	var area2=99999;		
+	switch($('input[name="option2"]:checked').val()){
+		case "5":
+			area1=0;
+			area2=5;
+			break;
+		case "10":
+			area1=5;
+			area2=10;
+			break;
+		case "1000":
+			area1=10;
+			area2=1000;
+			break;
+	}		
+	var floor1=-1;
+	var floor2=50;
+	switch($('input[name="option3"]:checked').val()){
+		case "-1":
+			floor1=-1;
+			floor2=-1;
+			break;
+		case "3":
+			floor1=1;
+			floor2=3;
+			break;
+		case "6":
+			floor1=4;
+			floor2=6;
+			break;
+		case "7":
+			floor1=7;
+			floor2=50;
+			break;
+		case "0":
+			floor1=0;
+			floor2=0;
+			break;
+	}
+	var option_code = "";
+	$('input[name="option1"]:checked').each(function(i,e) {
+		if(option_code == ""){
+			option_code=e.value;
+		}
+		else{
+			option_code+=","+e.value;
+		}					
+	});	
+	
+	$.ajax({
+		type:'POST',
+		url:'/CBangProj/Search/MapSearch.do',
+		data:
+		{
+			trade_type:trade_type,
+			rent_type:rent_type,
+			room_type:room_type,
+			deposit1s:deposit1s,
+			deposit1e:deposit1e,
+			deposit2s:deposit2s,
+			deposit2e:deposit2e,
+			month1:month1,
+			month2:month2,
+			area1:area1,
+			area2:area2,
+			floor1:floor1,
+			floor2:floor2,
+			option_code:option_code
+		},
+		dataType:'json',
+		async:false, // true: 비동기, false: 동기
+		success:function(data){			
+			gbl_data =data;
 		}
 	});	
 	

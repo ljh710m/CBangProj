@@ -1,6 +1,5 @@
 package com.cbang.frontend.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,10 +107,9 @@ public class SearchService {
 						break;
 					}
 				}				
-			}			
+			}	
 		}
-		
-		
+				
 		return list;		
 	}
 

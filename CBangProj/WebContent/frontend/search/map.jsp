@@ -43,7 +43,7 @@
 					<div class="filter-dash"></div>
 					<div class="filter-dropdown">
 						<div class="title" title="매물종류">
-							<h2 class="name">매물종류</h2>
+							<h2 class="name" id="rentTypeTitle">매물종류</h2>
 							<i class="cbang-icon fas fa-caret-down"></i>
 						</div>
 						<div class="content hidden" style="width:146px;">
@@ -71,7 +71,7 @@
 					<div class="filter-dash"></div>
 					<div class="filter-dropdown">
 						<div class="title" title="거래종류">
-							<h2 class="name">거래종류</h2>
+							<h2 class="name" id="tradeTypeTitle">거래종류</h2>
 							<i class="cbang-icon fas fa-caret-down"></i>
 						</div>
 						<div class="content hidden" style="width:146px;"><!--  -->
@@ -81,7 +81,12 @@
 								</div>					
 								<div>
 									<label class="checkbox-wrap clearfix">
+									<c:if test="${param['searchOption']=='직거래'}" var="tradeTypeFlag">
+										<input class="checkbox" type="checkbox" value="All" name="check2">
+									</c:if>
+									<c:if test="${not tradeTypeFlag}">
 										<input class="checkbox" type="checkbox" checked="" value="All" name="check2">
+									</c:if>
 										<span class="name">전체</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
@@ -89,7 +94,12 @@
 										<span class="name">중개</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
+									<c:if test="${tradeTypeFlag}">
+										<input class="checkbox" type="checkbox" value="직거래" name="check2" checked>
+									</c:if>
+									<c:if test="${not tradeTypeFlag}">
 										<input class="checkbox" type="checkbox" value="직거래" name="check2">
+									</c:if>
 										<span class="name">직거래</span>
 									</label>
 								</div>
@@ -115,7 +125,12 @@
 								<div>
 									<div>
 										<label class="checkbox-wrap clearfix">
+										<c:if test="${param['roomType']!='' and param['searchOption']==''}" var="roomTypeAll">
+											<input class="checkbox" type="checkbox" value="All" name="check3">
+										</c:if>
+										<c:if test="${not roomTypeAll}">
 											<input class="checkbox" type="checkbox" value="All" name="check3" checked>
+										</c:if>							
 											<span class="name">전체</span>
 										</label>
 									</div>
@@ -123,7 +138,12 @@
 								<c:forEach items="${lists.roomTypes}" var="item">
 									<div>
 										<label class="checkbox-wrap clearfix">
+										<c:if test="${param['roomType']==item.room_type}" var="roomTypeFlag">
+											<input class="checkbox" type="checkbox" value="${item.rm_type_code}" name="check3" checked>
+										</c:if>
+										<c:if test="${not roomTypeFlag}">
 											<input class="checkbox" type="checkbox" value="${item.rm_type_code}" name="check3">
+										</c:if>
 											<span class="name">${item.room_type}</span>
 										</label>
 									</div>									
@@ -228,7 +248,7 @@
 					<div class="filter-dropdown">
 						<div class="title" title="추가옵션">
 							<h2 class="name">
-								<span>
+								<span>									
 									<span>추가옵션</span><span class="hidden"></span><!--  -->
 								</span>
 							</h2>
@@ -244,12 +264,17 @@
 								<c:if test="${not empty lists.buildingOptions}">
 									<c:forEach items="${lists.buildingOptions}" var="item">
 										<label class="checkbox-wrap clearfix">
+										<c:if test="${param['searchOption']==item.option_code}" var="searchOptionFlag">
+											<input class="checkbox" type="checkbox" value="${item.option_code}" name="option1" checked>
+										</c:if>
+										<c:if test="${not searchOptionFlag}">
 											<input class="checkbox" type="checkbox" value="${item.option_code}" name="option1">
+										</c:if>
 											<span class="name">${item.name}</span>	
 										</label>
 									</c:forEach>
 								</c:if>
-									</div>
+									</div>									
 									<div class="line"></div>
 									<div>
 										<label class="checkbox-wrap clearfix">

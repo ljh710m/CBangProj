@@ -59,7 +59,7 @@
 		</div>
 		<div class="ThemeSearch-contents">
 			<div class="ThemeSearch-contents__wrap">
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto(2)">
 					<div class="ThemeSearch-item__image is-pet"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -83,7 +83,7 @@
 						</p>
 					</div>
 				</button>
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto(6)">
 					<div class="ThemeSearch-item__image is-pano"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -95,7 +95,7 @@
 						</p>
 					</div>
 				</button>
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto(1)">
 					<div class="ThemeSearch-item__image is-parking"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -107,7 +107,7 @@
 						</p>
 					</div>
 				</button>
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto('직거래')">
 					<div class="ThemeSearch-item__image is-direct"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -119,7 +119,7 @@
 						</p>
 					</div>
 				</button>
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto1('오피스텔')">
 					<div class="ThemeSearch-item__image is-officetel"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -141,22 +141,22 @@
 			<div class="col-md-2 col-md-offset-1">
 				<h3 class="SitemapMenu-title">형태별 검색</h3>
 				<ul class="SitemapMenu-list">
-					<li><button class="btn-no-border btn-no-bg">원룸</button></li>
-					<li><button class="btn-no-border btn-no-bg">투룸</button></li>
-					<li><button class="btn-no-border btn-no-bg">쓰리룸</button></li>
-					<li><button class="btn-no-border btn-no-bg">오피스텔</button></li>
-					<li><button class="btn-no-border btn-no-bg">아파트</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('원룸')">원룸</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('투룸')">투룸</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('쓰시룸')">쓰리룸</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('오피스텔')">오피스텔</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('아파트')">아파트</button></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
 				<h3 class="SitemapMenu-title">테마별 검색</h3>
 				<ul class="SitemapMenu-list">
 					<li><button class="btn-no-border btn-no-bg">저보증금</button></li>
-					<li><button class="btn-no-border btn-no-bg">오피스텔</button></li>
-					<li><button class="btn-no-border btn-no-bg">직거래 매물</button></li>
-					<li><button class="btn-no-border btn-no-bg">주차 가능</button></li>
-					<li><button class="btn-no-border btn-no-bg">반려동물 가능</button></li>
-					<li><button class="btn-no-border btn-no-bg">360도 매물</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('오피스텔')">오피스텔</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto('직거래')">직거래 매물</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto(1)">주차 가능</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto(2)">반려동물 가능</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto(6)">360도 매물</button></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
@@ -182,7 +182,7 @@
 			<div class="col-md-2">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="SitemapMenu-title">다방 뉴스</h3>
+						<h3 class="SitemapMenu-title">N방 뉴스</h3>
 						<ul class="SitemapMenu-list">
 							<li><a href="<c:url value='/frontend/notice/Main.jsp'/>">공지사항</a></li>
 							<li><a href="#">이벤트</a></li>
@@ -195,7 +195,7 @@
 							<li><a href="#">자주 묻는 질문</a></li>
 							<li><a href="#">Android/IOS</a></li>
 							<li><a href="#">웰페이퍼</a></li>
-							<li><a href="#">다방 공식 포스트</a></li>														
+							<li><a href="#">N방 공식 포스트</a></li>														
 						</ul>
 					</div>
 				</div>	
@@ -203,7 +203,7 @@
 			<div class="col-md-2">
 				<h3 class="SitemapMenu-title">About N방</h3>
 				<ul class="SitemapMenu-list">
-					<li><a href="#">회사소개</a></li>
+					<li><a href="<c:url value='/frontend/company/Company.jsp'/>">회사소개</a></li>
 					<li><a href="#">오시는 길</a></li>
 					<li><a href="#">제휴 문의</a></li>														
 				</ul>
@@ -236,6 +236,7 @@
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/util/alert.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
+    <script src="<c:url value='/js/main/index.js'/>"></script>
     	
 </body>
 </html>

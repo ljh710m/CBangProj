@@ -61,7 +61,7 @@ public class SearchController {
 			optionInfo.put("favorite", list.get(i).isFavorite());
 			listArray.add(optionInfo);
 		}
-				
+		
 		return listArray.toJSONString();		
 	}
 }

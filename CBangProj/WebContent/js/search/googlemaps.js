@@ -1,5 +1,5 @@
 var gbl_data;
-$.ajax({
+/*$.ajax({
 		type:'POST',
 		url:'/CBangProj/Search/MapSearch.do',		
 		dataType:'json',
@@ -7,7 +7,17 @@ $.ajax({
 		success:function(data){
 			gbl_data =data;			
 		}
-});
+});*/
+initSearch();
+if($('input[name="check2"]:checked').val()=='직거래'){
+	$('#tradeTypeTitle').html('직거래');
+}
+if($('input[name="check3"]:checked').length!=0 && $('input[name="check3"]:eq(0):checked').length ==0){	
+	$('[title="방 종류"] > h2 > span > span:eq(1)').html($('input[name="check3"]:checked').length).removeClass('hidden').addClass('badge');
+}
+if($('input[name^="option"]:checked').length!=0){
+	$('[title="추가옵션"] > h2 > span > span:eq(1)').html($('input[name^="option"]:checked').length).removeClass('hidden').addClass('badge');			
+}
 
 var markerList = [];
 var markerLength = 0;
