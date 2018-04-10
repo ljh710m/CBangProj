@@ -32,6 +32,7 @@
 		<mapper resource="mybatis/Locations_myBatis.xml"/>
 		<mapper resource="mybatis/Room_myBatis.xml"/>
 		<mapper resource="mybatis/Search_myBatis.xml"/>
+		<mapper resource="mybatis/Favorite_myBatis.xml"/>
 		<mapper resource="mybatis/PLogin_myBatis.xml"/>
 	</mappers>
 	

@@ -20,7 +20,7 @@
     	<div id="navbar" class="navbar-collapse collapse">      		
 			<ul class="nav navbar-nav navbar-right">        		
         		<li><a href="<c:url value='/Search/Map.do'/>">방 검색 </a></li>
-        		<li><a href="<c:url value='/frontend/favorite/Recently.jsp'/>">관심목록</a></li>
+        		<li><a href="<c:url value='/Favorite/Favorite.do'/>">관심목록</a></li>
         	<c:if test="${!empty sessionScope.member_no}" var="flag1">
         		<li><a href="<c:url value='/Form/RegisterRoom.do'/>">방 등록</a></li>        		
         	</c:if>
