@@ -8,8 +8,8 @@ var gbl_data;
 			gbl_data =data;			
 		}
 });*/
-//favorite("/CBangProj/Favorite/Visited.do");
-favorite("/CBangProj/Favorite/Favorited.do");
+favorite("/CBangProj/Favorite/Visited.do");
+//favorite("/CBangProj/Favorite/Favorited.do");
 var markerList = [];
 var markerLength = 0;
 var map;
@@ -250,7 +250,7 @@ function list(start,end){
 				bOptionDiv.append($('<span/>').addClass("tag").html("#단기가능"));			
 			}
 			
-			var favoriteIcon;			
+			var favoriteIcon;
 			if(markerList[i].favorite){
 				favoriteIcon = $('<i/>').addClass("icon-size-2xl fas fa-heart");			
 			}

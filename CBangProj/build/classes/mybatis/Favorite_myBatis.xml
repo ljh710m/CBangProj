@@ -6,6 +6,20 @@
 <!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
 <mapper namespace="mybatis.Favorite_myBatis">
 	
+	<select id="VisitedRoom" parameterType="java.util.List" resultType="SearchDto">
+		SELECT *
+		FROM room
+		JOIN detail USING(room_no) 
+		JOIN locations USING(location_code) 
+		JOIN room_types USING(rm_type_code)
+		JOIN (SELECT * FROM photo WHERE del_gb = 'Y') USING(room_no)
+		WHERE state = '거래중'
+		AND room_no IN
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>	
+	</select>	
+	
 	<select id="FavoritedRoom" parameterType="String" resultType="SearchDto">
 		SELECT *
 		FROM favorite_room f

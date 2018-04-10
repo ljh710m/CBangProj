@@ -1,9 +1,17 @@
 package com.cbang.frontend.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -19,6 +27,7 @@ import model.PhotoDto;
 import model.RoomDetailDto;
 import model.RoomOptionCheckDto;
 import model.TradeTypeDto;
+import util.CookieUtils;
 
 @Controller
 public class RoomDetailController {
@@ -27,7 +36,17 @@ public class RoomDetailController {
 	private RoomService service;
 	
 	@RequestMapping("/Room/Detail.do")
-	public String detailRoom(@RequestParam(value="roomNo", required=true) String roomNo, HttpSession session, Model model) {
+	public String detailRoom(
+			@RequestParam(value="roomNo", required=true) String roomNo,
+			HttpServletRequest req,
+			HttpServletResponse resp,
+			HttpSession session,
+			Model model) {
+				
+		CookieUtils cookieUtils = new CookieUtils();
+		try {
+			cookieUtils.setCookie("visited", roomNo, 0, req, resp);
+		} catch (UnsupportedEncodingException e) {e.printStackTrace();}
 		
 		RoomDetailDto roomDetail = service.roomDetail(roomNo);		
 		List<RoomOptionCheckDto> roomOption = service.roomOption(roomNo);

@@ -15,6 +15,11 @@ public class FavoriteDao {
 	@Resource(name="sqlMapper")
 	private SqlSessionTemplate sqlMapper;
 	
+	public List<SearchDto> visitedRoom(List<String> list){
+		
+		return sqlMapper.selectList("VisitedRoom", list);
+	}
+	
 	public List<SearchDto> favoritedRoom(String member_no){
 		
 		return sqlMapper.selectList("FavoritedRoom", member_no);
