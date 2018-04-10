@@ -9,6 +9,9 @@ var gbl_data;
 		}
 });*/
 initSearch();
+if($('input[name="check1"]:checked').val()=='월세'){	
+	$('#rentTypeTitle').html('월세');			
+}
 if($('input[name="check2"]:checked').val()=='직거래'){
 	$('#tradeTypeTitle').html('직거래');
 }

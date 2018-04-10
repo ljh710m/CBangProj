@@ -53,11 +53,21 @@
 								</div>
 								<div>
 									<label class="checkbox-wrap clearfix">
+									<c:if test="${param['searchOption']!='row'}" var="rowFLag">
 										<input class="checkbox" type="checkbox" checked="" value="All" name="check1">
+									</c:if>
+									<c:if test="${not rowFLag}">
+										<input class="checkbox" type="checkbox" value="All" name="check1">
+									</c:if>
 										<span class="name">월세 + 전세</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
+									<c:if test="${not rowFLag}">									
+										<input class="checkbox" type="checkbox" value="월세" name="check1" checked>
+									</c:if>
+									<c:if test="${rowFLag}">
 										<input class="checkbox" type="checkbox" value="월세" name="check1">
+									</c:if>
 										<span class="name">월세</span>
 									</label>
 									<label class="checkbox-wrap clearfix">
@@ -161,7 +171,12 @@
 									<span><i class="filter-icon deposit" id="iconType"></i></span>
 									<span id="deposit__from">0 만원</span>
 									<span class="swing" style="display:inline;margin:0 5px;">~</span>
+								<c:if test="${not rowFLag}" >	
+									<span id="deposit__to">300</span>
+								</c:if>
+								<c:if test="${rowFLag}">
 									<span id="deposit__to">무제한</span>
+								</c:if>
 								</span>
 							</h2>
 							<i class="cbang-icon fas fa-caret-down"></i>
@@ -172,7 +187,12 @@
 								<p class="placeholder">보증금 (ex. 10,000만원 = 1억원)</p>
 								<input class="input1" type="number" value="0" id="deposit1s">
 								<div class="swing">~</div>
+							<c:if test="${not rowFLag}">
+								<input class="input2" type="number" value="300" id="deposit1e">
+							</c:if>
+							<c:if test="${rowFLag}">
 								<input class="input2" type="number" value="999999" id="deposit1e">
+							</c:if>
 								<div class="price-line"></div>
 								<div class="clearfix">
 									<div class="price-select-list from">
@@ -186,7 +206,7 @@
 											<li class="price-item"><span>무제한</span></li>
 										</ul>
 									</div>
-									<div class="price-select-list to">									
+									<div class="price-select-list to">			
 										<ul class="price-list" id="deposit_to">
 											<li class="price-item"><span>0 만원</span></li>
 											<li class="price-item"><span>100 만원</span></li>

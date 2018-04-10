@@ -71,7 +71,7 @@
 						</p>
 					</div>
 				</button>
-				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;">
+				<button class="ThemeSearch-item btn-no-border btn-no-bg" style="padding:0px;" onclick="post_goto('row')">
 					<div class="ThemeSearch-item__image is-guarantee"></div>
 					<div class="ThemeSearch-item__mask"></div>
 					<div class="ThemeSearch-item__typo">
@@ -151,7 +151,7 @@
 			<div class="col-md-2">
 				<h3 class="SitemapMenu-title">테마별 검색</h3>
 				<ul class="SitemapMenu-list">
-					<li><button class="btn-no-border btn-no-bg">저보증금</button></li>
+					<li><button class="btn-no-border btn-no-bg" onclick="post_goto('row')">저보증금</button></li>
 					<li><button class="btn-no-border btn-no-bg" onclick="post_goto1('오피스텔')">오피스텔</button></li>
 					<li><button class="btn-no-border btn-no-bg" onclick="post_goto('직거래')">직거래 매물</button></li>
 					<li><button class="btn-no-border btn-no-bg" onclick="post_goto(1)">주차 가능</button></li>

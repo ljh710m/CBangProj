@@ -64,7 +64,7 @@ public class RoomRegisterController {
 			roomDto.setMonth_price(month_price.get(0));			
 			if(deposit2.size() !=0) {
 				deposit2.remove(0);
-				month_price.remove(0);				
+				month_price.remove(0);
 			}
 		}
 		else {
@@ -96,7 +96,6 @@ public class RoomRegisterController {
 				
 		map.get("tradeList");
 		
-		return room_no;		
-	}
-	
+		return room_no;
+	}	
 }
