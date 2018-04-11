@@ -79,32 +79,34 @@ public class FavoriteService {
 			list.get(i).setFavorite(true);
 		}
 		
-		List<BuildingOptionDto>	buildingOptionList = favoriteDao.buildingOptionRoom(list);
-		for(int i=0; i<buildingOptionList.size(); i++) {			
-			if(buildingOptionList.get(i).getName().equals("주차가능")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setParking(true);
-						break;
+		if(list.size() != 0) {
+			List<BuildingOptionDto>	buildingOptionList = favoriteDao.buildingOptionRoom(list);
+			for(int i=0; i<buildingOptionList.size(); i++) {			
+				if(buildingOptionList.get(i).getName().equals("주차가능")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setParking(true);
+							break;
+						}
 					}
 				}
-			}
-			if(buildingOptionList.get(i).getName().equals("반려동물")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setPat(true);
-						break;
+				if(buildingOptionList.get(i).getName().equals("반려동물")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setPat(true);
+							break;
+						}
 					}
 				}
+				if(buildingOptionList.get(i).getName().equals("단기임대")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setShort_term(true);
+							break;
+						}
+					}				
+				}	
 			}
-			if(buildingOptionList.get(i).getName().equals("단기임대")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setShort_term(true);
-						break;
-					}
-				}				
-			}	
 		}
 		
 		return list;		
@@ -126,32 +128,34 @@ public class FavoriteService {
 			}				
 		}
 		
-		List<BuildingOptionDto>	buildingOptionList = favoriteDao.buildingOptionRoom(list);
-		for(int i=0; i<buildingOptionList.size(); i++) {			
-			if(buildingOptionList.get(i).getName().equals("주차가능")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setParking(true);
-						break;
+		if(list.size() != 0) {
+			List<BuildingOptionDto>	buildingOptionList = favoriteDao.buildingOptionRoom(list);
+			for(int i=0; i<buildingOptionList.size(); i++) {			
+				if(buildingOptionList.get(i).getName().equals("주차가능")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setParking(true);
+							break;
+						}
 					}
 				}
-			}
-			if(buildingOptionList.get(i).getName().equals("반려동물")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setPat(true);
-						break;
+				if(buildingOptionList.get(i).getName().equals("반려동물")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setPat(true);
+							break;
+						}
 					}
 				}
+				if(buildingOptionList.get(i).getName().equals("단기임대")) {				
+					for(int j=0; j<list.size();j++) {					
+						if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
+							list.get(j).setShort_term(true);
+							break;
+						}
+					}				
+				}	
 			}
-			if(buildingOptionList.get(i).getName().equals("단기임대")) {				
-				for(int j=0; j<list.size();j++) {					
-					if(list.get(j).getRoom_no().equals(buildingOptionList.get(i).getRoom_no())) {						
-						list.get(j).setShort_term(true);
-						break;
-					}
-				}				
-			}	
 		}
 		
 		return list;		

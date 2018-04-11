@@ -65,12 +65,23 @@ public class RoomService {
 		switch(roomDetail.getRent_type()) {
 			case "전세":
 				if(Integer.parseInt(roomDetail.getDeposit1()) >= 10000) {
-					roomDetail.setDeposit1(Integer.parseInt(roomDetail.getDeposit1())/10000+"억"+Integer.parseInt(roomDetail.getDeposit1())%10000);					
+					if(Integer.parseInt(roomDetail.getDeposit1())%10000 == 0) {
+						roomDetail.setDeposit1(Integer.parseInt(roomDetail.getDeposit1())/10000+"억원");
+					}
+					else {
+						roomDetail.setDeposit1(Integer.parseInt(roomDetail.getDeposit1())/10000+"억"+Integer.parseInt(roomDetail.getDeposit1())%10000);					
+					}
 				}
 				break;
 			case "월세":
 				if(Integer.parseInt(roomDetail.getDeposit2()) >= 10000) {
-					roomDetail.setDeposit2(Integer.parseInt(roomDetail.getDeposit2())/10000+"억"+Integer.parseInt(roomDetail.getDeposit2())%10000);					
+					if(Integer.parseInt(roomDetail.getDeposit2())%10000==0) {
+						roomDetail.setDeposit2(Integer.parseInt(roomDetail.getDeposit2())/10000+"억원");
+					}
+					else {
+						roomDetail.setDeposit2(Integer.parseInt(roomDetail.getDeposit2())/10000+"억"+Integer.parseInt(roomDetail.getDeposit2())%10000);	
+					}
+					
 				}							
 				break;		
 		}

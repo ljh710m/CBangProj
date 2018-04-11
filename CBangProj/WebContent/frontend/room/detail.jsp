@@ -115,8 +115,11 @@
 									</div>
 									<div class="room-tag-list-wrap">
 										<ul>
-										<c:if test="${roomDetail.trade_type=='직거래'}">
+										<c:if test="${roomDetail.trade_type=='직거래'}" var="tradeTag">
 											<li class="tag" style="cursor:default;"><span>#직거래</span></li>
+										</c:if>
+										<c:if test="${not tradeTag}">
+											<li class="tag" style="cursor:default;"><span>#중개</span></li>
 										</c:if>
 										<c:if test="${roomDetail.short_term}">
 											<li class="tag" style="cursor:default;"><span>#단기가능</span></li>
@@ -256,7 +259,7 @@
 														</div>
 													</c:if>
 													<c:if test="${not tradeTypeFlag}">
-														${roomDetail.deposit2}/${roomDetail.month_price}														
+														${roomDetail.deposit1}														
 													</c:if>
 													</td>		
 												</c:if>
