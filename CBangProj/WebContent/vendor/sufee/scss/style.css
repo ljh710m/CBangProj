@@ -1325,6 +1325,13 @@ header .form-inline {
 #menuToggle2 {
   padding-left: 25px; }
 
+#adminId {
+  font-weight:bold;
+  float: right;
+  margin: 7px 20px 0 0;
+  max-width: 80px; 
+}
+
 #language-select {
   color: #f1f2f7;
   float: right;
