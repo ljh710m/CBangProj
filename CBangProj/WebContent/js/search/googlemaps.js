@@ -240,10 +240,20 @@ function list(start,end){
 						.append($('<span/>').addClass("RoomItem-price__type").html("월세"))		
 							.append($('<span/>').addClass("RoomsItem-price__title is-0").html(deposit2+"/"+markerList[i].month_price)));		
 			}
+			var floor = "";
+			if(markerList[i].floor==0){
+				floor = $('<span/>').html(" 옥탑 ");
+			}
+			else if(markerList[i].floor==-1){
+				floor = $('<span/>').html(" 반지층 ");
+			}
+			else{
+				floor = $('<span/>').html(" "+markerList[i].floor+"층 ");
+			}
 			
 			var summaryDiv = $('<span/>').addClass("RoomItem-summary")
 						.append($('<span/>').html(markerList[i].room_type+" "))
-						.append($('<span/>').html(" "+markerList[i].floor+"층 "))
+						.append(floor)
 						.append($('<span/>').html(" "+markerList[i].area+"m²"));
 			
 			if(markerList[i].common_charge != null){				

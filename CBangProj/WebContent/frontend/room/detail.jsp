@@ -294,7 +294,15 @@
 												</tr>
 												<tr>
 													<th>해당 층 / 건물 층</th>
+												<c:if test="${roomDetail.floor==0}" var="floorFlag">
+													<td class="padding">옥탑 / ${roomDetail.total_floor}층</td>
+												</c:if>
+												<c:if test="${not floorFlag and roomDetail.floor==-1}" var="floorFlag">
+													<td class="padding">반지층 / ${roomDetail.total_floor}층</td>
+												</c:if>
+												<c:if test="${not floorFlag}">
 													<td class="padding">${roomDetail.floor}층 / ${roomDetail.total_floor}층</td>
+												</c:if>
 													<th>
 														<span>전용 / </span><span>공급</span><span>면적</span>
 													</th>

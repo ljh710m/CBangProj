@@ -118,7 +118,7 @@ public class FavoriteController {
 	@RequestMapping(value = "/Favorite/Contacted.do", produces = "text/html; charset=utf8")
 	public String contacted(HttpSession session) {
 		JSONArray listArray = new JSONArray();
-		JSONObject optionInfo = null;
+		JSONObject optionInfo = null;	
 		
 		List<SearchDto> list = favoriteService.contactedRoom(session.getAttribute("member_no").toString());
 		for(int i=0; i<list.size(); i++) {
