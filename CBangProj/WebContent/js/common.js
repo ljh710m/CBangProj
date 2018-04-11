@@ -302,9 +302,12 @@ $(function() {
 		        	customAlert("error", error);
 		        }
 		    });			
-		}
-		
+		}		
 							
 	});//$('#login').click
+	
+	$('.btn-facebook').click(function(){
+		window.location.href = '/CBangProj/backend/login.jsp';				
+	});
 		
 });

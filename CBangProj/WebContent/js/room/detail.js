@@ -324,7 +324,7 @@ $(function() {
     //연락받기 클릭시(중개일 경우)
     $('#contactBtn').click(function(){
     	
-    	var member_no = $('#member_no').html();
+    	var member_no = $('#fmember_no').val();
     	var room_no = $('#room_no').html();
     	var contact_info = $('#contact_info').val(); 
     	

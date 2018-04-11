@@ -41,10 +41,10 @@
 									</div>
 									<div class="Login-sns">
 										<button class="Login-sns__btn btn-kakao">카카오톡 로그인</button>
-										<button class="Login-sns__btn btn-facebook">페이스북 로그인</button>
+										<button class="Login-sns__btn btn-facebook">관리자 로그인</button>										
 									</div>
 									<div class="Login-pro_register">
-										<a href="#" target="_blank">
+										<a href="<c:url value='/frontend/account/PLoginTerms.jsp'/>" target="_blank">
 											<i class="Login-pro_register__icon"></i>
 											<span> 공인중개사 회원가입</span>
 										</a>
