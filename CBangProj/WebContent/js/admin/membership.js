@@ -1,5 +1,6 @@
 (function($){
-        $('.viewModal').click(function(){
+        $('.tdtd').click(function(){
+        	console.log('gd');
         	var memberIdx = $(this).parent().parent().find('td:eq(0)').html();
         	var memberEmail = $(this).parent().parent().find('td:eq(1)').html();
         	var memberName = $(this).parent().parent().find('td:eq(2)').html();
@@ -12,7 +13,7 @@
 			var memberPermit_no = $(this).parent().parent().find('td:eq(9)').html();
 			var memberRepresent = $(this).parent().parent().find('td:eq(10)').html();
 			var memberAddress = $(this).parent().parent().find('td:eq(11)').html();
-				/*$('.modal-office_no').html(memberIdx);
+				$('.modal-office_no').html(memberIdx);
 				$('.modal-email').html(memberEmail);
 				$('.modal-name').html(memberName);
 				$('.modal-phone').html(memberPhone);
@@ -23,7 +24,19 @@
 				$('.modal-office_phone').html(memberOffice_phone);
 				$('.modal-permit_no').html(memberPermit_no);
 				$('.modal-represent').html(memberRepresent);
-				$('.modal-address').html(memberAddress);*/
+				$('.modal-address').html(memberAddress);
+				console.log(memberIdx);
+				console.log(memberEmail);
+				console.log(memberName);
+				console.log(memberPhone);
+				console.log(memberPath_type);
+				console.log(memberPath_code);
+				console.log(memberJoin_date);
+				console.log(memberJob);
+				console.log(memberOffice_phone);
+				console.log(memberPermit_no);
+				console.log(memberRepresent);
+				console.log(memberAddress);
             });
         
         $('#paging li').click(function(){

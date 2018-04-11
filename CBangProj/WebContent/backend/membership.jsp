@@ -25,25 +25,60 @@
     <!-- Custom styles -->
     <link href="<c:url value='/css/util/alert.css'/>" rel="stylesheet">
     <link href="<c:url value='/css/util/pagination.css'/>" rel="stylesheet">
+    <link href="<c:url value='/css/membership.css'/>" rel="stylesheet">
     
 </head>
 <body>
 	<!-- Modal -->
-	  <div class="modal fade" id="myModal" role="dialog">
-	    <div class="modal-dialog">
+	  <div class="modal modal-center fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-fullsize modal-center">
 	    
 	      <!-- Modal content-->
-	      <div class="modal-content">
+	      <div class="modal-content modal-fullsize">
 	        <div class="modal-header">
 	          <h4 class="modal-title">상세보기</h4>
 	          <button type="button" class="close" data-dismiss="modal">×</button>
 	        </div>
 	        <div class="modal-body">
-	        	<div style="display: inline-block;">
-	        		<img class="modal-profile_photo" alt="프로필사진" />
-	        	</div>
-	        	<div style="display: inline-block;float: right;width: 60%">
-	        		중개등록번호:<label class="modal-office_no">${memberOne['0'].office_no }</label>
+	        	<table class="table table-hover" style="height: 100px">
+	        		<thead>
+	        		<tr>
+	        			<th>프로필 사진</th>
+	        			<th>중개 등록번호</th>
+	        			<th>회원명</th>
+	        			<th>휴대폰 번호</th>
+	        			<th>E - mail</th>
+	        			<th>사업자 등록번호</th>
+	        			<th>중개사무소 주소</th>
+	        			<th>중개사무소 대표자명</th>
+	        			<th>대표번호</th>
+	        			<th>직책</th>
+	        			<th>가입일</th>
+	        			<th>가입 경로코드</th>
+	        			<th>가입 경로</th>
+	        		</tr>
+	        		</thead>
+	        		<tbody>
+	        		<tr>
+	        			<td class="modal-profile_photo">
+	        				<img class="modal-profile_photo" alt="프로필사진" />
+	        			</td>
+	        			<td class="modal-office_no"></td>
+	        			<td class="modal-name"></td>
+	        			<td class="modal-phone"></td>
+	        			<td class="modal-email"></td>
+	        			<td class="modal-permit_no"></td>
+	        			<td class="modal-address"></td>
+	        			<td class="modal-represent"></td>
+	        			<td class="modal-office_phone"></td>
+	        			<td class="modal-job"></td>
+	        			<td class="modal-join_date"></td>
+	        			<td class="modal-path_code"></td>
+	        			<td class="modal-path_type"></td>
+	        		</tr>
+	        		</tbody>
+	        	</table>
+	        		<!-- 중개등록번호:<label class="modal-office_no"></label>
 	        		<br />
 	        		회원명:<label class="modal-name"></label>
 	        		<br />
@@ -66,7 +101,7 @@
 	        		가입 경로코드:<label class="modal-path_code"></label>
 	        		<br />
 	        		가입 경로:<label class="modal-path_type"></label>
-	        		<br />
+	        		<br /> -->
 	        	</div>
 	          
 	        </div>
@@ -138,7 +173,7 @@
 		        					<td hidden>${list.permit_no }</td>
 		        					<td hidden>${list.represent }</td>
 		        					<td hidden>${list.address }</td>
-		        					<td style="width: 10%;text-align: center">
+		        					<td class="tdtd" style="width: 10%;text-align: center">
 		        					<a href="#" data-toggle="modal" data-target="#myModal" class="viewModal">보기</a> 
 		        					</td>
 		        				</tr>

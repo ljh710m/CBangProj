@@ -866,6 +866,13 @@ legend {
     color: #d1d1d1;
 }
 
+i.icon-size-2xl {
+	color: gray;
+}
+i.icon-size-2xl:hover {
+	color: #ff7473;	
+}
+
 .content {
 	display: inline-block;
 	background-repeat: no-repeat;

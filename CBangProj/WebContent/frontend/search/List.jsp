@@ -15,7 +15,7 @@
     <link href="<c:url value='/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
         
     <!-- Font Awesome font -->
-        <link href="<c:url value='/vendor/fontawesome/css/fa-regular.min.css'/>" rel="stylesheet">
+    <link href="<c:url value='/vendor/fontawesome/css/fa-regular.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/vendor/fontawesome/css/fa-brands.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/vendor/fontawesome/css/fa-solid.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/vendor/fontawesome/css/fontawesome.min.css'/>" rel="stylesheet">          	
@@ -388,7 +388,7 @@
 														</span>
 														<div class="RoomItem-icons">
 															<span class="room-favorite">
-																<i class="dabang-icon dabang-icon-heart-o icon-size-2xl"></i>
+																<i class="far fa-heart dabang-icon icon-size-2xl"></i>
 															</span>
 														</div>
 													</div>
