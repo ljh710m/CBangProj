@@ -1,6 +1,8 @@
 package util;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CookieUtils {
 	
+	 private static final String encoding = "UTF-8";
 	private static final String path = "/";
 	
 	/**
@@ -28,7 +31,7 @@ public class CookieUtils {
 			for(int i=0;i<cookies.length;i++){
 				if(cookies[i].getName().equals(key)){
 					value = cookies[i].getValue();
-					cookieValues = value.split(",");
+					cookieValues = (URLDecoder.decode(value, encoding)).split(",");
 					break;
 				}
 			}
@@ -81,7 +84,7 @@ public class CookieUtils {
 		}
 		
 		if(!sumValue.equals("")){
-			Cookie cookie = new Cookie("visited", sumValue);
+			Cookie cookie = new Cookie("visited", URLEncoder.encode(sumValue, encoding));
 			cookie.setMaxAge(60);//초단위, 일단위 : 60*60*24*day
 			cookie.setPath(path);
 			response.addCookie(cookie);			
