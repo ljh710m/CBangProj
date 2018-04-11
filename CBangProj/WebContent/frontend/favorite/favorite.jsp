@@ -123,6 +123,5 @@
     <script src="<c:url value='/vendor/googlemaps/markerclusterer.js'/>"></script>
     <script 
     src="//maps.googleapis.com/maps/api/js?key=AIzaSyAL2Mw8oEwGSz9kBH5Qws5Zg7Y25uZefrY&callback=initMap"></script>
-
 </body>
 </html>

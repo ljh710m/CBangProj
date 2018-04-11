@@ -217,7 +217,12 @@ function list(start,end){
 			if(markerList[i].rent_type == "전세"){
 				var deposit1=markerList[i].deposit1;
 				if(deposit1 >= 10000){
-					deposit1 = parseInt(deposit1/10000)+"억"+deposit1%10000;
+					if(deposit1%10000 == 0){
+						deposit1 = parseInt(deposit1/10000)+"억"						
+					}
+					else{
+						deposit1 = parseInt(deposit1/10000)+"억"+deposit1%10000;						
+					}					
 				}
 				
 				priceDiv = $('<div/>').addClass("RoomItem-price")

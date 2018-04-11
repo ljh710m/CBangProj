@@ -1,15 +1,7 @@
 var gbl_data;
-/*$.ajax({
-		type:'POST',
-		url:'/CBangProj/Favorite/Visited.do',		
-		dataType:'json',
-		async:false, // true: 비동기, false: 동기
-		success:function(data){
-			gbl_data =data;			
-		}
-});*/
+
 favorite("/CBangProj/Favorite/Visited.do");
-//favorite("/CBangProj/Favorite/Favorited.do");
+
 var markerList = [];
 var markerLength = 0;
 var map;
@@ -88,28 +80,30 @@ function initMap() {
 
 function renew(){
 	$('.ListLoading').css('visibility', "visible");
+	
 	// 지도에서 마커를 삭제 
 	for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
+	
 	// 클러스터에서 마커를 삭제
 	markerCluster.removeMarkers(markers);	
 	// 마커 초기화
 	markers = [];
 	
 	markers = gbl_data.map(function(location, i) {		
-    	return new google.maps.Marker({
-    		position: new google.maps.LatLng(location.lat,location.lng),
-    		title: location.room_no
-    	});
+		return new google.maps.Marker({
+			position: new google.maps.LatLng(location.lat,location.lng),
+			title: location.room_no
+		});
 	});	
 	markerCluster = new MarkerClusterer(map, markers,
 			{								
-				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
-		        minimumClusterSize : 1 //클러스터링 할 최소 마커 수 (default: 2) 
+		averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정		        
+		minimumClusterSize : 1 //클러스터링 할 최소 마커 수 (default: 2) 
 			}
-	);
-	
+	);	
+
 	markerLength = 0;
 	markerList = [];
     startLat = map.getBounds().getSouthWest().lat();	    

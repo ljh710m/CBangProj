@@ -235,9 +235,33 @@
 												<c:if test="${not tradeTypeFlag}">
 													<th>보증금 / 월세</th>
 												</c:if>
-												<c:if test="${roomDetail.rent_type == '전세'}" var="rentTypeFlag2">
-													<td class="padding">${roomDetail.deposit1}</td>
+											<c:if test="${roomDetail.rent_type == '전세'}" var="rentTypeFlag2">
+												<c:if test="${roomDetail.deposit2 != ''}">
+													<td class="padding">
+													<c:if test="${tradeTypeFlag}">
+														<div class="price-info">
+															<span class="one-price">${roomDetail.deposit1}</span>
+															<ul class="list-wrap" hidden="">
+																<li class="item">${roomDetail.deposit1}</li>															
+														<c:forEach items="${roomTradeType}" var="item">
+															<c:if test="${item.deposit1==null}" var="depositFlag">
+																<li class="item">${item.deposit2}/${item.month_price}</li>
+															</c:if>
+															<c:if test="${not depositFlag}">
+																<li class="item">${item.deposit1}</li>
+															</c:if>							
+														</c:forEach>
+															</ul>
+															<p class="nbang-icon fas fa-plus-square" id="price_info"></p>
+														</div>
+													</c:if>
+													<c:if test="${not tradeTypeFlag}">
+														${roomDetail.deposit2}/${roomDetail.month_price}														
+													</c:if>
+													</td>		
 												</c:if>
+													<%-- <td class="padding">${roomDetail.deposit1}</td> --%>
+											</c:if>
 												<c:if test="${not rentTypeFlag2}">
 													<td class="padding">
 													<c:if test="${tradeTypeFlag}">
