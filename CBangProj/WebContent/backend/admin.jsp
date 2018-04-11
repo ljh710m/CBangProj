@@ -56,6 +56,34 @@
 		
 		<!-- content -->
         <div class="content mt-3">
+        	<div class="row">
+	        	<div class="col-xl-3 col-lg-6">
+	                <div class="card">
+	                    <div class="card-body">
+	                        <div class="stat-widget-one">
+	                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+	                            <div class="stat-content dib">
+	                                <div class="stat-text">NBang Members</div>
+	                                <div class="stat-digit">${totalMembercount}</div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div><!--/.col-->
+	            <div class="col-xl-3 col-lg-6">
+	                <div class="card">
+	                    <div class="card-body">
+	                        <div class="stat-widget-one">
+	                            <div class="stat-icon dib"><i class="ti-home text-success border-success"></i></div>
+	                            <div class="stat-content dib">
+	                                <div class="stat-text">Active Rooms</div>
+	                                <div class="stat-digit">${totalRoomCount}</div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div><!--/.col-->
+	        </div>        	
         		       	
         </div> <!-- .content -->
     </div><!-- /#right-panel -->

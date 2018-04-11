@@ -8,14 +8,14 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="./"><img src="<c:url value='/images/logo1.png'/>" alt="Logo"></a>
+            <a class="navbar-brand" href="main.admin"><img src="<c:url value='/images/logo1.png'/>" alt="Logo"></a>
             <a class="navbar-brand hidden" href="./"><img src="<c:url value='/images/favicon.ico'/>" alt="Logo"></a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                    <a href="main.admin"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                 </li>
                 
                 <h3 class="menu-title">매물 관리</h3><!-- /.menu-title -->
