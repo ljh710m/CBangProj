@@ -13,8 +13,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<c:url value='/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="<c:url value='/vendor/bootstrap/css/bootstrap-theme.min.css'/>" rel="stylesheet">
+    <%-- <!-- Bootstrap theme -->
+    <link href="<c:url value='/vendor/bootstrap/css/bootstrap-theme.min.css'/>" rel="stylesheet"> --%>
     
     <!-- Font Awesome font -->
     <link href="<c:url value='/vendor/fontawesome/css/fa-solid.min.css'/>" rel="stylesheet">

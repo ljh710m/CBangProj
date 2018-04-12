@@ -22,9 +22,11 @@
 		<typeAlias alias="PhotoDto" type="model.PhotoDto"/>
 		<typeAlias alias="TradeTypeDto" type="model.TradeTypeDto"/>
 		<typeAlias alias="OfficeDto" type="model.OfficeDto"/>
-		<typeAlias alias="FavoriteDto" type="model.FavoriteDto"/>		
+		<typeAlias alias="FavoriteDto" type="model.FavoriteDto"/>
+		<typeAlias alias="RoomManageDto" type="model.RoomManageDto"/>
+		<typeAlias alias="FavoriteCountDto" type="model.FavoriteCountDto"/>		
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>
-		<typeAlias alias="DeclarationDto" type="model.DeclarationDto"/>
+		<typeAlias alias="DeclarationDto" type="model.DeclarationDto"/>				
 	</typeAliases>
 	 
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->
@@ -34,8 +36,9 @@
 		<mapper resource="mybatis/Room_myBatis.xml"/>
 		<mapper resource="mybatis/Search_myBatis.xml"/>
 		<mapper resource="mybatis/Favorite_myBatis.xml"/>
+		<mapper resource="mybatis/RoomManage_myBatis.xml"/>
 		<mapper resource="mybatis/PLogin_myBatis.xml"/>
-		<mapper resource="mybatis/Declaration_myBatis.xml"/>
+		<mapper resource="mybatis/Declaration_myBatis.xml"/>	
 	</mappers>
 	
 </configuration>
