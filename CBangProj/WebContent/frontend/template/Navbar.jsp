@@ -27,9 +27,9 @@
         	<c:if test="${not flag1}">
         		<li><a href="javascript:loginmodal()">방 등록</a></li>
         		<li><a href="<c:url value='/frontend/account/PLoginTerms.jsp'/>" style="font-size: 12px;">공인중개사 회원가입</a></li>
-        	</c:if>        		        		
+        	</c:if> 
         	<c:if test="${!empty sessionScope.member_no}" var="flag2">
-        		<li><a href="#">관리</a></li>      		
+        		<li><a href="<c:url value='/Manager/ManagerRoom.do'/>">관리</a></li>      		
         		<li>
         			<div class="Header-profile">
         				<div class="HeaderProfile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

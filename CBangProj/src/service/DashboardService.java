@@ -2,8 +2,10 @@ package service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import jdbc.connection.ConnectionProvider;
+import model.JoinPathCountDto;
 import model.dao.DashboardDao;
 
 public class DashboardService {
@@ -20,6 +22,17 @@ public class DashboardService {
 		}
 	}
 	
+	public int totalGeneralMemberCount() {
+		try(Connection conn = ConnectionProvider.getConnection()) {
+			
+			return dashboardDao.getTotalGeneralMemberCount(conn);
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
 	public int totalRoomcount() {		
 		try(Connection conn = ConnectionProvider.getConnection()) {
 						
@@ -30,7 +43,24 @@ public class DashboardService {
 		}
 	}
 	
+	public int totalReportedRoomcount() {		
+		try(Connection conn = ConnectionProvider.getConnection()) {
+						
+			return dashboardDao.getTotalReportedRoomCount(conn);
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
+	public List<JoinPathCountDto> joinPathCount() {
+		try(Connection conn = ConnectionProvider.getConnection()) {
+			
+			return dashboardDao.getJoinPathCount(conn);
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 		
-
+	}
 }

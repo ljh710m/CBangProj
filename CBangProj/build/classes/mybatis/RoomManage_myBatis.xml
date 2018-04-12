@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<mapper namespace="mybatis.RoomManage_myBatis">
+ 	
+	<select id="RoomManageList" parameterType="java.util.Map" resultType="RoomManageDto">
+		SELECT * 
+		FROM (SELECT T.*, rownum r 
+			  FROM (SELECT *
+			  		FROM room
+					JOIN detail USING(room_no)
+					JOIN locations USING(location_code)
+					JOIN room_types USING(rm_type_code)
+					JOIN (SELECT * FROM photo WHERE del_gb = 'Y') USING(room_no)
+					WHERE member_no = #{member_no}) T)
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="RoomTotalCount" parameterType="String" resultType="int">
+		SELECT count(*) FROM room WHERE member_no = #{member_no}
+	</select>
+	
+	<select id="RoomFavoriteCount" resultType="FavoriteCountDto">
+		SELECT count(*) count, room_no FROM favorite_room GROUP BY room_no
+	</select>
+	
+	<update id="RoomUpdateMemo" parameterType="java.util.Map">
+		UPDATE detail SET memo = #{memo} WHERE room_no = #{room_no}
+	</update>	
+	
+	<insert id="RoomComplete1" parameterType="java.util.Map">
+		INSERT INTO room_history VALUES(#{room_no}, sysdate) 
+	</insert>	
+	
+	<update id="RoomComplete2" parameterType="java.util.Map">
+		UPDATE room SET state = '거래완료' WHERE room_no = #{room_no}
+	</update>
+	
+</mapper>
