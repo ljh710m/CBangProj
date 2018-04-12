@@ -22,7 +22,9 @@
 		<typeAlias alias="PhotoDto" type="model.PhotoDto"/>
 		<typeAlias alias="TradeTypeDto" type="model.TradeTypeDto"/>
 		<typeAlias alias="OfficeDto" type="model.OfficeDto"/>
-		<typeAlias alias="FavoriteDto" type="model.FavoriteDto"/>		
+		<typeAlias alias="FavoriteDto" type="model.FavoriteDto"/>
+		<typeAlias alias="RoomManageDto" type="model.RoomManageDto"/>
+		<typeAlias alias="FavoriteCountDto" type="model.FavoriteCountDto"/>		
 		<typeAlias alias="MembershipDto" type="model.MembershipDto"/>				
 	</typeAliases>
 	 
@@ -33,7 +35,8 @@
 		<mapper resource="mybatis/Room_myBatis.xml"/>
 		<mapper resource="mybatis/Search_myBatis.xml"/>
 		<mapper resource="mybatis/Favorite_myBatis.xml"/>
-		<mapper resource="mybatis/PLogin_myBatis.xml"/>
+		<mapper resource="mybatis/RoomManage_myBatis.xml"/>
+		<mapper resource="mybatis/PLogin_myBatis.xml"/>		
 	</mappers>
 	
 </configuration>

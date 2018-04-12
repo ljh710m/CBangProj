@@ -1,0 +1,310 @@
+a {
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.manage-header h2 {
+    border-left: 5px solid #ef4351;
+    padding-left: 10px;
+    font-weight: bold;
+}
+#manage-component {
+    font-size: 13px;
+}
+#manage-component .manage {
+    position: relative;
+}
+#manage-component .manage .manage-navi {
+    position: relative;
+    top: -1px;
+    left: 0;
+    clear: both;
+    width: 100%;
+    height: 48px;
+    background-color: #585858;
+    line-height: 48px;
+}
+#manage-component .manage .manage-navi .lnb-wrap {
+    position: absolute;
+    right: 200px;
+}
+#manage-component .manage .manage-navi .lnb-wrap .lnb {
+    font-size: 14px;
+}
+.lnb li, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#manage-component .manage .manage-navi .lnb-wrap .lnb li {
+    position: relative;
+    float: left;
+    padding: 0 15px;
+}
+#manage-component .manage .manage-navi .lnb-wrap .lnb li a.active {
+    border-bottom: 3px solid #d1d1d1;
+    color: #fff;
+}
+#manage-component .manage .manage-navi .lnb-wrap .lnb li a {
+    display: block;
+    height: 48px;
+    text-decoration: none;
+    color: #d1d1d1;
+}
+#manage-component .manage .content {
+    position: relative;
+    width: 1000px;
+    min-height: 500px;
+    margin: 45px auto 50px;
+}
+#manage-component .manage .content h2 {
+    margin-bottom: 50px;
+}
+#manage-component .manage .manage-body .tab-description {
+    padding: 10px;
+    background-color: #ecf0f5;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+#manage-component .manage .manage-body .vertical {
+    color: #585858;
+}
+table.vertical {
+    table-layout: fixed;
+    clear: both;
+    width: 100%;
+    border-bottom: 1px solid #dfdfdf;
+    text-align: center;
+    word-break: break-all;
+}
+table.vertical td:first-child {
+    border-left: none;
+}
+table.vertical td {
+    padding: 18px 0;
+    border: 0;
+    border-top: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: left;
+    text-align: center;
+}
+#manage-component .manage .manage-body .room-image-wrap {
+    padding: 0;
+}
+#manage-component .manage .manage-body .room-image-wrap .room-image {
+    position: relative;
+    width: 100px;
+    height: 70px;
+}
+#manage-component .manage .manage-body .room-image-wrap .room-image .preview:first-child {
+    background-size: contain;    
+}
+#manage-component .manage .manage-body .room-image-wrap .room-image .preview {    
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 100px;
+    height: 70px;
+    background-size: cover;    
+}
+#manage-component .manage .manage-body .room-info {
+    padding: 0 10px;
+    text-align: left;
+}
+#manage-component .manage .manage-body .room-info a {
+    text-decoration: none;
+    color: #585858;
+}
+#manage-component .manage .manage-body .room-info .room-title {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+}
+#manage-component .manage .manage-body .room-info .ellipsis {
+    width: 240px;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#manage-component .manage .manage-body .vertical .memo-wrap {
+    position: relative;
+    height: 35px;
+    padding: 0;
+    line-height: 35px;
+}
+#manage-component .manage .manage-body .vertical .memo-wrap textarea {
+    float: left;
+    width: 270px;
+    height: 70px;
+    line-height: normal;
+}
+#manage-component .manage .manage-body .vertical .memo-wrap .btn-memo {
+    float: left;
+    width: 39px;
+    height: 70px;
+    border: 1px solid #d1d1d1;
+    border-left: none;
+    background-color: #f7f7f7;
+    font-weight: normal;
+    line-height: 68px;
+    text-align: center;
+    cursor: pointer;
+}
+#manage-component .manage .manage-body .vertical .memo-wrap .btn-memo:disabled {
+    cursor: not-allowed;
+}
+.form-control {
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    background-image: none;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: middle;
+    color: #585858;
+}
+#manage-component .manage .manage-body .vertical .setting-wrap {
+    padding: 18px 10px;
+}
+/* ㄹㄹㄹㄹ  */
+#manage-component .manage .manage-body .vertical .setting-wrap .sw-util {
+    overflow: hidden;
+}
+#manage-component .manage .manage-body .vertical .setting-wrap .sw-util .d-day {
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+/* ㅇㄹㅇㄹㅇㄹ */
+#manage-component .manage .manage-body .vertical .setting-wrap .setting {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.input-dash {
+    display: inline-block;
+    margin: 0 5px;
+    color: #d1d1d1;
+}
+.btn-group:last-child {
+    border-radius: 0 3px 3px 0;
+}
+#manage-component .manage .manage-body .vertical .btn-group a {
+    display: inline-block;
+    width: auto;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 26px;
+    text-decoration: none;
+}
+.btn {
+    display: inline-block;
+    padding: 0 13px;
+    background-image: none;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.53856154;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .1s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn-white-gray {
+    border: 1px #585858 solid;
+    background-color: #fff;
+    color: #585858;
+}
+#manage-component .manage .manage-body .vertical .btn-group button {
+    display: inline-block;
+    width: auto;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 26px;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+/* Pagination */
+#manage-component {
+    font-size: 13px;
+}
+#manage-component .pagination-wrap {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+#manage-component .pagination-wrap .Pagination {
+    display: inline-block;
+    margin: 0 auto;
+}
+.Pagination {
+    font-size: 12px;
+    font-weight: bold;
+}
+.Pagination>li {
+    display: inline-block;
+}
+.Pagination-item--prev, .Pagination-item--next {
+    width: auto;
+}
+.Pagination-item {
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #585858;
+    cursor: pointer;
+}
+.Pagination>li+li {
+    margin-left: 6px;
+}
+.Pagination-item--prev, .Pagination-item--next {
+    width: auto;
+}
+.Pagination-item:hover {
+    border-radius: 50%;
+    background-color: #d1d1d1;
+    line-height: 20px;
+    color: #585858;
+}
+.Pagination-item--prev:hover, .Pagination-item--next:hover {
+    background-color: transparent;
+    color: #3b8de0;
+}
+a:active, a:hover {
+    outline: 0;
+    text-decoration: none;
+}
+.Pagination-item.active {
+    padding: 2px;
+    border-radius: 50%;
+    background-color: #58b5d3 !important;
+    line-height: 20px;
+    color: #fff;
+    cursor: default;
+}
+#manage-component .manage a:focus {
+    outline: inherit;
+}
