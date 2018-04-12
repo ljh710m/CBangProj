@@ -27,27 +27,27 @@ public class MembershipDao {
 	
 	public List<MembershipDto> membershipList(Connection conn, int start, int end, String office_no) throws SQLException{
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,OFFICE_PHOTO,PERMIT_PHOTO,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL) ";
-		
-		if(office_no == null) {
-			 sql+= "WHERE R BETWEEN ? AND ?";
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, String.valueOf(start));
-				pstmt.setString(2, String.valueOf(end));
-				rs = pstmt.executeQuery();		
-				List<MembershipDto> list = new ArrayList<>();
-				while (rs.next()) {
-					list.add(convertMember(rs));
-				}
-				return list;
-			} finally {
-				JdbcUtil.close(rs);
-				JdbcUtil.close(pstmt);
+		ResultSet rs = null;  
+		String sql = "SELECT * FROM (SELECT C.*,PATH_TYPE,OFFICE_NAME,PERMIT_NO,ADDRESS,REPRESENT,OFFICE_PHONE,OFFICE_PHOTO,PERMIT_PHOTO,ROWNUM R FROM CBANG_MEMBER C JOIN REAL_ESTATE_OFFICE E ON C.OFFICE_NO = E.OFFICE_NO JOIN JOIN_PATH P ON C.PATH_CODE = P.PATH_CODE WHERE C.OFFICE_NO IS NOT NULL ";
+				if(office_no != null)
+					sql+= "AND E.OFFICE_NO = '"+office_no+"' ";
+				
+				sql+= ") WHERE R BETWEEN ? AND ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, String.valueOf(start));
+			pstmt.setString(2, String.valueOf(end));
+			rs = pstmt.executeQuery();
+			List<MembershipDto> list = new ArrayList<>();
+			while (rs.next()) {
+				list.add(convertMember(rs));
 			}
+			return list;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
 		}
-		else {
+		/*else {
 			sql+= "WHERE OFFICE_NO = ?";
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -62,7 +62,7 @@ public class MembershipDao {
 				JdbcUtil.close(rs);
 				JdbcUtil.close(pstmt);
 			}
-		}
+		}*/
 		
 	}/////////////////////////////////////////////////////
 

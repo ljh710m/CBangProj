@@ -97,7 +97,7 @@ sub, sup {
     background-position: center;
     margin: 0 auto;
     background-size: contain;
-    -ms-behavior: url(/eb60851…/js/backgroundsize.min.htc);
+    -ms-behavior: url(/eb60851��/js/backgroundsize.min.htc);
 }
 .detail-wrap .photos .photo .watermark {
     position: absolute;
@@ -685,6 +685,198 @@ td, th {
     font-size: 13px;
     font-weight: bold;
     color: #fff;
+}
+
+div.modal-content {
+	width: 630px;
+	height: 772px;
+	overflow-y: scroll; 
+	overflow-x: hidden;
+}
+
+div.modal-header {
+	width: inherit;
+	height: 273px;
+	background-image: url("/CBangProj/images/room/허위매물ZERO.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+div.modal-body {
+	width: inherit;
+	height: 772px;
+	font-size: 13px;
+}
+
+div.modal-terms {
+	width: 553px;
+	height: 101px;
+	line-height: 1.3em;
+    padding: 14px 20px;
+    border: 1px solid #d1d1d1;
+    background: #e5f1fe;
+    margin-left: 20px;
+}
+
+strong.title {
+	color: #ff7473;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+div.firstWrap strong.title {
+	display: inline-block;
+    margin-bottom: 7px;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 15px;
+}
+.secondWrap h3 {
+	margin-top: 27px;
+    margin-bottom: 17px;
+}
+
+.secondWrap h3 strong {
+	font-size: 11px;
+    color: #cb1d2b;
+}
+
+.report-list {
+	border-bottom: 1px dashed #d1d1d1;
+}
+
+.report-list .row-space-2 {
+	margin-bottom: 11px;
+}
+
+.secondWrap {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.modal-list .report-list .row-space-2 .label-checkbox {
+	display: inline-block;
+    position: relative;
+    margin: inherit inherit 0;
+    vertical-align: middle;
+    color: #585858;
+    cursor: pointer;
+}
+
+.report-msg {
+	padding-bottom: 21px;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.form-control {
+	margin-top: 14px;
+    line-height: inherit;
+    height: 35px;
+    margin: 0;
+    display: inline-block;
+}
+
+em {
+	font-style: normal;
+}
+
+.report-form-wrap .report-certification .number-check-wrap .number-wrap .input-wrap {
+    display: inline-block;
+    width: 392px;
+}
+
+.number-wrap {
+	margin-top: 13px;
+	height: 35px;
+}
+
+.input-wrap {
+	display: inline-block;
+    width: 403px;
+    height: 35px;
+}
+
+.input-wrap select, input.input1 {
+	width: 117px;
+	display: inline-block;
+}
+
+.slush {
+	display: inline-block;
+    width: 5%;
+    text-align: center;
+}
+
+.btn-white-blue {
+	display: inline-block;
+    width: 110px;
+    height: 34px;
+    margin-left: 14px;
+    vertical-align: top;
+}
+
+.confirm-wrap input {
+	width: 403px;
+	margin: 5px 0 0;
+    text-align: center;
+}
+
+.btn-ok {
+	margin-top: 5px;
+}
+
+.report-terms-wrap {
+	width: 100%;
+    height: 90px;
+    padding: 15px 10px;
+    background: #ecf0f5;
+    overflow-y: scroll;
+}
+
+.report-form-wrap, .report-button-wrap {
+    margin: 30px 0 20px 0;
+    text-align: center;
+}
+
+.btn-blue.disabled, .btn-blue[disabled] {
+    border: 1px #dfdfdf solid;
+    background-color: #f7f7f7;
+    color: #d1d1d1;
+    cursor: default;
+}
+
+.btn-xl {
+    width: 260px;
+    height: 60px;
+    font-size: 15px;
+    line-height: 58px;
+}
+
+.report-msg textarea {
+    min-height: 70px;
+    line-height: inherit;
+}
+
+i.fa-times-circle {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 5px;
+	color: #ff7473;
+	cursor: pointer;
+}
+
+.btn-white-blue {
+	border: 1px solid #ff7473;
+	color: #ff7473;
+}
+
+.btn-white-blue:hover {
+	background-color: #ff7473;
+	border: 1px solid #ff7473;
+	color: white;
 }
 
 

@@ -31,87 +31,55 @@
 <body>
 	<!-- Modal -->
 	  <div class="modal modal-center fade" id="myModal" role="dialog">
-	    <div class="modal-dialog modal-fullsize modal-center">
+	    <div class="modal-dialog modal-lg modal-center">
 	    
 	      <!-- Modal content-->
-	      <div class="modal-content modal-fullsize">
-	        <div class="modal-header">
-	          <h4 class="modal-title">상세보기</h4>
-	          <button type="button" class="close" data-dismiss="modal">×</button>
-	        </div>
-	        <div class="modal-body">
-	        	<table class="table table-hover" style="height: 100px">
-	        		<thead>
-	        		<tr>
-	        			<th>프로필 사진</th>
-	        			<th>중개 등록번호</th>
-	        			<th>회원명</th>
-	        			<th>휴대폰 번호</th>
-	        			<th>E - mail</th>
-	        			<th>사업자 등록번호</th>
-	        			<th>중개사무소 주소</th>
-	        			<th>중개사무소 대표자명</th>
-	        			<th>대표번호</th>
-	        			<th>직책</th>
-	        			<th>가입일</th>
-	        			<th>가입 경로코드</th>
-	        			<th>가입 경로</th>
-	        		</tr>
-	        		</thead>
-	        		<tbody>
-	        		<tr>
-	        			<td class="modal-profile_photo">
-	        				<img class="modal-profile_photo" alt="프로필사진" />
-	        			</td>
-	        			<td class="modal-office_no"></td>
-	        			<td class="modal-name"></td>
-	        			<td class="modal-phone"></td>
-	        			<td class="modal-email"></td>
-	        			<td class="modal-permit_no"></td>
-	        			<td class="modal-address"></td>
-	        			<td class="modal-represent"></td>
-	        			<td class="modal-office_phone"></td>
-	        			<td class="modal-job"></td>
-	        			<td class="modal-join_date"></td>
-	        			<td class="modal-path_code"></td>
-	        			<td class="modal-path_type"></td>
-	        		</tr>
-	        		</tbody>
-	        	</table>
-	        		<!-- 중개등록번호:<label class="modal-office_no"></label>
-	        		<br />
-	        		회원명:<label class="modal-name"></label>
-	        		<br />
-	        		휴대폰 번호:<label class="modal-phone"></label>
-	        		<br />
-	        		E-mail:<label class="modal-email"></label>
-	        		<br />
-	        		사업자 등록번호:<label class="modal-permit_no"></label>
-	        		<br />
-	        		중개사무소 주소:<label class="modal-address"></label>
-	        		<br />
-	        		중개사무소 대표자명:<label class="modal-represent"></label>
-	        		<br />
-	        		대표번호:<label class="modal-office_phone"></label>
-	        		<br />
-	        		직책:<label class="modal-job"></label>
-	        		<br />
-	        		가입일:<label class="modal-join_date"></label>
-	        		<br />
-	        		가입 경로코드:<label class="modal-path_code"></label>
-	        		<br />
-	        		가입 경로:<label class="modal-path_type"></label>
-	        		<br /> -->
-	        	</div>
-	          
-	        </div>
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-delete">탈퇴</button>
-	          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-	        </div>
-	      </div>
-	      
-	    </div>
+			<div class="modal-content modal-lg">
+				<div class="modal-header">
+					<h4 class="modal-title">상세보기</h4>
+					<button type="button" class="close" data-dismiss="modal">×</button>
+				</div>
+				<div class="modal-body">
+				<div class="firstWrap">
+					<div class="modal-profile_photo">
+						
+					</div>
+					<div class="memberInfoFirst"> 
+						회원명 : <label class="modal-name"></label><br />
+						<hr />
+						휴대폰 번호 : <label class="modal-phone"></label><br />
+						<hr />
+						이메일 : <label class="modal-email"></label><br />
+						<hr />
+					</div>
+				</div>
+					<div class="memberInfoSecond">
+						중개 등록번호 : <label class="modal-office_no"></label><br />
+						<hr />
+						사업자 등록번호 : <label class="modal-permit_no"></label><br />
+						<hr />
+						중개사무소 주소 : <label class="modal-address"></label><br />
+						<hr />
+						중개사무소 대표자명 : <label class="modal-represent"></label><br />
+						<hr />
+						대표번호 : <label class="modal-office_phone"></label><br />
+						<hr />
+						직책 : <label class="modal-job"></label><br />
+						<hr />
+						가입일 : <label class="modal-join_date"></label><br />
+						<hr />
+						가입 경로코드 : <label class="modal-path_code"></label><br />
+						<hr />
+						가입 경로 : <label class="modal-path_type"></label>
+						<hr />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-rock">잠금</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
 	  </div>
     <!-- Left Panel -->
     <jsp:include page="/backend/template/LeftPanel.jsp"/>
@@ -173,6 +141,7 @@
 		        					<td hidden>${list.permit_no }</td>
 		        					<td hidden>${list.represent }</td>
 		        					<td hidden>${list.address }</td>
+		        					<td hidden>${list.profile_photo }</td>
 		        					<td class="tdtd" style="width: 10%;text-align: center">
 		        					<a href="#" data-toggle="modal" data-target="#myModal" class="viewModal">보기</a> 
 		        					</td>

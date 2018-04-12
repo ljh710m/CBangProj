@@ -35,7 +35,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>회원관리</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-user"></i><a href="font-fontawesome.html">회원정보 조회</a></li>
-                        <li><i class="menu-icon fa fa-home"></i><a href="membership.admin?nowPage=1">공인중개사 관리</a></li>
+                        <li><i class="menu-icon fa fa-home"></i><a href="membership.admin">공인중개사 관리</a></li>
                         <li><i class="menu-icon fa fa-reply"></i><a href="joinPath.admin">가입 경로 설정</a></li>
                     </ul>
                 </li>

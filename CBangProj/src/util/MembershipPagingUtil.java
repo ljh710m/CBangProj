@@ -32,7 +32,7 @@ public class MembershipPagingUtil {
 				pagingStr+="<li class='active'><a href='#'><span>"+intTemp+"</span></a></li>";
 			}
 		     else
-		    	 pagingStr+="<li><a href='#'>"+intTemp+"</a></li>";
+		    	 pagingStr+="<li><a href='membership.admin?nowPage="+intTemp+"'>"+intTemp+"</a></li>";
 		       
 			intTemp = intTemp + 1;
 			blockCount = blockCount + 1;		

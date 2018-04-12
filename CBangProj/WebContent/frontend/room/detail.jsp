@@ -38,7 +38,108 @@
 <body>
 	<!-- Navbar -->
 	<jsp:include page="/frontend/template/Navbar.jsp"/>
-		
+
+	<div class="modal modal-center fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg modal-center">
+			<!-- Modal content-->
+			<div class="modal-content modal-lg">
+				<div style="width: 630px; height: 5px;">
+					<i class="fas fa-times-circle fa-2x close" data-dismiss="modal"></i>
+				</div>
+				<div class="modal-header"></div>
+				<div class="modal-body">
+					<div class="firstWrap">
+						<div class="modal-terms">
+							<strong class="title">매물에 대한 잘못된 정보를 신고해주세요!</strong> <br /> <span>확인
+								후 허위매물일 경우 해당 매물은 삭제되거나 이용이 제재됩니다.</span> <br /> <span>허위신고일 시
+								신고자는 법적인 책임을 질 수 있습니다.</span> <br /> <span>다방은 자체 검열을 통해 허위매물
+								근절에 노력하고 있습니다.</span>
+						</div>
+					</div>
+					<div class="secondWrap">
+						<div class="modal-list">
+							<h3>
+								<span>허위매물 신고 항목</span><strong> (*필수)</strong>
+							</h3>
+							<ul class="report-list">
+								<li class="row-space-2"><span><label
+										class="label-checkbox"><input name="check-input" type="checkbox"><span>거래가 완료 된 매물</span></label></span></li>
+								<li class="row-space-2"><span><label
+										class="label-checkbox"><input name="check-input" type="checkbox"><span>정보가 다른 매물 (가격 / 사진 / 위치 / 옵션
+												등)</span></label></span></li>
+							</ul>
+							<div class="report-msg">
+								<textarea class="form-control"
+									placeholder="선택 한 항목에 대한 추가 설명을 입력해 주세요."
+									style="margin-top: 14px;"></textarea>
+							</div>
+						</div>
+						<div class="report-certification user-report-certification">
+							<h3>
+								<span>휴대폰 인증</span><strong> (*필수)</strong>
+							</h3>
+							<em class="em"><span>휴대폰 인증은 허위매물에 대한 확인 절차용으로만 활용
+									됩니다.</span><br> <span>신고해 주신 매물이 허위매물로 확인될 경우 베스킨라빈스 기프티콘을
+									선물로 발송해 드립니다.</span></em>
+							<div class="number-check-wrap">
+								<div class="number-wrap">
+									<div class="input-wrap">
+										<select class="form-control"><option>010</option>
+											<option>011</option>
+											<option>016</option>
+											<option>017</option>
+											<option>018</option>
+											<option>019</option></select><span class="slush">-</span> <input
+											type="number" class="input1 form-control" value=""> <span
+											class="slush">-</span> <input type="number"
+											class="input1 form-control" value="">
+									</div>
+									<button id="add-phone" class="btn btn-white-blue">입 력</button>
+								</div>
+								<div class="confirm-wrap" style="text-align: left;">
+									<input id="confirm-phone" class="form-control" type="text">
+									<button class="btn btn-white-blue btn-ok">입력번호 확인</button>
+								</div>
+							</div>
+							<div class="clearfix" style="margin-top: 35px;">
+								<h3
+									style="float: left; display: inline-block; margin: 0px; font-weight: normal;">
+									<span>개인정보 수집 및 이용에 대한 동의</span><strong> (*필수)</strong>
+								</h3>
+								<div id="check-div" style="float: right;">
+									<label class="Checkbox Checkbox--chk" value="미동의"><i
+										class="fas fa-angle-down fa-2x"
+										style="color: #d1d1d1; margin-top: -5px;"></i> <input
+										type="checkbox" class="Checkbox-input" shape="chk" label="동의">
+										<span class="Checkbox-label">동의</span></label>
+								</div>
+							</div>
+							<div class="report-terms-wrap">
+								<p>개인정보의 수집 및 이용에 대한 안내</p>
+								<p style="margin-top: 5px;">(주)스테이션3는 다방 서비스 제공을 위해서 아래와 같이
+									개인정보를 수집합니다. 정보주체는 본 개인정보의 수집 및 이용에 관한 동의를 거부하실권리가 있으나, 서비스제공에
+									필요한 최소한의 개인 정보 이므로 동의를 해주셔야 서비스를 이용하실 수 있습니다.</p>
+								<ul style="margin-top: 5px;">
+									<li>• 수집하려는 개인 정보 항목: 핸드폰번호</li>
+									<li>• 개인정보의 수집 목적: 기프티콘 발송</li>
+									<li>• 개인정보의 보유기간: 사용 후 바로삭제</li>
+								</ul>
+							</div>
+							<div class="report-button-wrap">
+								<h3 style="margin-bottom: 0;">
+									<button class="btn btn-blue btn-xl border-radius-large"
+										disabled="true">
+										<span class="icon-text">허위매물 신고하기</span>
+									</button>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="detail-page">
 		<div class="container-fluid">
 			<div id="detail-component">
@@ -48,7 +149,7 @@
 							<div class="seq">
 								<span>
 									<span>매물번호: </span>
-									<span>${roomDetail.room_no}</span>
+									<span id="room_no">${roomDetail.room_no}</span>
 								</span>
 							</div>
 							<div class="index"><span id="currentIndex">1</span> / <span id="totalIndex">${roomPhotoList.size()}</span></div>
@@ -149,7 +250,7 @@
 										<div class="room-report">
 											<div class="report">
 												<h2>
-													<button class="btn btn-xs btn-default border-radius-xsmall">
+													<button class="btn btn-xs btn-default border-radius-xsmall" id="declaration" data-toggle="modal" data-target="#myModal">
 														<i class="nbang-icon icon-size-2xl fas fa-thumbs-down"></i>
 														<span class="icon-text">신고</span>
 													</button>
@@ -479,7 +580,8 @@ ${roomDetail.room_desc}
     <script src="<c:url value='/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
     <script src="<c:url value='/js/common.js'/>"></script>
     <script src="<c:url value='/js/util/alert.js'/>"></script>
-    <script src="<c:url value='/js/room/detail.js'/>"></script>    
+    <script src="<c:url value='/js/room/detail.js'/>"></script>
+    <script src="<c:url value='/js/room/detail_modal.js'/>"></script>    
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a7682697ada046b18ac56822b1fa1c14&libraries=services"></script>
     	
 </body>
