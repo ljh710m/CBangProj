@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>대량메일발송 </a>
+                    <a href="<c:url value='/backend/SendMail.jsp'/>"> <i class="menu-icon ti-email"></i>대량메일발송 </a>
                 </li>
                 
                 <h3 class="menu-title">게시판 관리</h3><!-- /.menu-title -->
