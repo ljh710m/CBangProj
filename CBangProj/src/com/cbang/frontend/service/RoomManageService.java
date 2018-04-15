@@ -48,4 +48,30 @@ public class RoomManageService {
 		dao.roomComplete(map);
 	}
 	
+	public void roomDelete(Map map) {
+		dao.roomDelete(map);
+	}
+	
+	public List<RoomManageDto> selectContactList(Map map){
+		
+		List<RoomManageDto> list = dao.selectContactList(map);
+		List<FavoriteCountDto> countList = dao.selectFavoriteCount();
+		
+		for(int i=0; i<countList.size(); i++) {			
+			for(int j=0; j<list.size(); j++) {
+				if(countList.get(i).getRoom_no().equals(list.get(j).getRoom_no())) {
+					list.get(j).setFavoriteCount(countList.get(i).getCount());
+					break;
+				}
+			}
+		}
+		
+		return list;
+	}
+	
+	public int getTotalContactCount(String member_no) {
+		
+		return dao.getTotalContactCount(member_no);
+	}
+	
 }

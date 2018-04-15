@@ -45,5 +45,31 @@ public class RoomManageDao {
 		sqlMapper.insert("RoomComplete1",map);
 		sqlMapper.update("RoomComplete2",map);				
 	}
+	
+	//삭제 처리]
+	public void roomDelete(Map map) {
+		sqlMapper.delete("RoomDelete1", map);
+		sqlMapper.delete("RoomDelete2", map);
+		sqlMapper.delete("RoomDelete3", map);
+		sqlMapper.delete("RoomDelete4", map);
+		sqlMapper.delete("RoomDelete5", map);
+		sqlMapper.delete("RoomDelete6", map);
+		sqlMapper.delete("RoomDelete7", map);
+		sqlMapper.delete("RoomDelete8", map);
+		sqlMapper.delete("RoomDelete9", map);
+		sqlMapper.delete("RoomDelete10", map);
+	}
+	
+	//연락온 매물]
+	public List<RoomManageDto> selectContactList(Map map){
+		
+		return sqlMapper.selectList("RoomContactList",map);
+	}
+	
+	//연락온 매물 레코드 수]
+	public int getTotalContactCount(String member_no) {
+		
+		return sqlMapper.selectOne("RoomContactCount",member_no);		
+	}
 
 }

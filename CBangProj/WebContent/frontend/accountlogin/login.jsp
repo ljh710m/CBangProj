@@ -40,7 +40,7 @@
 										<button class="Login-auth__item btn-no-border btn-no-bg">일반 회원가입</button>
 									</div>
 									<div class="Login-sns">
-										<button class="Login-sns__btn btn-kakao">카카오톡 로그인</button>
+										<!-- <button class="Login-sns__btn btn-kakao">카카오톡 로그인</button> -->
 										<button class="Login-sns__btn btn-facebook">관리자 로그인</button>										
 									</div>
 									<div class="Login-pro_register">

@@ -45,9 +45,9 @@
 				<div class="manage-navi">
 					<div class="lnb-wrap">
 						<ul class="lnb">
-							<li><a href="<c:url value='/Manager/ManagerRoom.do'/>" class="active">매물관리</a></li>
+							<li><a href="<c:url value='/Manager/ManagerRoom.do'/>">매물관리</a></li>
 						<c:if test="${sessionScope.trade_type=='중개'}">
-							<li><a href="<c:url value='/Manager/RoomContact.do'/>">연락요청</a></li>
+							<li><a href="<c:url value='/Manager/RoomContact.do'/>" class="active">연락요청</a></li>
 						</c:if>
 						</ul>
 					</div>
@@ -57,14 +57,11 @@
 						<div class="manage-header">
 							<div class="clearfix">
 								<h2>
-									매물관리
+									연락 요청된 매물
 								</h2>
 							</div>
 							<div class="manage-body">
-								<div class="tab-description">
-								<c:if test="${sessionScope.trade_type=='직거래'}">
-									<p>일반회원은 1개의 매물만 등록이 가능합니다.</p>
-								</c:if>
+								<div class="tab-description">								
 									<ul style="margin-top: 1em;">
 										<li>- 거래중: 내가 등록한 매물이	공개중인 상태</li>
 										<li>- 거래완료: 등록한 매물이 거래완료된 상태</li>
@@ -112,36 +109,18 @@
 											</td>
 											<td class="memo-wrap" style="border-left: none;">
 												<div class="clearfix" style="text-align: left;">
-													<textarea class="form-control" style="resize: none; border-radius:0;" placeholder="[메모] 등록자만 볼 수 있는 비공개 메모 입니다." id="${item.room_no}">${item.memo}</textarea>
-													<button class="btn-memo" style="padding: 0px; border-radius: 0px;" onclick="memoModify(${item.room_no})" disabled="disabled">완료</button>
+													<textarea class="form-control" style="resize: none; border-radius:0;" placeholder="[연락처]" id="${item.room_no}">${item.contact_info}</textarea>
 												</div>
 											</td>
 											<td class="setting-wrap" style="border-left: none;">												
 												<div class="setting">
 													<span class="saved_time">${item.start_date}</span>
-													<span class="input-dash">|</span>
-													<!-- <span class="view-count">
-														<span>조회수</span>
-														<span>2</span>
-													</span>
-													<span class="input-dash">|</span> -->
+													<span class="input-dash">|</span>													
 													<span class="favorite-count">
 														<span>찜 </span>
 														<span>${item.favoriteCount}</span>
 													</span>
-												</div>
-												<div class="btn-group">
-												<c:if test="${item.state=='거래완료'}" var="completeFlag">
-													<a href="#" name="수정" class="btn btn-xs btn-white-gray" role="button" disabled>수정</a>
-													<button class="btn btn-xs btn-white-gray" disabled>삭제</button>
-													<button class="btn btn-xs btn-white-gray" disabled>거래완료</button>
-												</c:if>
-												<c:if test="${not completeFlag}">
-													<a href="#" name="수정" class="btn btn-xs btn-white-gray" onclick="eidtRoom(${item.room_no})">수정</a>
-													<button class="btn btn-xs btn-white-gray" onclick="deleteRoom(${item.room_no},${item.location_code})">삭제</button>
-													<button class="btn btn-xs btn-white-gray" onclick="complete(${item.room_no})">거래완료</button>
-												</c:if>
-												</div>
+												</div>												
 											</td>
 										</tr>
 									</c:forEach>

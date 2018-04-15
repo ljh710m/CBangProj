@@ -66,7 +66,7 @@
                     </ul>
                 </li>
                 
-                <h3 class="menu-title">통계</h3><!-- /.menu-title -->
+                <!-- <h3 class="menu-title">통계</h3>/.menu-title
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -74,18 +74,18 @@
                         <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
                         <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
                     </ul>
-                </li>
+                </li> -->
                       
                 <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-key"></i>관리자 관리</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-list-ul"></i><a href="listAdmin.admin">관리자 목록</a></li>
-                        <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="page-register.html">관리자 등록</a></li>
+                        <!-- <li><i class="menu-icon fa fa-pencil-square-o"></i><a href="page-register.html">관리자 등록</a></li> -->
                         <li><i class="menu-icon fa fa-lock"></i><a href="adminPrivilege.admin">관리자 권한</a></li>                        
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
+                <!-- <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>약관 관리</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">이용약관</a></li>
@@ -94,7 +94,7 @@
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">매물관리규정</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">자동저장서비스</a></li>                        
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <a href="widgets.html"> <i class="menu-icon ti-email"></i>로그아웃</a>
                 </li>

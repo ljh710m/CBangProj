@@ -23,6 +23,8 @@ public class RoomDetailDto {
 	private String room_title;//방제목
 	private String room_desc;//상세 설명
 	private String memo;//비공개 메모
+	private String roadAddress;//주소(도로명)
+	private String jibunAddress;//주소(지번)
 	private String sido;//(시/도)
 	private String sigungu;//(시/군/구)
 	private String bname;//동
@@ -139,6 +141,12 @@ public class RoomDetailDto {
 	public boolean isFavorite() {
 		return favorite;
 	}
+	public String getRoadAddress() {
+		return roadAddress;
+	}
+	public String getJibunAddress() {
+		return jibunAddress;
+	}
 	
 	//세터]
 	public void setRoom_no(String room_no) {
@@ -242,5 +250,12 @@ public class RoomDetailDto {
 	}
 	public void setFavorite(boolean favorite) {
 		this.favorite = favorite;
-	}	
+	}
+	public void setRoadAddress(String roadAddress) {
+		this.roadAddress = roadAddress;
+	}
+	public void setJibunAddress(String jibunAddress) {
+		this.jibunAddress = jibunAddress;
+	}
+	
 }

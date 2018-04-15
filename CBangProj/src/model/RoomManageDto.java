@@ -15,6 +15,8 @@ public class RoomManageDto {
 	private java.sql.Date start_date;//등록일
 	private int favoriteCount;//찜 숫자
 	private String stored_file_name;//대표사진
+	private String location_code;//위치 코드
+	private String contact_info;//남긴 연락처
 	
 	//게터]
 	public String getRoom_no() {
@@ -56,6 +58,12 @@ public class RoomManageDto {
 	public String getStored_file_name() {		
 		return stored_file_name;
 	}
+	public String getLocation_code() {
+		return location_code;
+	}
+	public String getContact_info() {
+		return contact_info;
+	}
 	
 	//세터]
 	public void setRoom_no(String room_no) {
@@ -96,7 +104,13 @@ public class RoomManageDto {
 	}
 	public void setStored_file_name(String stored_file_name) {
 		this.stored_file_name = stored_file_name;
-	}	
+	}
+	public void setLocation_code(String location_code) {
+		this.location_code = location_code;
+	}
+	public void setContact_info(String contact_info) {
+		this.contact_info = contact_info;
+	}
 	
 }
 

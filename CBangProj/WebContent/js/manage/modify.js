@@ -4,7 +4,6 @@ $(function() {
 	});	
 });
 
-
 //메모 수정
 function memoModify(room_no){
 	var memo = $('#'+room_no).val();
@@ -72,7 +71,7 @@ function complete(room_no){
 }
 
 //삭제
-function deleteRoom(room_no){
+function deleteRoom(room_no,location_code){	
 	var dialog = $('<div/>').attr('title',"매물 삭제, 매물번호["+room_no+"]").append($('<p/>').html('삭제 처리 하시겠습니까?')).dialog({
 		position:{my:"center top+100", at:"center top", of:window},				
 		resizable:false,
@@ -81,12 +80,13 @@ function deleteRoom(room_no){
 		modal: true,
 		buttons:{
 			"확인":function(){
-				/*$.ajax({
+				$.ajax({
 					type:'post',
 					url:'/CBangProj/Manage/RoomDelete.do',
 					data : 
 					{
-						room_no : room_no						
+						room_no : room_no,
+						location_code : location_code
 					},
 					dataType: 'text',
 					success:function(data){
@@ -98,7 +98,7 @@ function deleteRoom(room_no){
 					error:function(){
 						customAlert("삭제 처리 오류");
 					}
-				});*/
+				});
 				$(this).dialog("close");
 			},
 			"취소":function(){
@@ -111,4 +111,20 @@ function deleteRoom(room_no){
 	});		
 }
 
+//수정
+function eidtRoom(room_no){
+	
+	var form = document.createElement('form');
+	var objs;
+	
+	objs = document.createElement('input');
+	objs.setAttribute('name', "room_no");
+	objs.setAttribute('value', room_no);
+	form.appendChild(objs);
+	form.setAttribute('method', 'post');
+	form.setAttribute('action', "/CBangProj/Manage/RoomEdit.do");
+	document.body.appendChild(form);
+	form.submit();	
+		
+}
 
