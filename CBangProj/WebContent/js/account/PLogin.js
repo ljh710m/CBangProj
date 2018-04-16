@@ -121,16 +121,6 @@ $(function() {
 		}
 
 	});
-
-	$('.Btn--disabled').click(function() {
-		console.log($(this));
-		/*if ($(this).attr) {
-			customAlert("error", "사업자 등록증을 첨부하기 전에 인증을 먼저 해야합니다.");
-		}
-		else {
-			console.log('gd');
-		}*/
-	});
 	
 	$('input[type="number"]').on('input', function(e) {
 		var inputNumber = parseInt($(this).val());
@@ -269,15 +259,19 @@ $(function() {
 			success : function(data){
 				var result = JSON.parse(data);
 				if(result.permitNotMatch) {
-					customAlert("success","인증이 완료되었습니다.");
-					$('.Btn--disabled').prop('disabled', false).css({'background-color':'#c91f3b','color':'white','cursor':'pointer'});
-					$('[name="permit_file"]').prop('disabled', false);
-					$('[name="permit_file"]').change(function(){
-						var fileValue = $('[name="permit_file"]').val().split("\\");
-						var fileName = fileValue[fileValue.length-1];
-						$('.permit_name').html(fileName);
-					});
-				}
+						customAlert("success", "인증이 완료되었습니다.") ;
+						$('.Btn--disabled').prop('disabled', false).css({
+							'background-color' : '#c91f3b',
+							'color' : 'white',
+							'cursor' : 'pointer'
+						});
+						$('[name="permit_file"]').prop('disabled', false);
+						$('[name="permit_file"]').change(function() {
+							var fileValue = $('[name="permit_file"]').val().split("\\");
+							var fileName = fileValue[fileValue.length - 1];
+							$('.permit_name').html(fileName);
+						});
+						}
 				else{
 					customAlert("error", "사업자 등록번호가 잘못되었거나 없은 사업자 등록번호입니다.");
 				}
@@ -287,9 +281,13 @@ $(function() {
 			}
 			});
 		});
-	
-	$('#btn_permit').click(function(e){
-		customAlert('error','사업자 등록증을 첨부하기전에 인증을 먼저 해야합니다.');
+	$('#btn_permit').click(function(e) {
+		if($('#btn_permit').is('disabled')){
+			customAlert("error", "먼저 사업자인증이 완료되어야합니다.");
+		}
+		else{
+			$('input[name="permit_file"]').click();
+		}
 	});
-	
+
 });
