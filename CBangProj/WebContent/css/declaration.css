@@ -1,0 +1,26 @@
+table.table {
+	background-color: white;
+}
+
+table.table thead tr:FIRST-CHILD {
+	text-align: center;
+}
+
+img.room-image {
+	width: 100px;
+	height: 70px;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.3s ease-in-out;
+}
+
+img.room-image:HOVER {
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+}

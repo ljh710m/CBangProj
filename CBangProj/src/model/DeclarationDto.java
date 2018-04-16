@@ -7,7 +7,28 @@ public class DeclarationDto {
 	String add_info;
 	String phone;
 	String room_no;
+	String photo;
+	String location_code;
 	
+	public DeclarationDto() {}
+
+	public DeclarationDto(String fault_no, String type, String add_info, String phone, String room_no) {
+		super();
+		this.fault_no = fault_no;
+		this.type = type;
+		this.add_info = add_info;
+		this.phone = phone;
+		this.room_no = room_no;
+	}
+	
+	public String getLocation_code() {
+		return location_code;
+	}
+
+	public void setLocation_code(String location_code) {
+		this.location_code = location_code;
+	}
+
 	public String getFault_no() {
 		return fault_no;
 	}
@@ -37,6 +58,14 @@ public class DeclarationDto {
 	}
 	public void setRoom_no(String room_no) {
 		this.room_no = room_no;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 }

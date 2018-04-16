@@ -47,7 +47,7 @@
 					<div class="memberInfoFirst"> 
 						회원명 : <label class="modal-name"></label><br />
 						<hr />
-						휴대폰 번호 : <label class="modal-phone"></label><br />
+						휴대폰번호 : <label class="modal-phone"></label><br />
 						<hr />
 						이메일 : <label class="modal-email"></label><br />
 						<hr />
@@ -112,7 +112,7 @@
         <div class="content mt-3">        	
         	<div class="col-sm-12">
         		<div>
-        			<table class="table table-bordered">
+        			<table class="table">
         				<thead>
         				<tr>
         				<th>#</th>
@@ -131,7 +131,8 @@
 		        					<th scope="row" style="width: 1%">${loop.index+1 }</th>
 		        					<td style="width: 8%">${list.office_no }</td>
 		        					<td style="width: 20%">${list.email }</td>
-		        					<td style="width: 8%">${list.name }</td>
+		        					
+		        					<td style="width: 8%">${list.name }<span class="rockName"></span></td>
 		        					<td style="width: 10%">${list.phone }</td>
 		        					<td style="width: 10%">${list.office_phone }</td>
 		        					<td hidden>${list.path_type }</td>

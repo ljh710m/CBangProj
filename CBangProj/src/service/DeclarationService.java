@@ -4,43 +4,37 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-import javax.servlet.ServletContext;
-
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
-import model.MembershipDto;
-import model.dao.MembershipDao;
+import model.DeclarationDto;
+import model.dao.DeclarationDao;
 
-public class MembershipService {  
+
+public class DeclarationService {
+
+	private DeclarationDao dao = new DeclarationDao();
 	
-	private MembershipDao dao = new MembershipDao();
-	
-	public List<MembershipDto> selectList(int start, int end, String office_no) {
+	public List<DeclarationDto> selectList(int start, int end) {
 		
 		try (Connection conn = ConnectionProvider.getConnection()){
-			List<MembershipDto> list = dao.membershipList(conn, start, end, office_no);
+			List<DeclarationDto> list = dao.selectList(conn, start, end);
+			
 			return list;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
 	
-	public void updateName(String name, String editName, String office_no) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			dao.updateName(conn, name, editName, office_no);
-			conn.commit();
+	public String selectPhoto(String room_no) {
+		try (Connection conn = ConnectionProvider.getConnection()){
+			String photoName = dao.selectOne(conn, room_no);
+			
+			return photoName;
 		} catch (Exception e) {
-			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);
-		} 
-		finally {
-			JdbcUtil.close(conn);
 		}
 	}
-
+	
 	public int getTotalRowCount() {
 		Connection conn = null;
 		int totalRowCount=0;

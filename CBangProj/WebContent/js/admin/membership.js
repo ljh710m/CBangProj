@@ -44,10 +44,23 @@ $('.tdtd').click(function(){
     			$('button.btn-rock').click(function(){
     				var rockConfirm = confirm('휴먼계정으로 설정하시겠습니까?'); 
     	    		if(rockConfirm){
-    	    			alert(member.name+'님이 휴먼계정으로 잠금되었습니다.');    	    			
-    	    			var thisIdx = $('.modal-office_no').parent().index();
-    	    			/*alert($('.modal-office_no').parent().parent().find('tr:eq('+thisIdx+')').val());
-    	    			$('.modal-office_no').parent().parent().find('tr:eq('+thisIdx+')').css('border','1px red solid');*/
+    	    			$.ajax({
+    	    				type : 'POST',
+    	    	    		url : 'membership.admin?mode=rock&name='+member.name+'&office_no='+member.office_no,
+    	    	    		data :{
+    	    	    			mode : 'rock',
+    	    	    			name : member.name,
+    	    	    			office_no : member.office_no
+    	    	    		},
+    	    	    		dataType : 'text',
+    	    	    		contentType: false,
+    	    	    		/*processData: false,*/
+    	    	    		success : function(data){
+    	    	    			var rock = JSON.parse(date);
+    	    	    			alert(data.name+'님이 휴먼계정으로 잠금되었습니다.');
+    	    	    		},
+    	    	    		error : function(){}
+    	    			});
     	    		}
     	    	});
     		},

@@ -30,8 +30,28 @@ public class MembershipHandler implements CommandHandler{
 	@Override  
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		if(req.getParameter("mode") != null) {
-			selectOne(req,resp);
-			return null;
+			String mode = req.getParameter("mode");
+			if(mode.equals("detail")) {
+				selectOne(req,resp);
+				return null;
+			}
+			else if (mode.equals("rock")) {
+				String name = req.getParameter("name");
+				String editName = name + "(rock)";
+				String office_no = req.getParameter("office_no");
+				service.updateName(name, editName, office_no);
+				JSONObject rock = new JSONObject();
+				rock.put("name", name);
+				rock.put("editName", "editName");
+				resp.setCharacterEncoding("UTP-8");
+				resp.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = resp.getWriter();
+
+				out.print(rock.toJSONString());
+				out.flush();
+				return null;
+
+			}
 		}
 		else
 			sendList(req);
