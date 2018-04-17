@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <link href="<c:url value='/images/favicon.ico'/>" rel="shortcut icon" />
-<title>C방으로 찜하자!</title>
+<title>N방으로 찜하자!</title>
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value='/vendor/bootstrap/css/bootstrap.min.css'/>"

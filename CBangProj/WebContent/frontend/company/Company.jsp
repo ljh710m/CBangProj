@@ -155,26 +155,26 @@
 			<br/><img src="<c:url value='/images/company/cbang.png'/>" alt="다방 이미지" class="img-responsive pxauto wow bounceIn animatedUp" data-wow-delay="0.2s">
 			<div class="row cbang-link-wrap">
 				<div class="col-md-3 link-website">
-					<a href="index.jsp" target="_blank"><img src="<c:url value='/images/company/web-site.png'/>" alt="C방 웹사이트 바로가기"></a>
+					<a href="index.jsp" target="_blank"><img src="<c:url value='/images/company/web-site.png'/>" alt="N방 웹사이트 바로가기"></a>
 				</div>
 				<div class="col-md-3 link-android">
-					<a href="https://play.google.com/store/apps/details?id=kr.co.station3.dabang" target="_blank"><img src="<c:url value='/images/company/android.png'/>" alt="구글 플레이 스토어로 C방 앱 설치하러 가기"></a>
+					<a href="https://play.google.com/store/apps/details?id=kr.co.station3.dabang" target="_blank"><img src="<c:url value='/images/company/android.png'/>" alt="구글 플레이 스토어로 N방 앱 설치하러 가기"></a>
 				</div>
 				<div class="col-md-3 link-iphone">
-					<a href="https://itunes.apple.com/kr/app/dabang-wonlum-opiseutel-guhalttae/id814840066?mt=8" target="_blank"><img src="<c:url value='/images/company/iphone.png'/>" alt="애플 앱스토어로 C방 앱 설치하러 가기"></a>
+					<a href="https://itunes.apple.com/kr/app/dabang-wonlum-opiseutel-guhalttae/id814840066?mt=8" target="_blank"><img src="<c:url value='/images/company/iphone.png'/>" alt="애플 앱스토어로 N방 앱 설치하러 가기"></a>
 				</div>
 				<div class="col-md-3 link-social">
 					<div class="row">
 						<div class="col-md-3">
 						</div>
 						<div class="col-md-3 link-facebook">
-							<a href="https://www.facebook.com/dabangapp" target="_blank"><img src="<c:url value='/images/company/facebook.png'/>" alt="C방 페이스북 바로가기"></a>
+							<a href="https://www.facebook.com/dabangapp" target="_blank"><img src="<c:url value='/images/company/facebook.png'/>" alt="N방 페이스북 바로가기"></a>
 						</div>
 						<div class="col-md-3 link-twitter">
-							<a href="https://twitter.com/dabangapp" target="_blank"><img src="<c:url value='/images/company/twitter.png'/>" alt="C방 트위터 바로가기"></a>
+							<a href="https://twitter.com/dabangapp" target="_blank"><img src="<c:url value='/images/company/twitter.png'/>" alt="N방 트위터 바로가기"></a>
 						</div>
 						<div class="col-md-3 link-blog">
-							<a href="http://blog.naver.com/station3inc" target="_blank"><img src="<c:url value='/images/company/blog.png'/>" alt="C방 블로그 바로가기"></a>
+							<a href="http://blog.naver.com/station3inc" target="_blank"><img src="<c:url value='/images/company/blog.png'/>" alt="N방 블로그 바로가기"></a>
 						</div>
 					</div>
 				</div>

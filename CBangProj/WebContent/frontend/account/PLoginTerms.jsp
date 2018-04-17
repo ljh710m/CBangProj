@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <link href="<c:url value='/images/favicon.ico'/>" rel="shortcut icon" />
-<title>C방으로 찜하자!</title>
+<title>N방으로 찜하자!</title>
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value='/vendor/bootstrap/css/bootstrap.min.css'/>"
@@ -58,7 +58,8 @@ body, html {
 			</div>
 		</div>
 		<div class="row termsOne">
-			<h5><span class="necessary">[필수]</span>C방 서비스 이용약관 동의</h5>
+			<h5><span class="necessary">[필수]</span>N방 서비스 이용약관 동의
+			</h5>
 			<div class="options">
 				<div class="details">
 					자세히<span class="glyphicon glyphicon-menu-down"></span>
