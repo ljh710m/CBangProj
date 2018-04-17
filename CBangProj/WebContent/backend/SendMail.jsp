@@ -54,13 +54,13 @@
 	    
 	    $(function (){
 	    	$('#popup').click(function(e){
-	    	 window.open("Popup.jsp", "a", "width=600, height=700, left=100, top=50");
+	    	 window.open("Popup.jsp", "a", "width=900, height=700, left=100, top=50");
 	    	});
 	    });
 	    
 	    $(function (){
 	    	$('#popup2').click(function(e){
-	    	 window.open("Popup.jsp", "a", "width=600, height=700, left=100, top=50");
+	    	 window.open("Popup.jsp", "a", "width=900, height=700, left=100, top=50");
 	    	});
 	    });
     </script>
