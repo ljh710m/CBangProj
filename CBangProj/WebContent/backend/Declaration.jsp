@@ -40,7 +40,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>매물관리</h1>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
+                            <li class="active">신고매물관리</li>
                         </ol>
                     </div>
                 </div>
@@ -62,12 +62,12 @@
 					<tr>
 						<th style="width:5%">#</th>
 						<th style="width:8%">대표 사진</th>
-						<th style="width:9%">허위 매물번호</th>
-						<th style="width:25%">신고 항목</th>
+						<th style="width:7%">허위 매물번호</th>
+						<th style="width:27%">신고 항목</th>
 						<th>추가 설명</th>
 						<th style="width:10%">핸드폰 번호</th>
 						<th style="width:7%">매물 번호</th>
-						<th style="width:11%">관리</th>
+						<th style="width:12%">관리</th>
 					</tr>
 				</thead>
 				<tbody>

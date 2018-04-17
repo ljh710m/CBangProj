@@ -338,7 +338,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="SearchForm-wrap search-form-wrap">
+				<!-- <div class="SearchForm-wrap search-form-wrap">
 					<div class="SearchForm search-form">
 						<form>
 							<div class="SearchForm-field search-input clearfix">
@@ -354,7 +354,7 @@
 							</div>
 						</form>
 					</div>
-				</div>
+				</div> -->
 				<div class="sub-nab clearfix">
 					<ul>
 						<li class="map">

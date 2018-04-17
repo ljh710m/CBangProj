@@ -22,7 +22,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>매물관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="<c:url value='/backend/manage/RoomManage.jsp' />">매물목록</a></li>                        
+                        <%-- <li><i class="fa fa-puzzle-piece"></i><a href="<c:url value='/backend/manage/RoomManage.jsp' />">매물목록</a></li> --%>                        
                         <li><i class="fa fa-bars"></i><a href="<c:url value='Declaration.admin?nowPage=1' />">신고매물관리</a></li>                        
                     </ul>
                 </li>
@@ -34,7 +34,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>회원관리</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-user"></i><a href="font-fontawesome.html">회원정보 조회</a></li>
+                        <!-- <li><i class="menu-icon fa fa-user"></i><a href="font-fontawesome.html">회원정보 조회</a></li> -->
                         <li><i class="menu-icon fa fa-home"></i><a href="membership.admin">공인중개사 관리</a></li>
                         <li><i class="menu-icon fa fa-reply"></i><a href="joinPath.admin">가입 경로 설정</a></li>
                     </ul>
@@ -43,7 +43,7 @@
                     <a href="<c:url value='/backend/SendMail.jsp'/>"> <i class="menu-icon ti-email"></i>대량메일발송 </a>
                 </li>
                 
-                <h3 class="menu-title">게시판 관리</h3><!-- /.menu-title -->
+                <!-- <h3 class="menu-title">게시판 관리</h3>/.menu-title
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>공지사항</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -64,7 +64,7 @@
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">게시물 관리</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">댓글 관리</a></li>      
                     </ul>
-                </li>
+                </li> -->
                 
                 <!-- <h3 class="menu-title">통계</h3>/.menu-title
                 <li class="menu-item-has-children dropdown">
@@ -95,9 +95,9 @@
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">자동저장서비스</a></li>                        
                     </ul>
                 </li> -->
-                <li>
+                <!-- <li>
                     <a href="widgets.html"> <i class="menu-icon ti-email"></i>로그아웃</a>
-                </li>
+                </li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
