@@ -35,23 +35,6 @@ public class MembershipHandler implements CommandHandler{
 				selectOne(req,resp);
 				return null;
 			}
-			else if (mode.equals("rock")) {
-				String name = req.getParameter("name");
-				String editName = name + "(rock)";
-				String office_no = req.getParameter("office_no");
-				service.updateName(name, editName, office_no);
-				JSONObject rock = new JSONObject();
-				rock.put("name", name);
-				rock.put("editName", "editName");
-				resp.setCharacterEncoding("UTP-8");
-				resp.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = resp.getWriter();
-
-				out.print(rock.toJSONString());
-				out.flush();
-				return null;
-
-			}
 		}
 		else
 			sendList(req);

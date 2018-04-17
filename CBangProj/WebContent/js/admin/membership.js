@@ -41,29 +41,8 @@ $('.tdtd').click(function(){
     			$('.modal-address').html(member.address);
     			$('div.modal-profile_photo').css({'background-image':'url("/CBangProj/ProfileUpload/'+member.profile_photo+'")',
     											'background-size':'cover'});
-    			$('button.btn-rock').click(function(){
-    				var rockConfirm = confirm('휴먼계정으로 설정하시겠습니까?'); 
-    	    		if(rockConfirm){
-    	    			$.ajax({
-    	    				type : 'POST',
-    	    	    		url : 'membership.admin?mode=rock&name='+member.name+'&office_no='+member.office_no,
-    	    	    		data :{
-    	    	    			mode : 'rock',
-    	    	    			name : member.name,
-    	    	    			office_no : member.office_no
-    	    	    		},
-    	    	    		dataType : 'text',
-    	    	    		contentType: false,
-    	    	    		/*processData: false,*/
-    	    	    		success : function(data){
-    	    	    			var rock = JSON.parse(date);
-    	    	    			alert(data.name+'님이 휴먼계정으로 잠금되었습니다.');
-    	    	    		},
-    	    	    		error : function(){}
-    	    			});
-    	    		}
-    	    	});
-    		},
+    			
+			},
     		error : function(request, status, error) {
     			console.log('code:'+request.status+'\n'+'message:'+request.responseText+'\n'+'error:'+error);
     		}

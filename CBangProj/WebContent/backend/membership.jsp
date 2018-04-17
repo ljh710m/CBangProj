@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,7 +76,6 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-rock">잠금</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 				</div>
 			</div>
@@ -132,7 +132,7 @@
 		        					<td style="width: 8%">${list.office_no }</td>
 		        					<td style="width: 20%">${list.email }</td>
 		        					
-		        					<td style="width: 8%">${list.name }<span class="rockName"></span></td>
+		        					<td id="match-name" style="width: 8%">${list.name }<span class="rockName"></span></td>
 		        					<td style="width: 10%">${list.phone }</td>
 		        					<td style="width: 10%">${list.office_phone }</td>
 		        					<td hidden>${list.path_type }</td>

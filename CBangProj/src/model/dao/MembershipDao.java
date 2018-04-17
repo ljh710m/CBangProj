@@ -49,19 +49,6 @@ public class MembershipDao {
 		}
 		
 	}/////////////////////////////////////////////////////
-	
-	public void updateName(Connection conn, String name, String editName, String office_no) throws Exception {
-		String sql = "UPDATE CBANG_MEMBER SET NAME = ? WHERE NAME = ? AND OFFICE_NO = ?";
-		
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, editName);
-			pstmt.setString(2, name);
-			pstmt.setString(3, office_no);
-			pstmt.executeUpdate();
-		} finally {
-			JdbcUtil.close(pstmt);
-		}
-	}
 
 	private MembershipDto convertMember(ResultSet rs) throws SQLException{
 		MembershipDto dto = new MembershipDto(rs.getString("member_no"), 

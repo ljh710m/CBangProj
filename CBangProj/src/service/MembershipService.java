@@ -25,21 +25,6 @@ public class MembershipService {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	public void updateName(String name, String editName, String office_no) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			dao.updateName(conn, name, editName, office_no);
-			conn.commit();
-		} catch (Exception e) {
-			JdbcUtil.rollback(conn);
-			throw new RuntimeException(e);
-		} 
-		finally {
-			JdbcUtil.close(conn);
-		}
-	}
 
 	public int getTotalRowCount() {
 		Connection conn = null;
